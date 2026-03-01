@@ -31,11 +31,15 @@ def test_broadcast_reject_and_trim():
 
     # first attempt: send actual pattern_count, expect rejection
     payload = mgr.prepare_advertisement()
-    res = fed.broadcast_dictionary(payload['hash'], mcdc_origin='nodeX', pattern_count=payload['pattern_count'])
+    # sign payload with orchestrator key to simulate authenticated sender
+    import hmac, hashlib, binascii
+    sig = hmac.new(binascii.unhexlify(orch.federation_key), payload['hash'].encode(), hashlib.sha256).hexdigest()
+    res = fed.broadcast_dictionary(payload['hash'], mcdc_origin='nodeX', pattern_count=payload['pattern_count'], signature=sig)
     assert res.get('rejected') is True
 
     # second attempt: sender trims to orchestrator cap and retries
     trimmed = mgr.prepare_advertisement(orchestrator_cap=orch.federation_pattern_cap)
-    res2 = fed.broadcast_dictionary(trimmed['hash'], mcdc_origin='nodeX', pattern_count=trimmed['pattern_count'])
+    sig2 = hmac.new(binascii.unhexlify(orch.federation_key), trimmed['hash'].encode(), hashlib.sha256).hexdigest()
+    res2 = fed.broadcast_dictionary(trimmed['hash'], mcdc_origin='nodeX', pattern_count=trimmed['pattern_count'], signature=sig2)
     assert res2.get('rejected') is not True
     assert 'broadcast' in res2

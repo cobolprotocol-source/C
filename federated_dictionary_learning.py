@@ -554,7 +554,7 @@ class DistributedDictionaryManager:
             'strategy': self.aggregator.strategy.name
         }
 
-    def prepare_advertisement(self, orchestrator_cap: Optional[int] = None) -> Dict:
+    def prepare_advertisement(self, orchestrator_cap: Optional[int] = None, signing_key: Optional[str] = None) -> Dict:
         """Prepare an advertisement payload for federation.
 
         - Trims the current `global_dictionary` according to local and
@@ -589,12 +589,20 @@ class DistributedDictionaryManager:
         for p in sorted(filtered.keys()):
             h.update(p)
         payload_hash = h.hexdigest()
-        return {
+        payload = {
             'patterns': filtered,
             'pattern_count': len(filtered),
             'evicted': evicted,
             'hash': payload_hash
         }
+
+        # optional HMAC-SHA256 signature over the hash (hex)
+        if signing_key:
+            import hmac, hashlib as _hashlib, binascii
+            sig = hmac.new(binascii.unhexlify(signing_key), payload_hash.encode(), _hashlib.sha256).hexdigest()
+            payload['signature'] = sig
+
+        return payload
 
 
 # ============================================================================

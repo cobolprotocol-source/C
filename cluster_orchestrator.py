@@ -279,7 +279,7 @@ class FederationProtocol:
         self.sync_queue: List[Dict] = []
         self.ledger: List[Dict] = []
     
-    def broadcast_dictionary(self, dictionary_hash: str, mcdc_origin: str, pattern_count: Optional[int] = None) -> Dict:
+    def broadcast_dictionary(self, dictionary_hash: str, mcdc_origin: str, pattern_count: Optional[int] = None, signature: Optional[str] = None) -> Dict:
         """Broadcast dictionary update to all MCDCs (gossip protocol).
 
         Enforces orchestrator-level federation limits: if `pattern_count` is
@@ -299,7 +299,35 @@ class FederationProtocol:
             logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
             return {'rejected': True, 'reason': reason}
         # If the orchestrator is configured with a federation key, the sender
-        # should attach a signature. If absent, accept but warn. (Backward compat.)
+        # should attach a signature. If signature is present, verify it. If
+        # verification fails, reject the broadcast.
+        if signature is not None:
+            try:
+                import hmac, hashlib, binascii
+                expected = hmac.new(binascii.unhexlify(self.orchestrator.federation_key), dictionary_hash.encode(), hashlib.sha256).hexdigest()
+                if not hmac.compare_digest(expected, signature):
+                    reason = 'invalid_signature'
+                    self.ledger.append({
+                        'event': 'reject_broadcast',
+                        'origin': mcdc_origin,
+                        'hash': dictionary_hash,
+                        'reason': reason,
+                        'timestamp': datetime.now().isoformat()
+                    })
+                    logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+                    return {'rejected': True, 'reason': reason}
+            except Exception:
+                # on any verification error, reject
+                reason = 'signature_verification_error'
+                self.ledger.append({
+                    'event': 'reject_broadcast',
+                    'origin': mcdc_origin,
+                    'hash': dictionary_hash,
+                    'reason': reason,
+                    'timestamp': datetime.now().isoformat()
+                })
+                logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+                return {'rejected': True, 'reason': reason}
 
         message = {
             'type': 'dictionary_update',
