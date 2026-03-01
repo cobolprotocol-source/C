@@ -19,6 +19,7 @@ import time
 from collections import defaultdict, Counter
 import numpy as np
 import logging
+from metrics import inc_evicted_count, set_global_patterns
 
 
 class FederationStrategy(Enum):
@@ -494,7 +495,8 @@ class DistributedDictionaryManager:
         logger = logging.getLogger(__name__)
         if evicted:
             logger.info('Federation eviction count=%d samples=%d', len(evicted), len(self.local_dictionaries))
-            # store a compact eviction summary
+            # metrics + store a compact eviction summary
+            inc_evicted_count(len(evicted))
             self.aggregation_history.append({
                 'timestamp': time.time(),
                 'event': 'eviction',
@@ -509,6 +511,9 @@ class DistributedDictionaryManager:
             'patterns': len(self.global_dictionary),
             'strategy': self.aggregator.strategy.name
         })
+
+        # update metrics
+        set_global_patterns(len(self.global_dictionary))
 
         return self.global_dictionary
     
@@ -584,7 +589,6 @@ class DistributedDictionaryManager:
         for p in sorted(filtered.keys()):
             h.update(p)
         payload_hash = h.hexdigest()
-
         return {
             'patterns': filtered,
             'pattern_count': len(filtered),

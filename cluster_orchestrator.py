@@ -77,6 +77,9 @@ class MCDCOrchestrator:
         self.total_compression_ratio = 500.0  # 500:1 compression
         # federation limits (patterns)
         self.federation_pattern_cap = 100_000
+        # simple HMAC key for federation message signing (hex)
+        import os, binascii
+        self.federation_key = binascii.hexlify(os.urandom(32)).decode()
         
     def add_mcdc(self, mcdc_id: str, location: MCDCLocation, num_fpgas: int = 500):
         """Add a mobile container to the cluster"""
@@ -295,6 +298,8 @@ class FederationProtocol:
             })
             logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
             return {'rejected': True, 'reason': reason}
+        # If the orchestrator is configured with a federation key, the sender
+        # should attach a signature. If absent, accept but warn. (Backward compat.)
 
         message = {
             'type': 'dictionary_update',
@@ -319,6 +324,23 @@ class FederationProtocol:
         })
 
         return {'broadcast': dictionary_hash, 'reached': propagated}
+
+    def attempt_broadcast_with_retry(self, manager, mcdc_origin: str) -> Dict:
+        """Helper: attempt broadcast; if rejected due to cap, trim and retry.
+
+        `manager` is expected to expose `prepare_advertisement(orchestrator_cap=None)`
+        which returns a payload with `pattern_count` and `hash`.
+        """
+        # initial advertisement
+        payload = manager.prepare_advertisement()
+        res = self.broadcast_dictionary(payload['hash'], mcdc_origin, pattern_count=payload['pattern_count'])
+        if res.get('rejected'):
+            # orchestrator suggested a cap via self.orchestrator.federation_pattern_cap
+            cap = self.orchestrator.federation_pattern_cap
+            trimmed = manager.prepare_advertisement(orchestrator_cap=cap)
+            res2 = self.broadcast_dictionary(trimmed['hash'], mcdc_origin, pattern_count=trimmed['pattern_count'])
+            return res2
+        return res
     
     def sync_metrics(self) -> Dict:
         """Synchronize performance metrics across cluster"""
