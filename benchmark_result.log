@@ -1,0 +1,208 @@
+INFO: Initialized L1 Semantic Dictionary with 50 entries
+DEBUG: Registered L1_SEMANTIC dictionary hash: 7f6d3e1b4ba756b9... (chaining order: ['L1_SEMANTIC'])
+DEBUG: Registered L2_STRUCTURAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL'])
+DEBUG: Registered L3_NUMERIC dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC'])
+DEBUG: Registered L4_BITSTREAM dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM'])
+DEBUG: Registered L5_PATTERN dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN'])
+DEBUG: Registered L6_METADATA dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA'])
+DEBUG: Registered L7_INSTRUCTION_SET dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET'])
+DEBUG: Registered L8_FINAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET', 'L8_FINAL'])
+INFO: Initialized DictionaryChain with 8 layers
+INFO: Initialized DictionaryChain with all layer dictionaries
+INFO: CobolEngine initialized with Chained Hierarchical Dictionary System
+  ├─ Layer 1: Semantic Mapping (Tokens/Words)
+  ├─ Layer 2: Structural Mapping (ID Assignment: 1-2 bytes)
+  ├─ Layer 3: Numeric Encoding (Delta-of-Delta)
+  ├─ Layer 4: Bit-Packing (Variable-width bitstreams)
+  ├─ Layer 5: Pattern Registry (Global pattern detection)
+  ├─ Layer 6: Metadata Mapping (Pointer refinement)
+  ├─ Layer 7: Instruction Generation (Final instruction set)
+  └─ Layer 8: AES-256-GCM Final Hardening (1:100M ratio target)
+INFO: compress_chained: Starting L1 Semantic Mapping (1024 bytes)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 01f5d5f8c688b058dc
+DEBUG: Layer 1 wrapped: 1027 -> 1056 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 1024 -> 1056 bytes (ratio: 0.97x, unmapped: 1, nonce: f51091ab...)
+INFO:   ✗ L1 no improvement, skipping
+INFO: compress_chained: L2 Structural Mapping (1024 bytes)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 027ef1f538f184d740
+DEBUG: Layer 2 wrapped: 1024 -> 1053 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 1024 -> 1053 bytes (ratio: 0.97x, tokens: 1024, IDs: 0)
+INFO:   ✗ L2 no improvement, skipping
+INFO: compress_chained: L3 Delta Encoding (1024 bytes)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 034ee28301834505b3
+DEBUG: Layer 3 wrapped: 5955 -> 5984 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -484.4%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 1024 -> 5984 bytes (ratio: 0.17x, gain: -484.4%, nonce: 19b0a9fd...)
+INFO:   ✗ L3 no improvement, skipping
+INFO: compress_chained: L4 Bit-Packing (1024 bytes)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 0463f3917ce07a45b4
+DEBUG: Layer 4 wrapped: 910 -> 939 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L4 Bit-Packing+Encryption: 1024 -> 939 bytes (ratio: 1.09x)
+INFO:   ✓ L4 reduced: 1024 -> 939 bytes
+INFO: compress_chained: L8 Final Hardening+ (939 bytes)
+INFO: L8 Hardening: 939 -> 968 bytes (IV: dc64149c..., tag verified)
+INFO:   ✓ L8 hardening: 1024 -> 968 bytes
+INFO: compress_chained complete: 1,024 -> 968 bytes (ratio: 1.06x, layers: 3)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 01f5d5f8c688b058dc
+DEBUG: Layer 1 wrapped: 1027 -> 1056 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 1024 -> 1056 bytes (ratio: 0.97x, unmapped: 1, nonce: 50627162...)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 027ef1f538f184d740
+DEBUG: Layer 2 wrapped: 1024 -> 1053 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 1024 -> 1053 bytes (ratio: 0.97x, tokens: 1024, IDs: 0)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 034ee28301834505b3
+DEBUG: Layer 3 wrapped: 5955 -> 5984 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -484.4%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 1024 -> 5984 bytes (ratio: 0.17x, gain: -484.4%, nonce: 200dd986...)
+INFO: compress_chained: Starting L1 Semantic Mapping (10240 bytes)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 011f8a54b2164dafbc
+DEBUG: Layer 1 wrapped: 10243 -> 10272 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 10240 -> 10272 bytes (ratio: 1.00x, unmapped: 1, nonce: f710a2ea...)
+INFO:   ✗ L1 no improvement, skipping
+INFO: compress_chained: L2 Structural Mapping (10240 bytes)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 02b43f85b35d9ae907
+DEBUG: Layer 2 wrapped: 10240 -> 10269 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 10240 -> 10269 bytes (ratio: 1.00x, tokens: 10240, IDs: 0)
+INFO:   ✗ L2 no improvement, skipping
+INFO: compress_chained: L3 Delta Encoding (10240 bytes)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 0383b50484654c2806
+DEBUG: Layer 3 wrapped: 59619 -> 59648 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -482.5%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 10240 -> 59648 bytes (ratio: 0.17x, gain: -482.5%, nonce: b2c61d23...)
+INFO:   ✗ L3 no improvement, skipping
+INFO: compress_chained: L4 Bit-Packing (10240 bytes)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 0491c2195086a555a6
+DEBUG: Layer 4 wrapped: 9082 -> 9111 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L4 Bit-Packing+Encryption: 10240 -> 9111 bytes (ratio: 1.12x)
+INFO:   ✓ L4 reduced: 10240 -> 9111 bytes
+INFO: compress_chained: L8 Final Hardening+ (9111 bytes)
+INFO: L8 Hardening: 9111 -> 9140 bytes (IV: dc64149c..., tag verified)
+INFO:   ✓ L8 hardening: 10240 -> 9140 bytes
+INFO: compress_chained complete: 10,240 -> 9,140 bytes (ratio: 1.12x, layers: 3)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 011f8a54b2164dafbc
+DEBUG: Layer 1 wrapped: 10243 -> 10272 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 10240 -> 10272 bytes (ratio: 1.00x, unmapped: 1, nonce: bec96781...)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 02b43f85b35d9ae907
+DEBUG: Layer 2 wrapped: 10240 -> 10269 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 10240 -> 10269 bytes (ratio: 1.00x, tokens: 10240, IDs: 0)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 0383b50484654c2806
+DEBUG: Layer 3 wrapped: 59619 -> 59648 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -482.5%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 10240 -> 59648 bytes (ratio: 0.17x, gain: -482.5%, nonce: 96004ef5...)
+INFO: compress_chained: Starting L1 Semantic Mapping (65536 bytes)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 0124e5efae712e6ff9
+DEBUG: Layer 1 wrapped: 65540 -> 65569 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 65536 -> 65569 bytes (ratio: 1.00x, unmapped: 1, nonce: 3f44b42d...)
+INFO:   ✗ L1 no improvement, skipping
+INFO: compress_chained: L2 Structural Mapping (65536 bytes)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 029715fca658be4050
+DEBUG: Layer 2 wrapped: 65536 -> 65565 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 65536 -> 65565 bytes (ratio: 1.00x, tokens: 65536, IDs: 0)
+INFO:   ✗ L2 no improvement, skipping
+INFO: compress_chained: L3 Delta Encoding (65536 bytes)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 03db32fee30ddbd933
+DEBUG: Layer 3 wrapped: 381606 -> 381635 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -482.3%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 65536 -> 381635 bytes (ratio: 0.17x, gain: -482.3%, nonce: d436b183...)
+INFO:   ✗ L3 no improvement, skipping
+INFO: compress_chained: L4 Bit-Packing (65536 bytes)
+ERROR: compress_chained failed at layer chain: L4 bit-packing failed: 'H' format requires 0 <= number <= 65535
+INFO: compress_chained: Starting L1 Semantic Mapping (262144 bytes)
+INFO: L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 014cfc33ccd5e35e29
+DEBUG: Layer 1 wrapped: 262148 -> 262177 bytes (key hash: 677ef6377769a12f...)
+INFO: L1 Compression+Encryption: 262144 -> 262177 bytes (ratio: 1.00x, unmapped: 1, nonce: 71087257...)
+INFO:   ✗ L1 no improvement, skipping
+INFO: compress_chained: L2 Structural Mapping (262144 bytes)
+INFO: Built adaptive dictionary for L2_STRUCTURAL with 0 entries (min frequency: 3)
+INFO: L1 ENCRYPT key_material: f642200cb3e876ec73e2f508af24a581fb3f0f5b2ac2f8d60b23bd556c5c3075cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: a8b5a072c1c01a564ef234ee8dbf1e4e06d762ce3b013a6f1164ee862276cf2b
+INFO: L1 ENCRYPT AAD: 027461e40cc661efbf
+DEBUG: Layer 2 wrapped: 262144 -> 262173 bytes (key hash: a8b5a072c1c01a56...)
+INFO: L2 Compression: 262144 -> 262173 bytes (ratio: 1.00x, tokens: 262144, IDs: 0)
+INFO:   ✗ L2 no improvement, skipping
+INFO: compress_chained: L3 Delta Encoding (262144 bytes)
+INFO: L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+INFO: L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+INFO: L1 ENCRYPT AAD: 0314c7f9cc274d59a6
+DEBUG: Layer 3 wrapped: 1526435 -> 1526464 bytes (key hash: 677ef6377769a12f...)
+WARNING: L3 Delta encoding gain only -482.3%, below threshold 5.0%
+INFO: L3 Compression+Shuffling+Encryption: 262144 -> 1526464 bytes (ratio: 0.17x, gain: -482.3%, nonce: 386c0f75...)
+INFO:   ✗ L3 no improvement, skipping
+INFO: compress_chained: L4 Bit-Packing (262144 bytes)
+ERROR: compress_chained failed at layer chain: L4 bit-packing failed: 'H' format requires 0 <= number <= 65535
+Loading COBOL Engine...
+✓ Engine loaded
+
+################################################################################
+# COBOL PROTOCOL - LATENCY OPTIMIZATION BENCHMARK
+################################################################################
+################################################################################
+
+### Phase 1: Correctness Validation ###
+
+================================================================================
+CORRECTNESS TEST
+================================================================================
+
+Testing 1 KB...
+  ✗ Exception: 'CobolEngine' object has no attribute 'decompress_chained'
+
+Testing 10 KB...
+  ✗ Exception: 'CobolEngine' object has no attribute 'decompress_chained'
+
+Testing 64 KB...
+  ✗ Exception: Chained compression failed: L4 bit-packing failed: 'H' format requires 0 <= number <= 65535
+
+Testing 256 KB...
+  ✗ Exception: Chained compression failed: L4 bit-packing failed: 'H' format requires 0 <= number <= 65535
+
+================================================================================
+✗ Some correctness tests FAILED
+
+✗ FAILED: Optimization breaks compression correctness

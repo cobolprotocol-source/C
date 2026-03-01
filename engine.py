@@ -139,6 +139,20 @@ class GlobalPatternRegistry:
         key = hashlib.sha256(key_material).digest()
         return key
 
+    def get_combined_hash(self) -> bytes:
+        """Get the combined hash of all registered layer dictionaries."""
+        return self.combined_hash
+
+    def get_layer8_iv(self) -> bytes:
+        """
+        Get the Initialization Vector for Layer 8 AES-256-GCM.
+        Uses the first 12 bytes of the registry hash (96 bits for GCM).
+        
+        Returns:
+            12-byte IV
+        """
+        return self._registry_hash[:12]  # GCM_NONCE_SIZE = 12
+
 
 class HPCCompressionEngine:
     """
@@ -1004,7 +1018,7 @@ class DictionaryManager:
             if layer_key:
                 for token, token_id in dictionary.token_to_id.items():
                     freq = dictionary.frequencies.get(token, 1)
-                    self.dictionary_chain.add_mapping(chain_key, token, token_id, freq)
+                    self.dictionary_chain.add_mapping(layer_key, token, token_id, freq)
         
         logger.info("Initialized DictionaryChain with all layer dictionaries")
 
@@ -1902,16 +1916,9 @@ class Layer2StructuralMapper:
                 compression_ratio=ratio,
                 layers_applied=[
                     CompressionLayer.L2_STRUCTURAL_MAPPING,
-                    CompressionLayer.L3_DELTA_ENCODING,
                 ],
                 integrity_hash=hashlib.sha256(data).digest(),
             )
-            
-            if gain < L3_MIN_GAIN_THRESHOLD:
-                logger.warning(
-                    f"L3 Delta encoding gain only {gain:.1%}, "
-                    f"below threshold {L3_MIN_GAIN_THRESHOLD:.1%}"
-                )
 
             logger.info(
                 f"L2 Compression: {original_size} -> {encrypted_size} bytes "
