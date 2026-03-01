@@ -19,7 +19,7 @@
 - Production-ready builds & deployment instructions
 - 90 lines of new Python wrapper code + Rust bindings
 
-📊 **Progress:** 85% complete (core L1-L8 100%, native bindings 100%, integration testing 90%, documentation 85%)
+📊 **Progress:** 90% complete (core L1-L8 100%, native bindings 100%, IP protection 100%, documentation restructured 100%, integration testing 90%)
 
 🎯 **Current Focus:** Validation, documentation, and deployment  
 📈 **Target:** 100% by March 15 (final hardening & benchmarking)
@@ -93,7 +93,104 @@ print(f"Native ready: {is_native_available()}")  # True if Rust compiled
 | **Documentation** | Updated README + this file | ✅ Complete |
 
 ---
+## 📚 Phase 6: Documentation Restructuring & IP Protection (March 1, 2026 - Afternoon)
 
+### Documentation Separation into PUBLIC & INTERNAL Tiers
+
+**What Was Accomplished:**
+
+1. **README_PUBLIC.md** (420 lines) ✅ **COMPLETE**
+   - Purpose: Safe for unrestricted distribution (websites, blogs, technical press)
+   - Audience: General public, engineers evaluating, companies doing due diligence
+   - Content: What the project is, what it is NOT, problems solved, design principles
+   - Structure:
+     - Definition & key characteristics
+     - 8 explicit disclaimers (what NOT to use it for)
+     - 4 enterprise challenges addressed
+     - 4 core design principles
+     - 5 performance profiles explained (high-level, use cases)
+     - Security as optional feature positioning
+     - 8-layer architecture overview (conceptual, no internals)
+     - Upgrade philosophy (no automatic changes)
+     - Performance characteristics (ranges, not secrets)
+     - Getting started (installation, basic usage)
+     - Licensed with clear ownership statement
+     - 10-question FAQ with direct answers
+   - Safety: ✅ No proprietary algorithms, no sensitive architecture, zero marketing hype
+   - Tone: Professional, calm, engineering-first, builds trust through honesty
+
+2. **README_INTERNAL.md** (650+ lines) ✅ **COMPLETE**
+   - Purpose: Internal engineering contract for NDA partners and enterprise buyers
+   - Audience: Internal engineers, enterprise reviewers, NDA-bound partners
+   - Content: How the system works, governance rules, engineering decisions
+   - Structure:
+     - Confidentiality notice & authorized readers
+     - Complete system architecture (topology diagram + 8-layer technical details)
+     - Performance profile system (definition, 5 profiles specs, hardware detection algorithm)
+     - Versioning & upgrade policy (immutability contract, explicit opt-in only)
+     - Experimental development track (Model-5 promotion flow, soak test procedures)
+     - Security & compliance model (cryptographic assumptions, threat model)
+     - Testing & validation philosophy (test categories, 95%+ coverage requirements)
+     - 7 major engineering trade-offs documented with rationale
+     - 5 core engineering principles (explicit, stable, auditable, safe, contract-based)
+     - Governance & maintenance (release process, support lifecycle)
+     - Internal terminology (12 key terms defined)
+     - Audit & compliance checklist
+   - Safety: ✅ Restricted distribution only, marked CONFIDENTIAL
+   - Tone: Precise, contract-like, zero marketing language
+   - Key Achievement: Complete engineering contract suitable for enterprise legal review
+
+3. **Information Boundary Enforcement** ✅ **VERIFIED**
+   - ✅ No verbatim paragraph duplication between files
+   - ✅ Different abstraction levels: Public = "what", Internal = "how and why"
+   - ✅ Each file has unique value, no redundancy
+   - ✅ Complementary, not overlapping
+   - ✅ Cross-referencing between docs appropriate
+
+4. **Copyright & Licensing Framework** (Phase 5 Integrated)
+   - LICENSE.md (418 lines) - Comprehensive master legal document
+   - COPYRIGHT_REGISTRY.md - Registry of 23 protected files
+   - COMPLIANCE_STATEMENT.md - IP ownership and protection declaration
+   - ATTRIBUTION.md - Detailed attribution record (280 lines)
+   - QUICKSTART_COPYRIGHT.md - User guidance on licensing
+   - Birth certificate: README_PUBLIC.md references LICENSE.md professionally
+   - Copyright headers in 13 core Python files + 1 YAML spec + 2 docs = 16 files
+
+5. **Files Delivered in Phase 6**
+
+| File | Purpose | Lines | Audience | Safety |
+|------|---------|-------|----------|--------|
+| README_PUBLIC.md | Public overview | 420 | General public | ✅ Unrestricted |
+| README_INTERNAL.md | Engineering governance | 650+ | Internal/NDA | ✅ Confidential |
+
+### Quality Metrics (Phase 6)
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Public Documentation** | 420 lines | ✅ Safe for distribution |
+| **Internal Documentation** | 650+ lines | ✅ Complete governance |
+| **Boundary Enforcement** | 100% verified | ✅ No duplication |
+| **Information Separation** | Strict (what vs how) | ✅ Two-tier model |
+| **Copyright Integration** | 23 files protected | ✅ IP secured |
+| **FAQ Coverage** | 10 critical questions | ✅ Public clarity |
+| **Accessibility** | Both audiences served | ✅ Clear purpose |
+
+### Phase 6 Impact
+
+**Before Phase 6:**
+- Single monolithic documentation (unclear audience)
+- Could not safely distribute to public/partners
+- Proprietary details mixed with public info
+- Hard to know what information safe to share
+
+**After Phase 6:**
+- ✅ README_PUBLIC.md ready for immediate public release
+- ✅ README_INTERNAL.md ready for NDA partner review
+- ✅ Clear boundary: what can be public vs. what stays internal
+- ✅ Safe documentation separation enforced at file level
+- ✅ Copyright framework protecting all 23 core files
+
+---
 ## �📊 v1.0 Status (Current Production)
 
 ---
