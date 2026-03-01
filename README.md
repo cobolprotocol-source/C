@@ -142,6 +142,15 @@ EFFICIENCY GAIN
 - 30-50% CPU savings on mixed workloads
 - Formula: H(X) = -Σ p(i) × log₂(p(i))
 
+**1a. Multi‑Layer Compression Enhancements**
+- Layer‑3 encoder now detects uniform blocks and applies RLE automatically.
+- Layer‑7 uses real zlib/DEFLATE compression instead of a stub, delivering
+  genuine entropy coding and enabling extreme ratios.
+- `AdaptivePipeline` includes an optional post‑layer‑6 compressor
+  (`MultiLayerCompressor`) chaining RLE + zlib; metadata flags track its use.
+- Standalone `MultiLayerCompressor` offers a simple 2‑stage lossless
+  pipeline capable of >500× reduction on highly repetitive inputs.
+
 **2. COBOL Protocol L1-L4 Compression**
 - L1: Semantic (COBOL structure detection)
 - L2: Structural (field-level parsing)

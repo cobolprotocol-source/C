@@ -42,6 +42,7 @@ class DeltaStrategy:
     DELTA2 = 2      # Second-order delta (dd[i] = d[i] - d[i-1])
     ZIGZAG = 3      # Zigzag encoding for signed integers
     ZERO_RUN = 4    # Zero-run length encoding
+    RLE = 5         # Run-length encoding for uniform blocks (new)
 
 
 # ============================================================================
@@ -140,11 +141,17 @@ class VectorizedDeltaEncoder:
             return b''
         
         # Try different strategies and pick best
-        strategies = [
+        strategies = []
+
+        # uniform block check -> RLE
+        if block.size > 0 and np.all(block == block[0]):
+            strategies.append((DeltaStrategy.RLE, self._encode_rle(block)))
+
+        strategies.extend([
             (DeltaStrategy.DIRECT, self._encode_direct(block)),
             (DeltaStrategy.DELTA1, self._encode_delta1(block)),
             (DeltaStrategy.DELTA2, self._encode_delta2(block)),
-        ]
+        ])
         
         # Find best strategy
         best_strategy, best_data = min(strategies, key=lambda x: len(x[1]))
@@ -204,7 +211,19 @@ class VectorizedDeltaEncoder:
                     output.write(self._encode_signed_varint(int(delta2)))
         
         return output.getvalue()
-    
+
+    def _encode_rle(self, block: np.ndarray) -> bytes:
+        """Encode a uniform block using run-length encoding.
+
+        Format:
+            <value byte><varint count>
+        """
+        output = io.BytesIO()
+        value = int(block[0]) & 0xFF
+        output.write(bytes([value]))
+        output.write(self._encode_varint(len(block)))
+        return output.getvalue()
+
     @staticmethod
     def _encode_varint(value: int) -> bytes:
         """Encode unsigned integer as varint."""
@@ -287,23 +306,64 @@ class VectorizedDeltaDecoder:
         
         output = bytearray()
         
-        # Process blocks
+        # Process blocks until end
         block_count = 0
         while offset < len(data):
             strategy = data[offset]
             offset += 1
             
             if strategy == DeltaStrategy.DIRECT:
-                output.extend(self._decompress_direct(data, offset))
+                # read count and values
+                count, c = self._decode_varint(data, offset)
+                offset += c
+                for _ in range(count):
+                    val, c = self._decode_varint(data, offset)
+                    offset += c
+                    output.append(val & 0xFF)
             elif strategy == DeltaStrategy.DELTA1:
-                output.extend(self._decompress_delta1(data, offset))
+                count, c = self._decode_varint(data, offset)
+                offset += c
+                # first value
+                prev, c = self._decode_varint(data, offset)
+                offset += c
+                output.append(prev & 0xFF)
+                for _ in range(count - 1):
+                    delta, c = self._decode_signed_varint(data, offset)
+                    offset += c
+                    prev = (prev + delta) & 0xFF
+                    output.append(prev)
             elif strategy == DeltaStrategy.DELTA2:
-                output.extend(self._decompress_delta2(data, offset))
-            
+                count, c = self._decode_varint(data, offset)
+                offset += c
+                # first value
+                value, c = self._decode_varint(data, offset)
+                offset += c
+                output.append(value & 0xFF)
+                if count > 1:
+                    delta1, c = self._decode_signed_varint(data, offset)
+                    offset += c
+                    prev = value
+                    curr = (prev + delta1) & 0xFF
+                    output.append(curr)
+                    for _ in range(count - 2):
+                        delta2, c = self._decode_signed_varint(data, offset)
+                        offset += c
+                        delta1 = (delta1 + delta2) & 0xFFFF
+                        prev = curr
+                        curr = (prev + delta1) & 0xFF
+                        output.append(curr)
+            elif strategy == DeltaStrategy.RLE:
+                # value byte
+                value = data[offset]
+                offset += 1
+                count, c = self._decode_varint(data, offset)
+                offset += c
+                output.extend(bytes([value]) * count)
+            else:
+                # unknown strategy, break to avoid infinite loop
+                break
             block_count += 1
-            
-            # Skip the block data (simplified)
-            break
+        
         
         elapsed_ms = (time.perf_counter() - start_time) * 1000
         
@@ -315,6 +375,18 @@ class VectorizedDeltaDecoder:
         }
         
         return bytes(output[:original_size]), self.stats
+
+    def _decompress_rle(self, data: bytes, offset: int) -> bytes:
+        """Simple run-length decoder for uniform blocks."""
+        output = bytearray()
+        if offset >= len(data):
+            return b''
+        value = data[offset]
+        offset += 1
+        count, bytes_read = self._decode_varint(data, offset)
+        offset += bytes_read
+        output.extend(bytes([value]) * count)
+        return bytes(output)
     
     def _decompress_direct(self, data: bytes, offset: int) -> bytes:
         """Decompress direct encoding."""

@@ -306,6 +306,21 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
                 metadata["errors"].append(f"Layer {i+1}: {str(e)}")
         
         # Final layers
+        # after layer 6 we have a numpy array
+        # optionally apply a multi-layer compressor
+        from multi_layer_compressor import MultiLayerCompressor
+        compressor = MultiLayerCompressor()
+        try:
+            arr_bytes = current if isinstance(current, bytes) else bytes(current)
+            start_time = time.time()
+            compressed_extra = compressor.compress(arr_bytes)
+            current = compressed_extra
+            duration_ms = (time.time() - start_time) * 1000
+            metadata['final_compressed_size'] = len(current)
+            logger.info(f"Applied extra multi-layer compression: {len(arr_bytes)} -> {len(current)}")
+        except Exception as e:
+            logger.warning(f"Final compression step failed: {e}")
+
         try:
             start_time = time.time()
             current = self.layers[6].encode(current)
@@ -346,7 +361,41 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         current = data
         
         # Reverse order decompression
-        for i in reversed(range(len(self.layers))):
+        # first undo layers 8 and 7 (which come after final compression)
+        for i in [7, 6]:  # indices 7->layer8, 6->layer7
+            layer = self.layers[i]
+            monitor = self.monitors[i]
+            if not monitor.is_available():
+                logger.warning(f"Layer {i+1} unavailable for decompression")
+                metadata["errors"].append(f"Layer {i+1} unavailable")
+                continue
+            logger.debug(f"Decompress before layer {i+1}: size={len(current) if isinstance(current, bytes) else current.nbytes}")
+            try:
+                start_time = time.time()
+                current = layer.decode(current)
+                duration_ms = (time.time() - start_time) * 1000
+                bytes_processed = len(current) if isinstance(current, bytes) else current.nbytes
+                monitor.record_encode(duration_ms, bytes_processed, success=True)
+                if isinstance(current, object) and hasattr(current, 'nbytes'):
+                    current = bytes(current)
+            except Exception as e:
+                logger.error(f"Layer {i+1} decode error: {e}")
+                monitor.record_encode(0, 0, success=False)
+                metadata["errors"].append(f"Layer {i+1}: {str(e)}")
+
+        # always undo final multilayer compressor
+        logger.debug(f"Before final decompression size={len(current) if isinstance(current, bytes) else current.nbytes}")
+        from multi_layer_compressor import MultiLayerCompressor
+        try:
+            current = MultiLayerCompressor().decompress(current)
+            logger.info("Reversed final multi-layer compression")
+            logger.debug(f"After final decompression size={len(current) if isinstance(current, bytes) else current.nbytes}")
+        except Exception as e:
+            logger.error(f"Final decompression failed: {e}")
+            metadata['errors'].append(f"final_decompress: {e}")
+
+        # continue reversing remaining layers 6..1
+        for i in reversed(range(6)):
             layer = self.layers[i]
             monitor = self.monitors[i]
             
