@@ -1,4 +1,15 @@
 """Legacy utility methods removed from top; see HPCCompressionEngine class later in file."""
+
+# Copyright (c) 2026 Nafal Faturizki
+# All rights reserved.
+#
+# This file is part of the COBOL Protocol project.
+# Unauthorized copying, modification, or redistribution
+# is prohibited except as explicitly permitted by the
+# accompanying LICENSE.md.
+#
+# See LICENSE.md for complete license terms.
+
 """
 COBOL Protocol - Nafal Faturizki Edition
 Ultra-Extreme 8-Layer Decentralized Compression Engine
@@ -17,7 +28,7 @@ Target Metrics:
 - Throughput: 9.1 MB/s per core
 - Security: AES-256-GCM + SHA-256 + Custom Dictionaries
 
-Author: Senior Principal Engineer & Cryptographer
+Author: Nafal Faturizki
 Date: 2026
 """
 
@@ -63,6 +74,28 @@ from config import (
     IntegrityError,
     DictionaryError,
 )
+
+# ============================================================================
+# VERSION AND COPYRIGHT INFORMATION
+# ============================================================================
+
+__version__ = "1.5.3"
+__copyright__ = "Copyright (c) 2026 Nafal Faturizki. All rights reserved."
+__author__ = "Nafal Faturizki"
+__project__ = "COBOL Protocol"
+__license__ = "See LICENSE.md for terms"
+
+def print_version():
+    """Display version and copyright information."""
+    print("\n" + "=" * 80)
+    print(f"{__project__} Compression Engine")
+    print(f"Version {__version__}")
+    print("=" * 80)
+    print(f"{__copyright__}")
+    print(f"Licensed under the COBOL Protocol License")
+    print("All rights reserved.")
+    print(f"\nFor license terms, see LICENSE.md")
+    print("=" * 80 + "\n")
 
 # ============================================================================
 # LOGGING CONFIGURATION
@@ -3683,6 +3716,9 @@ class CobolEngine:
 
 
 if __name__ == "__main__":
+    # Display version and copyright information
+    print_version()
+    
     # Configure logging
     logging.basicConfig(
         level=logging.INFO,

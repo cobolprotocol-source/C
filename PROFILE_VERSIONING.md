@@ -1,3 +1,15 @@
+<!-- 
+Copyright (c) 2026 Nafal Faturizki
+All rights reserved.
+
+This document is part of the COBOL Protocol project.
+Unauthorized copying, modification, or redistribution
+is prohibited except as explicitly permitted by the
+accompanying LICENSE.md.
+
+See LICENSE.md for complete license terms.
+-->
+
 # Profile Versioning System
 
 **COBOL v1.5.3 Compression Engine**  
