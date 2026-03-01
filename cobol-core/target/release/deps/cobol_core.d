@@ -1,0 +1,10 @@
+/workspaces/cobolfix/cobol-core/target/release/deps/cobol_core.d: src/lib.rs src/layer1.rs src/layer2.rs src/layer3.rs src/error.rs src/python_bindings.rs
+
+/workspaces/cobolfix/cobol-core/target/release/deps/libcobol_core.so: src/lib.rs src/layer1.rs src/layer2.rs src/layer3.rs src/error.rs src/python_bindings.rs
+
+src/lib.rs:
+src/layer1.rs:
+src/layer2.rs:
+src/layer3.rs:
+src/error.rs:
+src/python_bindings.rs:

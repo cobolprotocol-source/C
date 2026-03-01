@@ -1,0 +1,20 @@
+[package]
+name = "cobol-core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+napi = "2.14"
+napi-derive = "2.14"
+tokio-macros = "2"
+
+[lib]
+name = "cobol_core"
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
