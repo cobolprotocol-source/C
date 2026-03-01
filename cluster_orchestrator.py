@@ -85,6 +85,25 @@ class MCDCOrchestrator:
         self.active_federation_keys = [self.federation_key]
         # replay protection window (seconds)
         self.replay_window_seconds = 300
+
+    # --- key management -----------------------------------------------------
+    def rotate_federation_key(self, keep_old: int = 1) -> str:
+        """Generate a new key and add it to active list.
+
+        keep_old: number of previous keys to retain for verification.
+        Returns the new key (hex string) and also updates
+        `self.federation_key` to point at the newest key so callers signing
+        with the orchestrator's current key get the right value.
+        """
+        import os, binascii
+        new_key = binascii.hexlify(os.urandom(32)).decode()
+        # prepend new key and update current primary key
+        self.active_federation_keys.insert(0, new_key)
+        self.federation_key = new_key
+        # trim old keys beyond retention
+        if keep_old < len(self.active_federation_keys):
+            self.active_federation_keys = self.active_federation_keys[: keep_old + 1]
+        return new_key
         
     def add_mcdc(self, mcdc_id: str, location: MCDCLocation, num_fpgas: int = 500):
         """Add a mobile container to the cluster"""
