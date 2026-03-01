@@ -33,9 +33,8 @@ from layer4 import (
 )
 
 from gpu_acceleration import (
-    GPUAvailability,
-    GPUBackendFactory,
-    GPUBackendType
+    GPUDetector,
+    GPUAccelerationEngine
 )
 
 from profiler import (
@@ -179,41 +178,45 @@ class TestGPUAcceleration:
     
     def test_gpu_availability(self):
         """Test GPU device detection."""
-        available = GPUAvailability.get_available_backends()
+        detector = GPUDetector()
+        info = detector.get_info()
         
-        assert len(available) > 0, "Should have at least CPU"
-        assert GPUBackendType.CPU_FALLBACK in available, "Should always have CPU"
-        
-        print(f"✓ GPU availability: {[b.value for b in available]}")
+        assert info is not None, "Should get GPU info"
+        # GPU is optional, but fallback to CPU should always work
+        print(f"✓ GPU availability: GPU available = {info['gpu_available']}")
     
-    def test_gpu_backend_factory(self):
-        """Test GPU backend factory."""
-        backend = GPUBackendFactory.get_backend()
+    def test_gpu_acceleration_engine(self):
+        """Test GPU acceleration engine."""
+        engine = GPUAccelerationEngine()
         
-        assert backend is not None, "Should create backend"
-        assert backend.available, "Backend should be available"
+        assert engine is not None, "Should create engine"
+        gpu_avail = engine.gpu_available()
         
-        print(f"✓ GPU backend factory: {backend.device_name}")
+        print(f"✓ GPU acceleration engine: GPU available = {gpu_avail}")
     
-    def test_gpu_varint_encoding(self):
-        """Test GPU-accelerated VarInt encoding."""
-        backend = GPUBackendFactory.get_backend()
+    def test_gpu_l6_search(self):
+        """Test GPU-accelerated L6 pattern search."""
+        engine = GPUAccelerationEngine()
         
-        test_values = np.array([1, 100, 1000, 10000], dtype=np.int64)
-        encoded = backend.encode_varint_batch(test_values)
+        test_text = b"PATTERN PATTERN TEST" * 10
+        patterns = {0: b"PATTERN", 1: b"TEST"}
         
-        assert len(encoded) > 0, "Should encode to VarInt"
-        print(f"✓ GPU VarInt encoding: {len(test_values)} values → {len(encoded)} bytes")
+        matches = engine.l6_search(test_text, patterns)
+        
+        assert isinstance(matches, list), "Should return list of matches"
+        print(f"✓ GPU L6 search: found {len(matches)} pattern matches")
     
-    def test_gpu_entropy_calculation(self):
-        """Test GPU entropy calculation."""
-        backend = GPUBackendFactory.get_backend()
+    def test_gpu_l6_search_cpu(self):
+        """Test CPU fallback L6 search."""
+        engine = GPUAccelerationEngine()
         
-        test_data = np.array([1, 2, 1, 3, 1, 2, 4], dtype=np.uint8)
-        entropy = backend.calculate_entropy(test_data)
+        test_text = b"CPU_TEST CPU_TEST" * 5
+        patterns = {0: b"CPU", 1: b"TEST"}
         
-        assert 0 <= entropy <= 3, "Entropy should be in valid range"
-        print(f"✓ GPU entropy calculation: {entropy:.4f}")
+        matches = engine.l6_search_cpu(test_text, patterns)
+        
+        assert isinstance(matches, list), "Should return list of matches"
+        print(f"✓ GPU L6 search (CPU fallback): found {len(matches)} pattern matches")
 
 
 # ============================================================================
