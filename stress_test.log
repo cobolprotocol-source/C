@@ -1,0 +1,20 @@
+2026-03-01 18:28:33,304 - __main__ - [INFO] - ======================================================================
+2026-03-01 18:28:33,305 - __main__ - [INFO] - COBOL Protocol v1.5.3 - Industrial Stress Test Suite
+2026-03-01 18:28:33,305 - __main__ - [INFO] - ======================================================================
+2026-03-01 18:28:33,305 - __main__ - [INFO] - Starting soak test...
+2026-03-01 18:28:33,306 - __main__ - [INFO] - StressTestEngine initialized with ZlibAdapter
+2026-03-01 18:28:33,306 - __main__ - [INFO] - Starting soak test: 100 iterations or 2.0 minutes
+2026-03-01 18:28:48,927 - __main__ - [INFO] - Iteration    100: Compression  37.49ms | RAM   35.6MB (peak   35.9MB) | Elapsed    0.3min
+2026-03-01 18:28:48,945 - __main__ - [INFO] - CSV export completed: stress_test_results/stress_test_report.csv
+2026-03-01 18:28:48,945 - __main__ - [INFO] - Total rows: 100
+2026-03-01 18:28:48,946 - __main__ - [INFO] - Summary exported: stress_test_results/stress_test_summary.txt
+2026-03-01 18:28:48,946 - __main__ - [INFO] - 
+Starting parallel thread safety test...
+2026-03-01 18:28:48,946 - __main__ - [INFO] - Starting thread safety test with 2 threads
+2026-03-01 18:28:48,957 - __main__ - [INFO] - Thread 0 starting
+2026-03-01 18:28:48,958 - __main__ - [INFO] - Thread 1 starting
+2026-03-01 18:28:52,990 - __main__ - [INFO] - Thread 1 completed: 50 success, 0 errors
+2026-03-01 18:28:53,196 - __main__ - [INFO] - Thread 0 completed: 50 success, 0 errors
+2026-03-01 18:28:53,198 - __main__ - [INFO] - Parallel test results: 100.0% success
+2026-03-01 18:28:53,198 - __main__ - [INFO] - 
+✓ Stress test completed
