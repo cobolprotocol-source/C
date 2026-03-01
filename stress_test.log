@@ -18,3 +18,486 @@ Starting parallel thread safety test...
 2026-03-01 18:28:53,198 - __main__ - [INFO] - Parallel test results: 100.0% success
 2026-03-01 18:28:53,198 - __main__ - [INFO] - 
 ✓ Stress test completed
+2026-03-01 18:47:00,925 - __main__ - [INFO] - ======================================================================
+2026-03-01 18:47:00,925 - __main__ - [INFO] - COBOL Protocol v1.5.3 - Industrial Stress Test Suite
+2026-03-01 18:47:00,926 - __main__ - [INFO] - ======================================================================
+2026-03-01 18:47:00,926 - __main__ - [INFO] - Starting soak test...
+2026-03-01 18:47:00,926 - __main__ - [INFO] - StressTestEngine initialized with ZlibAdapter
+2026-03-01 18:47:00,926 - __main__ - [INFO] - Starting soak test: 10000 iterations or 30.0 minutes
+2026-03-01 18:47:01,210 - __main__ - [WARNING] - System memory pressure detected at iteration 1
+2026-03-01 18:47:01,493 - __main__ - [WARNING] - System memory pressure detected at iteration 2
+2026-03-01 18:47:01,848 - __main__ - [WARNING] - System memory pressure detected at iteration 3
+2026-03-01 18:47:02,146 - __main__ - [WARNING] - System memory pressure detected at iteration 4
+2026-03-01 18:47:03,060 - __main__ - [WARNING] - System memory pressure detected at iteration 7
+2026-03-01 18:47:03,340 - __main__ - [WARNING] - System memory pressure detected at iteration 8
+2026-03-01 18:47:03,705 - __main__ - [WARNING] - System memory pressure detected at iteration 9
+2026-03-01 18:47:03,998 - __main__ - [WARNING] - System memory pressure detected at iteration 10
+2026-03-01 18:47:04,295 - __main__ - [WARNING] - System memory pressure detected at iteration 11
+2026-03-01 18:47:04,611 - __main__ - [WARNING] - System memory pressure detected at iteration 12
+2026-03-01 18:47:04,957 - __main__ - [WARNING] - System memory pressure detected at iteration 13
+2026-03-01 18:47:05,263 - __main__ - [WARNING] - System memory pressure detected at iteration 14
+2026-03-01 18:47:05,538 - __main__ - [WARNING] - System memory pressure detected at iteration 15
+2026-03-01 18:47:05,848 - __main__ - [WARNING] - System memory pressure detected at iteration 16
+2026-03-01 18:47:06,182 - __main__ - [WARNING] - System memory pressure detected at iteration 17
+2026-03-01 18:47:06,464 - __main__ - [WARNING] - System memory pressure detected at iteration 18
+2026-03-01 18:47:06,799 - __main__ - [WARNING] - System memory pressure detected at iteration 19
+2026-03-01 18:47:07,111 - __main__ - [WARNING] - System memory pressure detected at iteration 20
+2026-03-01 18:47:07,454 - __main__ - [WARNING] - System memory pressure detected at iteration 21
+2026-03-01 18:47:07,751 - __main__ - [WARNING] - System memory pressure detected at iteration 22
+2026-03-01 18:47:08,055 - __main__ - [WARNING] - System memory pressure detected at iteration 23
+2026-03-01 18:47:08,375 - __main__ - [WARNING] - System memory pressure detected at iteration 24
+2026-03-01 18:47:10,375 - __main__ - [WARNING] - System memory pressure detected at iteration 30
+2026-03-01 18:47:22,695 - __main__ - [WARNING] - System memory pressure detected at iteration 72
+2026-03-01 18:47:23,045 - __main__ - [WARNING] - System memory pressure detected at iteration 73
+2026-03-01 18:47:23,400 - __main__ - [WARNING] - System memory pressure detected at iteration 74
+2026-03-01 18:47:23,727 - __main__ - [WARNING] - System memory pressure detected at iteration 75
+2026-03-01 18:47:24,079 - __main__ - [WARNING] - System memory pressure detected at iteration 76
+2026-03-01 18:47:24,390 - __main__ - [WARNING] - System memory pressure detected at iteration 77
+2026-03-01 18:47:24,701 - __main__ - [WARNING] - System memory pressure detected at iteration 78
+2026-03-01 18:47:25,006 - __main__ - [WARNING] - System memory pressure detected at iteration 79
+2026-03-01 18:47:25,309 - __main__ - [WARNING] - System memory pressure detected at iteration 80
+2026-03-01 18:47:25,600 - __main__ - [WARNING] - System memory pressure detected at iteration 81
+2026-03-01 18:47:25,891 - __main__ - [WARNING] - System memory pressure detected at iteration 82
+2026-03-01 18:47:26,156 - __main__ - [WARNING] - System memory pressure detected at iteration 83
+2026-03-01 18:47:26,454 - __main__ - [WARNING] - System memory pressure detected at iteration 84
+2026-03-01 18:47:26,742 - __main__ - [WARNING] - System memory pressure detected at iteration 85
+2026-03-01 18:47:27,063 - __main__ - [WARNING] - System memory pressure detected at iteration 86
+2026-03-01 18:47:27,355 - __main__ - [WARNING] - System memory pressure detected at iteration 87
+2026-03-01 18:47:27,649 - __main__ - [WARNING] - System memory pressure detected at iteration 88
+2026-03-01 18:47:27,933 - __main__ - [WARNING] - System memory pressure detected at iteration 89
+2026-03-01 18:47:28,220 - __main__ - [WARNING] - System memory pressure detected at iteration 90
+2026-03-01 18:47:28,550 - __main__ - [WARNING] - System memory pressure detected at iteration 91
+2026-03-01 18:47:28,871 - __main__ - [WARNING] - System memory pressure detected at iteration 92
+2026-03-01 18:47:29,155 - __main__ - [WARNING] - System memory pressure detected at iteration 93
+2026-03-01 18:47:29,440 - __main__ - [WARNING] - System memory pressure detected at iteration 94
+2026-03-01 18:47:29,724 - __main__ - [WARNING] - System memory pressure detected at iteration 95
+2026-03-01 18:47:29,998 - __main__ - [WARNING] - System memory pressure detected at iteration 96
+2026-03-01 18:47:30,373 - __main__ - [WARNING] - System memory pressure detected at iteration 97
+2026-03-01 18:47:30,695 - __main__ - [WARNING] - System memory pressure detected at iteration 98
+2026-03-01 18:47:30,987 - __main__ - [WARNING] - System memory pressure detected at iteration 99
+2026-03-01 18:47:31,274 - __main__ - [INFO] - Iteration    100: Compression 144.22ms | RAM   50.2MB (peak   50.3MB) | Elapsed    0.5min
+2026-03-01 18:47:31,274 - __main__ - [WARNING] - System memory pressure detected at iteration 100
+2026-03-01 18:47:31,545 - __main__ - [WARNING] - System memory pressure detected at iteration 101
+2026-03-01 18:47:31,830 - __main__ - [WARNING] - System memory pressure detected at iteration 102
+2026-03-01 18:47:32,381 - __main__ - [WARNING] - System memory pressure detected at iteration 104
+2026-03-01 18:47:32,694 - __main__ - [WARNING] - System memory pressure detected at iteration 105
+2026-03-01 18:47:33,011 - __main__ - [WARNING] - System memory pressure detected at iteration 106
+2026-03-01 18:47:33,309 - __main__ - [WARNING] - System memory pressure detected at iteration 107
+2026-03-01 18:47:33,597 - __main__ - [WARNING] - System memory pressure detected at iteration 108
+2026-03-01 18:47:33,924 - __main__ - [WARNING] - System memory pressure detected at iteration 109
+2026-03-01 18:47:34,206 - __main__ - [WARNING] - System memory pressure detected at iteration 110
+2026-03-01 18:47:34,571 - __main__ - [WARNING] - System memory pressure detected at iteration 111
+2026-03-01 18:47:34,864 - __main__ - [WARNING] - System memory pressure detected at iteration 112
+2026-03-01 18:47:35,202 - __main__ - [WARNING] - System memory pressure detected at iteration 113
+2026-03-01 18:47:35,487 - __main__ - [WARNING] - System memory pressure detected at iteration 114
+2026-03-01 18:47:35,790 - __main__ - [WARNING] - System memory pressure detected at iteration 115
+2026-03-01 18:47:36,076 - __main__ - [WARNING] - System memory pressure detected at iteration 116
+2026-03-01 18:47:36,362 - __main__ - [WARNING] - System memory pressure detected at iteration 117
+2026-03-01 18:47:36,659 - __main__ - [WARNING] - System memory pressure detected at iteration 118
+2026-03-01 18:47:36,950 - __main__ - [WARNING] - System memory pressure detected at iteration 119
+2026-03-01 18:47:37,249 - __main__ - [WARNING] - System memory pressure detected at iteration 120
+2026-03-01 18:47:37,577 - __main__ - [WARNING] - System memory pressure detected at iteration 121
+2026-03-01 18:47:37,861 - __main__ - [WARNING] - System memory pressure detected at iteration 122
+2026-03-01 18:47:38,152 - __main__ - [WARNING] - System memory pressure detected at iteration 123
+2026-03-01 18:47:38,464 - __main__ - [WARNING] - System memory pressure detected at iteration 124
+2026-03-01 18:48:00,364 - __main__ - [INFO] - Iteration    200: Compression 139.16ms | RAM   50.3MB (peak   50.3MB) | Elapsed    1.0min
+2026-03-01 18:48:29,180 - __main__ - [INFO] - Iteration    300: Compression 135.28ms | RAM   50.4MB (peak   50.4MB) | Elapsed    1.5min
+2026-03-01 18:48:58,501 - __main__ - [INFO] - Iteration    400: Compression 135.92ms | RAM   50.4MB (peak   50.5MB) | Elapsed    2.0min
+2026-03-01 18:49:27,657 - __main__ - [INFO] - Iteration    500: Compression 134.22ms | RAM   50.5MB (peak   50.6MB) | Elapsed    2.4min
+2026-03-01 18:49:56,974 - __main__ - [INFO] - Iteration    600: Compression 134.20ms | RAM   50.5MB (peak   50.6MB) | Elapsed    2.9min
+2026-03-01 18:50:26,823 - __main__ - [INFO] - Iteration    700: Compression 139.23ms | RAM   50.6MB (peak   50.6MB) | Elapsed    3.4min
+2026-03-01 18:50:56,114 - __main__ - [INFO] - Iteration    800: Compression 134.71ms | RAM   50.6MB (peak   50.7MB) | Elapsed    3.9min
+2026-03-01 18:51:25,340 - __main__ - [INFO] - Iteration    900: Compression 136.93ms | RAM   50.7MB (peak   50.8MB) | Elapsed    4.4min
+2026-03-01 18:51:54,624 - __main__ - [INFO] - Iteration   1000: Compression 134.85ms | RAM   50.8MB (peak   50.9MB) | Elapsed    4.9min
+2026-03-01 18:52:23,499 - __main__ - [INFO] - Iteration   1100: Compression 132.87ms | RAM   50.9MB (peak   50.9MB) | Elapsed    5.4min
+2026-03-01 18:52:52,827 - __main__ - [INFO] - Iteration   1200: Compression 135.63ms | RAM   50.9MB (peak   51.0MB) | Elapsed    5.9min
+2026-03-01 18:53:21,767 - __main__ - [INFO] - Iteration   1300: Compression 132.56ms | RAM   51.0MB (peak   51.1MB) | Elapsed    6.3min
+2026-03-01 18:53:50,447 - __main__ - [INFO] - Iteration   1400: Compression 130.53ms | RAM   51.0MB (peak   51.1MB) | Elapsed    6.8min
+2026-03-01 18:54:19,689 - __main__ - [INFO] - Iteration   1500: Compression 134.76ms | RAM   51.1MB (peak   51.3MB) | Elapsed    7.3min
+2026-03-01 18:54:48,413 - __main__ - [INFO] - Iteration   1600: Compression 130.87ms | RAM   51.2MB (peak   51.3MB) | Elapsed    7.8min
+2026-03-01 18:55:17,275 - __main__ - [INFO] - Iteration   1700: Compression 132.19ms | RAM   51.2MB (peak   51.3MB) | Elapsed    8.3min
+2026-03-01 18:55:46,789 - __main__ - [INFO] - Iteration   1800: Compression 136.55ms | RAM   51.3MB (peak   51.4MB) | Elapsed    8.8min
+2026-03-01 18:56:15,596 - __main__ - [INFO] - Iteration   1900: Compression 131.47ms | RAM   51.4MB (peak   51.5MB) | Elapsed    9.2min
+2026-03-01 18:56:44,229 - __main__ - [INFO] - Iteration   2000: Compression 130.94ms | RAM   51.4MB (peak   51.6MB) | Elapsed    9.7min
+2026-03-01 18:57:13,113 - __main__ - [INFO] - Iteration   2100: Compression 131.64ms | RAM   51.5MB (peak   51.6MB) | Elapsed   10.2min
+2026-03-01 18:57:42,233 - __main__ - [INFO] - Iteration   2200: Compression 133.98ms | RAM   51.6MB (peak   51.7MB) | Elapsed   10.7min
+2026-03-01 18:58:10,974 - __main__ - [INFO] - Iteration   2300: Compression 130.94ms | RAM   51.6MB (peak   51.7MB) | Elapsed   11.2min
+2026-03-01 18:58:39,862 - __main__ - [INFO] - Iteration   2400: Compression 131.49ms | RAM   51.7MB (peak   51.8MB) | Elapsed   11.6min
+2026-03-01 18:59:08,956 - __main__ - [INFO] - Iteration   2500: Compression 135.51ms | RAM   51.8MB (peak   51.9MB) | Elapsed   12.1min
+2026-03-01 18:59:37,840 - __main__ - [INFO] - Iteration   2600: Compression 132.83ms | RAM   51.8MB (peak   51.9MB) | Elapsed   12.6min
+2026-03-01 19:00:07,231 - __main__ - [INFO] - Iteration   2700: Compression 134.59ms | RAM   51.9MB (peak   52.0MB) | Elapsed   13.1min
+2026-03-01 19:00:36,009 - __main__ - [INFO] - Iteration   2800: Compression 131.12ms | RAM   51.9MB (peak   52.1MB) | Elapsed   13.6min
+2026-03-01 19:01:04,856 - __main__ - [INFO] - Iteration   2900: Compression 131.73ms | RAM   52.0MB (peak   52.1MB) | Elapsed   14.1min
+2026-03-01 19:01:33,500 - __main__ - [INFO] - Iteration   3000: Compression 131.14ms | RAM   52.1MB (peak   52.2MB) | Elapsed   14.5min
+2026-03-01 19:02:03,136 - __main__ - [INFO] - Iteration   3100: Compression 138.08ms | RAM   52.2MB (peak   52.3MB) | Elapsed   15.0min
+2026-03-01 19:02:31,989 - __main__ - [INFO] - Iteration   3200: Compression 132.24ms | RAM   52.2MB (peak   52.3MB) | Elapsed   15.5min
+2026-03-01 19:03:01,532 - __main__ - [INFO] - Iteration   3300: Compression 136.79ms | RAM   52.3MB (peak   52.4MB) | Elapsed   16.0min
+2026-03-01 19:03:30,734 - __main__ - [INFO] - Iteration   3400: Compression 134.59ms | RAM   52.3MB (peak   52.5MB) | Elapsed   16.5min
+2026-03-01 19:03:59,818 - __main__ - [INFO] - Iteration   3500: Compression 135.66ms | RAM   52.4MB (peak   52.6MB) | Elapsed   17.0min
+2026-03-01 19:04:28,597 - __main__ - [INFO] - Iteration   3600: Compression 131.40ms | RAM   52.5MB (peak   52.6MB) | Elapsed   17.5min
+2026-03-01 19:04:57,249 - __main__ - [INFO] - Iteration   3700: Compression 131.72ms | RAM   52.6MB (peak   52.7MB) | Elapsed   17.9min
+2026-03-01 19:05:26,130 - __main__ - [INFO] - Iteration   3800: Compression 133.48ms | RAM   52.6MB (peak   52.8MB) | Elapsed   18.4min
+2026-03-01 19:05:55,088 - __main__ - [INFO] - Iteration   3900: Compression 133.22ms | RAM   52.7MB (peak   52.8MB) | Elapsed   18.9min
+2026-03-01 19:06:16,185 - __main__ - [WARNING] - System memory pressure detected at iteration 3973
+2026-03-01 19:06:16,814 - __main__ - [WARNING] - System memory pressure detected at iteration 3975
+2026-03-01 19:06:17,110 - __main__ - [WARNING] - System memory pressure detected at iteration 3976
+2026-03-01 19:06:17,428 - __main__ - [WARNING] - System memory pressure detected at iteration 3977
+2026-03-01 19:06:17,712 - __main__ - [WARNING] - System memory pressure detected at iteration 3978
+2026-03-01 19:06:17,983 - __main__ - [WARNING] - System memory pressure detected at iteration 3979
+2026-03-01 19:06:18,258 - __main__ - [WARNING] - System memory pressure detected at iteration 3980
+2026-03-01 19:06:18,539 - __main__ - [WARNING] - System memory pressure detected at iteration 3981
+2026-03-01 19:06:18,811 - __main__ - [WARNING] - System memory pressure detected at iteration 3982
+2026-03-01 19:06:19,084 - __main__ - [WARNING] - System memory pressure detected at iteration 3983
+2026-03-01 19:06:19,360 - __main__ - [WARNING] - System memory pressure detected at iteration 3984
+2026-03-01 19:06:19,632 - __main__ - [WARNING] - System memory pressure detected at iteration 3985
+2026-03-01 19:06:19,906 - __main__ - [WARNING] - System memory pressure detected at iteration 3986
+2026-03-01 19:06:20,261 - __main__ - [WARNING] - System memory pressure detected at iteration 3987
+2026-03-01 19:06:20,543 - __main__ - [WARNING] - System memory pressure detected at iteration 3988
+2026-03-01 19:06:20,863 - __main__ - [WARNING] - System memory pressure detected at iteration 3989
+2026-03-01 19:06:21,247 - __main__ - [WARNING] - System memory pressure detected at iteration 3990
+2026-03-01 19:06:21,574 - __main__ - [WARNING] - System memory pressure detected at iteration 3991
+2026-03-01 19:06:21,852 - __main__ - [WARNING] - System memory pressure detected at iteration 3992
+2026-03-01 19:06:22,132 - __main__ - [WARNING] - System memory pressure detected at iteration 3993
+2026-03-01 19:06:22,440 - __main__ - [WARNING] - System memory pressure detected at iteration 3994
+2026-03-01 19:06:22,718 - __main__ - [WARNING] - System memory pressure detected at iteration 3995
+2026-03-01 19:06:22,996 - __main__ - [WARNING] - System memory pressure detected at iteration 3996
+2026-03-01 19:06:23,293 - __main__ - [WARNING] - System memory pressure detected at iteration 3997
+2026-03-01 19:06:23,671 - __main__ - [WARNING] - System memory pressure detected at iteration 3998
+2026-03-01 19:06:23,954 - __main__ - [WARNING] - System memory pressure detected at iteration 3999
+2026-03-01 19:06:24,250 - __main__ - [INFO] - Iteration   4000: Compression 133.33ms | RAM   52.8MB (peak   52.9MB) | Elapsed   19.4min
+2026-03-01 19:06:24,250 - __main__ - [WARNING] - System memory pressure detected at iteration 4000
+2026-03-01 19:06:26,548 - __main__ - [WARNING] - System memory pressure detected at iteration 4008
+2026-03-01 19:06:26,848 - __main__ - [WARNING] - System memory pressure detected at iteration 4009
+2026-03-01 19:06:27,121 - __main__ - [WARNING] - System memory pressure detected at iteration 4010
+2026-03-01 19:06:27,437 - __main__ - [WARNING] - System memory pressure detected at iteration 4011
+2026-03-01 19:06:27,711 - __main__ - [WARNING] - System memory pressure detected at iteration 4012
+2026-03-01 19:06:27,983 - __main__ - [WARNING] - System memory pressure detected at iteration 4013
+2026-03-01 19:06:28,267 - __main__ - [WARNING] - System memory pressure detected at iteration 4014
+2026-03-01 19:06:28,541 - __main__ - [WARNING] - System memory pressure detected at iteration 4015
+2026-03-01 19:06:28,816 - __main__ - [WARNING] - System memory pressure detected at iteration 4016
+2026-03-01 19:06:29,084 - __main__ - [WARNING] - System memory pressure detected at iteration 4017
+2026-03-01 19:06:29,390 - __main__ - [WARNING] - System memory pressure detected at iteration 4018
+2026-03-01 19:06:29,667 - __main__ - [WARNING] - System memory pressure detected at iteration 4019
+2026-03-01 19:06:29,937 - __main__ - [WARNING] - System memory pressure detected at iteration 4020
+2026-03-01 19:06:30,216 - __main__ - [WARNING] - System memory pressure detected at iteration 4021
+2026-03-01 19:06:30,676 - __main__ - [WARNING] - System memory pressure detected at iteration 4022
+2026-03-01 19:06:30,950 - __main__ - [WARNING] - System memory pressure detected at iteration 4023
+2026-03-01 19:06:31,227 - __main__ - [WARNING] - System memory pressure detected at iteration 4024
+2026-03-01 19:06:31,585 - __main__ - [WARNING] - System memory pressure detected at iteration 4025
+2026-03-01 19:06:31,856 - __main__ - [WARNING] - System memory pressure detected at iteration 4026
+2026-03-01 19:06:32,153 - __main__ - [WARNING] - System memory pressure detected at iteration 4027
+2026-03-01 19:06:32,467 - __main__ - [WARNING] - System memory pressure detected at iteration 4028
+2026-03-01 19:06:32,740 - __main__ - [WARNING] - System memory pressure detected at iteration 4029
+2026-03-01 19:06:33,008 - __main__ - [WARNING] - System memory pressure detected at iteration 4030
+2026-03-01 19:06:33,278 - __main__ - [WARNING] - System memory pressure detected at iteration 4031
+2026-03-01 19:06:33,569 - __main__ - [WARNING] - System memory pressure detected at iteration 4032
+2026-03-01 19:06:33,849 - __main__ - [WARNING] - System memory pressure detected at iteration 4033
+2026-03-01 19:06:34,126 - __main__ - [WARNING] - System memory pressure detected at iteration 4034
+2026-03-01 19:06:34,405 - __main__ - [WARNING] - System memory pressure detected at iteration 4035
+2026-03-01 19:06:34,682 - __main__ - [WARNING] - System memory pressure detected at iteration 4036
+2026-03-01 19:06:34,960 - __main__ - [WARNING] - System memory pressure detected at iteration 4037
+2026-03-01 19:06:35,240 - __main__ - [WARNING] - System memory pressure detected at iteration 4038
+2026-03-01 19:06:35,570 - __main__ - [WARNING] - System memory pressure detected at iteration 4039
+2026-03-01 19:06:35,848 - __main__ - [WARNING] - System memory pressure detected at iteration 4040
+2026-03-01 19:06:36,131 - __main__ - [WARNING] - System memory pressure detected at iteration 4041
+2026-03-01 19:06:36,425 - __main__ - [WARNING] - System memory pressure detected at iteration 4042
+2026-03-01 19:06:36,734 - __main__ - [WARNING] - System memory pressure detected at iteration 4043
+2026-03-01 19:06:37,011 - __main__ - [WARNING] - System memory pressure detected at iteration 4044
+2026-03-01 19:06:37,351 - __main__ - [WARNING] - System memory pressure detected at iteration 4045
+2026-03-01 19:06:37,705 - __main__ - [WARNING] - System memory pressure detected at iteration 4046
+2026-03-01 19:06:38,012 - __main__ - [WARNING] - System memory pressure detected at iteration 4047
+2026-03-01 19:06:38,291 - __main__ - [WARNING] - System memory pressure detected at iteration 4048
+2026-03-01 19:06:38,576 - __main__ - [WARNING] - System memory pressure detected at iteration 4049
+2026-03-01 19:06:38,850 - __main__ - [WARNING] - System memory pressure detected at iteration 4050
+2026-03-01 19:06:39,121 - __main__ - [WARNING] - System memory pressure detected at iteration 4051
+2026-03-01 19:06:39,396 - __main__ - [WARNING] - System memory pressure detected at iteration 4052
+2026-03-01 19:06:39,683 - __main__ - [WARNING] - System memory pressure detected at iteration 4053
+2026-03-01 19:06:39,955 - __main__ - [WARNING] - System memory pressure detected at iteration 4054
+2026-03-01 19:06:40,230 - __main__ - [WARNING] - System memory pressure detected at iteration 4055
+2026-03-01 19:06:40,516 - __main__ - [WARNING] - System memory pressure detected at iteration 4056
+2026-03-01 19:06:40,889 - __main__ - [WARNING] - System memory pressure detected at iteration 4057
+2026-03-01 19:06:41,162 - __main__ - [WARNING] - System memory pressure detected at iteration 4058
+2026-03-01 19:06:41,443 - __main__ - [WARNING] - System memory pressure detected at iteration 4059
+2026-03-01 19:06:41,814 - __main__ - [WARNING] - System memory pressure detected at iteration 4060
+2026-03-01 19:06:42,086 - __main__ - [WARNING] - System memory pressure detected at iteration 4061
+2026-03-01 19:06:42,394 - __main__ - [WARNING] - System memory pressure detected at iteration 4062
+2026-03-01 19:06:42,679 - __main__ - [WARNING] - System memory pressure detected at iteration 4063
+2026-03-01 19:06:42,951 - __main__ - [WARNING] - System memory pressure detected at iteration 4064
+2026-03-01 19:06:43,269 - __main__ - [WARNING] - System memory pressure detected at iteration 4065
+2026-03-01 19:06:43,586 - __main__ - [WARNING] - System memory pressure detected at iteration 4066
+2026-03-01 19:06:43,864 - __main__ - [WARNING] - System memory pressure detected at iteration 4067
+2026-03-01 19:06:44,179 - __main__ - [WARNING] - System memory pressure detected at iteration 4068
+2026-03-01 19:06:44,550 - __main__ - [WARNING] - System memory pressure detected at iteration 4069
+2026-03-01 19:06:44,838 - __main__ - [WARNING] - System memory pressure detected at iteration 4070
+2026-03-01 19:06:45,107 - __main__ - [WARNING] - System memory pressure detected at iteration 4071
+2026-03-01 19:06:45,380 - __main__ - [WARNING] - System memory pressure detected at iteration 4072
+2026-03-01 19:06:45,723 - __main__ - [WARNING] - System memory pressure detected at iteration 4073
+2026-03-01 19:06:45,995 - __main__ - [WARNING] - System memory pressure detected at iteration 4074
+2026-03-01 19:06:46,266 - __main__ - [WARNING] - System memory pressure detected at iteration 4075
+2026-03-01 19:06:46,543 - __main__ - [WARNING] - System memory pressure detected at iteration 4076
+2026-03-01 19:06:46,910 - __main__ - [WARNING] - System memory pressure detected at iteration 4077
+2026-03-01 19:06:47,183 - __main__ - [WARNING] - System memory pressure detected at iteration 4078
+2026-03-01 19:06:47,456 - __main__ - [WARNING] - System memory pressure detected at iteration 4079
+2026-03-01 19:06:47,734 - __main__ - [WARNING] - System memory pressure detected at iteration 4080
+2026-03-01 19:06:48,006 - __main__ - [WARNING] - System memory pressure detected at iteration 4081
+2026-03-01 19:06:48,279 - __main__ - [WARNING] - System memory pressure detected at iteration 4082
+2026-03-01 19:06:48,556 - __main__ - [WARNING] - System memory pressure detected at iteration 4083
+2026-03-01 19:06:48,881 - __main__ - [WARNING] - System memory pressure detected at iteration 4084
+2026-03-01 19:06:49,170 - __main__ - [WARNING] - System memory pressure detected at iteration 4085
+2026-03-01 19:06:49,443 - __main__ - [WARNING] - System memory pressure detected at iteration 4086
+2026-03-01 19:06:49,715 - __main__ - [WARNING] - System memory pressure detected at iteration 4087
+2026-03-01 19:06:49,989 - __main__ - [WARNING] - System memory pressure detected at iteration 4088
+2026-03-01 19:06:50,263 - __main__ - [WARNING] - System memory pressure detected at iteration 4089
+2026-03-01 19:06:50,549 - __main__ - [WARNING] - System memory pressure detected at iteration 4090
+2026-03-01 19:06:50,825 - __main__ - [WARNING] - System memory pressure detected at iteration 4091
+2026-03-01 19:06:51,205 - __main__ - [WARNING] - System memory pressure detected at iteration 4092
+2026-03-01 19:06:51,546 - __main__ - [WARNING] - System memory pressure detected at iteration 4093
+2026-03-01 19:06:51,827 - __main__ - [WARNING] - System memory pressure detected at iteration 4094
+2026-03-01 19:06:52,140 - __main__ - [WARNING] - System memory pressure detected at iteration 4095
+2026-03-01 19:06:52,442 - __main__ - [WARNING] - System memory pressure detected at iteration 4096
+2026-03-01 19:06:52,716 - __main__ - [WARNING] - System memory pressure detected at iteration 4097
+2026-03-01 19:06:53,004 - __main__ - [WARNING] - System memory pressure detected at iteration 4098
+2026-03-01 19:06:53,284 - __main__ - [WARNING] - System memory pressure detected at iteration 4099
+2026-03-01 19:06:53,561 - __main__ - [INFO] - Iteration   4100: Compression 134.87ms | RAM   52.9MB (peak   52.9MB) | Elapsed   19.9min
+2026-03-01 19:06:53,562 - __main__ - [WARNING] - System memory pressure detected at iteration 4100
+2026-03-01 19:06:53,841 - __main__ - [WARNING] - System memory pressure detected at iteration 4101
+2026-03-01 19:06:54,114 - __main__ - [WARNING] - System memory pressure detected at iteration 4102
+2026-03-01 19:06:54,427 - __main__ - [WARNING] - System memory pressure detected at iteration 4103
+2026-03-01 19:06:54,747 - __main__ - [WARNING] - System memory pressure detected at iteration 4104
+2026-03-01 19:06:55,034 - __main__ - [WARNING] - System memory pressure detected at iteration 4105
+2026-03-01 19:06:55,311 - __main__ - [WARNING] - System memory pressure detected at iteration 4106
+2026-03-01 19:06:55,587 - __main__ - [WARNING] - System memory pressure detected at iteration 4107
+2026-03-01 19:06:55,934 - __main__ - [WARNING] - System memory pressure detected at iteration 4108
+2026-03-01 19:06:56,207 - __main__ - [WARNING] - System memory pressure detected at iteration 4109
+2026-03-01 19:06:56,482 - __main__ - [WARNING] - System memory pressure detected at iteration 4110
+2026-03-01 19:06:56,754 - __main__ - [WARNING] - System memory pressure detected at iteration 4111
+2026-03-01 19:06:57,123 - __main__ - [WARNING] - System memory pressure detected at iteration 4112
+2026-03-01 19:06:57,714 - __main__ - [WARNING] - System memory pressure detected at iteration 4113
+2026-03-01 19:06:58,050 - __main__ - [WARNING] - System memory pressure detected at iteration 4114
+2026-03-01 19:06:58,468 - __main__ - [WARNING] - System memory pressure detected at iteration 4115
+2026-03-01 19:06:58,738 - __main__ - [WARNING] - System memory pressure detected at iteration 4116
+2026-03-01 19:06:59,041 - __main__ - [WARNING] - System memory pressure detected at iteration 4117
+2026-03-01 19:06:59,327 - __main__ - [WARNING] - System memory pressure detected at iteration 4118
+2026-03-01 19:06:59,619 - __main__ - [WARNING] - System memory pressure detected at iteration 4119
+2026-03-01 19:06:59,946 - __main__ - [WARNING] - System memory pressure detected at iteration 4120
+2026-03-01 19:07:00,258 - __main__ - [WARNING] - System memory pressure detected at iteration 4121
+2026-03-01 19:07:00,545 - __main__ - [WARNING] - System memory pressure detected at iteration 4122
+2026-03-01 19:07:00,824 - __main__ - [WARNING] - System memory pressure detected at iteration 4123
+2026-03-01 19:07:01,127 - __main__ - [WARNING] - System memory pressure detected at iteration 4124
+2026-03-01 19:07:01,445 - __main__ - [WARNING] - System memory pressure detected at iteration 4125
+2026-03-01 19:07:01,774 - __main__ - [WARNING] - System memory pressure detected at iteration 4126
+2026-03-01 19:07:02,101 - __main__ - [WARNING] - System memory pressure detected at iteration 4127
+2026-03-01 19:07:02,425 - __main__ - [WARNING] - System memory pressure detected at iteration 4128
+2026-03-01 19:07:02,708 - __main__ - [WARNING] - System memory pressure detected at iteration 4129
+2026-03-01 19:07:03,308 - __main__ - [WARNING] - System memory pressure detected at iteration 4130
+2026-03-01 19:07:03,602 - __main__ - [WARNING] - System memory pressure detected at iteration 4131
+2026-03-01 19:07:03,895 - __main__ - [WARNING] - System memory pressure detected at iteration 4132
+2026-03-01 19:07:04,196 - __main__ - [WARNING] - System memory pressure detected at iteration 4133
+2026-03-01 19:07:04,484 - __main__ - [WARNING] - System memory pressure detected at iteration 4134
+2026-03-01 19:07:04,753 - __main__ - [WARNING] - System memory pressure detected at iteration 4135
+2026-03-01 19:07:05,041 - __main__ - [WARNING] - System memory pressure detected at iteration 4136
+2026-03-01 19:07:05,474 - __main__ - [WARNING] - System memory pressure detected at iteration 4137
+2026-03-01 19:07:05,769 - __main__ - [WARNING] - System memory pressure detected at iteration 4138
+2026-03-01 19:07:06,098 - __main__ - [WARNING] - System memory pressure detected at iteration 4139
+2026-03-01 19:07:06,403 - __main__ - [WARNING] - System memory pressure detected at iteration 4140
+2026-03-01 19:07:06,697 - __main__ - [WARNING] - System memory pressure detected at iteration 4141
+2026-03-01 19:07:06,986 - __main__ - [WARNING] - System memory pressure detected at iteration 4142
+2026-03-01 19:07:07,458 - __main__ - [WARNING] - System memory pressure detected at iteration 4143
+2026-03-01 19:07:07,742 - __main__ - [WARNING] - System memory pressure detected at iteration 4144
+2026-03-01 19:07:08,049 - __main__ - [WARNING] - System memory pressure detected at iteration 4145
+2026-03-01 19:07:08,363 - __main__ - [WARNING] - System memory pressure detected at iteration 4146
+2026-03-01 19:07:08,653 - __main__ - [WARNING] - System memory pressure detected at iteration 4147
+2026-03-01 19:07:08,943 - __main__ - [WARNING] - System memory pressure detected at iteration 4148
+2026-03-01 19:07:09,233 - __main__ - [WARNING] - System memory pressure detected at iteration 4149
+2026-03-01 19:07:09,526 - __main__ - [WARNING] - System memory pressure detected at iteration 4150
+2026-03-01 19:07:09,796 - __main__ - [WARNING] - System memory pressure detected at iteration 4151
+2026-03-01 19:07:10,069 - __main__ - [WARNING] - System memory pressure detected at iteration 4152
+2026-03-01 19:07:10,380 - __main__ - [WARNING] - System memory pressure detected at iteration 4153
+2026-03-01 19:07:10,674 - __main__ - [WARNING] - System memory pressure detected at iteration 4154
+2026-03-01 19:07:10,962 - __main__ - [WARNING] - System memory pressure detected at iteration 4155
+2026-03-01 19:07:11,254 - __main__ - [WARNING] - System memory pressure detected at iteration 4156
+2026-03-01 19:07:11,587 - __main__ - [WARNING] - System memory pressure detected at iteration 4157
+2026-03-01 19:07:11,954 - __main__ - [WARNING] - System memory pressure detected at iteration 4158
+2026-03-01 19:07:12,416 - __main__ - [WARNING] - System memory pressure detected at iteration 4159
+2026-03-01 19:07:12,697 - __main__ - [WARNING] - System memory pressure detected at iteration 4160
+2026-03-01 19:07:12,967 - __main__ - [WARNING] - System memory pressure detected at iteration 4161
+2026-03-01 19:07:13,241 - __main__ - [WARNING] - System memory pressure detected at iteration 4162
+2026-03-01 19:07:13,530 - __main__ - [WARNING] - System memory pressure detected at iteration 4163
+2026-03-01 19:07:13,820 - __main__ - [WARNING] - System memory pressure detected at iteration 4164
+2026-03-01 19:07:14,114 - __main__ - [WARNING] - System memory pressure detected at iteration 4165
+2026-03-01 19:07:14,399 - __main__ - [WARNING] - System memory pressure detected at iteration 4166
+2026-03-01 19:07:14,684 - __main__ - [WARNING] - System memory pressure detected at iteration 4167
+2026-03-01 19:07:14,954 - __main__ - [WARNING] - System memory pressure detected at iteration 4168
+2026-03-01 19:07:15,230 - __main__ - [WARNING] - System memory pressure detected at iteration 4169
+2026-03-01 19:07:15,518 - __main__ - [WARNING] - System memory pressure detected at iteration 4170
+2026-03-01 19:07:15,807 - __main__ - [WARNING] - System memory pressure detected at iteration 4171
+2026-03-01 19:07:16,147 - __main__ - [WARNING] - System memory pressure detected at iteration 4172
+2026-03-01 19:07:16,462 - __main__ - [WARNING] - System memory pressure detected at iteration 4173
+2026-03-01 19:07:16,780 - __main__ - [WARNING] - System memory pressure detected at iteration 4174
+2026-03-01 19:07:17,089 - __main__ - [WARNING] - System memory pressure detected at iteration 4175
+2026-03-01 19:07:17,446 - __main__ - [WARNING] - System memory pressure detected at iteration 4176
+2026-03-01 19:07:17,751 - __main__ - [WARNING] - System memory pressure detected at iteration 4177
+2026-03-01 19:07:18,045 - __main__ - [WARNING] - System memory pressure detected at iteration 4178
+2026-03-01 19:07:18,339 - __main__ - [WARNING] - System memory pressure detected at iteration 4179
+2026-03-01 19:07:18,661 - __main__ - [WARNING] - System memory pressure detected at iteration 4180
+2026-03-01 19:07:18,936 - __main__ - [WARNING] - System memory pressure detected at iteration 4181
+2026-03-01 19:07:19,251 - __main__ - [WARNING] - System memory pressure detected at iteration 4182
+2026-03-01 19:07:19,576 - __main__ - [WARNING] - System memory pressure detected at iteration 4183
+2026-03-01 19:07:19,855 - __main__ - [WARNING] - System memory pressure detected at iteration 4184
+2026-03-01 19:07:20,127 - __main__ - [WARNING] - System memory pressure detected at iteration 4185
+2026-03-01 19:07:20,404 - __main__ - [WARNING] - System memory pressure detected at iteration 4186
+2026-03-01 19:07:20,697 - __main__ - [WARNING] - System memory pressure detected at iteration 4187
+2026-03-01 19:07:20,979 - __main__ - [WARNING] - System memory pressure detected at iteration 4188
+2026-03-01 19:07:21,269 - __main__ - [WARNING] - System memory pressure detected at iteration 4189
+2026-03-01 19:07:21,548 - __main__ - [WARNING] - System memory pressure detected at iteration 4190
+2026-03-01 19:07:21,854 - __main__ - [WARNING] - System memory pressure detected at iteration 4191
+2026-03-01 19:07:22,287 - __main__ - [WARNING] - System memory pressure detected at iteration 4192
+2026-03-01 19:07:22,639 - __main__ - [WARNING] - System memory pressure detected at iteration 4193
+2026-03-01 19:07:22,939 - __main__ - [WARNING] - System memory pressure detected at iteration 4194
+2026-03-01 19:07:23,216 - __main__ - [WARNING] - System memory pressure detected at iteration 4195
+2026-03-01 19:07:23,513 - __main__ - [WARNING] - System memory pressure detected at iteration 4196
+2026-03-01 19:07:23,808 - __main__ - [WARNING] - System memory pressure detected at iteration 4197
+2026-03-01 19:07:24,084 - __main__ - [WARNING] - System memory pressure detected at iteration 4198
+2026-03-01 19:07:24,371 - __main__ - [WARNING] - System memory pressure detected at iteration 4199
+2026-03-01 19:07:24,658 - __main__ - [INFO] - Iteration   4200: Compression 149.06ms | RAM   52.9MB (peak   53.0MB) | Elapsed   20.4min
+2026-03-01 19:07:24,660 - __main__ - [WARNING] - System memory pressure detected at iteration 4200
+2026-03-01 19:07:24,944 - __main__ - [WARNING] - System memory pressure detected at iteration 4201
+2026-03-01 19:07:25,225 - __main__ - [WARNING] - System memory pressure detected at iteration 4202
+2026-03-01 19:07:25,519 - __main__ - [WARNING] - System memory pressure detected at iteration 4203
+2026-03-01 19:07:25,816 - __main__ - [WARNING] - System memory pressure detected at iteration 4204
+2026-03-01 19:07:26,148 - __main__ - [WARNING] - System memory pressure detected at iteration 4205
+2026-03-01 19:07:26,482 - __main__ - [WARNING] - System memory pressure detected at iteration 4206
+2026-03-01 19:07:26,780 - __main__ - [WARNING] - System memory pressure detected at iteration 4207
+2026-03-01 19:07:27,058 - __main__ - [WARNING] - System memory pressure detected at iteration 4208
+2026-03-01 19:07:27,381 - __main__ - [WARNING] - System memory pressure detected at iteration 4209
+2026-03-01 19:07:27,663 - __main__ - [WARNING] - System memory pressure detected at iteration 4210
+2026-03-01 19:07:27,999 - __main__ - [WARNING] - System memory pressure detected at iteration 4211
+2026-03-01 19:07:28,309 - __main__ - [WARNING] - System memory pressure detected at iteration 4212
+2026-03-01 19:07:28,586 - __main__ - [WARNING] - System memory pressure detected at iteration 4213
+2026-03-01 19:07:28,880 - __main__ - [WARNING] - System memory pressure detected at iteration 4214
+2026-03-01 19:07:29,160 - __main__ - [WARNING] - System memory pressure detected at iteration 4215
+2026-03-01 19:07:29,437 - __main__ - [WARNING] - System memory pressure detected at iteration 4216
+2026-03-01 19:07:29,717 - __main__ - [WARNING] - System memory pressure detected at iteration 4217
+2026-03-01 19:07:29,998 - __main__ - [WARNING] - System memory pressure detected at iteration 4218
+2026-03-01 19:07:30,284 - __main__ - [WARNING] - System memory pressure detected at iteration 4219
+2026-03-01 19:07:30,568 - __main__ - [WARNING] - System memory pressure detected at iteration 4220
+2026-03-01 19:07:30,870 - __main__ - [WARNING] - System memory pressure detected at iteration 4221
+2026-03-01 19:07:31,147 - __main__ - [WARNING] - System memory pressure detected at iteration 4222
+2026-03-01 19:07:31,436 - __main__ - [WARNING] - System memory pressure detected at iteration 4223
+2026-03-01 19:07:31,715 - __main__ - [WARNING] - System memory pressure detected at iteration 4224
+2026-03-01 19:07:31,993 - __main__ - [WARNING] - System memory pressure detected at iteration 4225
+2026-03-01 19:07:32,303 - __main__ - [WARNING] - System memory pressure detected at iteration 4226
+2026-03-01 19:07:32,735 - __main__ - [WARNING] - System memory pressure detected at iteration 4227
+2026-03-01 19:07:33,157 - __main__ - [WARNING] - System memory pressure detected at iteration 4228
+2026-03-01 19:07:33,499 - __main__ - [WARNING] - System memory pressure detected at iteration 4229
+2026-03-01 19:07:33,802 - __main__ - [WARNING] - System memory pressure detected at iteration 4230
+2026-03-01 19:07:34,110 - __main__ - [WARNING] - System memory pressure detected at iteration 4231
+2026-03-01 19:07:34,386 - __main__ - [WARNING] - System memory pressure detected at iteration 4232
+2026-03-01 19:07:34,666 - __main__ - [WARNING] - System memory pressure detected at iteration 4233
+2026-03-01 19:07:34,958 - __main__ - [WARNING] - System memory pressure detected at iteration 4234
+2026-03-01 19:07:35,241 - __main__ - [WARNING] - System memory pressure detected at iteration 4235
+2026-03-01 19:07:35,523 - __main__ - [WARNING] - System memory pressure detected at iteration 4236
+2026-03-01 19:07:35,804 - __main__ - [WARNING] - System memory pressure detected at iteration 4237
+2026-03-01 19:07:36,073 - __main__ - [WARNING] - System memory pressure detected at iteration 4238
+2026-03-01 19:07:36,410 - __main__ - [WARNING] - System memory pressure detected at iteration 4239
+2026-03-01 19:07:36,683 - __main__ - [WARNING] - System memory pressure detected at iteration 4240
+2026-03-01 19:07:36,952 - __main__ - [WARNING] - System memory pressure detected at iteration 4241
+2026-03-01 19:07:37,236 - __main__ - [WARNING] - System memory pressure detected at iteration 4242
+2026-03-01 19:07:37,511 - __main__ - [WARNING] - System memory pressure detected at iteration 4243
+2026-03-01 19:07:37,792 - __main__ - [WARNING] - System memory pressure detected at iteration 4244
+2026-03-01 19:07:38,944 - __main__ - [WARNING] - System memory pressure detected at iteration 4248
+2026-03-01 19:07:39,217 - __main__ - [WARNING] - System memory pressure detected at iteration 4249
+2026-03-01 19:07:39,526 - __main__ - [WARNING] - System memory pressure detected at iteration 4250
+2026-03-01 19:07:39,803 - __main__ - [WARNING] - System memory pressure detected at iteration 4251
+2026-03-01 19:07:40,185 - __main__ - [WARNING] - System memory pressure detected at iteration 4252
+2026-03-01 19:07:40,458 - __main__ - [WARNING] - System memory pressure detected at iteration 4253
+2026-03-01 19:07:40,732 - __main__ - [WARNING] - System memory pressure detected at iteration 4254
+2026-03-01 19:07:41,017 - __main__ - [WARNING] - System memory pressure detected at iteration 4255
+2026-03-01 19:07:41,295 - __main__ - [WARNING] - System memory pressure detected at iteration 4256
+2026-03-01 19:07:41,569 - __main__ - [WARNING] - System memory pressure detected at iteration 4257
+2026-03-01 19:07:41,851 - __main__ - [WARNING] - System memory pressure detected at iteration 4258
+2026-03-01 19:07:42,145 - __main__ - [WARNING] - System memory pressure detected at iteration 4259
+2026-03-01 19:07:42,437 - __main__ - [WARNING] - System memory pressure detected at iteration 4260
+2026-03-01 19:07:42,753 - __main__ - [WARNING] - System memory pressure detected at iteration 4261
+2026-03-01 19:07:43,150 - __main__ - [WARNING] - System memory pressure detected at iteration 4262
+2026-03-01 19:07:43,432 - __main__ - [WARNING] - System memory pressure detected at iteration 4263
+2026-03-01 19:07:43,705 - __main__ - [WARNING] - System memory pressure detected at iteration 4264
+2026-03-01 19:07:43,977 - __main__ - [WARNING] - System memory pressure detected at iteration 4265
+2026-03-01 19:07:44,335 - __main__ - [WARNING] - System memory pressure detected at iteration 4266
+2026-03-01 19:07:44,661 - __main__ - [WARNING] - System memory pressure detected at iteration 4267
+2026-03-01 19:07:44,970 - __main__ - [WARNING] - System memory pressure detected at iteration 4268
+2026-03-01 19:07:45,248 - __main__ - [WARNING] - System memory pressure detected at iteration 4269
+2026-03-01 19:07:45,520 - __main__ - [WARNING] - System memory pressure detected at iteration 4270
+2026-03-01 19:07:45,793 - __main__ - [WARNING] - System memory pressure detected at iteration 4271
+2026-03-01 19:07:46,065 - __main__ - [WARNING] - System memory pressure detected at iteration 4272
+2026-03-01 19:07:46,376 - __main__ - [WARNING] - System memory pressure detected at iteration 4273
+2026-03-01 19:07:46,648 - __main__ - [WARNING] - System memory pressure detected at iteration 4274
+2026-03-01 19:07:46,971 - __main__ - [WARNING] - System memory pressure detected at iteration 4275
+2026-03-01 19:07:47,286 - __main__ - [WARNING] - System memory pressure detected at iteration 4276
+2026-03-01 19:07:47,561 - __main__ - [WARNING] - System memory pressure detected at iteration 4277
+2026-03-01 19:07:47,877 - __main__ - [WARNING] - System memory pressure detected at iteration 4278
+2026-03-01 19:07:48,172 - __main__ - [WARNING] - System memory pressure detected at iteration 4279
+2026-03-01 19:07:48,501 - __main__ - [WARNING] - System memory pressure detected at iteration 4280
+2026-03-01 19:07:48,780 - __main__ - [WARNING] - System memory pressure detected at iteration 4281
+2026-03-01 19:07:49,057 - __main__ - [WARNING] - System memory pressure detected at iteration 4282
+2026-03-01 19:07:49,335 - __main__ - [WARNING] - System memory pressure detected at iteration 4283
+2026-03-01 19:07:49,614 - __main__ - [WARNING] - System memory pressure detected at iteration 4284
+2026-03-01 19:07:49,892 - __main__ - [WARNING] - System memory pressure detected at iteration 4285
+2026-03-01 19:07:50,218 - __main__ - [WARNING] - System memory pressure detected at iteration 4286
+2026-03-01 19:07:50,523 - __main__ - [WARNING] - System memory pressure detected at iteration 4287
+2026-03-01 19:07:50,850 - __main__ - [WARNING] - System memory pressure detected at iteration 4288
+2026-03-01 19:07:51,132 - __main__ - [WARNING] - System memory pressure detected at iteration 4289
+2026-03-01 19:07:51,424 - __main__ - [WARNING] - System memory pressure detected at iteration 4290
+2026-03-01 19:07:51,712 - __main__ - [WARNING] - System memory pressure detected at iteration 4291
+2026-03-01 19:07:51,996 - __main__ - [WARNING] - System memory pressure detected at iteration 4292
+2026-03-01 19:07:52,331 - __main__ - [WARNING] - System memory pressure detected at iteration 4293
+2026-03-01 19:07:52,610 - __main__ - [WARNING] - System memory pressure detected at iteration 4294
+2026-03-01 19:07:52,926 - __main__ - [WARNING] - System memory pressure detected at iteration 4295
+2026-03-01 19:07:53,302 - __main__ - [WARNING] - System memory pressure detected at iteration 4296
+2026-03-01 19:07:53,623 - __main__ - [WARNING] - System memory pressure detected at iteration 4297
+2026-03-01 19:07:54,004 - __main__ - [WARNING] - System memory pressure detected at iteration 4298
+2026-03-01 19:07:54,294 - __main__ - [WARNING] - System memory pressure detected at iteration 4299
+2026-03-01 19:07:54,571 - __main__ - [INFO] - Iteration   4300: Compression 140.55ms | RAM   52.9MB (peak   53.1MB) | Elapsed   20.9min
+2026-03-01 19:07:54,572 - __main__ - [WARNING] - System memory pressure detected at iteration 4300
+2026-03-01 19:07:54,844 - __main__ - [WARNING] - System memory pressure detected at iteration 4301
+2026-03-01 19:07:55,119 - __main__ - [WARNING] - System memory pressure detected at iteration 4302
+2026-03-01 19:07:55,664 - __main__ - [WARNING] - System memory pressure detected at iteration 4303
+2026-03-01 19:07:56,175 - __main__ - [WARNING] - System memory pressure detected at iteration 4304
+2026-03-01 19:07:56,552 - __main__ - [WARNING] - System memory pressure detected at iteration 4305
+2026-03-01 19:07:56,838 - __main__ - [WARNING] - System memory pressure detected at iteration 4306
+2026-03-01 19:07:57,119 - __main__ - [WARNING] - System memory pressure detected at iteration 4307
+2026-03-01 19:07:57,455 - __main__ - [WARNING] - System memory pressure detected at iteration 4308
+2026-03-01 19:07:57,746 - __main__ - [WARNING] - System memory pressure detected at iteration 4309
+2026-03-01 19:07:58,078 - __main__ - [WARNING] - System memory pressure detected at iteration 4310
+2026-03-01 19:07:58,367 - __main__ - [WARNING] - System memory pressure detected at iteration 4311
+2026-03-01 19:08:24,516 - __main__ - [INFO] - Iteration   4400: Compression 140.60ms | RAM   53.0MB (peak   53.2MB) | Elapsed   21.4min
+2026-03-01 19:08:53,446 - __main__ - [INFO] - Iteration   4500: Compression 132.88ms | RAM   53.1MB (peak   53.2MB) | Elapsed   21.9min
+2026-03-01 19:09:22,550 - __main__ - [INFO] - Iteration   4600: Compression 134.22ms | RAM   53.2MB (peak   53.3MB) | Elapsed   22.4min
+2026-03-01 19:09:51,418 - __main__ - [INFO] - Iteration   4700: Compression 132.89ms | RAM   53.2MB (peak   53.3MB) | Elapsed   22.8min
+2026-03-01 19:10:20,353 - __main__ - [INFO] - Iteration   4800: Compression 132.85ms | RAM   53.3MB (peak   53.4MB) | Elapsed   23.3min
+2026-03-01 19:10:49,299 - __main__ - [INFO] - Iteration   4900: Compression 133.48ms | RAM   53.4MB (peak   53.5MB) | Elapsed   23.8min
+2026-03-01 19:11:18,735 - __main__ - [INFO] - Iteration   5000: Compression 137.76ms | RAM   53.4MB (peak   53.5MB) | Elapsed   24.3min
+2026-03-01 19:11:47,432 - __main__ - [INFO] - Iteration   5100: Compression 131.54ms | RAM   53.5MB (peak   53.6MB) | Elapsed   24.8min
+2026-03-01 19:12:16,660 - __main__ - [INFO] - Iteration   5200: Compression 134.21ms | RAM   53.5MB (peak   53.7MB) | Elapsed   25.3min
+2026-03-01 19:12:46,206 - __main__ - [INFO] - Iteration   5300: Compression 138.19ms | RAM   53.6MB (peak   53.7MB) | Elapsed   25.8min
+2026-03-01 19:13:14,948 - __main__ - [INFO] - Iteration   5400: Compression 131.51ms | RAM   53.7MB (peak   53.8MB) | Elapsed   26.2min
+2026-03-01 19:13:43,865 - __main__ - [INFO] - Iteration   5500: Compression 131.91ms | RAM   53.7MB (peak   53.9MB) | Elapsed   26.7min
+2026-03-01 19:14:12,722 - __main__ - [INFO] - Iteration   5600: Compression 132.83ms | RAM   53.8MB (peak   53.9MB) | Elapsed   27.2min
+2026-03-01 19:14:41,618 - __main__ - [INFO] - Iteration   5700: Compression 131.63ms | RAM   53.9MB (peak   54.0MB) | Elapsed   27.7min
+2026-03-01 19:15:10,549 - __main__ - [INFO] - Iteration   5800: Compression 133.02ms | RAM   53.9MB (peak   54.1MB) | Elapsed   28.2min
+2026-03-01 19:15:39,686 - __main__ - [INFO] - Iteration   5900: Compression 133.63ms | RAM   54.0MB (peak   54.2MB) | Elapsed   28.6min
+2026-03-01 19:16:09,442 - __main__ - [INFO] - Iteration   6000: Compression 139.16ms | RAM   54.1MB (peak   54.2MB) | Elapsed   29.1min
+2026-03-01 19:16:19,377 - __main__ - [WARNING] - System memory pressure detected at iteration 6034
+2026-03-01 19:16:29,799 - __main__ - [WARNING] - System memory pressure detected at iteration 6070
+2026-03-01 19:16:38,363 - __main__ - [INFO] - Iteration   6100: Compression 133.14ms | RAM   54.2MB (peak   54.3MB) | Elapsed   29.6min
+2026-03-01 19:17:01,051 - __main__ - [INFO] - Reached time limit at iteration 6178
+2026-03-01 19:17:01,353 - __main__ - [INFO] - CSV export completed: stress_test_results/stress_test_report.csv
+2026-03-01 19:17:01,353 - __main__ - [INFO] - Total rows: 6177
+2026-03-01 19:17:01,388 - __main__ - [INFO] - Summary exported: stress_test_results/stress_test_summary.txt
+2026-03-01 19:17:01,389 - __main__ - [INFO] - 
+Starting parallel thread safety test...
+2026-03-01 19:17:01,390 - __main__ - [INFO] - Starting thread safety test with 4 threads
+2026-03-01 19:17:01,390 - __main__ - [INFO] - Thread 0 starting
+2026-03-01 19:17:01,398 - __main__ - [INFO] - Thread 1 starting
+2026-03-01 19:17:01,400 - __main__ - [INFO] - Thread 2 starting
+2026-03-01 19:17:01,405 - __main__ - [INFO] - Thread 3 starting
