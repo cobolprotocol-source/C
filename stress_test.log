@@ -501,3 +501,10 @@ Starting parallel thread safety test...
 2026-03-01 19:17:01,398 - __main__ - [INFO] - Thread 1 starting
 2026-03-01 19:17:01,400 - __main__ - [INFO] - Thread 2 starting
 2026-03-01 19:17:01,405 - __main__ - [INFO] - Thread 3 starting
+2026-03-01 19:38:00,981 - __main__ - [INFO] - Thread 1 completed: 2500 success, 0 errors
+2026-03-01 19:38:01,818 - __main__ - [INFO] - Thread 0 completed: 2500 success, 0 errors
+2026-03-01 19:38:02,200 - __main__ - [INFO] - Thread 2 completed: 2500 success, 0 errors
+2026-03-01 19:38:02,963 - __main__ - [INFO] - Thread 3 completed: 2500 success, 0 errors
+2026-03-01 19:38:02,969 - __main__ - [INFO] - Parallel test results: 100.0% success
+2026-03-01 19:38:02,969 - __main__ - [INFO] - 
+✓ Stress test completed
