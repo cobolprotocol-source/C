@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Nafal Faturizki
+# All rights reserved.
+#
+# This file is part of the COBOL Protocol project.
+# Unauthorized copying, modification, or redistribution
+# is prohibited except as explicitly permitted by the
+# accompanying LICENSE.md.
+#
+# See LICENSE.md for complete license terms.
+
 """
 COBOL Protocol v1.5.3 - Security Audit & Privacy Compliance Validator
 SOC2 / ISO 27001 Standard Compliance
@@ -10,7 +20,7 @@ Comprehensive security audit covering:
 4. Known Plaintext Attacks: L2 XOR masking pattern analysis
 5. Cryptographic Standards: 2026 compliance
 
-Author: Security Auditor (Cyber Security Auditor role)
+Author: Nafal Faturizki
 Date: March 1, 2026
 Standards: SOC2 Type II, ISO 27001, NIST SP 800-38D
 """

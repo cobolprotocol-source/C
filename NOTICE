@@ -1,0 +1,130 @@
+# NOTICE
+
+This file documents the copyright and ownership claims for the COBOL Protocol project.
+
+---
+
+## Copyright and Ownership
+
+**Copyright © 2026 Nafal Faturizki**
+
+All rights reserved.
+
+---
+
+## Project Information
+
+- **Project Name**: COBOL Protocol
+- **Version**: 1.5.3
+- **Copyright Owner**: Nafal Faturizki
+- **First Publication**: March 1, 2026
+- **Repository**: https://github.com/ecobolprotokol/dev.c
+
+---
+
+## License
+
+This project is licensed under the **COBOL Protocol License**. See [LICENSE.md](LICENSE.md) for complete terms.
+
+---
+
+## Key Points
+
+1. **Ownership**: This project is owned exclusively by Nafal Faturizki.
+
+2. **Copyright Protection**: All source code, binaries, specifications, and documentation are protected by copyright law.
+
+3. **Attribution Required**: Use of this project requires preserving copyright notices and acknowledging the copyright owner.
+
+4. **No Removal**: Removal of copyright notices is prohibited and constitutes violation of the license.
+
+5. **License Terms**: All use is governed by [LICENSE.md](LICENSE.md). Users must accept these terms.
+
+6. **Commercial Use**: Permitted under LICENSE.md terms. Contact copyright owner for custom licensing.
+
+---
+
+## How to Properly Use This Project
+
+### If You Use COBOL Protocol
+
+- Include [LICENSE.md](LICENSE.md) with your distribution
+- Preserve all copyright headers in source files
+- Provide clear attribution to Nafal Faturizki
+- Acknowledge the COBOL Protocol in documentation
+- Follow the terms in LICENSE.md
+
+### If You Modify COBOL Protocol
+
+- Keep all original copyright headers intact
+- Clearly mark your modifications
+- Do not claim ownership of the original work
+- Maintain license compliance
+- Preserve version control history if applicable
+
+### If You Distribute COBOL Protocol
+
+- Include LICENSE.md with your package
+- Do not remove or obscure copyright notices
+- Clearly state that you are distributing someone else's work
+- Provide proper attribution
+- Inform users of the license terms
+
+---
+
+## Copyright Notice Format
+
+The following copyright notice appears in protected files:
+
+```
+Copyright (c) 2026 Nafal Faturizki
+All rights reserved.
+
+This file is part of the COBOL Protocol project.
+Unauthorized copying, modification, or redistribution
+is prohibited except as explicitly permitted by the
+accompanying LICENSE.md.
+```
+
+---
+
+## Additional Documentation
+
+- **[LICENSE.md](LICENSE.md)** - Master license document
+- **[ATTRIBUTION.md](ATTRIBUTION.md)** - How to give attribution
+- **[COMPLIANCE_STATEMENT.md](COMPLIANCE_STATEMENT.md)** - Legal declaration
+- **[COPYRIGHT_REGISTRY.md](COPYRIGHT_REGISTRY.md)** - Registry of protected files
+- **[COPYRIGHT_PROTECTION_STATUS.md](COPYRIGHT_PROTECTION_STATUS.md)** - Status summary
+
+---
+
+## Questions
+
+### Can I use COBOL Protocol?
+Yes, provided you follow the terms in LICENSE.md.
+
+### Can I modify it?
+Yes, for internal use. Keep copyright headers intact and don't claim ownership.
+
+### Can I distribute it?
+Yes, provided you include LICENSE.md and preserve copyright notices.
+
+### Can I claim ownership?
+No. Ownership belongs exclusively to Nafal Faturizki.
+
+### Can I remove copyright notices?
+No. Removal is prohibited and constitutes breach of license.
+
+---
+
+## Contact
+
+For questions about licensing, attribution, or use of COBOL Protocol:
+
+**Contact**: Nafal Faturizki
+
+---
+
+**COBOL Protocol**  
+**Copyright © 2026 Nafal Faturizki**  
+**All rights reserved.**

@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Nafal Faturizki
+# All rights reserved.
+#
+# This file is part of the COBOL Protocol project.
+# Unauthorized copying, modification, or redistribution
+# is prohibited except as explicitly permitted by the
+# accompanying LICENSE.md.
+#
+# See LICENSE.md for complete license terms.
+
 """
 COBOL Protocol v1.5.1 - Streaming Compression & Selective Retrieval Simulator
 
