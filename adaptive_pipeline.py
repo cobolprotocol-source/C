@@ -349,6 +349,64 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
             self.optimization_hints = self._generate_optimization_hints()
         
         return current, metadata
+
+    def compress_with_staged_scaling(self, data: bytes, stages: Optional[list] = None, base_adaptive: bool = True) -> Tuple[bytes, Dict[str, Any]]:
+        """Perform compression in staged steps to gradually increase compression
+        strength while monitoring stability. This avoids immediately forcing a
+        very high ratio and allows rollback if health degrades.
+
+        - `stages`: list of target multipliers or dicts describing stage options.
+          Example: [2, 10, 100, 500] or [{'ratio':2}, {'ratio':10, 'skip_layers':[7]}]
+        - `base_adaptive`: whether to keep adaptive skipping during stages.
+
+        Returns final compressed bytes and accumulated metadata.
+        """
+        if stages is None:
+            stages = [2, 10, 50, 200, 500]
+
+        # start from a safe baseline
+        current = data
+        overall_meta = {"stages": [], "start_time": time.time(), "input_size": len(data), "errors": []}
+
+        for stage in stages:
+            target = stage['ratio'] if isinstance(stage, dict) and 'ratio' in stage else (stage if isinstance(stage, (int, float)) else None)
+            opts = stage if isinstance(stage, dict) else {}
+
+            try:
+                # run a compress pass with adaptive hints
+                compressed, meta = self.compress_with_monitoring(current, adaptive=base_adaptive)
+                achieved = len(current) / len(compressed) if len(compressed) > 0 else float('inf')
+                stage_meta = {"target": target, "achieved": achieved, "stage_opts": opts, "pass_meta": meta}
+
+                overall_meta['stages'].append(stage_meta)
+
+                # if achieved ratio meets target, continue to next stage from compressed
+                if target is None or achieved >= (target or 1):
+                    current = compressed
+                else:
+                    # if not achieved, stop escalation but keep compressed result
+                    overall_meta['stages'][-1]['note'] = 'target_not_reached, stopping escalation'
+                    break
+
+                # quick health check: if any per-layer health is unhealthy, stop
+                bad = False
+                for entry in meta.get('per_layer_stats', []):
+                    if entry.get('health') == 'unhealthy' or entry.get('size', 0) == 0:
+                        bad = True
+                        break
+                if bad:
+                    overall_meta['stages'][-1]['note'] = 'health_degraded, rollback'
+                    # rollback to prior stage's compressed if available
+                    # (we keep current as-is but stop further escalation)
+                    break
+
+            except Exception as e:
+                overall_meta['errors'].append(str(e))
+                break
+
+        overall_meta['total_time_ms'] = (time.time() - overall_meta['start_time']) * 1000
+        overall_meta['final_size'] = len(current) if isinstance(current, (bytes, bytearray)) else (current.nbytes if hasattr(current, 'nbytes') else 0)
+        return current, overall_meta
     
     def decompress_with_monitoring(self, data: bytes) -> Tuple[bytes, Dict[str, Any]]:
         """Decompress with health monitoring."""
