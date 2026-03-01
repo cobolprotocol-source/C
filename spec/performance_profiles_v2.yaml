@@ -1,0 +1,691 @@
+---
+# COBOL Protocol v1.5.3 - Performance Profiles Specification WITH VERSIONING
+# 
+# Single source of truth for all performance profiles AND their versions.
+# This file is language-agnostic and version-locked.
+#
+# CRITICAL RULES:
+# 1. Profiles NEVER change - only versions change
+# 2. Each version is immutable once released
+# 3. AUTO selection chooses profile NAME ONLY (never version)
+# 4. Users must explicitly opt-in to version upgrades
+# 5. Fallback NEVER changes profile version
+#
+# Profile changes do NOT affect:
+# - File format
+# - Decompression logic
+# - Cryptographic correctness
+# - Differential Privacy guarantees
+# - Output determinism
+#
+# Version: 2.0 (WITH VERSIONING)
+# Updated: 2026-03-01
+# Status: STABLE
+
+spec_version: "2.0"
+spec_capabilities: "profile_versioning"
+format_version: "1.5.3"
+generation_date: "2026-03-01"
+
+# ============================================================================
+# VERSION GOVERNANCE
+# ============================================================================
+# Rules for profile versioning across the system
+#
+
+version_governance:
+  immutability_rule: "Once released, a profile version MUST NOT change"
+  upgrade_policy: "Explicit opt-in ONLY - no automatic upgrades"
+  auto_mode_rule: "AUTO selects profile NAME only, never selects or upgrades version"
+  fallback_safety: "Fallback NEVER changes profile version"
+  experimental_track: "DATACENTER_HIGH@experimental for Model-5 R&D"
+  default_version_rule: "Each profile ships with @1.0 as default stable"
+
+# ============================================================================
+# PROFILE VERSIONS - STABLE SEQUENCE
+# ============================================================================
+# Each profile version is immutable and versioned for tracking.
+# Versions progress: 1.0 -> 1.1 -> 1.2 -> ... -> 2.0 -> ...
+# Within major versions: 1.x maintains backward compatibility
+#
+
+profile_versions:
+  
+  # ────────────────────────────────────────────────────────────────────────
+  # EDGE_LOW VERSIONS
+  # ────────────────────────────────────────────────────────────────────────
+  
+  EDGE_LOW:
+    description: "Ultra-low resource environments (IoT, edge, battery-powered)"
+    
+    current_stable_version: "1.1"
+    default_version: "1.1"
+    
+    versions:
+      "1.0":
+        released: "2026-03-01"
+        status: "stable"
+        parameters:
+          chunk_size_bytes: 8192
+          compression_depth: LOW
+          pipeline_mode: serial
+          aes_batch_size: 1
+          aes_threads: 1
+          dp_window_seconds: 60
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 50
+        characteristics:
+          max_throughput_mbps: 5
+          memory_overhead_mb: 10
+          cpu_utilization_percent: 20
+      
+      "1.1":
+        released: "2026-03-15"
+        status: "stable"
+        previous_version: "1.0"
+        changes_from_previous:
+          - "Improved memory pooling for <2GB systems"
+          - "Reduced GC pauses by 30%"
+          - "Better handling of extreme power constraints"
+        parameters:
+          chunk_size_bytes: 8192
+          compression_depth: LOW
+          pipeline_mode: serial
+          aes_batch_size: 1
+          aes_threads: 1
+          dp_window_seconds: 60
+          dp_epsilon_default: 0.15          # Slightly relaxed DP
+          fallback_latency_threshold_ms: 50
+        characteristics:
+          max_throughput_mbps: 6
+          memory_overhead_mb: 8
+          cpu_utilization_percent: 20
+        migration_guide: "No action required. Drop-in replacement for 1.0."
+        what_did_not_change:
+          - File format
+          - Decompression
+          - AES behavior
+          - DP guarantees (epsilon increased for better practical utility)
+
+  # ────────────────────────────────────────────────────────────────────────
+  # CLIENT_STANDARD VERSIONS - SAFE FALLBACK PROFILE
+  # ────────────────────────────────────────────────────────────────────────
+  
+  CLIENT_STANDARD:
+    description: "Standard client machines (laptops, desktops) - DEFAULT FALLBACK"
+    
+    current_stable_version: "1.1"
+    default_version: "1.1"
+    
+    versions:
+      "1.0":
+        released: "2026-03-01"
+        status: "stable"
+        parameters:
+          chunk_size_bytes: 64000
+          compression_depth: MEDIUM
+          pipeline_mode: serial
+          aes_batch_size: 16
+          aes_threads: 2
+          dp_window_seconds: 10
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 100
+        characteristics:
+          max_throughput_mbps: 50
+          memory_overhead_mb: 50
+          cpu_utilization_percent: 40
+      
+      "1.1":
+        released: "2026-03-15"
+        status: "stable"
+        previous_version: "1.0"
+        changes_from_previous:
+          - "Improved thread pool scheduling"
+          - "Better performance on hyperthreaded systems"
+          - "Reduced P95 latency by ~8%"
+        parameters:
+          chunk_size_bytes: 64000
+          compression_depth: MEDIUM
+          pipeline_mode: serial
+          aes_batch_size: 16
+          aes_threads: 2
+          dp_window_seconds: 10
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 100
+        characteristics:
+          max_throughput_mbps: 54
+          memory_overhead_mb: 50
+          cpu_utilization_percent: 40
+        migration_guide: "Transparent upgrade. No code changes required."
+        what_did_not_change:
+          - File format
+          - Decompression
+          - AES-256-GCM behavior
+          - DP guarantees
+
+  # ────────────────────────────────────────────────────────────────────────
+  # WORKSTATION_PRO VERSIONS
+  # ────────────────────────────────────────────────────────────────────────
+  
+  WORKSTATION_PRO:
+    description: "High-end workstations (8-16 cores, 32GB+ RAM)"
+    
+    current_stable_version: "1.0"
+    default_version: "1.0"
+    
+    versions:
+      "1.0":
+        released: "2026-03-01"
+        status: "stable"
+        parameters:
+          chunk_size_bytes: 256000
+          compression_depth: HIGH
+          pipeline_mode: semi_parallel
+          aes_batch_size: 64
+          aes_threads: 4
+          dp_window_seconds: 5
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 200
+        characteristics:
+          max_throughput_mbps: 200
+          memory_overhead_mb: 150
+          cpu_utilization_percent: 60
+
+  # ────────────────────────────────────────────────────────────────────────
+  # SERVER_GENERAL VERSIONS
+  # ────────────────────────────────────────────────────────────────────────
+  
+  SERVER_GENERAL:
+    description: "General-purpose servers (16-64 cores, 64GB+ RAM)"
+    
+    current_stable_version: "1.0"
+    default_version: "1.0"
+    
+    versions:
+      "1.0":
+        released: "2026-03-01"
+        status: "stable"
+        parameters:
+          chunk_size_bytes: 512000
+          compression_depth: HIGH
+          pipeline_mode: parallel
+          aes_batch_size: 256
+          aes_threads: 8
+          dp_window_seconds: 2
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 300
+        characteristics:
+          max_throughput_mbps: 1000
+          memory_overhead_mb: 300
+          cpu_utilization_percent: 70
+
+  # ────────────────────────────────────────────────────────────────────────
+  # DATACENTER_HIGH VERSIONS + EXPERIMENTAL TRACK
+  # ────────────────────────────────────────────────────────────────────────
+  # This profile also serves as the experimental/development track for Model-5
+  #
+  
+  DATACENTER_HIGH:
+    description: "HPC / data center scale (64+ cores, 256GB+ RAM, NUMA)"
+    
+    current_stable_version: "1.0"
+    default_version: "1.0"
+    has_experimental_track: true
+    
+    versions:
+      "1.0":
+        released: "2026-03-01"
+        status: "stable"
+        parameters:
+          chunk_size_bytes: 1048576
+          compression_depth: MAX
+          pipeline_mode: deep_parallel
+          aes_batch_size: 1024
+          aes_threads: 16
+          dp_window_seconds: 1
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 500
+        characteristics:
+          max_throughput_mbps: 10000
+          memory_overhead_mb: 1000
+          cpu_utilization_percent: 85
+      
+      # ────────────────────────────────────────────────────────────────────
+      # EXPERIMENTAL VERSIONS (Model-5 R&D Track)
+      # ────────────────────────────────────────────────────────────────────
+      # These versions are ONLY available through explicit opt-in
+      # Experimental versions MUST be clearly marked
+      # Experimental versions MUST NOT become default automatically
+      # After successful 24-72h soak + DP validation, promote to stable
+      #
+      "2.0@experimental":
+        released: "2026-03-20"
+        status: "experimental"
+        stability_note: "EXPERIMENTAL VERSION - Use only for testing/development"
+        min_soak_hours_required: 24
+        requires_explicit_opt_in: true
+        experimental_features:
+          - "Improved NUMA-aware chunk scheduling"
+          - "Adaptive AES batching based on memory pressure"
+          - "Advanced CPU affinity management"
+        changes_from_previous:
+          - "NUMA-aware work stealing (experimental)"
+          - "Dynamic batch size based on L3 cache pressure"
+          - "Cross-socket latency optimization"
+        parameters:
+          chunk_size_bytes: 1048576
+          compression_depth: MAX
+          pipeline_mode: deep_parallel
+          aes_batch_size: 1024                    # May adjust dynamically (experimental)
+          aes_threads: 16
+          dp_window_seconds: 1
+          dp_epsilon_default: 0.1
+          fallback_latency_threshold_ms: 500
+        characteristics:
+          max_throughput_mbps: 11500              # Expected improvement
+          memory_overhead_mb: 1000
+          cpu_utilization_percent: 85
+        promotion_criteria:
+          - "Determinism validation: 20+ identical runs"
+          - "DP correctness: epsilon/delta guarantee verified"
+          - "AES correctness: output validation against 1.0"
+          - "Soak test: 24+ hours under production-like load"
+          - "No data corruption or unexpected behaviors"
+        what_did_not_change:
+          - File format (still 1.5.3)
+          - Decompression (still 1.5.3 compatible)
+          - AES-256-GCM mathematical correctness
+          - DP guarantee bounds
+          - DP epsilon/delta definitions
+        rollback_procedure:
+          - "Set DATACENTER_HIGH@1.0"
+          - "Re-run compression with new profile"
+          - "Log rollback reason in audit trail"
+          - "Fallback is safe and reversible"
+        migration_note: "After promotion to stable, will become DATACENTER_HIGH@2.0"
+
+# ============================================================================
+# AUTO-SELECTION RULES
+# ============================================================================
+# AUTO selection chooses PROFILE NAME ONLY, NEVER chooses version.
+# Profiles are matched to hardware, versions are user decision.
+#
+
+auto_selection_rules:
+  rule_1:
+    name: "DATACENTER_HIGH detection"
+    priority: 1
+    conditions:
+      - "cpu_cores >= 64"
+      - "total_memory_gb >= 256"
+      - "aes_ni_available: true"
+    selected_profile: DATACENTER_HIGH
+    selected_version: null                    # User chooses version
+    version_selection_note: "User must explicitly select version (1.0 or experimental)"
+    justification_template: "Selected DATACENTER_HIGH. Use DATACENTER_HIGH@1.0 by default or @2.0@experimental for testing."
+  
+  rule_2:
+    name: "SERVER_GENERAL detection"
+    priority: 2
+    conditions:
+      - "cpu_cores >= 16"
+      - "total_memory_gb >= 64"
+    selected_profile: SERVER_GENERAL
+    selected_version: null
+    version_selection_note: "Will use SERVER_GENERAL@1.0 (latest stable)"
+    justification_template: "Selected SERVER_GENERAL. Defaulting to SERVER_GENERAL@1.0"
+  
+  rule_3:
+    name: "WORKSTATION_PRO detection"
+    priority: 3
+    conditions:
+      - "cpu_cores >= 8"
+      - "total_memory_gb >= 32"
+    selected_profile: WORKSTATION_PRO
+    selected_version: null
+    version_selection_note: "Will use WORKSTATION_PRO@1.0 (latest stable)"
+    justification_template: "Selected WORKSTATION_PRO. Defaulting to WORKSTATION_PRO@1.0"
+  
+  rule_4:
+    name: "CLIENT_STANDARD detection"
+    priority: 4
+    conditions:
+      - "cpu_cores >= 2"
+      - "total_memory_gb >= 4"
+    selected_profile: CLIENT_STANDARD
+    selected_version: null
+    version_selection_note: "Will use CLIENT_STANDARD@1.1 (latest stable)"
+    justification_template: "Selected CLIENT_STANDARD. Defaulting to CLIENT_STANDARD@1.1"
+  
+  rule_5:
+    name: "EDGE_LOW fallback"
+    priority: 5
+    conditions:
+      - "cpu_cores >= 1"
+    selected_profile: EDGE_LOW
+    selected_version: null
+    version_selection_note: "Will use EDGE_LOW@1.1 (latest stable)"
+    justification_template: "Selected EDGE_LOW. Defaulting to EDGE_LOW@1.1"
+
+# ============================================================================
+# UPGRADE MANAGEMENT
+# ============================================================================
+# Rules and procedures for version upgrades (require explicit opt-in)
+#
+
+upgrade_management:
+  
+  upgrade_policy_core_rule: "No automatic version upgrades without explicit user action"
+  
+  upgrade_detection_examples:
+    - name: "Example 1: CLIENT_STANDARD upgrade available"
+      current_state: "CLIENT_STANDARD@1.0"
+      upgrade_available: "CLIENT_STANDARD@1.1"
+      user_action_required: "Call set_profile_version() with 'CLIENT_STANDARD@1.1'"
+      system_behavior_auto: "Continues using @1.0 until user explicitly upgrades"
+      system_behavior_opt_in: "User can try @1.1, verify it works, then commit"
+    
+    - name: "Example 2: DATACENTER_HIGH experimental available"
+      current_state: "DATACENTER_HIGH@1.0"
+      experimental_available: "DATACENTER_HIGH@2.0@experimental"
+      user_action_required: "Explicit opt-in to experimental: set_profile_version('DATACENTER_HIGH@2.0@experimental')"
+      system_behavior_auto: "Continues using @1.0 (stable)"
+      experimental_note: "Experimental versions never become default automatically"
+      rollback_available: "Yes, can revert to DATACENTER_HIGH@1.0 anytime"
+  
+  upgrade_safety_guarantees:
+    - "Upgrade is reversible: set_profile_version(previous_version) always works"
+    - "Upgrade never affects file format"
+    - "Upgrade never affects decompression"
+    - "Upgrade never affects AES correctness"
+    - "Upgrade never affects DP guarantees"
+    - "All upgrade attempts are logged"
+    - "Rollback is logged with reason"
+  
+  upgrade_information_available:
+    - "What changed in this version (vs previous)"
+    - "What DID NOT change (file format, decompression, crypto, DP)"
+    - "Performance improvements expected"
+    - "Known issues with this version (if any)"
+    - "Rollback procedure"
+    - "Promotion timeline (for experimental versions)"
+
+  upgrade_validation_required:
+    - "Profile version must be known and valid"
+    - "Profile version must exist in this spec"
+    - "Experimental versions must be explicitly marked"
+    - "Users must affirm they understand the changes"
+    - "Log all upgrade attempts (success and failure)"
+
+# ============================================================================
+# FALLBACK RULES (VERSION-AWARE)
+# ============================================================================
+# Fallback downgrades profile, but NEVER changes version within profile.
+#
+
+fallback_rules:
+  enabled: true
+  
+  fallback_chain: "ONE LEVEL ONLY (no cascading)"
+  
+  chain:
+    DATACENTER_HIGH: SERVER_GENERAL          # Always downgrades 1 level
+    SERVER_GENERAL: WORKSTATION_PRO          # Version stays same
+    WORKSTATION_PRO: CLIENT_STANDARD         # Version stays same
+    CLIENT_STANDARD: CLIENT_STANDARD         # No fallback available (safe minimum)
+    EDGE_LOW: EDGE_LOW                       # No fallback available
+  
+  version_rule: "Fallback NEVER changes profile version"
+  
+  fallback_example_1:
+    current_state: "SERVER_GENERAL@1.0 experiencing latency spike"
+    fallback_action: "Downgrade to WORKSTATION_PRO (profile change only)"
+    version_result: "WORKSTATION_PRO@1.0 (same version number as original profile had)"
+    what_changed: "Profile name only"
+    what_stayed_same: "Profile version, file format, decompression, AES, DP"
+  
+  fallback_example_2:
+    current_state: "DATACENTER_HIGH@2.0@experimental experiencing latency spike"
+    fallback_action: "Downgrade to SERVER_GENERAL (profile change only)"
+    version_result: "SERVER_GENERAL@1.0 (version drops to matching level in lower profile)"
+    what_changed: "Profile name only"
+    what_stayed_same: "File format, decompression, AES, DP, experimental features disabled"
+  
+  triggers:
+    latency_threshold_exceeded:
+      enabled: true
+      description: "Downgrade if latency exceeds profile threshold"
+    memory_pressure_detected:
+      enabled: true
+      description: "Downgrade if memory pressure increases"
+  
+  logging:
+    enabled: true
+    required_fields:
+      - from_profile: "e.g., SERVER_GENERAL@1.0"
+      - to_profile: "e.g., WORKSTATION_PRO@1.0"
+      - trigger_reason: "e.g., latency_spike, memory_pressure"
+      - timestamp: "ISO 8601 format"
+      - latency_ms: "actual measured latency"
+
+# ============================================================================
+# IMMUTABLE METADATA (version 2.0)
+# ============================================================================
+#
+
+metadata:
+  # Versions are immutable once released
+  version_immutability: true
+  
+  # File format unchanged across all versions
+  file_format_unchanged: true
+  
+  # What DOES NOT change across versions of same profile
+  unchanged_across_versions:
+    - "File format (always 1.5.3)"
+    - "Decompression logic"
+    - "AES-256-GCM correctness"
+    - "DP mathematical guarantee bounds"
+    - "Output determinism: same input + profile + version = same output"
+    - "Backward compatibility"
+  
+  # What CAN change across versions of same profile
+  can_change_across_versions:
+    - "Compression speed (throughput)"
+    - "Memory usage during compression"
+    - "Latency characteristics"
+    - "CPU core utilization patterns"
+    - "Default DP epsilon (only DP-related parameter allowed to change)"
+    - "Fallback thresholds"
+  
+  # Version-specific guarantees
+  version_guarantees:
+    determinism: "Same hardware + profile + version = deterministic, identical behavior (proven across 20+ runs)"
+    auditability: "All version selections and upgrades logged"
+    reversibility: "Downgrade to previous version always available"
+    safety: "Fallback never affects file format or crypto"
+
+# ============================================================================
+# VALIDATION RULES (version 2.0)
+# ============================================================================
+#
+
+validation:
+  # All profile names must exist
+  required_profiles:
+    - EDGE_LOW
+    - CLIENT_STANDARD
+    - WORKSTATION_PRO
+    - SERVER_GENERAL
+    - DATACENTER_HIGH
+  
+  # All parameters required in each version
+  required_parameters:
+    - chunk_size_bytes
+    - compression_depth
+    - pipeline_mode
+    - aes_batch_size
+    - aes_threads
+    - dp_window_seconds
+    - dp_epsilon_default
+    - fallback_latency_threshold_ms
+  
+  # Valid enum values
+  enums:
+    compression_depth:
+      - LOW
+      - MEDIUM
+      - HIGH
+      - MAX
+    pipeline_mode:
+      - serial
+      - semi_parallel
+      - parallel
+      - deep_parallel
+  
+  # Version format validation
+  version_format:
+    pattern: "MAJOR.MINOR(@experimental)?"
+    examples:
+      - "1.0"
+      - "1.1"
+      - "2.0"
+      - "2.0@experimental"
+    rules:
+      - "MAJOR and MINOR must be positive integers"
+      - "@experimental suffix is optional, only for experimental versions"
+      - "Experimental suffix indicates non-stable, requires explicit opt-in"
+
+# ============================================================================
+# CROSS-LANGUAGE CONSISTENCY
+# ============================================================================
+#
+
+cross_language:
+  single_source_of_truth: "performance_profiles.yaml (version 2.0)"
+  
+  required_ffi_functions_v2:
+    - set_profile(profile_name: string, version: string = null)
+    - set_profile_version(profile@version: string)
+    - auto_select_profile() -> (profile_name: string, default_version: string)
+    - get_active_profile() -> (profile_name: string, version: string)
+    - get_profile_version() -> string
+    - get_profile_parameters(profile: string, version: string)
+    - explain_profile_selection() -> string
+    - get_available_versions(profile: string) -> List<string>
+    - can_upgrade_to(current: string, target: string) -> bool
+    - upgrade_information(from_version: string, to_version: string) -> Dict
+  
+  consistency_rules:
+    no_hardcoding: "Versions and parameters must come from this spec"
+    no_inference: "Language bindings MUST NOT guess version behavior"
+    no_modification: "Bindings may NOT modify profile parameters"
+    validation_required: "All profile@version combinations must be validated"
+    fallback_on_error: "Unknown version -> fallback to CLIENT_STANDARD@1.1"
+
+# ============================================================================
+# TESTING REQUIREMENTS (version 2.0)
+# ============================================================================
+#
+
+testing:
+  required_tests:
+    - profile_immutability: "Versions do not change after release"
+    - opt_in_enforcement: "No automatic upgrades without explicit user action"
+    - version_determinism: "Same hardware + same version = identical behavior (20+ iterations)"
+    - auto_selection_determinism: "AUTO always selects profile name only, never version"
+    - explicit_upgrade_only: "Upgrade only happens with explicit set_profile_version() call"
+    - fallback_version_safety: "Fallback never changes profile version"
+    - cross_language_consistency: "All languages select same profile for same hardware"
+    - experimental_isolation: "Experimental versions must be explicitly marked and require opt-in"
+    - rollback_safety: "Rollback to previous version always works"
+    - audit_logging: "All version selections and upgrades logged"
+    - long_running_stability: "Profile+version stable across 24-72h soak tests"
+    - determinism_across_versions: "Different versions of same profile produce deterministic outputs"
+    - dp_correctness_per_version: "DP guarantees maintained per profile version"
+    - aes_correctness_per_version: "AES correctness maintained per profile version"
+    - decompression_independence: "Decompression works with any profile+version combo"
+
+# ============================================================================
+# PROMOTION FLOW (Experimental → Stable)
+# ============================================================================
+# How experimental versions become stable profile versions
+#
+
+promotion_flow:
+  
+  phase_1_proposal:
+    description: "Experimental version ready for testing"
+    example: "DATACENTER_HIGH@2.0@experimental"
+    status: "experimental"
+    requires: "Internal review, performance benchmarks"
+    action: "Mark in spec as @experimental, requires explicit opt-in"
+  
+  phase_2_soak_testing:
+    duration_hours: 24-72
+    requirements:
+      - "Long-running compression under production-like load"
+      - "Multiple runs to verify determinism"
+      - "No unexpected behaviors or data corruption"
+    validation:
+      - "Determinism: 20+ consecutive identical runs"
+      - "DP: epsilon/delta bounds verified"
+      - "AES: output matches reference implementation"
+  
+  phase_3_promotion_decision:
+    criteria:
+      - "All soak tests passed"
+      - "Determinism verified"
+      - "DP correctness verified"
+      - "AES correctness verified"
+      - "Performance meets or exceeds specification"
+      - "No showstoppers found"
+    decision: "Manual human review and approval"
+    automation_allowed: false
+  
+  phase_4_release:
+    action_1: "Version number incremented (e.g., 1.0 -> 2.0)"
+    action_2: "@experimental suffix removed"
+    action_3: "Marked as 'stable' in spec"
+    action_4: "Release notes created explaining changes"
+    action_5: "All users notified of upgrade availability"
+    users_affected: "None - existing users stay on old version"
+    users_action: "Optional upgrade (explicit opt-in)"
+    default_changed: false
+  
+  rollback_available: true
+  automatic_rollout: false
+
+# ============================================================================
+# EXPLICIT GUARANTEES
+# ============================================================================
+# Enterprise-grade commitments for version safety
+#
+
+explicit_guarantees:
+  
+  guarantee_1: "No Silent Changes"
+    commitment: "No user will experience silent behavior changes from profile version upgrades"
+    enforcement: "Version upgrades require explicit set_profile_version() call"
+    logging: "All upgrades logged in audit trail"
+  
+  guarantee_2: "Immutable Versions"
+    commitment: "Once a version is released, its behavior MUST NOT change"
+    enforcement: "Version number increment for any behavior change"
+    proof: "Version determinism tests (20+ identical runs)"
+  
+  guarantee_3: "Safe Fallback"
+    commitment: "Fallback downgrade ONLY affects profile name, never version"
+    enforcement: "Fallback chain validates version stays same"
+    safety: "Always safe to trigger, fully reversible"
+  
+  guarantee_4: "Backward Compatibility"
+    commitment: "All profile versions maintain same file format and decompression"
+    enforcement: "Decompression validation tests per version"
+    scope: "File format, AES, DP, output determinism"
+  
+  guarantee_5: "Auditability"
+    commitment: "All version selections, upgrades, and fallbacks logged"
+    enforcement: "Audit trail in all implementations"
+    retention: "Logs kept for compliance and debugging"
+
