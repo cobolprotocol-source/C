@@ -18,6 +18,7 @@ import hashlib
 import time
 from collections import defaultdict, Counter
 import numpy as np
+import logging
 
 
 class FederationStrategy(Enum):
@@ -415,9 +416,9 @@ class DistributedDictionaryManager:
         local_dict.calculate_entropy()
         local_dict.calculate_roi()
 
-    def _apply_limits(self, patterns: Dict[bytes, PatternInfo]) -> Dict[bytes, PatternInfo]:
+    def _apply_limits(self, patterns: Dict[bytes, PatternInfo]) -> Tuple[Dict[bytes, PatternInfo], List[Tuple[bytes, float]]]:
         """Enforce entropy threshold, TTL, cost and global cap.
-        This function is called after aggregation and returns a trimmed copy.
+        Returns a tuple of (filtered_patterns, evicted_list).
 
         Timestamps are preserved from the previous global dictionary so that TTL
         is measured from first appearance rather than from each aggregation.
@@ -432,25 +433,33 @@ class DistributedDictionaryManager:
 
         # filter by entropy threshold, TTL, cost
         filtered: Dict[bytes, PatternInfo] = {}
+        evicted: List[Tuple[bytes, float]] = []
         for pat, info in patterns.items():
             if info.entropy < self.ENTROPY_THRESHOLD:
+                evicted.append((pat, self._pattern_cost(info)))
                 continue
             if now - info.timestamp > self.PATTERN_TTL:
                 # expired
+                evicted.append((pat, self._pattern_cost(info)))
                 continue
             cost = self._pattern_cost(info)
             if cost > self.COST_MAX:
+                evicted.append((pat, cost))
                 continue
             filtered[pat] = info
 
         # enforce global cap by evicting highest-cost entries
         if len(filtered) > self.GLOBAL_PATTERN_CAP:
+            # sort by cost descending and evict until under cap
             sorted_items = sorted(filtered.items(),
                                   key=lambda x: self._pattern_cost(x[1]),
                                   reverse=True)
-            limited = dict(sorted_items[:self.GLOBAL_PATTERN_CAP])
-            return limited
-        return filtered
+            allowed = dict(sorted_items[:self.GLOBAL_PATTERN_CAP])
+            removed = sorted_items[self.GLOBAL_PATTERN_CAP:]
+            for pat, info in removed:
+                evicted.append((pat, self._pattern_cost(info)))
+            return allowed, evicted
+        return filtered, evicted
 
     def federated_aggregation(self, use_privacy: bool = True) -> Dict[bytes, PatternInfo]:
         """
@@ -476,16 +485,31 @@ class DistributedDictionaryManager:
             dicts_to_aggregate,
             max_patterns=self.GLOBAL_PATTERN_CAP
         )
-        
-        # enforce documented limits and record
-        self.global_dictionary = self._apply_limits(raw)
+
+        # enforce documented limits and record evictions for telemetry
+        filtered, evicted = self._apply_limits(raw)
+        self.global_dictionary = filtered
+
+        # Log evictions and acceptance counts
+        logger = logging.getLogger(__name__)
+        if evicted:
+            logger.info('Federation eviction count=%d samples=%d', len(evicted), len(self.local_dictionaries))
+            # store a compact eviction summary
+            self.aggregation_history.append({
+                'timestamp': time.time(),
+                'event': 'eviction',
+                'evicted_count': len(evicted),
+                'strategy': self.aggregator.strategy.name
+            })
+
+        # record aggregation summary
         self.aggregation_history.append({
             'timestamp': time.time(),
             'num_nodes': len(self.local_dictionaries),
             'patterns': len(self.global_dictionary),
             'strategy': self.aggregator.strategy.name
         })
-        
+
         return self.global_dictionary
     
     def get_global_dictionary(self) -> Dict[bytes, PatternInfo]:
