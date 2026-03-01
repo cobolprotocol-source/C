@@ -51,6 +51,60 @@ Solusi streaming dan retrieval data besar, cocok untuk data lake, log, dan dokum
 | **Ecosystem Visualization** | `ECOSYSTEM_VISUALIZATION.md` | 477 | ✅ Complete |
 | **Total** | **7 files** | **3,777 lines** | ✅ **PRODUCTION READY** |
 
+---
+
+## Advanced Topics
+
+### L8 Index Tiering Architecture
+
+The index is split into three distinct layers with clearly defined responsibilities and failure boundaries:
+
+1. **L8‑1 Hot Index (RAM)**
+   - **Contents:** bloom filter holding recent block references.
+   - **Goal:** fast negative look‑ups with minimal memory.
+   - **Constraints:** fixed, bounded size; entries are evictable.
+   - **Failure behaviour:** data structure is **fully reconstructable** from L8‑2. Loss does not block reads; system falls back to slower tiers.
+
+2. **L8‑2 Warm Index (NVMe/SSD)**
+   - **Contents:** append‑only offset→block map with segment metadata.
+   - **Goal:** deterministic look‑up at low latency.
+   - **Constraints:** append‑only, crash‑safe.
+   - **Failure behaviour:** recoverable by replay of the append log; damage limited to the current segment.
+
+3. **L8‑3 Cold Index (Object Storage)**
+   - **Contents:** immutable, versioned snapshots of historical partitions.
+   - **Goal:** long‑term durability and auditability.
+   - **Constraints:** strictly immutable; every write yields a new version.
+   - **Failure behaviour:** writes may fail but **never block reads**; stale snapshots remain accessible.
+
+**Promotion / Demotion**
+- New entries enter at L8‑1.
+- When L8‑1 capacity exhausted or on periodic checkpoints, entries are flushed to L8‑2; bloom filter entries are evicted.
+- L8‑2 segments are compacted and snapshot‑published to L8‑3 on a configurable schedule or size threshold.
+- Demotion only affects hot/warm copies; cold snapshots remain unchanged.
+
+**Read Path**
+1. Query L8‑1 bloom filter.
+   - Hit: check L8‑2 for offset and read data.
+   - Miss: proceed to L8‑2 directly.
+2. If absent in L8‑2, locate the appropriate snapshot in L8‑3 and materialise into L8‑2; no write to L8‑1 unless cache policy demands.
+
+**Write Path**
+- Append metadata to L8‑2, update L8‑1 bloom filter.
+- Atomicity: write to L8‑2 is durable before bloom filter update.
+- On crash, replay log repairs L8‑2; the bloom filter may be rebuilt from L8‑2.
+
+For rigorous treatment of data contracts, federated learning limits, security boundary and benchmarking methodology see `DESIGN.md`, `SECURITY_MODEL.md` and `BENCHMARK.md` respectively.
+
+#### Federated Learning Constraints (summary)
+
+- Global pattern cap: 100 000 entries.  
+- Per‑pattern TTL: configurable N‑hour expiry.  
+- Entropy threshold δ for sharing.  
+- Cost model: `size/entropy_gain`, used for admission and eviction.  
+- Shares only hashes & stats; raw data never leaves node.  
+- System degrades to local‑only operation when federation disabled.
+
 #### Key Performance Metrics
 
 ```

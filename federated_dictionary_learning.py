@@ -339,19 +339,55 @@ class DifferentialPrivacy:
 
 
 class DistributedDictionaryManager:
-    """Manages dictionaries across distributed nodes"""
+    """Manages dictionaries across distributed nodes
+
+    Enforces hard limits documented in DESIGN.md:
+      - global pattern cap
+      - per-pattern TTL
+      - entropy contribution threshold
+      - cost-based admission/eviction
+    """
     
-    def __init__(self, aggregation_strategy: FederationStrategy = FederationStrategy.ADAPTIVE):
+    # defaults; can be overridden when instantiating
+    GLOBAL_PATTERN_CAP: int = 100_000
+    PATTERN_TTL: float = 24 * 3600           # seconds
+    ENTROPY_THRESHOLD: float = 0.0           # patterns with entropy lower are discarded
+    COST_MAX: float = 1e6                    # maximum allowed cost
+
+    def __init__(self, aggregation_strategy: FederationStrategy = FederationStrategy.ADAPTIVE,
+                 global_cap: Optional[int] = None,
+                 ttl_hours: Optional[float] = None,
+                 entropy_threshold: Optional[float] = None,
+                 cost_max: Optional[float] = None):
         self.aggregator = FederatedPatternAggregator(aggregation_strategy)
         self.local_dictionaries: Dict[str, LocalDictionary] = {}
         self.global_dictionary: Dict[bytes, PatternInfo] = {}
         self.privacy = DifferentialPrivacy(epsilon=0.1)
         self.aggregation_history = []
+
+        if global_cap is not None:
+            self.GLOBAL_PATTERN_CAP = global_cap
+        if ttl_hours is not None:
+            self.PATTERN_TTL = ttl_hours * 3600
+        if entropy_threshold is not None:
+            self.ENTROPY_THRESHOLD = entropy_threshold
+        if cost_max is not None:
+            self.COST_MAX = cost_max
     
     def register_node(self, node_id: str):
         """Register a new node"""
         self.local_dictionaries[node_id] = LocalDictionary(node_id=node_id)
     
+    def _pattern_cost(self, info: PatternInfo) -> float:
+        """Cost used for admission/eviction according to DESIGN.md: size/gain.
+        Fallback to ROI if available, otherwise entropy.
+        """
+        size = len(info.pattern) if info.pattern else 0
+        gain = info.roi if info.roi > 0 else info.entropy
+        if gain <= 0:
+            return float('inf')
+        return size / gain
+
     def update_local_dictionary(self, node_id: str, data: bytes):
         """
         Update local dictionary with observed data
@@ -378,7 +414,44 @@ class DistributedDictionaryManager:
         # Calculate metrics
         local_dict.calculate_entropy()
         local_dict.calculate_roi()
-    
+
+    def _apply_limits(self, patterns: Dict[bytes, PatternInfo]) -> Dict[bytes, PatternInfo]:
+        """Enforce entropy threshold, TTL, cost and global cap.
+        This function is called after aggregation and returns a trimmed copy.
+
+        Timestamps are preserved from the previous global dictionary so that TTL
+        is measured from first appearance rather than from each aggregation.
+        """
+        now = time.time()
+        # merge timestamps: retain old timestamps or set to now for new patterns
+        for pat, info in patterns.items():
+            if pat in self.global_dictionary:
+                info.timestamp = self.global_dictionary[pat].timestamp
+            else:
+                info.timestamp = now
+
+        # filter by entropy threshold, TTL, cost
+        filtered: Dict[bytes, PatternInfo] = {}
+        for pat, info in patterns.items():
+            if info.entropy < self.ENTROPY_THRESHOLD:
+                continue
+            if now - info.timestamp > self.PATTERN_TTL:
+                # expired
+                continue
+            cost = self._pattern_cost(info)
+            if cost > self.COST_MAX:
+                continue
+            filtered[pat] = info
+
+        # enforce global cap by evicting highest-cost entries
+        if len(filtered) > self.GLOBAL_PATTERN_CAP:
+            sorted_items = sorted(filtered.items(),
+                                  key=lambda x: self._pattern_cost(x[1]),
+                                  reverse=True)
+            limited = dict(sorted_items[:self.GLOBAL_PATTERN_CAP])
+            return limited
+        return filtered
+
     def federated_aggregation(self, use_privacy: bool = True) -> Dict[bytes, PatternInfo]:
         """
         Perform federated aggregation across all nodes
@@ -389,7 +462,6 @@ class DistributedDictionaryManager:
         Returns:
             Aggregated global dictionary
         """
-        
         # Optional: apply privacy
         dicts_to_aggregate = []
         if use_privacy:
@@ -399,13 +471,14 @@ class DistributedDictionaryManager:
         else:
             dicts_to_aggregate = list(self.local_dictionaries.values())
         
-        # Aggregate
-        self.global_dictionary = self.aggregator.aggregate(
+        # Aggregate with a high cap; limits applied afterward
+        raw = self.aggregator.aggregate(
             dicts_to_aggregate,
-            max_patterns=255
+            max_patterns=self.GLOBAL_PATTERN_CAP
         )
         
-        # Record aggregation
+        # enforce documented limits and record
+        self.global_dictionary = self._apply_limits(raw)
         self.aggregation_history.append({
             'timestamp': time.time(),
             'num_nodes': len(self.local_dictionaries),
