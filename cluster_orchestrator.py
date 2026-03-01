@@ -75,6 +75,8 @@ class MCDCOrchestrator:
         self.replication_policy = ReplicationStrategy()
         self.cost_strategy = cost_strategy
         self.total_compression_ratio = 500.0  # 500:1 compression
+        # federation limits (patterns)
+        self.federation_pattern_cap = 100_000
         
     def add_mcdc(self, mcdc_id: str, location: MCDCLocation, num_fpgas: int = 500):
         """Add a mobile container to the cluster"""
@@ -274,28 +276,48 @@ class FederationProtocol:
         self.sync_queue: List[Dict] = []
         self.ledger: List[Dict] = []
     
-    def broadcast_dictionary(self, dictionary_hash: str, mcdc_origin: str) -> Dict:
-        """Broadcast dictionary update to all MCDCs (gossip protocol)"""
+    def broadcast_dictionary(self, dictionary_hash: str, mcdc_origin: str, pattern_count: Optional[int] = None) -> Dict:
+        """Broadcast dictionary update to all MCDCs (gossip protocol).
+
+        Enforces orchestrator-level federation limits: if `pattern_count` is
+        provided and exceeds `self.orchestrator.federation_pattern_cap`, the
+        broadcast is rejected and recorded in the ledger.
+        """
+        # Enforce orchestrator cap if provided
+        if pattern_count is not None and pattern_count > self.orchestrator.federation_pattern_cap:
+            reason = f'pattern_count {pattern_count} exceeds cap {self.orchestrator.federation_pattern_cap}'
+            self.ledger.append({
+                'event': 'reject_broadcast',
+                'origin': mcdc_origin,
+                'hash': dictionary_hash,
+                'reason': reason,
+                'timestamp': datetime.now().isoformat()
+            })
+            logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+            return {'rejected': True, 'reason': reason}
+
         message = {
             'type': 'dictionary_update',
             'hash': dictionary_hash,
             'origin': mcdc_origin,
             'timestamp': datetime.now().isoformat(),
-            'ttl': 10  # hops to live
+            'ttl': 10,  # hops to live
+            'pattern_count': pattern_count
         }
-        
+
         # Simulate gossip propagation
         propagated = [mcdc_origin]
         for mcdc_id in self.orchestrator.mcdc_list.keys():
             if mcdc_id != mcdc_origin:
                 propagated.append(mcdc_id)
-        
+
         self.ledger.append({
             'event': 'dictionary_broadcast',
             'message': message,
-            'propagated_to': propagated
+            'propagated_to': propagated,
+            'timestamp': datetime.now().isoformat()
         })
-        
+
         return {'broadcast': dictionary_hash, 'reached': propagated}
     
     def sync_metrics(self) -> Dict:
