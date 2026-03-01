@@ -589,17 +589,23 @@ class DistributedDictionaryManager:
         for p in sorted(filtered.keys()):
             h.update(p)
         payload_hash = h.hexdigest()
+
+        # timestamp (seconds) included to mitigate replay
+        ts = int(time.time())
+
         payload = {
             'patterns': filtered,
             'pattern_count': len(filtered),
             'evicted': evicted,
-            'hash': payload_hash
+            'hash': payload_hash,
+            'timestamp': ts
         }
 
-        # optional HMAC-SHA256 signature over the hash (hex)
+        # optional HMAC-SHA256 signature over the string: {hash}|{timestamp}
         if signing_key:
             import hmac, hashlib as _hashlib, binascii
-            sig = hmac.new(binascii.unhexlify(signing_key), payload_hash.encode(), _hashlib.sha256).hexdigest()
+            msg = (payload_hash + '|' + str(ts)).encode()
+            sig = hmac.new(binascii.unhexlify(signing_key), msg, _hashlib.sha256).hexdigest()
             payload['signature'] = sig
 
         return payload

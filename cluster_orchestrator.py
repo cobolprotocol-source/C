@@ -11,6 +11,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
 import hashlib
+import time
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -80,6 +81,10 @@ class MCDCOrchestrator:
         # simple HMAC key for federation message signing (hex)
         import os, binascii
         self.federation_key = binascii.hexlify(os.urandom(32)).decode()
+        # active keys for verification (hex strings), newest first
+        self.active_federation_keys = [self.federation_key]
+        # replay protection window (seconds)
+        self.replay_window_seconds = 300
         
     def add_mcdc(self, mcdc_id: str, location: MCDCLocation, num_fpgas: int = 500):
         """Add a mobile container to the cluster"""
@@ -286,6 +291,11 @@ class FederationProtocol:
         provided and exceeds `self.orchestrator.federation_pattern_cap`, the
         broadcast is rejected and recorded in the ledger.
         """
+        # Allow callers to pass pattern_count as (count, signature_ts) tuple.
+        initial_sig_ts = None
+        if isinstance(pattern_count, tuple) and len(pattern_count) == 2:
+            pattern_count, initial_sig_ts = pattern_count
+
         # Enforce orchestrator cap if provided
         if pattern_count is not None and pattern_count > self.orchestrator.federation_pattern_cap:
             reason = f'pattern_count {pattern_count} exceeds cap {self.orchestrator.federation_pattern_cap}'
@@ -298,14 +308,37 @@ class FederationProtocol:
             })
             logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
             return {'rejected': True, 'reason': reason}
-        # If the orchestrator is configured with a federation key, the sender
-        # should attach a signature. If signature is present, verify it. If
-        # verification fails, reject the broadcast.
+        # If a signature is provided, a signature timestamp must also be present
+        # (to prevent replays). Verify signature against active keys and ensure
+        # timestamp is fresh and not replayed.
+        sig_ts = None
         if signature is not None:
+            # use timestamp unpacked earlier if present
+            sig_ts = initial_sig_ts
+
+            # signature timestamp must be provided by caller (prepared advertisement)
+            if sig_ts is None:
+                reason = 'missing_signature_timestamp'
+                self.ledger.append({
+                    'event': 'reject_broadcast',
+                    'origin': mcdc_origin,
+                    'hash': dictionary_hash,
+                    'reason': reason,
+                    'timestamp': datetime.now().isoformat()
+                })
+                logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+                return {'rejected': True, 'reason': reason}
+
             try:
                 import hmac, hashlib, binascii
-                expected = hmac.new(binascii.unhexlify(self.orchestrator.federation_key), dictionary_hash.encode(), hashlib.sha256).hexdigest()
-                if not hmac.compare_digest(expected, signature):
+                msg = (dictionary_hash + '|' + str(sig_ts)).encode()
+                verified = False
+                for key_hex in getattr(self.orchestrator, 'active_federation_keys', [self.orchestrator.federation_key]):
+                    expected = hmac.new(binascii.unhexlify(key_hex), msg, hashlib.sha256).hexdigest()
+                    if hmac.compare_digest(expected, signature):
+                        verified = True
+                        break
+                if not verified:
                     reason = 'invalid_signature'
                     self.ledger.append({
                         'event': 'reject_broadcast',
@@ -316,6 +349,41 @@ class FederationProtocol:
                     })
                     logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
                     return {'rejected': True, 'reason': reason}
+
+                # check freshness
+                now = int(time.time())
+                if abs(now - int(sig_ts)) > getattr(self.orchestrator, 'replay_window_seconds', 300):
+                    reason = 'stale_signature'
+                    self.ledger.append({
+                        'event': 'reject_broadcast',
+                        'origin': mcdc_origin,
+                        'hash': dictionary_hash,
+                        'reason': reason,
+                        'timestamp': datetime.now().isoformat()
+                    })
+                    logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+                    return {'rejected': True, 'reason': reason}
+
+                # replay check: reject if identical hash seen within replay window
+                recent = getattr(self, 'recent_broadcasts', {})
+                last_ts = recent.get(dictionary_hash)
+                if last_ts and (int(sig_ts) - int(last_ts)) <= getattr(self.orchestrator, 'replay_window_seconds', 300):
+                    reason = 'replay_detected'
+                    self.ledger.append({
+                        'event': 'reject_broadcast',
+                        'origin': mcdc_origin,
+                        'hash': dictionary_hash,
+                        'reason': reason,
+                        'timestamp': datetime.now().isoformat()
+                    })
+                    logger.warning('Rejected dictionary broadcast from %s: %s', mcdc_origin, reason)
+                    return {'rejected': True, 'reason': reason}
+
+                # mark as seen
+                if not hasattr(self, 'recent_broadcasts'):
+                    self.recent_broadcasts = {}
+                self.recent_broadcasts[dictionary_hash] = int(sig_ts)
+
             except Exception:
                 # on any verification error, reject
                 reason = 'signature_verification_error'
