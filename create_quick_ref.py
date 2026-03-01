@@ -134,6 +134,43 @@ decompressed, meta2 = pipeline.decompress_with_monitoring(compressed)
 # collected during decompression, along with an output_size that should
 # match the original input when the pipeline is functioning correctly.
 
+# --- Exporting to vector DB ---
+# you can plug in an export callback that receives each stage's compressed
+# result. combine with our connectors and embedding providers:
+from vector_connectors import upsert_to_pinecone
+from embedding_providers import get_openai_embedding_fn
+
+def my_export(rec):
+    # translate record to whatever your store expects
+    # here we wrap with pinecone upsert helper
+    bulk = prepare_bulk_for_pinecone([
+        {
+            "id": hashlib.sha256(rec['payload']).hexdigest(),
+            "values": rec.get('vector', []),
+            "metadata": {"payload_len": len(rec['payload'])},
+        }
+    ])
+    upsert_to_pinecone(bulk, client=None, index_name="my-index")
+
+embed = get_openai_embedding_fn(api_key="...")
+compressed, meta = pipeline.compress_with_staged_scaling(
+    data,
+    stages=[2, 10, 100],
+    export_callback=my_export,
+    embedding_fn=embed,
+)
+
+# --- Prometheus metrics example ---
+from metrics_prometheus import create_pipeline_metrics_gauges
+update_fn, gauges = create_pipeline_metrics_gauges(num_layers=8)
+# after a compress or decompress call you can update gauges:
+update_fn({entry['layer']: entry for entry in meta.get('per_layer_stats', [])})
+# start a metrics server if desired (requires prometheus_client)
+try:
+    from prometheus_client import start_http_server
+    start_http_server(8000)
+except ImportError:
+    pass
 # Get detailed metrics
 details = pipeline.get_detailed_metrics()
 for layer_num, info in details.items():

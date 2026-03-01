@@ -5,3 +5,8 @@ xxhash>=3.4.0
 msgpack>=1.0.0
 psutil>=5.9.0
 python-dotenv>=1.0.0
+
+# Optional extras (install via pip install "-r requirements.txt" plus)
+# pinecone-client, pymilvus      # vector database connectors
+# prometheus-client             # metrics exporting
+# openai                        # embedding provider

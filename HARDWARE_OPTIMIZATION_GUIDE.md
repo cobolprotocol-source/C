@@ -238,6 +238,21 @@ print(f"Overall Score: {health['overall_score']:.1f}/100")
 for layer, score in health['layer_scores'].items():
     print(f"Layer {layer}: {score:.1f}")
 
+# staged scaling example
+from embedding_providers import fallback_hash_embedding
+
+records = []
+def cb(rec):
+    records.append(rec)
+
+compressed, meta = pipeline.compress_with_staged_scaling(
+    data,
+    stages=[2, 10, 50],
+    export_callback=cb,
+    embedding_fn=fallback_hash_embedding,
+)
+print(f"Exported {len(records)} records")
+
 # Generate optimization hints
 for hint in health['optimization_hints']:
     print(f"Hint: {hint}")

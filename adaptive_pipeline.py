@@ -350,21 +350,45 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         
         return current, metadata
 
-    def compress_with_staged_scaling(self, data: bytes, stages: Optional[list] = None, base_adaptive: bool = True) -> Tuple[bytes, Dict[str, Any]]:
+    def compress_with_staged_scaling(
+        self,
+        data: bytes,
+        stages: Optional[list] = None,
+        base_adaptive: bool = True,
+        export_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+        embedding_fn: Optional[Callable[[bytes], list]] = None,
+    ) -> Tuple[bytes, Dict[str, Any]]:
         """Perform compression in staged steps to gradually increase compression
-        strength while monitoring stability. This avoids immediately forcing a
-        very high ratio and allows rollback if health degrades.
+        strength while monitoring stability.
 
-        - `stages`: list of target multipliers or dicts describing stage options.
-          Example: [2, 10, 100, 500] or [{'ratio':2}, {'ratio':10, 'skip_layers':[7]}]
-        - `base_adaptive`: whether to keep adaptive skipping during stages.
+        Parameters
+        ----------
+        data: bytes
+            Input payload.
+        stages: Optional[list]
+            Sequence of targets; see earlier docs for format.
+        base_adaptive: bool
+            Whether to enable adaptive layer skipping at each pass.
+        export_callback: Optional[Callable[[Dict[str, Any]], None]]
+            If provided, called after each stage with a record dict.  Typically
+            the record is generated via :func:`vector_indexing.make_cobol_memory_record`.
+            The callback gives callers freedom to push to a vector database or
+            other store.  The record will always include the ``payload`` key
+            containing the compressed bytes; if ``embedding_fn`` is supplied
+            the callback will also receive a ``vector`` entry.
+        embedding_fn: Optional[Callable[[bytes], list]]
+            Function to convert payloads into embedding vectors for export.
 
-        Returns final compressed bytes and accumulated metadata.
+        Returns
+        -------
+        Tuple[bytes, Dict[str,Any]]
+            Final compressed bytes and an aggregate metadata dictionary.
         """
+        from vector_indexing import make_cobol_memory_record
+
         if stages is None:
             stages = [2, 10, 50, 200, 500]
 
-        # start from a safe baseline
         current = data
         overall_meta = {"stages": [], "start_time": time.time(), "input_size": len(data), "errors": []}
 
@@ -373,22 +397,31 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
             opts = stage if isinstance(stage, dict) else {}
 
             try:
-                # run a compress pass with adaptive hints
                 compressed, meta = self.compress_with_monitoring(current, adaptive=base_adaptive)
                 achieved = len(current) / len(compressed) if len(compressed) > 0 else float('inf')
                 stage_meta = {"target": target, "achieved": achieved, "stage_opts": opts, "pass_meta": meta}
-
                 overall_meta['stages'].append(stage_meta)
 
-                # if achieved ratio meets target, continue to next stage from compressed
+                # invoke export callback if requested
+                if export_callback is not None:
+                    rec = {"payload": compressed}
+                    if embedding_fn is not None:
+                        try:
+                            rec["vector"] = embedding_fn(compressed)
+                        except Exception as e:
+                            rec["embed_error"] = str(e)
+                    try:
+                        export_callback(rec)
+                    except Exception as e:
+                        import logging
+                        logging.warning(f"export_callback error: {e}")
+
                 if target is None or achieved >= (target or 1):
                     current = compressed
                 else:
-                    # if not achieved, stop escalation but keep compressed result
                     overall_meta['stages'][-1]['note'] = 'target_not_reached, stopping escalation'
                     break
 
-                # quick health check: if any per-layer health is unhealthy, stop
                 bad = False
                 for entry in meta.get('per_layer_stats', []):
                     if entry.get('health') == 'unhealthy' or entry.get('size', 0) == 0:
@@ -396,8 +429,6 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
                         break
                 if bad:
                     overall_meta['stages'][-1]['note'] = 'health_degraded, rollback'
-                    # rollback to prior stage's compressed if available
-                    # (we keep current as-is but stop further escalation)
                     break
 
             except Exception as e:

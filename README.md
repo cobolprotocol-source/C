@@ -1833,6 +1833,62 @@ compressed = pipeline.compress(data)
 health = pipeline.get_health_score()
 
 print(f"Pipeline health: {health.overall_score}/100")
+
+# -- advanced export & metrics --
+from vector_indexing import make_cobol_memory_record, prepare_bulk_for_pinecone
+from vector_connectors import upsert_to_pinecone
+from embedding_providers import get_openai_embedding_fn
+import hashlib
+
+emb = get_openai_embedding_fn()
+
+def export_cb(rec):
+    bulk = prepare_bulk_for_pinecone([
+        {"id": hashlib.sha256(rec['payload']).hexdigest(),
+         "values": rec.get('vector', []),
+         "metadata": {"len": len(rec['payload'])}}
+    ])
+    upsert_to_pinecone(bulk, index_name="my-index")
+
+compressed, meta = pipeline.compress_with_staged_scaling(
+    data,
+    stages=[2, 10, 100],
+    export_callback=export_cb,
+    embedding_fn=emb,
+)
+
+from metrics_prometheus import create_pipeline_metrics_gauges
+update_metrics, gauges = create_pipeline_metrics_gauges(num_layers=8)
+update_metrics({entry['layer']: entry for entry in meta.get('per_layer_stats', [])})
+
+# ==== Advanced: export to vector store and metrics ====
+# supply a callback and optional embedding function
+from vector_indexing import make_cobol_memory_record
+from vector_connectors import upsert_to_pinecone
+from embedding_providers import get_openai_embedding_fn
+
+emb = get_openai_embedding_fn()  # fallback to hash embedding if OpenAI not installed
+
+def export_cb(rec):
+    # record contains 'payload' and optionally 'vector'
+    bulk = prepare_bulk_for_pinecone([
+        {"id": hashlib.sha256(rec['payload']).hexdigest(),
+         "values": rec.get('vector', []),
+         "metadata": {"len": len(rec['payload'])}}
+    ])
+    upsert_to_pinecone(bulk, index_name="my-index")
+
+compressed, meta = pipeline.compress_with_staged_scaling(
+    data,
+    stages=[2, 10, 100],
+    export_callback=export_cb,
+    embedding_fn=emb,
+)
+
+# metrics
+from metrics_prometheus import create_pipeline_metrics_gauges
+update_metrics, gauges = create_pipeline_metrics_gauges(num_layers=8)
+update_metrics({entry['layer']: entry for entry in meta.get('per_layer_stats', [])})
 ```
 
 ### Legacy Mode (v1.2 - Production Proven)
