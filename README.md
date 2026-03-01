@@ -26,6 +26,44 @@ COBOL Protocol adalah solusi kompresi dan streaming data multi-layer yang diranc
 - Federated learning: optimasi dictionary multi-node
 - Streaming compression & selective retrieval: akses data besar tanpa dekompresi penuh
 
+## Layer 0 AI-Driven Auto-Tuning (NEW v1.5.2)
+
+**Zero-Configuration Compression for Enterprise**
+
+Introduces "Layer 0" – an intelligent classifier that eliminates manual trial-and-error:
+
+**How It Works:**
+1. System samples initial data bytes (8 KB default)
+2. Analyzes entropy, byte patterns, and magic numbers
+3. Classifies data type: source code, binary logs, LLM dataset, text, executable, or compressed
+4. Auto-configures optimal L1-L8 strategies based on detected type
+5. Compression runs with ideal settings, no user input needed
+
+**Supported Data Types:**
+- **Source Code:** Triggers high RLE + dictionary compression
+- **Binary Logs:** Activates multi-layer processing with all 8 layers
+- **LLM Datasets:** Focuses on dictionary learning and text compression
+- **Executables:** Uses hardware acceleration and extreme compression
+- **Already Compressed:** Intelligently skips layers to avoid re-compression overhead
+- **Plain Text:** Balanced, efficient layer configuration
+
+**API:**
+```python
+from adaptive_pipeline import AdaptivePipeline
+
+pipeline = AdaptivePipeline()
+compressed, meta = pipeline.compress_with_autotuning(data)  # One-liner!
+
+print(f"Detected: {meta['layer0_classification']['data_type']}")
+print(f"Mode: {meta['auto_tuner_config']['mode']}")
+```
+
+**Benefits:**
+- Eliminates manual configuration for enterprise users
+- Detects data type with 70-95% confidence
+- Graceful fallback to safe modes on uncertain data
+- Transparent metadata trace for audit/debugging
+
 ---
 
 

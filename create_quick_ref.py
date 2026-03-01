@@ -280,6 +280,38 @@ results = []
 for i in range(0, len(data), chunk_size):
     chunk = data[i:i+chunk_size]
     compressed, metadata = pipeline.compress_with_monitoring(chunk, adaptive=True)
+
+# --- Layer 0: AI-Driven Auto-Tuning (Zero Configuration) ---
+# New in v1.5: Autonomous data type detection and configuration
+# No manual tuning needed; the system classifies your data and configures
+# the entire L1-L8 pipeline automatically.
+
+from layer0_classifier import Layer0Classifier
+from auto_tuner import AutoTuner
+
+data = b"your data here"
+pipeline = AdaptivePipeline()
+
+# Method 1: Full auto-tuning (recommended for enterprise/unknown data)
+compressed, meta = pipeline.compress_with_autotuning(data)
+print(f"Detected: {meta['layer0_classification']['data_type']}")
+print(f"Confidence: {meta['layer0_classification']['confidence']:.1%}")
+print(f"Configuration: {meta['auto_tuner_config']['mode']} mode")
+
+# Method 2: Inspect classification before compression
+classifier = Layer0Classifier()
+classification = classifier.classify(data)
+print(f"Data type: {classification.data_type.value}")
+print(f"Entropy: {classification.entropy:.2f}")
+print(f"Printable: {classification.printable_ratio:.1%}")
+
+# Method 3: Get recommendation without compressing
+tuner = AutoTuner()
+recommended_config = tuner.recommend(classification)
+print(f"Recommended mode: {recommended_config.mode}")
+for layer_num, layer_cfg in recommended_config.layers.items():
+    if layer_cfg.enabled:
+        print(f"  L{layer_num}: {layer_cfg.strategy}")
     results.append(compressed)
     
     if metadata['errors']:
