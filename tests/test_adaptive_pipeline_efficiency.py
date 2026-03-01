@@ -19,5 +19,11 @@ def test_adaptive_pipeline_high_ratio():
     decompressed, meta2 = pipeline.decompress_with_monitoring(compressed)
     assert decompressed == data
 
-    # ensure metadata reports output size
+    # ensure metadata reports output sizes correctly
     assert meta['output_size'] == len(compressed)
+    assert meta2['output_size'] == len(data)
+
+    # metadata should include per-layer statistics after decompression
+    assert isinstance(meta2.get('per_layer_stats'), list)
+    # verify we recorded stats for at least layer 3 (delta layer)
+    assert any(entry.get('layer') == 3 for entry in meta2['per_layer_stats'])

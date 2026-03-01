@@ -377,6 +377,12 @@ Failures detected:
 }
 ```
 
+Note that the same structure is produced when calling
+``.decompress_with_monitoring``; during decompression the
+``per_layer_stats`` list reflects how data expands as each layer is
+reversed and the final ``output_size`` should equal the original input
+when the pipeline is operating losslessly.
+
 ### Optimization Hints
 
 System automatically generates hints:

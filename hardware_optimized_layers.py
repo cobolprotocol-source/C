@@ -224,10 +224,11 @@ class HardwareOptimizedLayer3(HardwareOptimizedLayer):
         """Delta encode with vectorized diff."""
         import time
         start = time.time()
-        
+
         try:
-            arr = self._to_numpy(data, dtype=np.uint16)
-            
+            # operate on uint8 to preserve exact byte stream
+            arr = self._to_numpy(data, dtype=np.uint8)
+
             if self.use_gpu:
                 gpu_arr = self.cp.asarray(arr)
                 if len(gpu_arr) == 0:
@@ -247,29 +248,37 @@ class HardwareOptimizedLayer3(HardwareOptimizedLayer):
                 if len(arr) > 1:
                     delta[1:] = np.diff(arr)
                 return delta.astype(np.uint8)
-        
         except Exception as e:
             logger.warning(f"Layer 3 encode error: {e}")
             self.stats["fallbacks"] += 1
-            return data if isinstance(data, np.ndarray) else np.frombuffer(data, dtype=np.uint8)
+            return self._to_numpy(data)
         finally:
             self.stats["calls"] += 1
             self.stats["duration_ms"] += (time.time() - start) * 1000
             self.stats["bytes_processed"] += len(data) if isinstance(data, bytes) else data.nbytes
     
     def decode(self, data: Union[bytes, np.ndarray]) -> np.ndarray:
-        """Delta decode (cumsum)."""
-        arr = self._to_numpy(data, dtype=np.uint16)
-        
+        """Delta decode (cumsum) with correct reconstruction.
+
+        The encoded stream stores the first byte verbatim followed by byte-wise
+        differences modulo 256. To recover the original sequence we take a
+        cumulative sum of the deltas and add the initial value. Using uint8
+        arithmetic keeps wrap-around semantics consistent with encoding.
+        """
+        arr = self._to_numpy(data, dtype=np.uint8)
+
         if len(arr) == 0:
             return arr
-        
-        result = np.zeros_like(arr)
+
+        result = np.empty_like(arr)
         result[0] = arr[0]
         if len(arr) > 1:
-            result[1:] = np.add.accumulate(arr[1:])
-        
-        return result.astype(np.uint8)
+            # cumulative sum of the deltas (arr[1:]) in uint8
+            cum = np.cumsum(arr[1:], dtype=np.uint8)
+            # add initial byte and rely on uint8 wrap-around
+            result[1:] = (cum + result[0]).astype(np.uint8)
+
+        return result
 
 
 # ============================================================================

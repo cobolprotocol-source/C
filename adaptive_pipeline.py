@@ -359,7 +359,9 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         }
         
         current = data
-        
+        # track per-layer stats for decompression as well
+        metadata["per_layer_stats"] = []
+
         # Reverse order decompression
         # first undo layers 8 and 7 (which come after final compression)
         for i in [7, 6]:  # indices 7->layer8, 6->layer7
@@ -376,6 +378,9 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
                 duration_ms = (time.time() - start_time) * 1000
                 bytes_processed = len(current) if isinstance(current, bytes) else current.nbytes
                 monitor.record_encode(duration_ms, bytes_processed, success=True)
+                # log after decode
+                logger.debug(f"After layer {i+1} decode, size={bytes_processed}")
+                metadata["per_layer_stats"].append({"layer": i+1, "size": bytes_processed, "duration_ms": duration_ms})
                 if isinstance(current, object) and hasattr(current, 'nbytes'):
                     current = bytes(current)
             except Exception as e:
@@ -390,6 +395,7 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
             current = MultiLayerCompressor().decompress(current)
             logger.info("Reversed final multi-layer compression")
             logger.debug(f"After final decompression size={len(current) if isinstance(current, bytes) else current.nbytes}")
+            metadata["per_layer_stats"].append({"layer": "final_extra", "size": len(current) if isinstance(current, bytes) else current.nbytes, "duration_ms": 0})
         except Exception as e:
             logger.error(f"Final decompression failed: {e}")
             metadata['errors'].append(f"final_decompress: {e}")
@@ -398,31 +404,35 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         for i in reversed(range(6)):
             layer = self.layers[i]
             monitor = self.monitors[i]
-            
+
             if not monitor.is_available():
                 logger.warning(f"Layer {i+1} unavailable for decompression")
                 metadata["errors"].append(f"Layer {i+1} unavailable")
                 continue
-            
+
             try:
                 start_time = time.time()
                 current = layer.decode(current)
                 duration_ms = (time.time() - start_time) * 1000
-                
+
                 bytes_processed = len(current) if isinstance(current, bytes) else current.nbytes
                 monitor.record_encode(duration_ms, bytes_processed, success=True)
-                
+
+                # log and record
+                logger.debug(f"After layer {i+1} decode, size={bytes_processed}")
+                metadata["per_layer_stats"].append({"layer": i+1, "size": bytes_processed, "duration_ms": duration_ms})
+
                 if isinstance(current, object) and hasattr(current, 'nbytes'):
                     current = bytes(current)
-                
+
             except Exception as e:
                 logger.error(f"Layer {i+1} decode error: {e}")
                 monitor.record_encode(0, 0, success=False)
                 metadata["errors"].append(f"Layer {i+1}: {str(e)}")
-        
+
         metadata["output_size"] = len(current)
         metadata["total_time_ms"] = (time.time() - metadata["start_time"]) * 1000
-        
+
         return current, metadata
     
     def _generate_optimization_hints(self) -> List[str]:

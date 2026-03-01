@@ -126,6 +126,14 @@ compressed, metadata = pipeline.compress_with_monitoring(
 # - errors (list of error messages if any)
 # - total_time_ms
 
+# You can also exercise the reverse path with monitoring to validate that
+# compression is lossless and to inspect how data expands at each stage:
+compressed, metadata = pipeline.compress_with_monitoring(data, adaptive=True)
+decompressed, meta2 = pipeline.decompress_with_monitoring(compressed)
+# meta2 will mirror the structure of metadata and include per_layer_stats
+# collected during decompression, along with an output_size that should
+# match the original input when the pipeline is functioning correctly.
+
 # Get detailed metrics
 details = pipeline.get_detailed_metrics()
 for layer_num, info in details.items():
