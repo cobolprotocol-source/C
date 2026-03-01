@@ -1,0 +1,317 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "COBOL Protocol Performance Profiles Schema",
+  "description": "JSON schema for validating performance profile specifications. Single source of truth for all implementations.",
+  "type": "object",
+  "required": ["spec_version", "format_version", "profiles", "auto_selection_rules", "fallback_rules", "metadata", "validation"],
+  "properties": {
+    "spec_version": {
+      "type": "string",
+      "description": "Version of the specification",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "format_version": {
+      "type": "string",
+      "description": "COBOL Protocol format version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generation_date": {
+      "type": "string",
+      "description": "ISO 8601 date when spec was generated"
+    },
+    "profiles": {
+      "type": "object",
+      "description": "Performance profiles definitions",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "description",
+          "target_environments",
+          "constraints",
+          "parameters",
+          "characteristics"
+        ],
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 10,
+            "description": "Human-readable profile description"
+          },
+          "target_environments": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "description": "Target deployment environments"
+          },
+          "constraints": {
+            "type": "object",
+            "description": "Hardware constraints for profile",
+            "properties": {
+              "min_cores": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "max_cores": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "min_memory_gb": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "max_memory_gb": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "power_priority": {
+                "type": "boolean"
+              },
+              "numa_expected": {
+                "type": "boolean"
+              },
+              "aes_ni_required": {
+                "type": "boolean"
+              }
+            }
+          },
+          "parameters": {
+            "type": "object",
+            "required": [
+              "chunk_size_bytes",
+              "compression_depth",
+              "pipeline_mode",
+              "aes_batch_size",
+              "aes_threads",
+              "dp_window_seconds",
+              "dp_epsilon_default",
+              "fallback_latency_threshold_ms"
+            ],
+            "properties": {
+              "chunk_size_bytes": {
+                "type": "integer",
+                "minimum": 4096,
+                "maximum": 2097152,
+                "description": "Chunk size for compression in bytes"
+              },
+              "compression_depth": {
+                "type": "string",
+                "enum": ["LOW", "MEDIUM", "HIGH", "MAX"],
+                "description": "Compression depth level"
+              },
+              "pipeline_mode": {
+                "type": "string",
+                "enum": ["serial", "semi_parallel", "parallel", "deep_parallel"],
+                "description": "Pipeline processing mode"
+              },
+              "aes_batch_size": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2048,
+                "description": "AES encryption batch size"
+              },
+              "aes_threads": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 256,
+                "description": "Number of AES processing threads"
+              },
+              "dp_window_seconds": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 300,
+                "description": "Differential Privacy window duration in seconds"
+              },
+              "dp_epsilon_default": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 1.0,
+                "description": "Default DP privacy budget epsilon"
+              },
+              "fallback_latency_threshold_ms": {
+                "type": "integer",
+                "minimum": 10,
+                "maximum": 5000,
+                "description": "Latency threshold for fallback in milliseconds"
+              }
+            },
+            "additionalProperties": false
+          },
+          "characteristics": {
+            "type": "object",
+            "description": "Performance characteristics",
+            "properties": {
+              "max_throughput_mbps": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Maximum throughput in MB/s"
+              },
+              "memory_overhead_mb": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Memory overhead in MB"
+              },
+              "cpu_utilization_percent": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100,
+                "description": "Expected CPU utilization percentage"
+              },
+              "suitable_for": {
+                "type": "string",
+                "description": "Use cases suitable for this profile"
+              }
+            }
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes about the profile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minProperties": 5,
+      "maxProperties": 5
+    },
+    "auto_selection_rules": {
+      "type": "object",
+      "description": "Automatic profile selection rules",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "priority", "conditions", "selected_profile"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "conditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "selected_profile": {
+            "type": "string",
+            "enum": ["EDGE_LOW", "CLIENT_STANDARD", "WORKSTATION_PRO", "SERVER_GENERAL", "DATACENTER_HIGH"]
+          },
+          "justification_template": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "fallback_rules": {
+      "type": "object",
+      "description": "Safe fallback downgrade rules",
+      "required": ["enabled", "chain"],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "chain": {
+          "type": "object",
+          "description": "Fallback chain (one-level downgrade)",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "triggers": {
+          "type": "object"
+        },
+        "logging": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Immutable metadata about profiles",
+      "required": ["immutable", "version_locked", "what_profiles_do_not_affect", "what_profiles_affect"],
+      "properties": {
+        "immutable": {
+          "type": "boolean",
+          "const": true
+        },
+        "version_locked": {
+          "type": "boolean",
+          "const": true
+        },
+        "decompression_profile_independent": {
+          "type": "boolean"
+        },
+        "crypto_identical_across_profiles": {
+          "type": "boolean"
+        },
+        "dp_mechanism_identical": {
+          "type": "boolean"
+        },
+        "backward_compatible": {
+          "type": "boolean"
+        },
+        "format_stable": {
+          "type": "boolean"
+        },
+        "what_profiles_do_not_affect": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "what_profiles_affect": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation rules for the specification",
+      "required": ["required_profiles", "required_parameters"],
+      "properties": {
+        "required_profiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "required_parameters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 8
+        },
+        "enums": {
+          "type": "object"
+        },
+        "constraints": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cross_language": {
+      "type": "object",
+      "description": "Rules for multi-language implementations"
+    },
+    "testing": {
+      "type": "object",
+      "description": "Testing requirements"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,508 @@
+---
+# COBOL Protocol v1.5.3 - Performance Profiles Specification
+# 
+# Single source of truth for all performance profiles.
+# This file is language-agnostic and version-locked.
+#
+# CRITICAL: Changes to this file require FULL revalidation across all languages.
+#
+# Profile changes do NOT affect:
+# - File format
+# - Decompression logic
+# - Cryptographic correctness
+# - Differential Privacy guarantees
+# - Output determinism
+#
+# Version: 1.0
+# Updated: 2026-03-01
+# Status: STABLE
+
+spec_version: "1.0"
+format_version: "1.5.3"
+generation_date: "2026-03-01"
+
+# ============================================================================
+# PROFILE DEFINITIONS
+# ============================================================================
+# Each profile is a static preset for performance tuning.
+# Profiles are immutable at runtime and version-locked.
+
+profiles:
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PROFILE 1: EDGE_LOW
+  # ──────────────────────────────────────────────────────────────────────────
+  # Target: IoT devices, edge nodes, ultra-resource-constrained environments
+  # Optimization: Memory and power efficiency over speed
+  # Typical: Single core, <2GB RAM, battery-powered
+  #
+  EDGE_LOW:
+    description: "Ultra-low resource environments (IoT, edge, battery-powered)"
+    target_environments:
+      - IoT devices
+      - Edge nodes
+      - Mobile with extreme constraints
+      - Single-core processors
+    constraints:
+      min_cores: 1
+      max_cores: 2
+      max_memory_gb: 2
+      power_priority: true
+    
+    parameters:
+      # Chunk size: small to minimize memory footprint
+      chunk_size_bytes: 8192        # 8 KB chunks
+      
+      # Compression: minimal processing
+      compression_depth: LOW         # Fast, but lower ratio
+      
+      # Pipeline: serial (no parallelism overhead)
+      pipeline_mode: serial
+      
+      # AES: minimal batching
+      aes_batch_size: 1             # Process one at a time
+      aes_threads: 1                # Single AES thread
+      
+      # DP window: long (fewer aggregations)
+      dp_window_seconds: 60
+      dp_epsilon_default: 0.1
+      
+      # Fallback threshold: conservative (fallback readily)
+      fallback_latency_threshold_ms: 50
+    
+    characteristics:
+      max_throughput_mbps: 5
+      memory_overhead_mb: 10
+      cpu_utilization_percent: 20
+      suitable_for: "Time-delay tolerant, offline-capable workloads"
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PROFILE 2: CLIENT_STANDARD
+  # ──────────────────────────────────────────────────────────────────────────
+  # Target: Typical client machines (laptops, desktops)
+  # Optimization: Balanced performance and resource usage
+  # Typical: 2-8 cores, 8-32GB RAM
+  # THIS IS THE DEFAULT FALLBACK PROFILE
+  #
+  CLIENT_STANDARD:
+    description: "Standard client machines (laptops, desktops) - SAFE FALLBACK"
+    target_environments:
+      - Laptops
+      - Desktops
+      - Consumer-grade machines
+      - Mixed workloads
+    constraints:
+      min_cores: 2
+      max_cores: 8
+      min_memory_gb: 4
+      max_memory_gb: 32
+    
+    parameters:
+      # Chunk size: moderate
+      chunk_size_bytes: 64000       # 64 KB chunks
+      
+      # Compression: balanced
+      compression_depth: MEDIUM     # Good ratio, reasonable speed
+      
+      # Pipeline: serial (safe for single foreground task)
+      pipeline_mode: serial
+      
+      # AES: modest batching
+      aes_batch_size: 16
+      aes_threads: 2
+      
+      # DP window: moderate
+      dp_window_seconds: 10
+      dp_epsilon_default: 0.1
+      
+      # Fallback threshold: moderate
+      fallback_latency_threshold_ms: 100
+    
+    characteristics:
+      max_throughput_mbps: 50
+      memory_overhead_mb: 50
+      cpu_utilization_percent: 40
+      suitable_for: "General-purpose compression, interactive workloads"
+    
+    notes: "Safe fallback for any profile. All systems can run this profile."
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PROFILE 3: WORKSTATION_PRO
+  # ──────────────────────────────────────────────────────────────────────────
+  # Target: High-end client machines and workstations
+  # Optimization: Higher compression ratio with parallel processing
+  # Typical: 8-16 cores, 32GB+ RAM, optional NUMA
+  #
+  WORKSTATION_PRO:
+    description: "High-end workstations (8-16 cores, 32GB+ RAM)"
+    target_environments:
+      - High-end laptops
+      - Workstations
+      - Content creation machines
+      - Development servers
+    constraints:
+      min_cores: 8
+      max_cores: 16
+      min_memory_gb: 32
+    
+    parameters:
+      # Chunk size: larger (more parallelism)
+      chunk_size_bytes: 256000      # 256 KB chunks
+      
+      # Compression: deeper
+      compression_depth: HIGH       # Good ratio, balanced speed
+      
+      # Pipeline: semi-parallel (thread pool)
+      pipeline_mode: semi_parallel
+      
+      # AES: moderate batching
+      aes_batch_size: 64
+      aes_threads: 4
+      
+      # DP window: shorter (more windows)
+      dp_window_seconds: 5
+      dp_epsilon_default: 0.1
+      
+      # Fallback threshold: aggressive
+      fallback_latency_threshold_ms: 200
+    
+    characteristics:
+      max_throughput_mbps: 200
+      memory_overhead_mb: 150
+      cpu_utilization_percent: 60
+      suitable_for: "Media processing, batch compression, archival"
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PROFILE 4: SERVER_GENERAL
+  # ──────────────────────────────────────────────────────────────────────────
+  # Target: General-purpose servers and data centers
+  # Optimization: Maximum throughput with stable latency
+  # Typical: 16-64 cores, 64GB-256GB RAM, multiple sockets
+  #
+  SERVER_GENERAL:
+    description: "General-purpose servers (16-64 cores, 64GB+ RAM)"
+    target_environments:
+      - Enterprise servers
+      - Data center nodes
+      - Kubernetes worker nodes
+      - Application servers
+    constraints:
+      min_cores: 16
+      max_cores: 64
+      min_memory_gb: 64
+      numa_expected: false
+    
+    parameters:
+      # Chunk size: large (maximize parallelism)
+      chunk_size_bytes: 512000      # 512 KB chunks
+      
+      # Compression: high depth
+      compression_depth: HIGH
+      
+      # Pipeline: parallel (thread pool + work queue)
+      pipeline_mode: parallel
+      
+      # AES: aggressive batching
+      aes_batch_size: 256
+      aes_threads: 8
+      
+      # DP window: short (many windows per second)
+      dp_window_seconds: 2
+      dp_epsilon_default: 0.1
+      
+      # Fallback threshold: conservative (adjust when needed)
+      fallback_latency_threshold_ms: 300
+    
+    characteristics:
+      max_throughput_mbps: 1000
+      memory_overhead_mb: 300
+      cpu_utilization_percent: 70
+      suitable_for: "High-throughput server workloads, streaming compression"
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # PROFILE 5: DATACENTER_HIGH
+  # ──────────────────────────────────────────────────────────────────────────
+  # Target: Large-scale data center and HPC environments
+  # Optimization: Maximum compression ratio and throughput
+  # Typical: 64+ cores, 256GB+ RAM, NUMA, multiple sockets
+  #
+  DATACENTER_HIGH:
+    description: "HPC / data center scale (64+ cores, 256GB+ RAM, NUMA)"
+    target_environments:
+      - HPC clusters
+      - Data center storage nodes
+      - Large-scale analytics platforms
+      - Cloud provider infrastructure
+    constraints:
+      min_cores: 64
+      min_memory_gb: 256
+      numa_expected: true
+      aes_ni_required: true
+    
+    parameters:
+      # Chunk size: very large (deep parallelism)
+      chunk_size_bytes: 1048576     # 1 MB chunks
+      
+      # Compression: maximum depth
+      compression_depth: MAX
+      
+      # Pipeline: deep parallel with job scheduler
+      pipeline_mode: deep_parallel
+      
+      # AES: extreme batching
+      aes_batch_size: 1024
+      aes_threads: 16
+      
+      # DP window: very short (high frequency)
+      dp_window_seconds: 1
+      dp_epsilon_default: 0.1
+      
+      # Fallback threshold: adaptive (adjust real-time)
+      fallback_latency_threshold_ms: 500
+    
+    characteristics:
+      max_throughput_mbps: 10000
+      memory_overhead_mb: 1000
+      cpu_utilization_percent: 85
+      suitable_for: "Bulk data compression, archival at scale, storage optimization"
+
+# ============================================================================
+# AUTO-SELECTION RULES
+# ============================================================================
+# Rules for automatic profile selection based on hardware characteristics.
+# AUTO is deterministic and based on hardware inspection ONLY.
+#
+auto_selection_rules:
+  # Rule priority (higher = checked first, more specific)
+  # All checks are deterministic and timing-independent
+  
+  rule_1:
+    name: "DATACENTER_HIGH detection"
+    priority: 1
+    conditions:
+      - "cpu_cores >= 64"
+      - "total_memory_gb >= 256"
+      - "aes_ni_available: true"
+    selected_profile: DATACENTER_HIGH
+    justification_template: "Selected DATACENTER_HIGH because: CPU cores>={cores}, RAM>={memory}GB, AES-NI available"
+  
+  rule_2:
+    name: "SERVER_GENERAL detection"
+    priority: 2
+    conditions:
+      - "cpu_cores >= 16"
+      - "total_memory_gb >= 64"
+    selected_profile: SERVER_GENERAL
+    justification_template: "Selected SERVER_GENERAL because: CPU cores>={cores}, RAM>={memory}GB"
+  
+  rule_3:
+    name: "WORKSTATION_PRO detection"
+    priority: 3
+    conditions:
+      - "cpu_cores >= 8"
+      - "total_memory_gb >= 32"
+    selected_profile: WORKSTATION_PRO
+    justification_template: "Selected WORKSTATION_PRO because: CPU cores>={cores}, RAM>={memory}GB"
+  
+  rule_4:
+    name: "CLIENT_STANDARD detection"
+    priority: 4
+    conditions:
+      - "cpu_cores >= 2"
+      - "total_memory_gb >= 4"
+    selected_profile: CLIENT_STANDARD
+    justification_template: "Selected CLIENT_STANDARD because: CPU cores>={cores}, RAM>={memory}GB"
+  
+  rule_5:
+    name: "EDGE_LOW fallback"
+    priority: 5
+    conditions:
+      - "cpu_cores >= 1"
+    selected_profile: EDGE_LOW
+    justification_template: "Selected EDGE_LOW because: system has limited resources (default)"
+
+# ============================================================================
+# FALLBACK RULES
+# ============================================================================
+# Rules for safe downgrade when performance is degraded.
+# Fallback is ONLY allowed in response to detected performance issues.
+#
+fallback_rules:
+  enabled: true
+  
+  # Fallback chain (only ONE level downgrade allowed)
+  chain:
+    DATACENTER_HIGH: SERVER_GENERAL
+    SERVER_GENERAL: WORKSTATION_PRO
+    WORKSTATION_PRO: CLIENT_STANDARD
+    CLIENT_STANDARD: CLIENT_STANDARD  # No fallback from CLIENT_STANDARD
+    EDGE_LOW: EDGE_LOW                # No fallback from EDGE_LOW
+  
+  # Triggers for fallback
+  triggers:
+    latency_threshold_exceeded:
+      enabled: true
+      description: "Downgrade if latency exceeds profile threshold"
+    memory_pressure_detected:
+      enabled: true
+      description: "Downgrade if system memory pressure increases"
+    
+  # Fallback logging (MUST log all fallbacks)
+  logging:
+    enabled: true
+    format: "FALLBACK: {from_profile} -> {to_profile} (reason: {trigger}, latency: {latency_ms}ms)"
+
+# ============================================================================
+# IMMUTABLE METADATA
+# ============================================================================
+# This metadata MUST NOT change without full certification.
+#
+
+metadata:
+  # Profiles are static and version-locked
+  immutable: true
+  version_locked: true
+  
+  # Decompression path MUST NOT depend on profile
+  decompression_profile_independent: true
+  
+  # All profiles use same crypto
+  crypto_identical_across_profiles: true
+  
+  # All profiles use same DP mechanism (only epsilon differs in default)
+  dp_mechanism_identical: true
+  
+  # Backward compatibility
+  backward_compatible: true
+  format_stable: true
+  
+  # What profiles DO NOT affect (critical guarantees)
+  what_profiles_do_not_affect:
+    - "File format or compression output"
+    - "Decompression algorithm or logic"
+    - "AES-256-GCM correctness"
+    - "Differential Privacy mathematical guarantees"
+    - "Output determinism (same input+profile = same output)"
+    - "Cryptographic key derivation"
+    - "Cross-version compatibility"
+  
+  # What profiles DO affect (only these)
+  what_profiles_affect:
+    - "Compression speed (throughput)"
+    - "Memory usage during compression"
+    - "Latency characteristics"
+    - "CPU core utilization"
+    - "Default DP privacy window duration"
+    - "Fallback behavior thresholds"
+
+# ============================================================================
+# VALIDATION RULES
+# ============================================================================
+# Rules for schema validation (used by all language bindings)
+#
+
+validation:
+  # All profile names must exist
+  required_profiles:
+    - EDGE_LOW
+    - CLIENT_STANDARD
+    - WORKSTATION_PRO
+    - SERVER_GENERAL
+    - DATACENTER_HIGH
+  
+  # All parameters required in each profile
+  required_parameters:
+    - chunk_size_bytes
+    - compression_depth
+    - pipeline_mode
+    - aes_batch_size
+    - aes_threads
+    - dp_window_seconds
+    - dp_epsilon_default
+    - fallback_latency_threshold_ms
+  
+  # Valid enum values
+  enums:
+    compression_depth:
+      - LOW
+      - MEDIUM
+      - HIGH
+      - MAX
+    
+    pipeline_mode:
+      - serial
+      - semi_parallel
+      - parallel
+      - deep_parallel
+  
+  # Parameter constraints
+  constraints:
+    chunk_size_bytes:
+      min: 4096        # 4 KB minimum
+      max: 2097152     # 2 MB maximum
+    compression_depth:
+      must_be_in: [LOW, MEDIUM, HIGH, MAX]
+    pipeline_mode:
+      must_be_in: [serial, semi_parallel, parallel, deep_parallel]
+    aes_batch_size:
+      min: 1
+      max: 2048
+    aes_threads:
+      min: 1
+      max: 256
+    dp_window_seconds:
+      min: 1
+      max: 300
+    dp_epsilon_default:
+      min: 0.01
+      max: 1.0
+    fallback_latency_threshold_ms:
+      min: 10
+      max: 5000
+
+# ============================================================================
+# CROSS-LANGUAGE CONSISTENCY
+# ============================================================================
+# Rules for cross-language implementations
+#
+
+cross_language:
+  # All languages MUST use this spec as source of truth
+  single_source_of_truth: "performance_profiles.yaml"
+  
+  # No language may hardcode profile parameters
+  hardcoding_forbidden: true
+  
+  # All languages MUST support these FFI calls
+  required_ffi_functions:
+    - set_profile(profile_name: string)
+    - auto_select_profile()
+    - get_active_profile()
+    - get_profile_parameters()
+    - explain_profile_selection()
+  
+  # All languages MUST validate against JSON schema
+  schema_validation_required: true
+  schema_file: "profile_schema.json"
+  
+  # All languages MUST reject invalid profiles
+  invalid_profile_handling: "throw exception and fallback to CLIENT_STANDARD"
+
+# ============================================================================
+# TESTING REQUIREMENTS
+# ============================================================================
+# Mandatory tests for all implementations
+#
+
+testing:
+  required_tests:
+    - profile_validation: "All profiles pass schema validation"
+    - auto_selection_determinism: "Same hardware + same version = same profile"
+    - forced_override: "User can force any profile"
+    - safe_fallback: "Fallback only downgrades one level"
+    - fallback_determinism: "Fallback is deterministic and logged"
+    - DP_correctness: "DP guarantees maintained under all profiles"
+    - AES_correctness: "AES correctness maintained under all profiles"
+    - decompression_independent: "Decompression works regardless of compression profile"
+    - cross_language_consistency: "All languages select same profile for same hardware"
+    - stable_soak_test: "Long-running compression with profile switching"
