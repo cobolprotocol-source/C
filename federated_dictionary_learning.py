@@ -549,6 +549,49 @@ class DistributedDictionaryManager:
             'strategy': self.aggregator.strategy.name
         }
 
+    def prepare_advertisement(self, orchestrator_cap: Optional[int] = None) -> Dict:
+        """Prepare an advertisement payload for federation.
+
+        - Trims the current `global_dictionary` according to local and
+          orchestrator caps and returns a payload containing:
+            - `patterns`: trimmed dict
+            - `pattern_count`: number of patterns
+            - `evicted`: list of evicted (pattern, cost)
+            - `hash`: SHA256 of concatenated pattern bytes (sorted)
+
+        This helper is intended for sender-side automatic trimming before
+        attempting a broadcast to the orchestrator.
+        """
+        # Ensure we have an up-to-date global dictionary
+        if not self.global_dictionary:
+            # perform aggregation without privacy to populate global_dictionary
+            self.federated_aggregation(use_privacy=False)
+
+        source = dict(self.global_dictionary)
+        # temporarily respect orchestrator cap if provided
+        if orchestrator_cap is not None:
+            prev_cap = self.GLOBAL_PATTERN_CAP
+            try:
+                self.GLOBAL_PATTERN_CAP = orchestrator_cap
+                filtered, evicted = self._apply_limits(source)
+            finally:
+                self.GLOBAL_PATTERN_CAP = prev_cap
+        else:
+            filtered, evicted = self._apply_limits(source)
+
+        # compute stable hash over sorted patterns
+        h = hashlib.sha256()
+        for p in sorted(filtered.keys()):
+            h.update(p)
+        payload_hash = h.hexdigest()
+
+        return {
+            'patterns': filtered,
+            'pattern_count': len(filtered),
+            'evicted': evicted,
+            'hash': payload_hash
+        }
+
 
 # ============================================================================
 # EXAMPLE USAGE
