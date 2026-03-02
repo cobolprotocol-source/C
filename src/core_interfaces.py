@@ -13,7 +13,7 @@ from typing import Any, Dict, Optional
 
 # import energy module lazily to avoid circular imports
 try:
-    from energy_aware_execution import EnergyAwareCompressionController
+    from .energy_aware_execution import EnergyAwareCompressionController
 except ImportError:
     EnergyAwareCompressionController = None  # type: ignore
 

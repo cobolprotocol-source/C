@@ -197,7 +197,7 @@ class ExtremeCobolEngine:
     """
 
     def __init__(self, config: dict = None):
-        from engine import CobolEngine
+        from .engine import CobolEngine
         self.registry = GlobalPatternRegistry()
         self.layer8 = Layer8UltraExtremeMapper(self.registry)
         self.inner = CobolEngine(config)

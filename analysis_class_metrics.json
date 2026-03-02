@@ -1,0 +1,5043 @@
+{
+  "classes": [
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "CompressionState",
+      "fullname": "src/buffer_pool_optimizer.py::CompressionState",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "LayerContext",
+      "fullname": "src/buffer_pool_optimizer.py::LayerContext",
+      "methods": 1,
+      "class_attrs": 9,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "BufferPool",
+      "fullname": "src/buffer_pool_optimizer.py::BufferPool",
+      "methods": 3,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "PipelineStateMachine",
+      "fullname": "src/buffer_pool_optimizer.py::PipelineStateMachine",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "StatefulLayerProcessor",
+      "fullname": "src/buffer_pool_optimizer.py::StatefulLayerProcessor",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "ContextFreePipelineWrapper",
+      "fullname": "src/buffer_pool_optimizer.py::ContextFreePipelineWrapper",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/buffer_pool_optimizer.py",
+      "name": "LatencyBreakdownAnalyzer",
+      "fullname": "src/buffer_pool_optimizer.py::LatencyBreakdownAnalyzer",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/numba_dictionary.py",
+      "name": "OptimizedDictionary",
+      "fullname": "src/numba_dictionary.py::OptimizedDictionary",
+      "methods": 3,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_recursive.py",
+      "name": "Layer6Recursive",
+      "fullname": "src/layer6_recursive.py::Layer6Recursive",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_accelerator.py",
+      "name": "GPUMetrics",
+      "fullname": "src/gpu_accelerator.py::GPUMetrics",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_accelerator.py",
+      "name": "GPUAccelerator",
+      "fullname": "src/gpu_accelerator.py::GPUAccelerator",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "HardwareType",
+      "fullname": "src/hardware_abstraction_layer.py::HardwareType",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "ComputeCapability",
+      "fullname": "src/hardware_abstraction_layer.py::ComputeCapability",
+      "methods": 0,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "OptimizationStrategy",
+      "fullname": "src/hardware_abstraction_layer.py::OptimizationStrategy",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "CPUCapabilities",
+      "fullname": "src/hardware_abstraction_layer.py::CPUCapabilities",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "GPUCapabilities",
+      "fullname": "src/hardware_abstraction_layer.py::GPUCapabilities",
+      "methods": 2,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "FPGACapabilities",
+      "fullname": "src/hardware_abstraction_layer.py::FPGACapabilities",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "HardwareProfile",
+      "fullname": "src/hardware_abstraction_layer.py::HardwareProfile",
+      "methods": 1,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "HardwareDetector",
+      "fullname": "src/hardware_abstraction_layer.py::HardwareDetector",
+      "methods": 12,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "HardwareOptimizer",
+      "fullname": "src/hardware_abstraction_layer.py::HardwareOptimizer",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_abstraction_layer.py",
+      "name": "HardwareContext",
+      "fullname": "src/hardware_abstraction_layer.py::HardwareContext",
+      "methods": 9,
+      "class_attrs": 1,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManager",
+      "fullname": "src/dictionary_manager.py::DictionaryManager",
+      "methods": 16,
+      "class_attrs": 0,
+      "instance_attrs_count": 11,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL1",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL1",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL2",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL2",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL3",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL3",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL4",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL4",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL5",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL5",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL6",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL6",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL7",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL7",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dictionary_manager.py",
+      "name": "DictionaryManagerL8",
+      "fullname": "src/dictionary_manager.py::DictionaryManagerL8",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "DictionaryManager"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "DictionaryVersion",
+      "fullname": "src/federated_learning_framework.py::DictionaryVersion",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "PrivacyLevel",
+      "fullname": "src/federated_learning_framework.py::PrivacyLevel",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "LocalDictionary",
+      "fullname": "src/federated_learning_framework.py::LocalDictionary",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "GlobalDictionary",
+      "fullname": "src/federated_learning_framework.py::GlobalDictionary",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "Gradient",
+      "fullname": "src/federated_learning_framework.py::Gradient",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "ABTestResult",
+      "fullname": "src/federated_learning_framework.py::ABTestResult",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "LocalDictionaryLearner",
+      "fullname": "src/federated_learning_framework.py::LocalDictionaryLearner",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "GlobalDictionaryCoordinator",
+      "fullname": "src/federated_learning_framework.py::GlobalDictionaryCoordinator",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "DifferentialPrivacy",
+      "fullname": "src/federated_learning_framework.py::DifferentialPrivacy",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "SecureAggregation",
+      "fullname": "src/federated_learning_framework.py::SecureAggregation",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "ConvergenceDetector",
+      "fullname": "src/federated_learning_framework.py::ConvergenceDetector",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "DictionaryVersionControl",
+      "fullname": "src/federated_learning_framework.py::DictionaryVersionControl",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "FederatedLearningPipeline",
+      "fullname": "src/federated_learning_framework.py::FederatedLearningPipeline",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "FederatedMetrics",
+      "fullname": "src/federated_learning_framework.py::FederatedMetrics",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "FederatedUtils",
+      "fullname": "src/federated_learning_framework.py::FederatedUtils",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_learning_framework.py",
+      "name": "FederatedSimulation",
+      "fullname": "src/federated_learning_framework.py::FederatedSimulation",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_bank.py",
+      "name": "Layer7Bank",
+      "fullname": "src/layer7_bank.py::Layer7Bank",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "CompressionStats",
+      "fullname": "src/profile_integration.py::CompressionStats",
+      "methods": 1,
+      "class_attrs": 12,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "ProfiledCompressedChunk",
+      "fullname": "src/profile_integration.py::ProfiledCompressedChunk",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "FallbackReason",
+      "fullname": "src/profile_integration.py::FallbackReason",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "ProfileMonitor",
+      "fullname": "src/profile_integration.py::ProfileMonitor",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "FallbackHandler",
+      "fullname": "src/profile_integration.py::FallbackHandler",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_integration.py",
+      "name": "ProfileAwareCompressionEngine",
+      "fullname": "src/profile_integration.py::ProfileAwareCompressionEngine",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer3_delta.py",
+      "name": "Layer3Delta",
+      "fullname": "src/layer3_delta.py::Layer3Delta",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2_structural.py",
+      "name": "Layer2Structural",
+      "fullname": "src/layer2_structural.py::Layer2Structural",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer1",
+      "fullname": "src/layers_optimized.py::OptimizedLayer1",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer2",
+      "fullname": "src/layers_optimized.py::OptimizedLayer2",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer3",
+      "fullname": "src/layers_optimized.py::OptimizedLayer3",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer4",
+      "fullname": "src/layers_optimized.py::OptimizedLayer4",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer5",
+      "fullname": "src/layers_optimized.py::OptimizedLayer5",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer6",
+      "fullname": "src/layers_optimized.py::OptimizedLayer6",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer7",
+      "fullname": "src/layers_optimized.py::OptimizedLayer7",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layers_optimized.py",
+      "name": "OptimizedLayer8",
+      "fullname": "src/layers_optimized.py::OptimizedLayer8",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/protocol_bridge.py",
+      "name": "ProtocolLanguage",
+      "fullname": "src/protocol_bridge.py::ProtocolLanguage",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/protocol_bridge.py",
+      "name": "TypedBuffer",
+      "fullname": "src/protocol_bridge.py::TypedBuffer",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/protocol_bridge.py",
+      "name": "ProtocolBridge",
+      "fullname": "src/protocol_bridge.py::ProtocolBridge",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hpc_engine.py",
+      "name": "SharedMemoryConfig",
+      "fullname": "src/hpc_engine.py::SharedMemoryConfig",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hpc_engine.py",
+      "name": "SharedMemoryRef",
+      "fullname": "src/hpc_engine.py::SharedMemoryRef",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hpc_engine.py",
+      "name": "SharedMemoryEngine",
+      "fullname": "src/hpc_engine.py::SharedMemoryEngine",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hpc_engine.py",
+      "name": "ChunkParallelEngine",
+      "fullname": "src/hpc_engine.py::ChunkParallelEngine",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hpc_engine.py",
+      "name": "HybridHPCEngine",
+      "fullname": "src/hpc_engine.py::HybridHPCEngine",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4_binary.py",
+      "name": "Layer4Binary",
+      "fullname": "src/layer4_binary.py::Layer4Binary",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "EncryptionAlgorithm",
+      "fullname": "src/security_trust_layer.py::EncryptionAlgorithm",
+      "methods": 0,
+      "class_attrs": 2,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "EncryptionKey",
+      "fullname": "src/security_trust_layer.py::EncryptionKey",
+      "methods": 2,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "EncryptionMetadata",
+      "fullname": "src/security_trust_layer.py::EncryptionMetadata",
+      "methods": 2,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "AES256GCMEncryptor",
+      "fullname": "src/security_trust_layer.py::AES256GCMEncryptor",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "EncryptionContract",
+      "fullname": "src/security_trust_layer.py::EncryptionContract",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "DifferentialPrivacyMode",
+      "fullname": "src/security_trust_layer.py::DifferentialPrivacyMode",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "DifferentialPrivacyConfig",
+      "fullname": "src/security_trust_layer.py::DifferentialPrivacyConfig",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "DPBudgetAccount",
+      "fullname": "src/security_trust_layer.py::DPBudgetAccount",
+      "methods": 2,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "LaplaceMechanism",
+      "fullname": "src/security_trust_layer.py::LaplaceMechanism",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "DifferentialPrivacyContract",
+      "fullname": "src/security_trust_layer.py::DifferentialPrivacyContract",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "SecurityAuditEntry",
+      "fullname": "src/security_trust_layer.py::SecurityAuditEntry",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "SecurityAuditLog",
+      "fullname": "src/security_trust_layer.py::SecurityAuditLog",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "TrustModel",
+      "fullname": "src/security_trust_layer.py::TrustModel",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/security_trust_layer.py",
+      "name": "SecurityTrustIntegrationContract",
+      "fullname": "src/security_trust_layer.py::SecurityTrustIntegrationContract",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "Config",
+      "fullname": "src/advanced_selective_retrieval.py::Config",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "VerificationResult",
+      "fullname": "src/advanced_selective_retrieval.py::VerificationResult",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "L8IntegrityVerifier",
+      "fullname": "src/advanced_selective_retrieval.py::L8IntegrityVerifier",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "DistributedVerificationOrchestrator",
+      "fullname": "src/advanced_selective_retrieval.py::DistributedVerificationOrchestrator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "CompressionBlockAdvanced",
+      "fullname": "src/advanced_selective_retrieval.py::CompressionBlockAdvanced",
+      "methods": 3,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/advanced_selective_retrieval.py",
+      "name": "AdvancedSelectiveRetrieval",
+      "fullname": "src/advanced_selective_retrieval.py::AdvancedSelectiveRetrieval",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "HuffmanNode",
+      "fullname": "src/layer7_optimized.py::HuffmanNode",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "FrequencyAnalyzer",
+      "fullname": "src/layer7_optimized.py::FrequencyAnalyzer",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "HuffmanCoder",
+      "fullname": "src/layer7_optimized.py::HuffmanCoder",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "AdaptiveHuffmanCoder",
+      "fullname": "src/layer7_optimized.py::AdaptiveHuffmanCoder",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "ArithmeticCoder",
+      "fullname": "src/layer7_optimized.py::ArithmeticCoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "RangeCoder",
+      "fullname": "src/layer7_optimized.py::RangeCoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "StreamingEntropyEncoder",
+      "fullname": "src/layer7_optimized.py::StreamingEntropyEncoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_optimized.py",
+      "name": "OptimizedLayer7Pipeline",
+      "fullname": "src/layer7_optimized.py::OptimizedLayer7Pipeline",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "DictionaryDomain",
+      "fullname": "src/super_dictionary_system.py::DictionaryDomain",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "DictionaryType",
+      "fullname": "src/super_dictionary_system.py::DictionaryType",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "DictionaryEntry",
+      "fullname": "src/super_dictionary_system.py::DictionaryEntry",
+      "methods": 1,
+      "class_attrs": 11,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "SuperDictionary",
+      "fullname": "src/super_dictionary_system.py::SuperDictionary",
+      "methods": 4,
+      "class_attrs": 11,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "FinancialTemplate",
+      "fullname": "src/super_dictionary_system.py::FinancialTemplate",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "FinancialTemplateDictionary",
+      "fullname": "src/super_dictionary_system.py::FinancialTemplateDictionary",
+      "methods": 2,
+      "class_attrs": 1,
+      "instance_attrs_count": 0,
+      "bases": [
+        "SuperDictionary"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "DictionaryReference",
+      "fullname": "src/super_dictionary_system.py::DictionaryReference",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "SuperDictionaryRegistry",
+      "fullname": "src/super_dictionary_system.py::SuperDictionaryRegistry",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "PatternCollapse",
+      "fullname": "src/super_dictionary_system.py::PatternCollapse",
+      "methods": 1,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/super_dictionary_system.py",
+      "name": "PatternCollapseEngine",
+      "fullname": "src/super_dictionary_system.py::PatternCollapseEngine",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "NodeRole",
+      "fullname": "src/distributed_framework.py::NodeRole",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "NodeState",
+      "fullname": "src/distributed_framework.py::NodeState",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "NodeInfo",
+      "fullname": "src/distributed_framework.py::NodeInfo",
+      "methods": 0,
+      "class_attrs": 11,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "DataPartition",
+      "fullname": "src/distributed_framework.py::DataPartition",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "MasterNode",
+      "fullname": "src/distributed_framework.py::MasterNode",
+      "methods": 11,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "WorkerNode",
+      "fullname": "src/distributed_framework.py::WorkerNode",
+      "methods": 11,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "DistributedProtocol",
+      "fullname": "src/distributed_framework.py::DistributedProtocol",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "DataPartitioner",
+      "fullname": "src/distributed_framework.py::DataPartitioner",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "FailureDetector",
+      "fullname": "src/distributed_framework.py::FailureDetector",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "ReplicationManager",
+      "fullname": "src/distributed_framework.py::ReplicationManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "LoadBalancer",
+      "fullname": "src/distributed_framework.py::LoadBalancer",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "DistributedCompressionEngine",
+      "fullname": "src/distributed_framework.py::DistributedCompressionEngine",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/distributed_framework.py",
+      "name": "ProtobufMessages",
+      "fullname": "src/distributed_framework.py::ProtobufMessages",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cache_warmer.py",
+      "name": "WarmUpMetrics",
+      "fullname": "src/cache_warmer.py::WarmUpMetrics",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cache_warmer.py",
+      "name": "BufferPreallocator",
+      "fullname": "src/cache_warmer.py::BufferPreallocator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cache_warmer.py",
+      "name": "DictionaryWarmer",
+      "fullname": "src/cache_warmer.py::DictionaryWarmer",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cache_warmer.py",
+      "name": "AccessPatternSimulator",
+      "fullname": "src/cache_warmer.py::AccessPatternSimulator",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cache_warmer.py",
+      "name": "SessionCacheWarmer",
+      "fullname": "src/cache_warmer.py::SessionCacheWarmer",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 9,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_optimized.py",
+      "name": "OptimizedSemanticTokenizer",
+      "fullname": "src/layer1_optimized.py::OptimizedSemanticTokenizer",
+      "methods": 2,
+      "class_attrs": 7,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_optimized.py",
+      "name": "CachedDictionary",
+      "fullname": "src/layer1_optimized.py::CachedDictionary",
+      "methods": 5,
+      "class_attrs": 4,
+      "instance_attrs_count": 9,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_optimized.py",
+      "name": "OptimizedLayer1Encoder",
+      "fullname": "src/layer1_optimized.py::OptimizedLayer1Encoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_optimized.py",
+      "name": "OptimizedLayer1Decoder",
+      "fullname": "src/layer1_optimized.py::OptimizedLayer1Decoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_optimized.py",
+      "name": "OptimizedLayer1Pipeline",
+      "fullname": "src/layer1_optimized.py::OptimizedLayer1Pipeline",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitPackingStrategy",
+      "fullname": "src/layer4.py::BitPackingStrategy",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "IntEnum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitPackingChunk",
+      "fullname": "src/layer4.py::BitPackingChunk",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitWidthAnalysis",
+      "fullname": "src/layer4.py::BitWidthAnalysis",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitWidthCalculator",
+      "fullname": "src/layer4.py::BitWidthCalculator",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitPackingEncoder",
+      "fullname": "src/layer4.py::BitPackingEncoder",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "BitPackingDecoder",
+      "fullname": "src/layer4.py::BitPackingDecoder",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "Layer4Encoder",
+      "fullname": "src/layer4.py::Layer4Encoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4.py",
+      "name": "Layer4Decoder",
+      "fullname": "src/layer4.py::Layer4Decoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/core_interfaces.py",
+      "name": "CompressionError",
+      "fullname": "src/core_interfaces.py::CompressionError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/core_interfaces.py",
+      "name": "DecompressionError",
+      "fullname": "src/core_interfaces.py::DecompressionError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/core_interfaces.py",
+      "name": "BaseCompressionStrategy",
+      "fullname": "src/core_interfaces.py::BaseCompressionStrategy",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/core_interfaces.py",
+      "name": "CompressionContext",
+      "fullname": "src/core_interfaces.py::CompressionContext",
+      "methods": 2,
+      "class_attrs": 2,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/metrics.py",
+      "name": "Metrics",
+      "fullname": "src/metrics.py::Metrics",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/config.py",
+      "name": "CompressionLayer",
+      "fullname": "src/config.py::CompressionLayer",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/config.py",
+      "name": "DictionaryConfig",
+      "fullname": "src/config.py::DictionaryConfig",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/config.py",
+      "name": "EntropyConfig",
+      "fullname": "src/config.py::EntropyConfig",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/config.py",
+      "name": "ParallelizationConfig",
+      "fullname": "src/config.py::ParallelizationConfig",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/config.py",
+      "name": "IntegrityConfig",
+      "fullname": "src/config.py::IntegrityConfig",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/config.py",
+      "name": "CompressionError",
+      "fullname": "src/config.py::CompressionError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/config.py",
+      "name": "DecompressionError",
+      "fullname": "src/config.py::DecompressionError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/config.py",
+      "name": "IntegrityError",
+      "fullname": "src/config.py::IntegrityError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/config.py",
+      "name": "DictionaryError",
+      "fullname": "src/config.py::DictionaryError",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Exception"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/extreme_engine.py",
+      "name": "GlobalPatternRegistry",
+      "fullname": "src/extreme_engine.py::GlobalPatternRegistry",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine.py",
+      "name": "Layer8UltraExtremeMapper",
+      "fullname": "src/extreme_engine.py::Layer8UltraExtremeMapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine.py",
+      "name": "ExtremeCobolEngine",
+      "fullname": "src/extreme_engine.py::ExtremeCobolEngine",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4_optimized.py",
+      "name": "BitPackingStrategy",
+      "fullname": "src/layer4_optimized.py::BitPackingStrategy",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "IntEnum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer4_optimized.py",
+      "name": "AdaptiveBitWidthAnalyzer",
+      "fullname": "src/layer4_optimized.py::AdaptiveBitWidthAnalyzer",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4_optimized.py",
+      "name": "VectorizedBitPackingEncoder",
+      "fullname": "src/layer4_optimized.py::VectorizedBitPackingEncoder",
+      "methods": 9,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer4_optimized.py",
+      "name": "VectorizedBitPackingDecoder",
+      "fullname": "src/layer4_optimized.py::VectorizedBitPackingDecoder",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_acceleration.py",
+      "name": "GPUDetector",
+      "fullname": "src/gpu_acceleration.py::GPUDetector",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_acceleration.py",
+      "name": "GPUMemoryManager",
+      "fullname": "src/gpu_acceleration.py::GPUMemoryManager",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_acceleration.py",
+      "name": "GPUTrieAccelerator",
+      "fullname": "src/gpu_acceleration.py::GPUTrieAccelerator",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/gpu_acceleration.py",
+      "name": "GPUAccelerationEngine",
+      "fullname": "src/gpu_acceleration.py::GPUAccelerationEngine",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_gpu_acceleration.py",
+      "name": "GPUPatternMatcher",
+      "fullname": "src/layer6_gpu_acceleration.py::GPUPatternMatcher",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_gpu_acceleration.py",
+      "name": "GPUAcceleratedLayer6",
+      "fullname": "src/layer6_gpu_acceleration.py::GPUAcceleratedLayer6",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "VersionStatus",
+      "fullname": "src/profile_versioning.py::VersionStatus",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "UpgradeReason",
+      "fullname": "src/profile_versioning.py::UpgradeReason",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "FallbackReason",
+      "fullname": "src/profile_versioning.py::FallbackReason",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "VersionChange",
+      "fullname": "src/profile_versioning.py::VersionChange",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "ProfileVersion",
+      "fullname": "src/profile_versioning.py::ProfileVersion",
+      "methods": 5,
+      "class_attrs": 14,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "UpgradeInformation",
+      "fullname": "src/profile_versioning.py::UpgradeInformation",
+      "methods": 2,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "UpgradeAuditLog",
+      "fullname": "src/profile_versioning.py::UpgradeAuditLog",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "ProfileVersionManager",
+      "fullname": "src/profile_versioning.py::ProfileVersionManager",
+      "methods": 18,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "ProfileUpgradeManager",
+      "fullname": "src/profile_versioning.py::ProfileUpgradeManager",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profile_versioning.py",
+      "name": "ExperimentalVersionManager",
+      "fullname": "src/profile_versioning.py::ExperimentalVersionManager",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "TrieNode",
+      "fullname": "src/layer6_optimized.py::TrieNode",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "StructuralPatternDictionary",
+      "fullname": "src/layer6_optimized.py::StructuralPatternDictionary",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "PatternDetector",
+      "fullname": "src/layer6_optimized.py::PatternDetector",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "StateMachineTokenizer",
+      "fullname": "src/layer6_optimized.py::StateMachineTokenizer",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "PatternEncoder",
+      "fullname": "src/layer6_optimized.py::PatternEncoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_optimized.py",
+      "name": "OptimizedLayer6Pipeline",
+      "fullname": "src/layer6_optimized.py::OptimizedLayer6Pipeline",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "ExecutionPath",
+      "fullname": "src/dag_pipeline.py::ExecutionPath",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "PathConfig",
+      "fullname": "src/dag_pipeline.py::PathConfig",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "DAGNodeMetrics",
+      "fullname": "src/dag_pipeline.py::DAGNodeMetrics",
+      "methods": 1,
+      "class_attrs": 6,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "CompressionCodec",
+      "fullname": "src/dag_pipeline.py::CompressionCodec",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "LZ4Codec",
+      "fullname": "src/dag_pipeline.py::LZ4Codec",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "CompressionCodec"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "DeflateCoded",
+      "fullname": "src/dag_pipeline.py::DeflateCoded",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [
+        "CompressionCodec"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "BrotliCodec",
+      "fullname": "src/dag_pipeline.py::BrotliCodec",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "CompressionCodec"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "CodecRegistry",
+      "fullname": "src/dag_pipeline.py::CodecRegistry",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "TrieNode",
+      "fullname": "src/dag_pipeline.py::TrieNode",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "HierarchicalDictionary",
+      "fullname": "src/dag_pipeline.py::HierarchicalDictionary",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "CompressionCost",
+      "fullname": "src/dag_pipeline.py::CompressionCost",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "CostModel",
+      "fullname": "src/dag_pipeline.py::CostModel",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "HealthMonitor",
+      "fullname": "src/dag_pipeline.py::HealthMonitor",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_pipeline.py",
+      "name": "DAGPipeline",
+      "fullname": "src/dag_pipeline.py::DAGPipeline",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dual_mode_engine.py",
+      "name": "CompressionMode",
+      "fullname": "src/dual_mode_engine.py::CompressionMode",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "enum.Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dual_mode_engine.py",
+      "name": "DualModeEngine",
+      "fullname": "src/dual_mode_engine.py::DualModeEngine",
+      "methods": 15,
+      "class_attrs": 0,
+      "instance_attrs_count": 9,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "LayerName",
+      "fullname": "src/dag_compression_pipeline.py::LayerName",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "ExecutionPath",
+      "fullname": "src/dag_compression_pipeline.py::ExecutionPath",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "LayerNode",
+      "fullname": "src/dag_compression_pipeline.py::LayerNode",
+      "methods": 1,
+      "class_attrs": 14,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "LayerEdge",
+      "fullname": "src/dag_compression_pipeline.py::LayerEdge",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "DAGExecutionContext",
+      "fullname": "src/dag_compression_pipeline.py::DAGExecutionContext",
+      "methods": 1,
+      "class_attrs": 15,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "CompressionDAG",
+      "fullname": "src/dag_compression_pipeline.py::CompressionDAG",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dag_compression_pipeline.py",
+      "name": "DAGExecutionEngine",
+      "fullname": "src/dag_compression_pipeline.py::DAGExecutionEngine",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/auto_tuner.py",
+      "name": "LayerConfig",
+      "fullname": "src/auto_tuner.py::LayerConfig",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/auto_tuner.py",
+      "name": "PipelineConfig",
+      "fullname": "src/auto_tuner.py::PipelineConfig",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/auto_tuner.py",
+      "name": "AutoTuner",
+      "fullname": "src/auto_tuner.py::AutoTuner",
+      "methods": 3,
+      "class_attrs": 1,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/nested_dictionary.py",
+      "name": "NestedDictionaryEntry",
+      "fullname": "src/nested_dictionary.py::NestedDictionaryEntry",
+      "methods": 2,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/nested_dictionary.py",
+      "name": "NestedDictionary",
+      "fullname": "src/nested_dictionary.py::NestedDictionary",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/nested_dictionary.py",
+      "name": "RecursiveNestedDictionaryManager",
+      "fullname": "src/nested_dictionary.py::RecursiveNestedDictionaryManager",
+      "methods": 11,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/nested_dictionary.py",
+      "name": "RecursiveCompressorL8",
+      "fullname": "src/nested_dictionary.py::RecursiveCompressorL8",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "CacheConfig",
+      "fullname": "src/adaptive_chunk_optimizer.py::CacheConfig",
+      "methods": 0,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "ChunkAnalysis",
+      "fullname": "src/adaptive_chunk_optimizer.py::ChunkAnalysis",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "EntropyAnalyzer",
+      "fullname": "src/adaptive_chunk_optimizer.py::EntropyAnalyzer",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "AdaptiveChunkSizer",
+      "fullname": "src/adaptive_chunk_optimizer.py::AdaptiveChunkSizer",
+      "methods": 4,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "LatencyEstimator",
+      "fullname": "src/adaptive_chunk_optimizer.py::LatencyEstimator",
+      "methods": 2,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_chunk_optimizer.py",
+      "name": "AdaptiveChunkOptimizer",
+      "fullname": "src/adaptive_chunk_optimizer.py::AdaptiveChunkOptimizer",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "PrivacyBudgetAllocation",
+      "fullname": "src/dp_optimizer.py::PrivacyBudgetAllocation",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "NoiseCache",
+      "fullname": "src/dp_optimizer.py::NoiseCache",
+      "methods": 2,
+      "class_attrs": 6,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "DPDecision",
+      "fullname": "src/dp_optimizer.py::DPDecision",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "DPWindowAggregation",
+      "fullname": "src/dp_optimizer.py::DPWindowAggregation",
+      "methods": 1,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "NoiseSamplerBatch",
+      "fullname": "src/dp_optimizer.py::NoiseSamplerBatch",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "DPDecisionCache",
+      "fullname": "src/dp_optimizer.py::DPDecisionCache",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "DPWindowBatcher",
+      "fullname": "src/dp_optimizer.py::DPWindowBatcher",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 10,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "OptimizedDifferentialPrivacy",
+      "fullname": "src/dp_optimizer.py::OptimizedDifferentialPrivacy",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 10,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dp_optimizer.py",
+      "name": "DPOverheadBenchmark",
+      "fullname": "src/dp_optimizer.py::DPOverheadBenchmark",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer0_classifier.py",
+      "name": "DataType",
+      "fullname": "src/layer0_classifier.py::DataType",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer0_classifier.py",
+      "name": "ClassificationResult",
+      "fullname": "src/layer0_classifier.py::ClassificationResult",
+      "methods": 1,
+      "class_attrs": 6,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer0_classifier.py",
+      "name": "Layer0Classifier",
+      "fullname": "src/layer0_classifier.py::Layer0Classifier",
+      "methods": 9,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "BottleneckLevel",
+      "fullname": "src/profiler.py::BottleneckLevel",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "LayerProfile",
+      "fullname": "src/profiler.py::LayerProfile",
+      "methods": 1,
+      "class_attrs": 23,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "CompressionProfile",
+      "fullname": "src/profiler.py::CompressionProfile",
+      "methods": 1,
+      "class_attrs": 26,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "StreamingProfile",
+      "fullname": "src/profiler.py::StreamingProfile",
+      "methods": 0,
+      "class_attrs": 12,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "CompressionProfiler",
+      "fullname": "src/profiler.py::CompressionProfiler",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "MemoryTracker",
+      "fullname": "src/profiler.py::MemoryTracker",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "GPUMonitor",
+      "fullname": "src/profiler.py::GPUMonitor",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/profiler.py",
+      "name": "ProfileReporter",
+      "fullname": "src/profiler.py::ProfileReporter",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "RLEStrategy",
+      "fullname": "src/layer5_optimized.py::RLEStrategy",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "PatternStats",
+      "fullname": "src/layer5_optimized.py::PatternStats",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "PatternCatalog",
+      "fullname": "src/layer5_optimized.py::PatternCatalog",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "AdvancedRLEEncoder",
+      "fullname": "src/layer5_optimized.py::AdvancedRLEEncoder",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "AdvancedRLEDecoder",
+      "fullname": "src/layer5_optimized.py::AdvancedRLEDecoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_optimized.py",
+      "name": "OptimizedLayer5Pipeline",
+      "fullname": "src/layer5_optimized.py::OptimizedLayer5Pipeline",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "BlockStatus",
+      "fullname": "src/streaming.py::BlockStatus",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "IntEnum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "CompressedBlock",
+      "fullname": "src/streaming.py::CompressedBlock",
+      "methods": 2,
+      "class_attrs": 13,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamingConfig",
+      "fullname": "src/streaming.py::StreamingConfig",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamingStatistics",
+      "fullname": "src/streaming.py::StreamingStatistics",
+      "methods": 2,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamCompressor",
+      "fullname": "src/streaming.py::StreamCompressor",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamDecompressor",
+      "fullname": "src/streaming.py::StreamDecompressor",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamingProtocol",
+      "fullname": "src/streaming.py::StreamingProtocol",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "TCPStreamingProtocol",
+      "fullname": "src/streaming.py::TCPStreamingProtocol",
+      "methods": 3,
+      "class_attrs": 1,
+      "instance_attrs_count": 1,
+      "bases": [
+        "StreamingProtocol"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "StreamCheckpoint",
+      "fullname": "src/streaming.py::StreamCheckpoint",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/streaming.py",
+      "name": "CheckpointManager",
+      "fullname": "src/streaming.py::CheckpointManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "MemoryTier",
+      "fullname": "src/fpga_controller.py::MemoryTier",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGAState",
+      "fullname": "src/fpga_controller.py::FPGAState",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "CAMEntry",
+      "fullname": "src/fpga_controller.py::CAMEntry",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "HuffmanTable",
+      "fullname": "src/fpga_controller.py::HuffmanTable",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGAMetrics",
+      "fullname": "src/fpga_controller.py::FPGAMetrics",
+      "methods": 0,
+      "class_attrs": 14,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGABackend",
+      "fullname": "src/fpga_controller.py::FPGABackend",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGASimulator",
+      "fullname": "src/fpga_controller.py::FPGASimulator",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [
+        "FPGABackend"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "RealFPGABackend",
+      "fullname": "src/fpga_controller.py::RealFPGABackend",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [
+        "FPGABackend"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGAController",
+      "fullname": "src/fpga_controller.py::FPGAController",
+      "methods": 13,
+      "class_attrs": 5,
+      "instance_attrs_count": 11,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "FPGACluster",
+      "fullname": "src/fpga_controller.py::FPGACluster",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "PowerCoolingSpecs",
+      "fullname": "src/fpga_controller.py::PowerCoolingSpecs",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "MobileContainerDC",
+      "fullname": "src/fpga_controller.py::MobileContainerDC",
+      "methods": 5,
+      "class_attrs": 5,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fpga_controller.py",
+      "name": "EconomicModel",
+      "fullname": "src/fpga_controller.py::EconomicModel",
+      "methods": 3,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "RLEStrategy",
+      "fullname": "src/layer5_framework.py::RLEStrategy",
+      "methods": 0,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "PatternCatalogEntry",
+      "fullname": "src/layer5_framework.py::PatternCatalogEntry",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "PatternCatalog",
+      "fullname": "src/layer5_framework.py::PatternCatalog",
+      "methods": 9,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "AdvancedRLEEncoder",
+      "fullname": "src/layer5_framework.py::AdvancedRLEEncoder",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "AdvancedRLEDecoder",
+      "fullname": "src/layer5_framework.py::AdvancedRLEDecoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "OptimizedLayer5Pipeline",
+      "fullname": "src/layer5_framework.py::OptimizedLayer5Pipeline",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "StandardRLEEncoder",
+      "fullname": "src/layer5_framework.py::StandardRLEEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "LZSSEncoder",
+      "fullname": "src/layer5_framework.py::LZSSEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "PPMEncoder",
+      "fullname": "src/layer5_framework.py::PPMEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "EntropyEncoder",
+      "fullname": "src/layer5_framework.py::EntropyEncoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "BitPlaneRLEEncoder",
+      "fullname": "src/layer5_framework.py::BitPlaneRLEEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "RiceEncoder",
+      "fullname": "src/layer5_framework.py::RiceEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_framework.py",
+      "name": "GolombEncoder",
+      "fullname": "src/layer5_framework.py::GolombEncoder",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "StructuralPattern",
+      "fullname": "src/layer2.py::StructuralPattern",
+      "methods": 0,
+      "class_attrs": 22,
+      "instance_attrs_count": 0,
+      "bases": [
+        "IntEnum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "StructuralToken",
+      "fullname": "src/layer2.py::StructuralToken",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "StructuralTokenizer",
+      "fullname": "src/layer2.py::StructuralTokenizer",
+      "methods": 7,
+      "class_attrs": 4,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "NestingLevelTracker",
+      "fullname": "src/layer2.py::NestingLevelTracker",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "StructuralDictionary",
+      "fullname": "src/layer2.py::StructuralDictionary",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "Layer2Encoder",
+      "fullname": "src/layer2.py::Layer2Encoder",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer2.py",
+      "name": "Layer2Decoder",
+      "fullname": "src/layer2.py::Layer2Decoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "CompressionDepth",
+      "fullname": "src/performance_profiles.py::CompressionDepth",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "PipelineMode",
+      "fullname": "src/performance_profiles.py::PipelineMode",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "ProfileName",
+      "fullname": "src/performance_profiles.py::ProfileName",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "ProfileParameters",
+      "fullname": "src/performance_profiles.py::ProfileParameters",
+      "methods": 1,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "ProfileDefinition",
+      "fullname": "src/performance_profiles.py::ProfileDefinition",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "HardwareInfo",
+      "fullname": "src/performance_profiles.py::HardwareInfo",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "ProfileSelection",
+      "fullname": "src/performance_profiles.py::ProfileSelection",
+      "methods": 1,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/performance_profiles.py",
+      "name": "PerformanceProfileManager",
+      "fullname": "src/performance_profiles.py::PerformanceProfileManager",
+      "methods": 20,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "BlockMetadata",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::BlockMetadata",
+      "methods": 3,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "OffsetIndexEntry",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::OffsetIndexEntry",
+      "methods": 1,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "GlobalMappingEntry",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::GlobalMappingEntry",
+      "methods": 1,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "GlobalMappingDictionary",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::GlobalMappingDictionary",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "OffsetIndex",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::OffsetIndex",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "RandomAccessQueryEngine",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::RandomAccessQueryEngine",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "SHA256IntegrityValidator",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::SHA256IntegrityValidator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_ultra_extreme_enhanced.py",
+      "name": "Layer8UltraExtremeManager",
+      "fullname": "src/layer8_ultra_extreme_enhanced.py::Layer8UltraExtremeManager",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "FrozenFormatSpecification",
+      "fullname": "src/infrastructure_architecture.py::FrozenFormatSpecification",
+      "methods": 2,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "DecoderContractLayer",
+      "fullname": "src/infrastructure_architecture.py::DecoderContractLayer",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "ModelIdentity",
+      "fullname": "src/infrastructure_architecture.py::ModelIdentity",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "PerformanceModelDefinition",
+      "fullname": "src/infrastructure_architecture.py::PerformanceModelDefinition",
+      "methods": 2,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "ModelRegistry",
+      "fullname": "src/infrastructure_architecture.py::ModelRegistry",
+      "methods": 3,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "CompressionBoundary",
+      "fullname": "src/infrastructure_architecture.py::CompressionBoundary",
+      "methods": 1,
+      "class_attrs": 2,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "DeterminismContract",
+      "fullname": "src/infrastructure_architecture.py::DeterminismContract",
+      "methods": 1,
+      "class_attrs": 1,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "AuditEntry",
+      "fullname": "src/infrastructure_architecture.py::AuditEntry",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/infrastructure_architecture.py",
+      "name": "AuditLog",
+      "fullname": "src/infrastructure_architecture.py::AuditLog",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "EntropyStrategy",
+      "fullname": "src/layer7_framework.py::EntropyStrategy",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "SymbolInfo",
+      "fullname": "src/layer7_framework.py::SymbolInfo",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "HuffmanNode",
+      "fullname": "src/layer7_framework.py::HuffmanNode",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "FrequencyAnalyzer",
+      "fullname": "src/layer7_framework.py::FrequencyAnalyzer",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "HuffmanCoder",
+      "fullname": "src/layer7_framework.py::HuffmanCoder",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "AdaptiveHuffmanCoder",
+      "fullname": "src/layer7_framework.py::AdaptiveHuffmanCoder",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "ArithmeticCoder",
+      "fullname": "src/layer7_framework.py::ArithmeticCoder",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "RangeCoder",
+      "fullname": "src/layer7_framework.py::RangeCoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "StreamingEntropyEncoder",
+      "fullname": "src/layer7_framework.py::StreamingEntropyEncoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "OptimizedLayer7Pipeline",
+      "fullname": "src/layer7_framework.py::OptimizedLayer7Pipeline",
+      "methods": 9,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "TurboCoder",
+      "fullname": "src/layer7_framework.py::TurboCoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "LZMACoder",
+      "fullname": "src/layer7_framework.py::LZMACoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "BitWriter",
+      "fullname": "src/layer7_framework.py::BitWriter",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer7_framework.py",
+      "name": "BitReader",
+      "fullname": "src/layer7_framework.py::BitReader",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integration_validation_suite.py",
+      "name": "ValidationStatus",
+      "fullname": "src/integration_validation_suite.py::ValidationStatus",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/integration_validation_suite.py",
+      "name": "ValidationResult",
+      "fullname": "src/integration_validation_suite.py::ValidationResult",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integration_validation_suite.py",
+      "name": "ValidationSuite",
+      "fullname": "src/integration_validation_suite.py::ValidationSuite",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/validate_v14.py",
+      "name": "ValidationReport",
+      "fullname": "src/validate_v14.py::ValidationReport",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer8_final.py",
+      "name": "Layer8Final",
+      "fullname": "src/layer8_final.py::Layer8Final",
+      "methods": 13,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "FederationStrategy",
+      "fullname": "src/federated_dictionary_learning.py::FederationStrategy",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "PatternInfo",
+      "fullname": "src/federated_dictionary_learning.py::PatternInfo",
+      "methods": 3,
+      "class_attrs": 7,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "LocalDictionary",
+      "fullname": "src/federated_dictionary_learning.py::LocalDictionary",
+      "methods": 6,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "FederatedPatternAggregator",
+      "fullname": "src/federated_dictionary_learning.py::FederatedPatternAggregator",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "DifferentialPrivacy",
+      "fullname": "src/federated_dictionary_learning.py::DifferentialPrivacy",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/federated_dictionary_learning.py",
+      "name": "DistributedDictionaryManager",
+      "fullname": "src/federated_dictionary_learning.py::DistributedDictionaryManager",
+      "methods": 10,
+      "class_attrs": 4,
+      "instance_attrs_count": 9,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "JobStatus",
+      "fullname": "src/dashboard_framework.py::JobStatus",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "ClusterHealth",
+      "fullname": "src/dashboard_framework.py::ClusterHealth",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "JobInfo",
+      "fullname": "src/dashboard_framework.py::JobInfo",
+      "methods": 0,
+      "class_attrs": 12,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "ClusterInfo",
+      "fullname": "src/dashboard_framework.py::ClusterInfo",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "NodeMetrics",
+      "fullname": "src/dashboard_framework.py::NodeMetrics",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "DashboardBackend",
+      "fullname": "src/dashboard_framework.py::DashboardBackend",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "ClusterAPI",
+      "fullname": "src/dashboard_framework.py::ClusterAPI",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "JobAPI",
+      "fullname": "src/dashboard_framework.py::JobAPI",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "AnalyticsAPI",
+      "fullname": "src/dashboard_framework.py::AnalyticsAPI",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "WebSocketManager",
+      "fullname": "src/dashboard_framework.py::WebSocketManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "AuthenticationManager",
+      "fullname": "src/dashboard_framework.py::AuthenticationManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "AuthorizationManager",
+      "fullname": "src/dashboard_framework.py::AuthorizationManager",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "DatabaseModels",
+      "fullname": "src/dashboard_framework.py::DatabaseModels",
+      "methods": 0,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "CacheManager",
+      "fullname": "src/dashboard_framework.py::CacheManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "MonitoringManager",
+      "fullname": "src/dashboard_framework.py::MonitoringManager",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "LoggingManager",
+      "fullname": "src/dashboard_framework.py::LoggingManager",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "DashboardMiddleware",
+      "fullname": "src/dashboard_framework.py::DashboardMiddleware",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/dashboard_framework.py",
+      "name": "DashboardUI",
+      "fullname": "src/dashboard_framework.py::DashboardUI",
+      "methods": 0,
+      "class_attrs": 2,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine_enhanced.py",
+      "name": "GlobalPatternRegistry",
+      "fullname": "src/extreme_engine_enhanced.py::GlobalPatternRegistry",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine_enhanced.py",
+      "name": "InstructionSetGenerator",
+      "fullname": "src/extreme_engine_enhanced.py::InstructionSetGenerator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine_enhanced.py",
+      "name": "Layer8UltraExtremeMapper",
+      "fullname": "src/extreme_engine_enhanced.py::Layer8UltraExtremeMapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/extreme_engine_enhanced.py",
+      "name": "ExtremeCobolEngine",
+      "fullname": "src/extreme_engine_enhanced.py::ExtremeCobolEngine",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cost_optimization_engine.py",
+      "name": "CloudProvider",
+      "fullname": "src/cost_optimization_engine.py::CloudProvider",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/cost_optimization_engine.py",
+      "name": "FPGABoardModel",
+      "fullname": "src/cost_optimization_engine.py::FPGABoardModel",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/cost_optimization_engine.py",
+      "name": "StorageCost",
+      "fullname": "src/cost_optimization_engine.py::StorageCost",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cost_optimization_engine.py",
+      "name": "ComprehensiveEconomicModel",
+      "fullname": "src/cost_optimization_engine.py::ComprehensiveEconomicModel",
+      "methods": 7,
+      "class_attrs": 1,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integrated_adaptive_optimizer.py",
+      "name": "LatencySnapshot",
+      "fullname": "src/integrated_adaptive_optimizer.py::LatencySnapshot",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integrated_adaptive_optimizer.py",
+      "name": "LatencyStats",
+      "fullname": "src/integrated_adaptive_optimizer.py::LatencyStats",
+      "methods": 1,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integrated_adaptive_optimizer.py",
+      "name": "LatencyTracker",
+      "fullname": "src/integrated_adaptive_optimizer.py::LatencyTracker",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integrated_adaptive_optimizer.py",
+      "name": "PercentileOptimizer",
+      "fullname": "src/integrated_adaptive_optimizer.py::PercentileOptimizer",
+      "methods": 3,
+      "class_attrs": 2,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/integrated_adaptive_optimizer.py",
+      "name": "IntegratedAdaptiveOptimizer",
+      "fullname": "src/integrated_adaptive_optimizer.py::IntegratedAdaptiveOptimizer",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 11,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "DeviceType",
+      "fullname": "src/heterogeneous_orchestrator.py::DeviceType",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "DeviceCapabilities",
+      "fullname": "src/heterogeneous_orchestrator.py::DeviceCapabilities",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "DeviceMetrics",
+      "fullname": "src/heterogeneous_orchestrator.py::DeviceMetrics",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "DevicePool",
+      "fullname": "src/heterogeneous_orchestrator.py::DevicePool",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "GPUUpstream",
+      "fullname": "src/heterogeneous_orchestrator.py::GPUUpstream",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "FPGAMiddleTier",
+      "fullname": "src/heterogeneous_orchestrator.py::FPGAMiddleTier",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "CPUDownstream",
+      "fullname": "src/heterogeneous_orchestrator.py::CPUDownstream",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/heterogeneous_orchestrator.py",
+      "name": "HeterogeneousOrchestrator",
+      "fullname": "src/heterogeneous_orchestrator.py::HeterogeneousOrchestrator",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cobol_v16_integrated.py",
+      "name": "CompressionStrategy",
+      "fullname": "src/cobol_v16_integrated.py::CompressionStrategy",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cobol_v16_integrated.py",
+      "name": "COBOLv16Engine",
+      "fullname": "src/cobol_v16_integrated.py::COBOLv16Engine",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 11,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cobol_v16_integrated.py",
+      "name": "COBOLV16",
+      "fullname": "src/cobol_v16_integrated.py::COBOLV16",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "CompressionStats",
+      "fullname": "src/l5l8_optimized_pipeline.py::CompressionStats",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "OptimizedLayer5",
+      "fullname": "src/l5l8_optimized_pipeline.py::OptimizedLayer5",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "OptimizedLayer6",
+      "fullname": "src/l5l8_optimized_pipeline.py::OptimizedLayer6",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "OptimizedLayer7",
+      "fullname": "src/l5l8_optimized_pipeline.py::OptimizedLayer7",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "OptimizedLayer8",
+      "fullname": "src/l5l8_optimized_pipeline.py::OptimizedLayer8",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/l5l8_optimized_pipeline.py",
+      "name": "OptimizedL5L8Pipeline",
+      "fullname": "src/l5l8_optimized_pipeline.py::OptimizedL5L8Pipeline",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_fast_simulation.py",
+      "name": "RequestType",
+      "fullname": "src/load_balancer_fast_simulation.py::RequestType",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/load_balancer_fast_simulation.py",
+      "name": "FastLoadBalancerSimulator",
+      "fullname": "src/load_balancer_fast_simulation.py::FastLoadBalancerSimulator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "GlobalPatternRegistry",
+      "fullname": "src/engine.py::GlobalPatternRegistry",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "HPCCompressionEngine",
+      "fullname": "src/engine.py::HPCCompressionEngine",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "DictionaryChain",
+      "fullname": "src/engine.py::DictionaryChain",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "CryptographicWrapper",
+      "fullname": "src/engine.py::CryptographicWrapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "MathematicalShuffler",
+      "fullname": "src/engine.py::MathematicalShuffler",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "VarIntCodec",
+      "fullname": "src/engine.py::VarIntCodec",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "CompressionMetadata",
+      "fullname": "src/engine.py::CompressionMetadata",
+      "methods": 2,
+      "class_attrs": 9,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Dictionary",
+      "fullname": "src/engine.py::Dictionary",
+      "methods": 6,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "DictionaryManager",
+      "fullname": "src/engine.py::DictionaryManager",
+      "methods": 14,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "AdaptiveEntropyDetector",
+      "fullname": "src/engine.py::AdaptiveEntropyDetector",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer1SemanticMapper",
+      "fullname": "src/engine.py::Layer1SemanticMapper",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer2StructuralMapper",
+      "fullname": "src/engine.py::Layer2StructuralMapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer2StructuralMapper",
+      "fullname": "src/engine.py::Layer2StructuralMapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer3DeltaEncoder",
+      "fullname": "src/engine.py::Layer3DeltaEncoder",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer4VariableBitPacking",
+      "fullname": "src/engine.py::Layer4VariableBitPacking",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer5PatternDetector",
+      "fullname": "src/engine.py::Layer5PatternDetector",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer6MetadataMapper",
+      "fullname": "src/engine.py::Layer6MetadataMapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer7InstructionGenerator",
+      "fullname": "src/engine.py::Layer7InstructionGenerator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "Layer8FinalHardening",
+      "fullname": "src/engine.py::Layer8FinalHardening",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/engine.py",
+      "name": "CobolEngine",
+      "fullname": "src/engine.py::CobolEngine",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 17,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fusion_pipeline_optimizer.py",
+      "name": "ExecutionContext",
+      "fullname": "src/fusion_pipeline_optimizer.py::ExecutionContext",
+      "methods": 1,
+      "class_attrs": 7,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fusion_pipeline_optimizer.py",
+      "name": "FusionPipelineOptimizer",
+      "fullname": "src/fusion_pipeline_optimizer.py::FusionPipelineOptimizer",
+      "methods": 11,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fusion_pipeline_optimizer.py",
+      "name": "ContextFreeCompressionWrapper",
+      "fullname": "src/fusion_pipeline_optimizer.py::ContextFreeCompressionWrapper",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/fusion_pipeline_optimizer.py",
+      "name": "OptimizationProfiler",
+      "fullname": "src/fusion_pipeline_optimizer.py::OptimizationProfiler",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer5_recursive.py",
+      "name": "Layer5Recursive",
+      "fullname": "src/layer5_recursive.py::Layer5Recursive",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "DeploymentRegion",
+      "fullname": "src/cluster_orchestrator.py::DeploymentRegion",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "CostOptimizationStrategy",
+      "fullname": "src/cluster_orchestrator.py::CostOptimizationStrategy",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "MCDCLocation",
+      "fullname": "src/cluster_orchestrator.py::MCDCLocation",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "NetworkLink",
+      "fullname": "src/cluster_orchestrator.py::NetworkLink",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "ReplicationStrategy",
+      "fullname": "src/cluster_orchestrator.py::ReplicationStrategy",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "MCDCOrchestrator",
+      "fullname": "src/cluster_orchestrator.py::MCDCOrchestrator",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 10,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "MobileContainerDC",
+      "fullname": "src/cluster_orchestrator.py::MobileContainerDC",
+      "methods": 2,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/cluster_orchestrator.py",
+      "name": "FederationProtocol",
+      "fullname": "src/cluster_orchestrator.py::FederationProtocol",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [
+        "ABC"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer1",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer1",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer2",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer2",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer3",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer3",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer4",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer4",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer5",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer5",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer6",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer6",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer7",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer7",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedLayer8",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedLayer8",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [
+        "HardwareOptimizedLayer"
+      ],
+      "inheritance_depth": 2
+    },
+    {
+      "file": "src/hardware_optimized_layers.py",
+      "name": "HardwareOptimizedPipeline",
+      "fullname": "src/hardware_optimized_layers.py::HardwareOptimizedPipeline",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "RequestType",
+      "fullname": "src/load_balancer_simulator.py::RequestType",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "NodeLocation",
+      "fullname": "src/load_balancer_simulator.py::NodeLocation",
+      "methods": 0,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "UserLocation",
+      "fullname": "src/load_balancer_simulator.py::UserLocation",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "Request",
+      "fullname": "src/load_balancer_simulator.py::Request",
+      "methods": 0,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "CacheEntry",
+      "fullname": "src/load_balancer_simulator.py::CacheEntry",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "NodeStats",
+      "fullname": "src/load_balancer_simulator.py::NodeStats",
+      "methods": 1,
+      "class_attrs": 10,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "L8Node",
+      "fullname": "src/load_balancer_simulator.py::L8Node",
+      "methods": 3,
+      "class_attrs": 6,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "Layer8IndexRouter",
+      "fullname": "src/load_balancer_simulator.py::Layer8IndexRouter",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "GlobalDictionaryCache",
+      "fullname": "src/load_balancer_simulator.py::GlobalDictionaryCache",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/load_balancer_simulator.py",
+      "name": "LoadBalancerOrchestrator",
+      "fullname": "src/load_balancer_simulator.py::LoadBalancerOrchestrator",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer3_optimized.py",
+      "name": "DeltaStrategy",
+      "fullname": "src/layer3_optimized.py::DeltaStrategy",
+      "methods": 0,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer3_optimized.py",
+      "name": "VectorizedDeltaEncoder",
+      "fullname": "src/layer3_optimized.py::VectorizedDeltaEncoder",
+      "methods": 11,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer3_optimized.py",
+      "name": "VectorizedDeltaDecoder",
+      "fullname": "src/layer3_optimized.py::VectorizedDeltaDecoder",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer3_optimized.py",
+      "name": "OptimizedLayer3Pipeline",
+      "fullname": "src/layer3_optimized.py::OptimizedLayer3Pipeline",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "HealthStatus",
+      "fullname": "src/adaptive_pipeline.py::HealthStatus",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "CircuitBreakerState",
+      "fullname": "src/adaptive_pipeline.py::CircuitBreakerState",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "PerformanceMetrics",
+      "fullname": "src/adaptive_pipeline.py::PerformanceMetrics",
+      "methods": 2,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "CircuitBreaker",
+      "fullname": "src/adaptive_pipeline.py::CircuitBreaker",
+      "methods": 5,
+      "class_attrs": 0,
+      "instance_attrs_count": 7,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "LayerHealthMonitor",
+      "fullname": "src/adaptive_pipeline.py::LayerHealthMonitor",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 6,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "AdaptivePipeline",
+      "fullname": "src/adaptive_pipeline.py::AdaptivePipeline",
+      "methods": 8,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [
+        "HardwareOptimizedPipeline"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/adaptive_pipeline.py",
+      "name": "StabilityManager",
+      "fullname": "src/adaptive_pipeline.py::StabilityManager",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "EnergyMeasure",
+      "fullname": "src/energy_aware_execution.py::EnergyMeasure",
+      "methods": 0,
+      "class_attrs": 3,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "EnergyProfile",
+      "fullname": "src/energy_aware_execution.py::EnergyProfile",
+      "methods": 0,
+      "class_attrs": 16,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "EnergyBudget",
+      "fullname": "src/energy_aware_execution.py::EnergyBudget",
+      "methods": 3,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "MemoryAccessPattern",
+      "fullname": "src/energy_aware_execution.py::MemoryAccessPattern",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "StopConditionType",
+      "fullname": "src/energy_aware_execution.py::StopConditionType",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "CompressionStopCondition",
+      "fullname": "src/energy_aware_execution.py::CompressionStopCondition",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "SIMDArchitecture",
+      "fullname": "src/energy_aware_execution.py::SIMDArchitecture",
+      "methods": 0,
+      "class_attrs": 4,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "SIMDBatchConfig",
+      "fullname": "src/energy_aware_execution.py::SIMDBatchConfig",
+      "methods": 2,
+      "class_attrs": 6,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "SIMDCompressionKernel",
+      "fullname": "src/energy_aware_execution.py::SIMDCompressionKernel",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "NUMANode",
+      "fullname": "src/energy_aware_execution.py::NUMANode",
+      "methods": 1,
+      "class_attrs": 5,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "NUMAScheduler",
+      "fullname": "src/energy_aware_execution.py::NUMAScheduler",
+      "methods": 3,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "EnergyExecutionStats",
+      "fullname": "src/energy_aware_execution.py::EnergyExecutionStats",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/energy_aware_execution.py",
+      "name": "EnergyAwareCompressionController",
+      "fullname": "src/energy_aware_execution.py::EnergyAwareCompressionController",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/multi_layer_compressor.py",
+      "name": "MultiLayerCompressor",
+      "fullname": "src/multi_layer_compressor.py::MultiLayerCompressor",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/production_streaming_integration.py",
+      "name": "StreamingCompressionIntegration",
+      "fullname": "src/production_streaming_integration.py::StreamingCompressionIntegration",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 5,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/production_streaming_integration.py",
+      "name": "ProductionStreamingAPI",
+      "fullname": "src/production_streaming_integration.py::ProductionStreamingAPI",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "PatternDetectionStrategy",
+      "fullname": "src/layer6_framework.py::PatternDetectionStrategy",
+      "methods": 0,
+      "class_attrs": 8,
+      "instance_attrs_count": 0,
+      "bases": [
+        "Enum"
+      ],
+      "inheritance_depth": 1
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "PatternInfo",
+      "fullname": "src/layer6_framework.py::PatternInfo",
+      "methods": 0,
+      "class_attrs": 7,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "TrieNode",
+      "fullname": "src/layer6_framework.py::TrieNode",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "StructuralPatternDictionary",
+      "fullname": "src/layer6_framework.py::StructuralPatternDictionary",
+      "methods": 10,
+      "class_attrs": 0,
+      "instance_attrs_count": 4,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "PatternDetector",
+      "fullname": "src/layer6_framework.py::PatternDetector",
+      "methods": 6,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "StateMachineTokenizer",
+      "fullname": "src/layer6_framework.py::StateMachineTokenizer",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 2,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "PatternEncoder",
+      "fullname": "src/layer6_framework.py::PatternEncoder",
+      "methods": 4,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "PatternDecoder",
+      "fullname": "src/layer6_framework.py::PatternDecoder",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "OptimizedLayer6Pipeline",
+      "fullname": "src/layer6_framework.py::OptimizedLayer6Pipeline",
+      "methods": 7,
+      "class_attrs": 0,
+      "instance_attrs_count": 3,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "SuffixArrayDetector",
+      "fullname": "src/layer6_framework.py::SuffixArrayDetector",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "TrieDetector",
+      "fullname": "src/layer6_framework.py::TrieDetector",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "RollingHashDetector",
+      "fullname": "src/layer6_framework.py::RollingHashDetector",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "LZ77Detector",
+      "fullname": "src/layer6_framework.py::LZ77Detector",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "BloomFilterDetector",
+      "fullname": "src/layer6_framework.py::BloomFilterDetector",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 1,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer6_framework.py",
+      "name": "LSHDetector",
+      "fullname": "src/layer6_framework.py::LSHDetector",
+      "methods": 1,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    },
+    {
+      "file": "src/layer1_semantic.py",
+      "name": "Layer1Semantic",
+      "fullname": "src/layer1_semantic.py::Layer1Semantic",
+      "methods": 2,
+      "class_attrs": 0,
+      "instance_attrs_count": 0,
+      "bases": [],
+      "inheritance_depth": 0
+    }
+  ],
+  "summary": {
+    "total_classes": 485
+  }
+}

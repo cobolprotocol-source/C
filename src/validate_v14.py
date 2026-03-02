@@ -96,7 +96,7 @@ def validate_imports(report: ValidationReport):
     
     # Test core HPC imports
     try:
-        from hpc_engine import (
+        from .hpc_engine import (
             SharedMemoryEngine, ChunkParallelEngine, HybridHPCEngine
         )
         report.add_result("Imports", "HPC Engine imports", True)
@@ -105,14 +105,14 @@ def validate_imports(report: ValidationReport):
     
     # Test legacy engine still works
     try:
-        from engine import CobolEngine
+        from .engine import CobolEngine
         report.add_result("Imports", "Legacy engine import", True)
     except Exception as e:
         report.add_result("Imports", "Legacy engine import", False, str(e))
     
     # Test Numba dictionary
     try:
-        from numba_dictionary import HAS_NUMBA, jit_pattern_search
+        from .numba_dictionary import HAS_NUMBA, jit_pattern_search
         report.add_result("Imports", "Numba dictionary import", True,
                          f"Numba available: {HAS_NUMBA}")
     except Exception as e:
@@ -120,7 +120,7 @@ def validate_imports(report: ValidationReport):
     
     # Test GPU acceleration
     try:
-        from gpu_acceleration import GPUAccelerationEngine, GPUDetector
+        from .gpu_acceleration import GPUAccelerationEngine, GPUDetector
         report.add_result("Imports", "GPU acceleration import", True)
     except Exception as e:
         report.add_result("Imports", "GPU acceleration import", False, str(e))
@@ -130,7 +130,7 @@ def validate_hpc_engines(report: ValidationReport):
     """Test 2: Verify HPC engine functionality"""
     print("\nValidating HPC engines...")
     
-    from hpc_engine import SharedMemoryEngine, ChunkParallelEngine, HybridHPCEngine
+    from .hpc_engine import SharedMemoryEngine, ChunkParallelEngine, HybridHPCEngine
     
     test_data = b"COBOL_PROTOCOL_v1.4" * 1000  # ~19 KB
     identity_func = lambda x: x
@@ -174,7 +174,7 @@ def validate_backward_compatibility(report: ValidationReport):
     """Test 3: Verify backward compatibility"""
     print("\nValidating backward compatibility...")
     
-    from engine import CobolEngine
+    from .engine import CobolEngine
     
     test_data = b"BACKWARD_COMPATIBILITY_TEST" * 100
     
@@ -201,7 +201,7 @@ def validate_numba_jit(report: ValidationReport):
     print("\nValidating Numba JIT...")
     
     try:
-        from numba_dictionary import HAS_NUMBA, jit_pattern_search
+        from .numba_dictionary import HAS_NUMBA, jit_pattern_search
         import numpy as np
         
         if HAS_NUMBA:
@@ -225,7 +225,7 @@ def validate_gpu_framework(report: ValidationReport):
     print("\nValidating GPU framework...")
     
     try:
-        from gpu_acceleration import GPUDetector, GPUAccelerationEngine
+        from .gpu_acceleration import GPUDetector, GPUAccelerationEngine
         
         # Detect GPU
         detector = GPUDetector()

@@ -27,7 +27,7 @@ class DualModeEngine:
         self._init_bridge_layers()
         # Try initialize optimized L5-L8 pipeline if available
         try:
-            from l5l8_optimized_pipeline import OptimizedL5L8Pipeline
+            from .l5l8_optimized_pipeline import OptimizedL5L8Pipeline
             self.optimized_l5l8 = OptimizedL5L8Pipeline()
             self.optimized_available = True
         except Exception:
@@ -37,9 +37,9 @@ class DualModeEngine:
     def _init_legacy_layers(self):
         """Initialize legacy layer5/6/7_optimized implementations"""
         try:
-            from layer5_optimized import OptimizedLayer5Pipeline
-            from layer6_optimized import OptimizedLayer6Pipeline
-            from layer7_optimized import OptimizedLayer7Pipeline
+            from .layer5_optimized import OptimizedLayer5Pipeline
+            from .layer6_optimized import OptimizedLayer6Pipeline
+            from .layer7_optimized import OptimizedLayer7Pipeline
             
             self.l5_legacy = OptimizedLayer5Pipeline()
             self.l6_legacy = OptimizedLayer6Pipeline()
@@ -52,15 +52,15 @@ class DualModeEngine:
     def _init_bridge_layers(self):
         """Initialize new L1-L8 protocol bridge implementation"""
         try:
-            from protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
-            from layer1_semantic import Layer1Semantic
-            from layer2_structural import Layer2Structural
-            from layer3_delta import Layer3Delta
-            from layer4_binary import Layer4Binary
-            from layer5_recursive import Layer5Recursive
-            from layer6_recursive import Layer6Recursive
-            from layer7_bank import Layer7Bank
-            from layer8_final import Layer8Final
+            from .protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
+            from .layer1_semantic import Layer1Semantic
+            from .layer2_structural import Layer2Structural
+            from .layer3_delta import Layer3Delta
+            from .layer4_binary import Layer4Binary
+            from .layer5_recursive import Layer5Recursive
+            from .layer6_recursive import Layer6Recursive
+            from .layer7_bank import Layer7Bank
+            from .layer8_final import Layer8Final
             
             self.bridge = ProtocolBridge([
                 Layer1Semantic(), Layer2Structural(), Layer3Delta(), Layer4Binary(),
@@ -141,7 +141,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
         
-        from protocol_bridge import TypedBuffer, ProtocolLanguage
+        from .protocol_bridge import TypedBuffer, ProtocolLanguage
         
         # Convert bytes to text for L1 input
         text = data.decode('utf-8', errors='ignore')
@@ -161,7 +161,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
         
-        from protocol_bridge import TypedBuffer, ProtocolLanguage
+        from .protocol_bridge import TypedBuffer, ProtocolLanguage
         
         # Decode L8 input (PIC X string)
         if isinstance(data, bytes):
@@ -185,7 +185,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
 
-        from protocol_bridge import TypedBuffer, ProtocolLanguage
+        from .protocol_bridge import TypedBuffer, ProtocolLanguage
 
         # Reconstruct L8 input from compressed bytes
         if isinstance(data, bytes):
@@ -209,7 +209,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
 
-        from protocol_bridge import TypedBuffer, ProtocolLanguage
+        from .protocol_bridge import TypedBuffer, ProtocolLanguage
 
         # Convert bytes to text for L1 input
         text = data.decode('utf-8', errors='ignore')

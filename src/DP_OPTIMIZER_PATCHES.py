@@ -17,10 +17,10 @@ CHANGE 1.1: Replace import at top of file
 ────────────────────────────────────────
 
 OLD:
-    from dp_optimizer import OptimizedDifferentialPrivacy  # NOT YET
+    from .dp_optimizer import OptimizedDifferentialPrivacy  # NOT YET
 
 CHANGED TO (line ~12):
-    from dp_optimizer import OptimizedDifferentialPrivacy
+    from .dp_optimizer import OptimizedDifferentialPrivacy
 
 ────────────────────────────────────────────────────────────────────────────────
 
@@ -93,7 +93,7 @@ OLD (line ~1360):
     dp_auditor = DifferentialPrivacyAuditor()
 
 CHANGED TO (optional):
-    from dp_optimizer import OptimizedDifferentialPrivacy
+    from .dp_optimizer import OptimizedDifferentialPrivacy
     
     # Audit the optimized version too
     dp_optimized = OptimizedDifferentialPrivacy(epsilon=0.1)
@@ -259,11 +259,11 @@ HUNK 1: Import Statement (line ~12)
 ────────────────────────────────────────────────────────────────────────────────
 
 BEFORE:
-    from engine import HPCCompressionEngine
+    from .engine import HPCCompressionEngine
 
 AFTER:
-    from engine import HPCCompressionEngine
-    from dp_optimizer import OptimizedDifferentialPrivacy
+    from .engine import HPCCompressionEngine
+    from .dp_optimizer import OptimizedDifferentialPrivacy
 
 ────────────────────────────────────────────────────────────────────────────────
 HUNK 2: __init__ method (line ~345-360)

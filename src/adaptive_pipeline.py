@@ -308,7 +308,7 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         # Final layers
         # after layer 6 we have a numpy array
         # optionally apply a multi-layer compressor
-        from multi_layer_compressor import MultiLayerCompressor
+        from .multi_layer_compressor import MultiLayerCompressor
         compressor = MultiLayerCompressor()
         try:
             arr_bytes = current if isinstance(current, bytes) else bytes(current)
@@ -384,7 +384,7 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
         Tuple[bytes, Dict[str,Any]]
             Final compressed bytes and an aggregate metadata dictionary.
         """
-        from vector_indexing import make_cobol_memory_record
+        from .vector_indexing import make_cobol_memory_record
 
         if stages is None:
             stages = [2, 10, 50, 200, 500]
@@ -456,8 +456,8 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
 
         Returns final compressed bytes and metadata with auto-tuning trace.
         """
-        from layer0_classifier import Layer0Classifier
-        from auto_tuner import AutoTuner
+        from .layer0_classifier import Layer0Classifier
+        from .auto_tuner import AutoTuner
 
         start_time = time.time()
         metadata = {
@@ -555,7 +555,7 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
 
         # always undo final multilayer compressor
         logger.debug(f"Before final decompression size={len(current) if isinstance(current, bytes) else current.nbytes}")
-        from multi_layer_compressor import MultiLayerCompressor
+        from .multi_layer_compressor import MultiLayerCompressor
         try:
             current = MultiLayerCompressor().decompress(current)
             logger.info("Reversed final multi-layer compression")

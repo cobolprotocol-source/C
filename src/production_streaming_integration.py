@@ -54,7 +54,7 @@ class StreamingCompressionIntegration:
         }
         
         try:
-            from dual_mode_engine import DualModeEngine, CompressionMode
+            from .dual_mode_engine import DualModeEngine, CompressionMode
             self.engine = DualModeEngine(
                 CompressionMode.MAXIMAL if use_maximal_mode else CompressionMode.BRIDGE
             )

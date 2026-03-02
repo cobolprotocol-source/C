@@ -9,7 +9,7 @@ print("="*70)
 # Test 1: layer5_optimized
 print("\n[Test 1] layer5_optimized...")
 try:
-    from layer5_optimized import OptimizedLayer5Pipeline
+    from .layer5_optimized import OptimizedLayer5Pipeline
     l5 = OptimizedLayer5Pipeline()
     test_data = b"TEST DATA" * 10
     compressed = l5.compress(test_data)
@@ -24,7 +24,7 @@ except Exception as e:
 # Test 2: layer6_optimized
 print("\n[Test 2] layer6_optimized...")
 try:
-    from layer6_optimized import OptimizedLayer6Pipeline
+    from .layer6_optimized import OptimizedLayer6Pipeline
     l6 = OptimizedLayer6Pipeline()
     test_data = b"PATTERN TEST" * 10
     compressed = l6.compress(test_data)
@@ -39,7 +39,7 @@ except Exception as e:
 # Test 3: layer7_optimized
 print("\n[Test 3] layer7_optimized...")
 try:
-    from layer7_optimized import OptimizedLayer7Pipeline
+    from .layer7_optimized import OptimizedLayer7Pipeline
     l7 = OptimizedLayer7Pipeline()
     test_data = b"ENTROPY TEST" * 10
     compressed = l7.compress(test_data)
@@ -54,7 +54,7 @@ except Exception as e:
 # Test 4: engine.py (jika ada compress/decompress)
 print("\n[Test 4] engine.py...")
 try:
-    import engine
+    from . import engine
     if hasattr(engine, 'compress_pipeline') and hasattr(engine, 'decompress_pipeline'):
         print("  ✓ engine.py has compress_pipeline and decompress_pipeline")
     else:
@@ -65,9 +65,9 @@ except Exception as e:
 # Test 5: new L1-L8 bridge
 print("\n[Test 5] New L1-L8 Protocol Bridge...")
 try:
-    from protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
-    from layer1_semantic import Layer1Semantic
-    from layer2_structural import Layer2Structural
+    from .protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
+    from .layer1_semantic import Layer1Semantic
+    from .layer2_structural import Layer2Structural
     
     print("  ✓ New protocol bridge modules import OK")
     

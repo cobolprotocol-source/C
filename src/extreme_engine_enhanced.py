@@ -427,7 +427,7 @@ class ExtremeCobolEngine:
         Args:
             config: Configuration dictionary (optional)
         """
-        from engine import CobolEngine
+        from .engine import CobolEngine
         
         self.registry = GlobalPatternRegistry()
         self.layer8 = Layer8UltraExtremeMapper(self.registry)

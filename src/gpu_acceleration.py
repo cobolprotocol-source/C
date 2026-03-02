@@ -108,7 +108,7 @@ class GPUTrieAccelerator:
         self.use_gpu = detector.gpu_available
         # try to import GPU wrapper
         try:
-            from trie_gpu import search_gpu
+            from .trie_gpu import search_gpu
             self.search_kernel = search_gpu
         except Exception:
             self.search_kernel = None

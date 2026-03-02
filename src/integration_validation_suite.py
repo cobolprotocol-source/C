@@ -97,7 +97,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from infrastructure_architecture import (
+            from .infrastructure_architecture import (
                 FrozenFormatSpecification,
                 PerformanceModelDefinition,
                 ModelIdentity,
@@ -161,7 +161,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from dag_compression_pipeline import (
+            from .dag_compression_pipeline import (
                 CompressionDAG,
                 DAGExecutionEngine,
                 ExecutionPath,
@@ -217,7 +217,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from energy_aware_execution import (
+            from .energy_aware_execution import (
                 EnergyProfile,
                 EnergyBudget,
                 EnergyAwareCompressionController,
@@ -291,7 +291,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from super_dictionary_system import (
+            from .super_dictionary_system import (
                 SuperDictionaryRegistry,
                 DictionaryDomain,
                 create_financial_dictionary,
@@ -347,7 +347,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from security_trust_layer import (
+            from .security_trust_layer import (
                 EncryptionKey,
                 EncryptionAlgorithm,
                 AES256GCMEncryptor,
@@ -436,7 +436,7 @@ class ValidationSuite:
             v152_file = b'COBOL1.5.2' + b'\x00' * 40  # Simplified header
             
             # Verify we can still validate it
-            from infrastructure_architecture import CompressionBoundary, ModelIdentity
+            from .infrastructure_architecture import CompressionBoundary, ModelIdentity
             
             # This should gracefully handle or reject v1.5.2
             checks.append(ValidationResult(

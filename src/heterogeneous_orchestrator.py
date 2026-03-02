@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 # Try to import GPU accelerator
 try:
-    from gpu_accelerator import GPUAccelerator, GPUMetrics
+    from .gpu_accelerator import GPUAccelerator, GPUMetrics
     GPU_ACCEL_AVAILABLE = True
 except ImportError:
     GPU_ACCEL_AVAILABLE = False

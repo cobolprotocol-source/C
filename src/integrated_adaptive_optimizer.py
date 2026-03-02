@@ -213,7 +213,7 @@ class IntegratedAdaptiveOptimizer:
         # Import optional dependencies
         try:
             if enable_chunking:
-                from adaptive_chunk_optimizer import AdaptiveChunkOptimizer
+                from .adaptive_chunk_optimizer import AdaptiveChunkOptimizer
                 self.chunk_optimizer = AdaptiveChunkOptimizer()
             else:
                 self.chunk_optimizer = None
@@ -223,7 +223,7 @@ class IntegratedAdaptiveOptimizer:
         
         try:
             if enable_cache_warming:
-                from cache_warmer import SessionCacheWarmer
+                from .cache_warmer import SessionCacheWarmer
                 self.cache_warmer = SessionCacheWarmer()
             else:
                 self.cache_warmer = None
@@ -233,7 +233,7 @@ class IntegratedAdaptiveOptimizer:
         
         try:
             if enable_buffer_pooling:
-                from buffer_pool_optimizer import ContextFreePipelineWrapper
+                from .buffer_pool_optimizer import ContextFreePipelineWrapper
                 self.buffer_wrapper = ContextFreePipelineWrapper(engine)
             else:
                 self.buffer_wrapper = None
