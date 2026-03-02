@@ -1,3 +1,14 @@
+# ============================================================================
+# COBOL Protocol - Deterministic Safety Header
+# Layer: L1-L8 Engine (Critical)
+# Deterministic: YES
+# Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+# WARNING: Core engine is highly sensitive. Only formatting or comments
+# are permitted here. Do NOT modify executable code, control flow, or
+# algorithmic behavior. Any change may affect determinism, auditability,
+# and cryptographic integrity.
+# ============================================================================
+
 """Legacy utility methods removed from top; see HPCCompressionEngine class later in file."""
 
 # Copyright (c) 2026 Nafal Faturizki

@@ -121,7 +121,7 @@ class StateMachineTokenizer:
             CHAR_CLASS[i] = 1  # OPEN_DELIM
         elif c in '>}]':
             CHAR_CLASS[i] = 2  # CLOSE_DELIM
-        elif c in '"\'' ':
+        elif c == '"' or c == "'":
             CHAR_CLASS[i] = 3  # QUOTE
         elif c in ' \t\n\r':
             CHAR_CLASS[i] = 4  # SPACE

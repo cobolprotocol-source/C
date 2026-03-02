@@ -1,3 +1,13 @@
+# ============================================================================
+# COBOL Protocol - Deterministic Safety Header
+# Layer: Core Interfaces (L0)
+# Deterministic: YES
+# Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+# WARNING: This file defines core contracts. Only formatting or comments
+# are permitted here. Do NOT modify executable code, control flow, or
+# algorithmic behavior. Any change may affect determinism.
+# ============================================================================
+
 """Core compression interfaces and utilities.
 
 Semua strategi kompresi harus mewarisi :class:`BaseCompressionStrategy` agar API

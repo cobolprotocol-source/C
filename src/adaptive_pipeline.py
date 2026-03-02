@@ -1,3 +1,13 @@
+# ============================================================================
+# COBOL Protocol - Deterministic Safety Header
+# Layer: Adaptive Pipeline (L2-L6)
+# Deterministic: YES
+# Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+# WARNING: Adaptive pipeline controls layer selection and recovery. Only
+# formatting or comments are permitted here. Do NOT modify executable code,
+# control flow, or algorithmic behavior. Any change may affect determinism.
+# ============================================================================
+
 """
 COBOL Protocol v1.5: Adaptive Pipeline & Stability Monitor
 =========================================================

@@ -1,3 +1,13 @@
+// ============================================================================
+// COBOL Protocol - Deterministic Safety Header
+// Layer: L1-L3 (CORE)
+// Deterministic: YES
+// Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+// WARNING: This file is logic-critical. Only formatting or comments
+// are permitted here. Do NOT modify executable code, control flow,
+// or algorithmic behavior. Any change may affect determinism.
+// ============================================================================
+
 /// COBOL Core: Native multi-layer compression library
 /// Implements L1-L3 compression with high performance
 ///

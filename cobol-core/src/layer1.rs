@@ -1,3 +1,13 @@
+// ============================================================================
+// COBOL Protocol - Deterministic Safety Header
+// Layer: L1 (CORE)
+// Deterministic: YES
+// Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+// WARNING: This file is logic-critical. Only formatting or comments
+// are permitted here. Do NOT modify executable code, control flow,
+// or algorithmic behavior. Any change may affect determinism.
+// ============================================================================
+
 /// Layer 1: Adaptive Byte-Pair Encoding
 /// Detects common byte pairs and encodes efficiently
 

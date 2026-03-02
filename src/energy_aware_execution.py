@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+
+# ============================================================================
+# COBOL Protocol - Deterministic Safety Header
+# Layer: Cross-Layer Energy Controller (L0)
+# Deterministic: YES
+# Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+# WARNING: Energy accounting is critical. Only formatting or comments
+# are permitted here. Do NOT modify executable code, control flow, or
+# algorithmic behavior. Any change may affect determinism and audits.
+# ============================================================================
+
 """
 COBOL Protocol v1.5.3 - Energy-Aware Execution Layer
 =====================================================

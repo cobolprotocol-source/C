@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+
+# ============================================================================
+# COBOL Protocol - Deterministic Safety Header
+# Layer: Full Pipeline Orchestrator (L1-L8)
+# Deterministic: YES
+# Platform Safety: EDGE / DESKTOP / INDUSTRIAL
+# WARNING: Orchestrator coordinates many layers. Only formatting or comments
+# are permitted here. Do NOT modify executable code, control flow, or
+# algorithmic behavior. Any change may affect determinism and end-to-end
+# reproducibility.
+# ============================================================================
+
 """
 Full L1–L8 Pipeline Orchestrator
 Enables seamless compression/decompression through all 8 COBOL layers
