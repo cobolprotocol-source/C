@@ -6,9 +6,18 @@ class Layer7Bank:
     def encode(self, buffer: TypedBuffer) -> TypedBuffer:
         # Pointers -> COMP-3 Packed Decimal (COBOL Bank Format)
         # Lossless: store length + binary data
-        length = len(buffer.data)
+        data = buffer.data
+        if isinstance(data, bytes):
+            binary = data
+        elif isinstance(data, str):
+            binary = data.encode('utf-8')
+        elif isinstance(data, np.ndarray):
+            binary = data.tobytes()
+        else:
+            binary = np.asarray(data, dtype=np.uint8).tobytes()
+        length = len(binary)
         length_bytes = struct.pack('<I', length)
-        comp3 = length_bytes + buffer.data.tobytes()
+        comp3 = length_bytes + binary
         return TypedBuffer.create(comp3, ProtocolLanguage.L7_COMP3, bytes)
 
     def decode(self, buffer: TypedBuffer) -> TypedBuffer:

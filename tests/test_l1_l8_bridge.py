@@ -141,6 +141,30 @@ class TestMultiLayerTranslationBridge:
         
         l4_out = l4.encode(l3_out)
         assert l4_out.type == bytes
+
+    def test_layer1_mixed_input(self):
+        """Layer1 should accept string, bytes, or ndarray"""
+        l1 = Layer1Semantic()
+        for data in ["abc", b"abc", np.array([97,98,99], dtype=np.uint8)]:
+            buf = TypedBuffer.create(data, ProtocolLanguage.L1_SEM, type(data))
+            out = l1.encode(buf)
+            assert isinstance(out.data, np.ndarray)
+
+    def test_layer3_mixed_input(self):
+        """Layer3 should accept bytes/string/ndarray"""
+        l3 = Layer3Delta()
+        for data in [b"\x01\x02\x03", "\x01\x02\x03", np.array([1,2,3], dtype=np.uint8)]:
+            buf = TypedBuffer.create(data, ProtocolLanguage.L2_STRUCT, type(data))
+            out = l3.encode(buf)
+            assert isinstance(out.data, np.ndarray)
+
+    def test_layer4_mixed_input(self):
+        """Layer4 should accept bytes/string/ndarray"""
+        l4 = Layer4Binary()
+        for data in [b"\xff\x00", "\xff\x00", np.array([255,0], dtype=np.uint8)]:
+            buf = TypedBuffer.create(data, ProtocolLanguage.L3_DELTA, type(data))
+            out = l4.encode(buf)
+            assert isinstance(out.data, bytes)
     
     def test_throughput_benchmark(self, bridge):
         """Benchmark pipeline throughput"""

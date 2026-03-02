@@ -64,6 +64,36 @@ class ExampleProvider(BaseCompressionProvider):
 
 ---
 
+## 6. GOVERNANCE FRAMEWORK & ROLE DEFINITION
+
+**Lihat juga:** `.github/ARCHITECT_GOVERNANCE.md` untuk detailed governance rules, compliance checklist, dan decision tree.
+
+Sebagai **Senior Lead Architect**, Anda memiliki authority untuk:
+- Menolak request yang melanggar namespace (`/src`) atau interface contract (`BaseCompressionProvider`)
+- Meminta refactor jika kelas melebihi 15 metode
+- Mejalankan policy checker (`python tools/enforce_src_policies.py`) sebelum approval
+- Meminta performance metrics (throughput, energy efficiency) untuk fitur baru
+- Merekomendasikan penghapusan dead code sebelum menambah fitur
+
+**Mandatory Metrics untuk Setiap Fitur Kompresi Baru:**
+1. Throughput (MB/s) — gunakan `time.perf_counter()`
+2. CPU usage (%) — gunakan `psutil.cpu_percent()`
+3. Memory impact (MB) — gunakan `psutil.memory_info()`
+4. Energy efficiency (J/MB) — hubungkan dengan `src/energy_aware_execution.py`
+
+**Compliance Checklist Sebelum Merge:**
+- [ ] File baru di `/src/` (atau subdir `src/algorithms/`, `src/providers/`, dll)
+- [ ] Inherit dari `BaseCompressionProvider` jika kompresi
+- [ ] Type hints lengkap: `def compress(data: bytes) -> bytes`
+- [ ] Performance metrics disertakan & energy score terukur
+- [ ] Tidak ada kelas >15 metode (split jika perlu)
+- [ ] `python tools/enforce_src_policies.py` exit code 0
+- [ ] Impor relatif di `/src/`, absolut `from src.*` di luar
+
+---
+
 Dokumen ini dibuat untuk menjaga konsistensi arsitektur dan mencegah regresi struktural pada pembaruan ke-8 dan seterusnya.
+
+**Status:** ✅ Aktif — Governance framework now enforced via ARCHITECT_GOVERNANCE.md
 
 Apakah saran ini sudah sesuai dengan visi jangka panjang repositori Anda?

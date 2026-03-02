@@ -1,0 +1,450 @@
+{
+  "Layer 1 (Semantic)": {
+    "Small": {
+      "name": "Layer 1 (Semantic) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 3.3533732979993793,
+        "stdev_throughput_mbs": 0.2548899561567277,
+        "avg_cpu_percent": 24.883333333333333,
+        "avg_memory_delta_mb": 0.041666666666666664,
+        "avg_compression_ratio": 1.0023076923076923
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3.5301837264703955,
+        "stdev_throughput_mbs": 0.39600383126147526,
+        "avg_time_seconds": 0.00035399000019727583
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 1 (Semantic) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 13.0309446690789,
+        "stdev_throughput_mbs": 0.43180752499904773,
+        "avg_cpu_percent": 13.55,
+        "avg_memory_delta_mb": 0.13151041666666666,
+        "avg_compression_ratio": 1.0000666666666667
+      },
+      "decompress": {
+        "avg_throughput_mbs": 6.812168437372357,
+        "stdev_throughput_mbs": 0.011978581992405535,
+        "avg_time_seconds": 0.006299819666916544
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 1 (Semantic) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 12.426153272402043,
+        "stdev_throughput_mbs": 1.884204822384675,
+        "avg_cpu_percent": 18.483333333333334,
+        "avg_memory_delta_mb": 2.0963541666666665,
+        "avg_compression_ratio": 1.0000052631578948
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3.852684729956192,
+        "stdev_throughput_mbs": 1.538888663856314,
+        "avg_time_seconds": 0.15695791399897038
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 2 (Structural)": {
+    "Small": {
+      "name": "Layer 2 (Structural) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 3.990370823820873,
+        "stdev_throughput_mbs": 0.7084978940898767,
+        "avg_cpu_percent": 33.93333333333333,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3.591861921069735,
+        "stdev_throughput_mbs": 0.374572249248546,
+        "avg_time_seconds": 0.00034783833325491287
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 2 (Structural) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 18.551265458633093,
+        "stdev_throughput_mbs": 1.0337576673225997,
+        "avg_cpu_percent": 10.366666666666667,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3.880931780709556,
+        "stdev_throughput_mbs": 0.9865352400855596,
+        "avg_time_seconds": 0.011642846666291007
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 2 (Structural) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 18.47534384749795,
+        "stdev_throughput_mbs": 2.5530379528962888,
+        "avg_cpu_percent": 12.733333333333333,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3.9219354689273023,
+        "stdev_throughput_mbs": 0.21042799561508413,
+        "avg_time_seconds": 0.1388753066676145
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 3 (Delta)": {
+    "Small": {
+      "name": "Layer 3 (Delta) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 3.5506324360885753,
+        "stdev_throughput_mbs": 0.5386929545159265,
+        "avg_cpu_percent": 16.666666666666668,
+        "avg_memory_delta_mb": 0.08333333333333333,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 9.616174332736211,
+        "stdev_throughput_mbs": 1.7546580673326015,
+        "avg_time_seconds": 0.00013216666654140377
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 3 (Delta) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 138.64448538114857,
+        "stdev_throughput_mbs": 28.64563171932934,
+        "avg_cpu_percent": 33.333333333333336,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 354.4858686676146,
+        "stdev_throughput_mbs": 75.61722837817607,
+        "avg_time_seconds": 0.00012530699981046686
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 3 (Delta) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 206.50235897219673,
+        "stdev_throughput_mbs": 59.958198267098375,
+        "avg_cpu_percent": 28.25,
+        "avg_memory_delta_mb": -1.8671875,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 420.0665279287763,
+        "stdev_throughput_mbs": 178.56884101555826,
+        "avg_time_seconds": 0.0015366113336009828
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 4 (Binary)": {
+    "Small": {
+      "name": "Layer 4 (Binary) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 45.90867061563777,
+        "stdev_throughput_mbs": 8.748130758580748,
+        "avg_cpu_percent": 12.4,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 1.0034050768166864,
+        "stdev_throughput_mbs": 0.13211933180240482,
+        "avg_time_seconds": 0.001250999333327248
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 4 (Binary) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 542.0867017999132,
+        "stdev_throughput_mbs": 27.001605405189878,
+        "avg_cpu_percent": 22.583333333333332,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 492.3717379352764,
+        "stdev_throughput_mbs": 227.0932674055817,
+        "avg_time_seconds": 0.00010769400068966206
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 4 (Binary) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 715.0830223451776,
+        "stdev_throughput_mbs": 6.368567036371171,
+        "avg_cpu_percent": 17.78333333333333,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 4220.317347043942,
+        "stdev_throughput_mbs": 1004.8599983049379,
+        "avg_time_seconds": 0.00013439066666857494
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 5 (Recursive)": {
+    "Small": {
+      "name": "Layer 5 (Recursive) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 4.660919766862109,
+        "stdev_throughput_mbs": 0.18757192754891766,
+        "avg_cpu_percent": 28.1,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 126.05493521031018,
+        "stdev_throughput_mbs": 39.358075203676584,
+        "avg_time_seconds": 1.060633258020971e-05
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 5 (Recursive) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 18.604295613653473,
+        "stdev_throughput_mbs": 10.011072603065948,
+        "avg_cpu_percent": 30.783333333333335,
+        "avg_memory_delta_mb": 0.16666666666666666,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 1019.5274754446226,
+        "stdev_throughput_mbs": 80.12825681253227,
+        "avg_time_seconds": 4.2272000428056344e-05
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 5 (Recursive) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 23.10705943747846,
+        "stdev_throughput_mbs": 6.369603655205828,
+        "avg_cpu_percent": 26.7,
+        "avg_memory_delta_mb": 2.6809895833333335,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 1024.9295214707197,
+        "stdev_throughput_mbs": 73.45296420438835,
+        "avg_time_seconds": 0.0005321319998377779
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 6 (Recursive)": {
+    "Small": {
+      "name": "Layer 6 (Recursive) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 1.8923350206529366,
+        "stdev_throughput_mbs": 0.5465162394433879,
+        "avg_cpu_percent": 10.0,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 18.357670582718246,
+        "stdev_throughput_mbs": 3.4254331233086157,
+        "avg_time_seconds": 6.930599981084622e-05
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 6 (Recursive) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 46.299479901591745,
+        "stdev_throughput_mbs": 4.454676906266738,
+        "avg_cpu_percent": 18.4,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 537.4357452939931,
+        "stdev_throughput_mbs": 97.80193626158658,
+        "avg_time_seconds": 8.186866640850592e-05
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 6 (Recursive) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 382.48086641478716,
+        "stdev_throughput_mbs": 8.655548926251083,
+        "avg_cpu_percent": 10.0,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3622.730823163469,
+        "stdev_throughput_mbs": 107.70530371675278,
+        "avg_time_seconds": 0.0001501400001870934
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 7 (Bank)": {
+    "Small": {
+      "name": "Layer 7 (Bank) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 27.25251597707223,
+        "stdev_throughput_mbs": 8.159555552897235,
+        "avg_cpu_percent": 12.883333333333333,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.003076923076923
+      },
+      "decompress": {
+        "avg_throughput_mbs": 1.9192640707688806,
+        "stdev_throughput_mbs": 0.23926932132964376,
+        "avg_time_seconds": 0.0006532576662721112
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 7 (Bank) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 335.3053393935269,
+        "stdev_throughput_mbs": 12.519490035215583,
+        "avg_cpu_percent": 14.549999999999999,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0000888888888888
+      },
+      "decompress": {
+        "avg_throughput_mbs": 500.79937230622255,
+        "stdev_throughput_mbs": 271.6516240088816,
+        "avg_time_seconds": 0.00011763266653967246
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 7 (Bank) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 579.1941769428292,
+        "stdev_throughput_mbs": 51.24312708827159,
+        "avg_cpu_percent": 10.0,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.0000070175438596
+      },
+      "decompress": {
+        "avg_throughput_mbs": 3591.482413881761,
+        "stdev_throughput_mbs": 1234.4874650101374,
+        "avg_time_seconds": 0.00016756599992125606
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  },
+  "Layer 8 (Final)": {
+    "Small": {
+      "name": "Layer 8 (Final) - Small",
+      "data_size_kb": 1.26953125,
+      "compress": {
+        "avg_throughput_mbs": 21.96081243679554,
+        "stdev_throughput_mbs": 11.95295943842251,
+        "avg_cpu_percent": 31.26666666666667,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.353076923076923
+      },
+      "decompress": {
+        "avg_throughput_mbs": 59.33960901517305,
+        "stdev_throughput_mbs": 23.0458676840569,
+        "avg_time_seconds": 2.3770667515539874e-05
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Medium": {
+      "name": "Layer 8 (Final) - Medium",
+      "data_size_kb": 43.9453125,
+      "compress": {
+        "avg_throughput_mbs": 194.3166593117204,
+        "stdev_throughput_mbs": 15.046946241956151,
+        "avg_cpu_percent": 12.85,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.3338666666666668
+      },
+      "decompress": {
+        "avg_throughput_mbs": 124.86240672382256,
+        "stdev_throughput_mbs": 11.884377333063439,
+        "avg_time_seconds": 0.00034586499956882716
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    },
+    "Large": {
+      "name": "Layer 8 (Final) - Large",
+      "data_size_kb": 556.640625,
+      "compress": {
+        "avg_throughput_mbs": 211.2006217417209,
+        "stdev_throughput_mbs": 67.85928421191535,
+        "avg_cpu_percent": 38.03333333333333,
+        "avg_memory_delta_mb": 0.0,
+        "avg_compression_ratio": 1.333377192982456
+      },
+      "decompress": {
+        "avg_throughput_mbs": 101.34043660002166,
+        "stdev_throughput_mbs": 16.230158279199916,
+        "avg_time_seconds": 0.005450367999704516
+      },
+      "energy_score_jmb": null,
+      "iterations": 3
+    }
+  }
+}
