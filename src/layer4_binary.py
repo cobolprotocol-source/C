@@ -1,21 +1,8 @@
-from .protocol_bridge import TypedBuffer, ProtocolLanguage
-import numpy as np
+"""Layer 4: Binary Encoding (backward-compatible stub).
 
-class Layer4Binary:
-    def encode(self, buffer: TypedBuffer) -> TypedBuffer:
-        """Deltas → Variable-Width Bitstream"""
-        # FIX: Normalize data and handle bytes/string/ndarray safely
-        data = buffer.data
-        if isinstance(data, bytes):
-            binary_form = data
-        elif isinstance(data, str):
-            binary_form = data.encode('utf-8')
-        elif isinstance(data, np.ndarray):
-            binary_form = data.tobytes()
-        else:
-            binary_form = np.asarray(data, dtype=np.uint8).tobytes()
-        return TypedBuffer.create(binary_form, ProtocolLanguage.L4_BIN, bytes)
+This module has been relocated to core/l4_enhancement/ for better organization.
+All imports continue to work via this stub for backward compatibility.
+"""
+from core.l4_enhancement.layer4_binary import Layer4Binary
 
-    def decode(self, buffer: TypedBuffer) -> TypedBuffer:
-        deltas = np.frombuffer(buffer.data, dtype=np.int16)
-        return TypedBuffer.create(deltas, ProtocolLanguage.L3_DELTA, np.ndarray)
+__all__ = ['Layer4Binary']

@@ -1,13 +1,8 @@
-from .protocol_bridge import TypedBuffer, ProtocolLanguage
-import numpy as np
+"""Layer 5: Recursive Trie (backward-compatible stub).
 
-class Layer5Recursive:
-    def encode(self, buffer: TypedBuffer) -> TypedBuffer:
-        # Bitstream -> Nested_ID_Pointers (Recursive Trie)
-        # Dummy: treat each byte as pointer id
-        pointers = np.array(list(buffer.data), dtype=np.uint32)
-        return TypedBuffer.create(pointers, ProtocolLanguage.L5_TRIE, np.ndarray)
+This module has been relocated to core/l5_entropy/ for better organization.
+All imports continue to work via this stub for backward compatibility.
+"""
+from core.l5_entropy.layer5_recursive import Layer5Recursive
 
-    def decode(self, buffer: TypedBuffer) -> TypedBuffer:
-        bitstream = buffer.data.astype(np.uint8).tobytes()
-        return TypedBuffer.create(bitstream, ProtocolLanguage.L4_BIN, bytes)
+__all__ = ['Layer5Recursive']

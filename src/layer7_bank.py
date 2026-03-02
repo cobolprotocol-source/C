@@ -1,27 +1,8 @@
-from .protocol_bridge import TypedBuffer, ProtocolLanguage
-import numpy as np
-import struct
+"""Layer 7: COBOL Bank COMP-3 Encoding (backward-compatible stub).
 
-class Layer7Bank:
-    def encode(self, buffer: TypedBuffer) -> TypedBuffer:
-        # Pointers -> COMP-3 Packed Decimal (COBOL Bank Format)
-        # Lossless: store length + binary data
-        data = buffer.data
-        if isinstance(data, bytes):
-            binary = data
-        elif isinstance(data, str):
-            binary = data.encode('utf-8')
-        elif isinstance(data, np.ndarray):
-            binary = data.tobytes()
-        else:
-            binary = np.asarray(data, dtype=np.uint8).tobytes()
-        length = len(binary)
-        length_bytes = struct.pack('<I', length)
-        comp3 = length_bytes + binary
-        return TypedBuffer.create(comp3, ProtocolLanguage.L7_COMP3, bytes)
+This module has been relocated to core/l7_extreme/ for better organization.
+All imports continue to work via this stub for backward compatibility.
+"""
+from core.l7_extreme.layer7_bank import Layer7Bank
 
-    def decode(self, buffer: TypedBuffer) -> TypedBuffer:
-        # Lossless: read length + reconstruct array
-        length = struct.unpack('<I', buffer.data[:4])[0]
-        pointers = np.frombuffer(buffer.data[4:4+length*4], dtype=np.uint32)
-        return TypedBuffer.create(pointers, ProtocolLanguage.L6_PTR, np.ndarray)
+__all__ = ['Layer7Bank']
