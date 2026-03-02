@@ -24,8 +24,8 @@ import random
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from engine import CobolEngine
-from infrastructure_architecture import ModelIdentity, PerformanceModelDefinition
+from .engine import CobolEngine
+from .infrastructure_architecture import ModelIdentity, PerformanceModelDefinition
 
 
 def test_layers():

@@ -19,7 +19,7 @@ import time
 from collections import defaultdict, Counter
 import numpy as np
 import logging
-from metrics import inc_evicted_count, set_global_patterns
+from .metrics import inc_evicted_count, set_global_patterns
 
 
 class FederationStrategy(Enum):

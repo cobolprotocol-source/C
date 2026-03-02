@@ -8,7 +8,7 @@ Modes: LEGACY (L5–L7), BRIDGE (L1–L8), MAXIMAL (full L1–L8)
 import argparse
 import sys
 from pathlib import Path
-from dual_mode_engine import DualModeEngine, CompressionMode
+from .dual_mode_engine import DualModeEngine, CompressionMode
 
 
 def print_stats(original: bytes, compressed: bytes, duration: float, mode: str):

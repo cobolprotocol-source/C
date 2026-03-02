@@ -19,10 +19,10 @@ from enum import Enum
 import threading
 from collections import deque
 
-from hardware_abstraction_layer import (
+from .hardware_abstraction_layer import (
     HardwareContext, OptimizationStrategy, HardwareType
 )
-from hardware_optimized_layers import (
+from .hardware_optimized_layers import (
     HardwareOptimizedPipeline, HardwareOptimizedLayer
 )
 

@@ -1,4 +1,4 @@
-from protocol_bridge import TypedBuffer, ProtocolLanguage
+from .protocol_bridge import TypedBuffer, ProtocolLanguage
 import numpy as np
 import struct
 

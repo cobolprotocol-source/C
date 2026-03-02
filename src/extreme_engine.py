@@ -43,7 +43,7 @@ import struct
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple
 
-from engine import CompressionMetadata, CompressionLayer, VarIntCodec, IntegrityError
+from .engine import CompressionMetadata, CompressionLayer, VarIntCodec, IntegrityError
 
 
 # ---------------------------------------------------------------------------

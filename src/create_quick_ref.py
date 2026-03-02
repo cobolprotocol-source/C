@@ -11,8 +11,8 @@ quick_ref = """
 
 ### Import & Initialize
 ```python
-from hardware_abstraction_layer import get_hardware_context
-from adaptive_pipeline import AdaptivePipeline
+from .hardware_abstraction_layer import get_hardware_context
+from .adaptive_pipeline import AdaptivePipeline
 
 # Initialize (auto-detects hardware)
 context = get_hardware_context()
@@ -71,7 +71,7 @@ print(context.summary())  # Nice formatted summary
 ### Per-Layer Operations
 ```python
 # Create individual layer
-from hardware_optimized_layers import HardwareOptimizedLayer1
+from .hardware_optimized_layers import HardwareOptimizedLayer1
 
 layer = HardwareOptimizedLayer1()
 
@@ -91,7 +91,7 @@ print(stats['fallbacks'])           # Fallback count
 
 ### Pipeline Operations
 ```python
-from hardware_optimized_layers import HardwareOptimizedPipeline
+from .hardware_optimized_layers import HardwareOptimizedPipeline
 
 pipeline = HardwareOptimizedPipeline()
 
@@ -109,7 +109,7 @@ for layer_num, layer_stats in stats.items():
 
 ### Adaptive Pipeline (Recommended)
 ```python
-from adaptive_pipeline import AdaptivePipeline, StabilityManager
+from .adaptive_pipeline import AdaptivePipeline, StabilityManager
 
 pipeline = AdaptivePipeline()
 stability = StabilityManager(pipeline)
@@ -137,8 +137,8 @@ decompressed, meta2 = pipeline.decompress_with_monitoring(compressed)
 # --- Exporting to vector DB ---
 # you can plug in an export callback that receives each stage's compressed
 # result. combine with our connectors and embedding providers:
-from vector_connectors import upsert_to_pinecone
-from embedding_providers import get_openai_embedding_fn
+from .vector_connectors import upsert_to_pinecone
+from .embedding_providers import get_openai_embedding_fn
 
 def my_export(rec):
     # translate record to whatever your store expects
@@ -161,7 +161,7 @@ compressed, meta = pipeline.compress_with_staged_scaling(
 )
 
 # --- Prometheus metrics example ---
-from metrics_prometheus import create_pipeline_metrics_gauges
+from .metrics_prometheus import create_pipeline_metrics_gauges
 update_fn, gauges = create_pipeline_metrics_gauges(num_layers=8)
 # after a compress or decompress call you can update gauges:
 update_fn({entry['layer']: entry for entry in meta.get('per_layer_stats', [])})
@@ -235,8 +235,8 @@ for layer_num in range(1, 9):
 
 ### Task: Monitor Single Layer
 ```python
-from hardware_optimized_layers import HardwareOptimizedLayer3
-from adaptive_pipeline import LayerHealthMonitor
+from .hardware_optimized_layers import HardwareOptimizedLayer3
+from .adaptive_pipeline import LayerHealthMonitor
 
 layer = HardwareOptimizedLayer3()
 monitor = LayerHealthMonitor(layer)
@@ -286,8 +286,8 @@ for i in range(0, len(data), chunk_size):
 # No manual tuning needed; the system classifies your data and configures
 # the entire L1-L8 pipeline automatically.
 
-from layer0_classifier import Layer0Classifier
-from auto_tuner import AutoTuner
+from .layer0_classifier import Layer0Classifier
+from .auto_tuner import AutoTuner
 
 data = b"your data here"
 pipeline = AdaptivePipeline()
@@ -471,7 +471,7 @@ layer7.chunk_size = 64 * 1024    # 64 KB chunks
 
 ### Check Hardware Detection
 ```python
-from hardware_abstraction_layer import get_hardware_context
+from .hardware_abstraction_layer import get_hardware_context
 context = get_hardware_context()
 print(context.summary())
 ```
@@ -574,7 +574,7 @@ HARDWARE_OPTIMIZATION_GUIDE.md     (18.8 KB)
 
 ### Use Case 1: Basic Compression
 ```python
-from adaptive_pipeline import AdaptivePipeline
+from .adaptive_pipeline import AdaptivePipeline
 
 pipeline = AdaptivePipeline()
 compressed = pipeline.compress(data)  # Simple, no monitoring
@@ -582,7 +582,7 @@ compressed = pipeline.compress(data)  # Simple, no monitoring
 
 ### Use Case 2: Monitored Compression (Recommended)
 ```python
-from adaptive_pipeline import AdaptivePipeline
+from .adaptive_pipeline import AdaptivePipeline
 
 pipeline = AdaptivePipeline()
 compressed, metadata = pipeline.compress_with_monitoring(data)
@@ -593,7 +593,7 @@ if metadata['errors']:
 
 ### Use Case 3: Production with Stability Checks
 ```python
-from adaptive_pipeline import AdaptivePipeline, StabilityManager
+from .adaptive_pipeline import AdaptivePipeline, StabilityManager
 
 pipeline = AdaptivePipeline()
 stability = StabilityManager(pipeline)
@@ -606,7 +606,7 @@ compressed, metadata = pipeline.compress_with_monitoring(data)
 
 ### Use Case 4: Real-Time Monitoring Daemon
 ```python
-from adaptive_pipeline import AdaptivePipeline
+from .adaptive_pipeline import AdaptivePipeline
 import logging
 import time
 

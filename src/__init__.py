@@ -9,7 +9,7 @@ __version__ = "1.0.0"
 __author__ = "Senior Principal Engineer & Cryptographer"
 __license__ = "Proprietary"
 
-from engine import (
+from .engine import (
     CobolEngine,
     DictionaryManager,
     AdaptiveEntropyDetector,

@@ -21,7 +21,7 @@ import io
 
 import numpy as np
 
-from config import CompressionLayer, L4_BIT_WIDTH_MIN, L4_BIT_WIDTH_MAX, L4_CHUNK_SIZE
+from .config import CompressionLayer, L4_BIT_WIDTH_MIN, L4_BIT_WIDTH_MAX, L4_CHUNK_SIZE
 
 
 # ============================================================================

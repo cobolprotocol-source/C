@@ -26,7 +26,7 @@ import io
 
 import numpy as np
 
-from config import CompressionLayer
+from .config import CompressionLayer
 
 
 # ============================================================================

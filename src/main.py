@@ -15,11 +15,11 @@ import asyncio
 # (they may not all be referenced, but importing ensures the interpreter
 # loads them and static checks will see the reference).  Only import
 # subsystems that are truly "core" to the library.
-import engine  # compression engine variants
-import adaptive_pipeline  # health monitoring & adaptive control
-import energy_aware_execution  # energy‑aware scheduling
-import hardware_optimized_layers  # layer definitions
-import distributed_framework  # cluster orchestrator
+from . import engine  # compression engine variants
+from . import adaptive_pipeline  # health monitoring & adaptive control
+from . import energy_aware_execution  # energy‑aware scheduling
+from . import hardware_optimized_layers  # layer definitions
+from . import distributed_framework  # cluster orchestrator
 
 
 def main():

@@ -1,4 +1,4 @@
-from protocol_bridge import ProtocolLanguage
+from .protocol_bridge import ProtocolLanguage
 from typing import Dict, Any, Type
 import numpy as np
 

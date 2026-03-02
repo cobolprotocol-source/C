@@ -32,7 +32,7 @@ from dataclasses import dataclass
 from enum import Enum
 from threading import Lock
 
-from performance_profiles import (
+from .performance_profiles import (
     PerformanceProfileManager,
     get_profile_parameters,
     set_profile,

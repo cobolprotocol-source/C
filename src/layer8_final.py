@@ -15,8 +15,8 @@ This module bridges:
 3. SHA-256 distributed verification (integration with streaming)
 """
 
-from protocol_bridge import TypedBuffer, ProtocolLanguage
-from layer8_ultra_extreme_enhanced import (
+from .protocol_bridge import TypedBuffer, ProtocolLanguage
+from .layer8_ultra_extreme_enhanced import (
     Layer8UltraExtremeManager,
     GlobalMappingDictionary,
     OffsetIndex,

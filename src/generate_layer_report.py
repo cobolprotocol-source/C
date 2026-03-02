@@ -14,7 +14,7 @@ import numpy as np
 from datetime import datetime
 
 # Reuse optimized layers from previous script
-from layers_optimized import (
+from .layers_optimized import (
     OptimizedLayer1, OptimizedLayer2, OptimizedLayer3, OptimizedLayer4,
     OptimizedLayer5, OptimizedLayer6, OptimizedLayer7, OptimizedLayer8,
     gen_test_data

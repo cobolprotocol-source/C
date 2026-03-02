@@ -7,9 +7,9 @@ CPU fallback validation script.
 import sys
 import traceback
 
-from gpu_acceleration import GPUAccelerationEngine
-import numba_dictionary
-from hpc_engine import dma_transfer_example
+from .gpu_acceleration import GPUAccelerationEngine
+from . import numba_dictionary
+from .hpc_engine import dma_transfer_example
 import numpy as np
 
 

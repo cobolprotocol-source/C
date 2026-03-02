@@ -32,7 +32,7 @@ import threading
 import logging
 from functools import lru_cache
 
-from hardware_abstraction_layer import (
+from .hardware_abstraction_layer import (
     HardwareContext, get_hardware_context, OptimizationStrategy,
     HardwareType, ComputeCapability
 )

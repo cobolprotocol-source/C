@@ -19,11 +19,11 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple, Any
 import threading
 
-from dag_pipeline import (
+from .dag_pipeline import (
     DAGPipeline, ExecutionPath, CodecRegistry, 
     HierarchicalDictionary, CostModel, HealthMonitor
 )
-from heterogeneous_orchestrator import (
+from .heterogeneous_orchestrator import (
     HeterogeneousOrchestrator, DevicePool
 )
 

@@ -7,7 +7,7 @@ with the COBOL v1.5.3 compression engine.
 """
 
 import logging
-from profile_integration import (
+from .profile_integration import (
     ProfileAwareCompressionEngine,
     create_profile_aware_engine,
     wrap_existing_engine,

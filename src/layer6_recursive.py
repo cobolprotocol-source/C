@@ -1,6 +1,6 @@
-from gpu_acceleration import GPUTrieAccelerator, GPUDetector
+from .gpu_acceleration import GPUTrieAccelerator, GPUDetector
 import logging
-from protocol_bridge import TypedBuffer, ProtocolLanguage
+from .protocol_bridge import TypedBuffer, ProtocolLanguage
 import numpy as np
 
 class Layer6Recursive:

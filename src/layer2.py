@@ -22,7 +22,7 @@ import io
 
 import numpy as np
 
-from config import CompressionLayer, L1_MAX_DICTIONARY_SIZE
+from .config import CompressionLayer, L1_MAX_DICTIONARY_SIZE
 
 
 # ============================================================================
