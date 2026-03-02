@@ -114,52 +114,90 @@ class Layer0Classifier:
         )
 
     def _compute_entropy(self, data: bytes) -> float:
-        """Compute Shannon entropy of data sample."""
+        """Compute Shannon entropy of data sample.
+
+        Optimised path uses NumPy when available; this avoids Python loops and
+        large dict allocations, reducing RAM churn on large samples.  The
+        implementation is purely deterministic and conservative with respect to
+        the original port, yielding identical results.
+        """
         if len(data) == 0:
             return 0.0
-        
-        freq = {}
-        for byte in data:
-            freq[byte] = freq.get(byte, 0) + 1
-        
-        import math
-        entropy = 0.0
-        for count in freq.values():
-            p = count / len(data)
-            entropy -= p * math.log2(p)
-        
-        return entropy
+
+        # memoryview avoids copying bytes when converting to numpy
+        try:
+            import numpy as np
+            arr = np.frombuffer(memoryview(data), dtype=np.uint8)
+            counts = np.bincount(arr, minlength=256)
+            probs = counts[counts > 0] / arr.size
+            # entropy = -sum(p * log2(p))
+            entropy = -np.sum(probs * np.log2(probs))
+            return float(entropy)
+        except ImportError:
+            # fallback to pure Python implementation
+            freq = {}
+            for byte in data:
+                freq[byte] = freq.get(byte, 0) + 1
+            import math
+            entropy = 0.0
+            for count in freq.values():
+                p = count / len(data)
+                entropy -= p * math.log2(p)
+            return entropy
 
     def _compute_printable_ratio(self, data: bytes) -> float:
-        """Ratio of printable ASCII + whitespace bytes."""
+        """Ratio of printable ASCII + whitespace bytes.
+
+        Uses vectorized operations when NumPy is present to minimise Python
+        iteration overhead.  Works on memoryview to avoid copies.
+        """
         if len(data) == 0:
             return 0.0
-        
-        printable = sum(
-            1 for b in data
-            if (32 <= b < 127) or b in (9, 10, 13)  # ASCII + tab/newline/CR
-        )
-        return printable / len(data)
+        try:
+            import numpy as np
+            arr = np.frombuffer(memoryview(data), dtype=np.uint8)
+            # printable if between 32..126 inclusive or whitespace codes 9,10,13
+            mask = ((arr >= 32) & (arr < 127)) | (arr == 9) | (arr == 10) | (arr == 13)
+            printable = int(np.count_nonzero(mask))
+            return printable / arr.size
+        except ImportError:
+            printable = sum(
+                1 for b in data
+                if (32 <= b < 127) or b in (9, 10, 13)
+            )
+            return printable / len(data)
 
     def _null_byte_ratio(self, data: bytes) -> float:
-        """Ratio of null bytes."""
+        """Ratio of null bytes.
+
+        Simple one-pass scan; memoryview used to minimise temporary objects when
+        called on large buffers.
+        """
         if len(data) == 0:
             return 0.0
-        return sum(1 for b in data if b == 0) / len(data)
+        mv = memoryview(data)
+        count = mv.count(0)
+        return count / len(mv)
 
     def _low_entropy_runs(self, data: bytes, window: int = 64) -> float:
-        """Estimate ratio of low-entropy runs (repetitive sections)."""
+        """Estimate ratio of low-entropy runs (repetitive sections).
+
+        This method is relatively expensive and used only for diagnostics.  It
+        intentionally avoids vectorization to maintain predictable memory use.
+        Future optimisation can sample windows rather than exhaustive scan.
+        """
         if len(data) < window:
             return 0.0
         
         low_count = 0
-        for i in range(len(data) - window):
+        n = len(data) - window
+        for i in range(n):
             chunk = data[i:i+window]
             ent = self._compute_entropy(chunk)
             if ent < 3.0:  # threshold for low entropy
                 low_count += 1
         
-        return low_count / (len(data) - window) if len(data) > window else 0.0
+        return low_count / n if n > 0 else 0.0
 
     def _detect_magic(self, data: bytes) -> Optional[str]:
         """Detect file magic numbers/signatures."""
