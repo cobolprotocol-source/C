@@ -1,0 +1,10 @@
+
+== Testing layers L0..L8 ==
+Original data length: 1048576
+Traceback (most recent call last):
+  File "/workspaces/cobol/run_layer_models_test.py", line 71, in <module>
+    test_layers()
+  File "/workspaces/cobol/run_layer_models_test.py", line 38, in test_layers
+    compressed = engine.compress(data)
+                 ^^^^^^^^^^^^^^^
+AttributeError: 'CobolEngine' object has no attribute 'compress'

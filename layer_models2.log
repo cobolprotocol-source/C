@@ -1,0 +1,27 @@
+L3 Delta encoding gain only -597.8%, below threshold 5.0%
+/workspaces/cobol/engine.py:2448: RuntimeWarning: divide by zero encountered in log2
+  bit_widths = np.ceil(np.log2(data_array + 1)).astype(np.uint8)
+/workspaces/cobol/engine.py:2448: RuntimeWarning: invalid value encountered in cast
+  bit_widths = np.ceil(np.log2(data_array + 1)).astype(np.uint8)
+
+== Testing layers L0..L8 ==
+Original data length: 1048576
+Compressed length: 1966
+Metadata layers applied: ['L2_STRUCTURAL_MAPPING', 'L8_ULTRA_EXTREME_MAPPING', 'L8_ULTRA_EXTREME_MAPPING']
+⚠ Note: decompress_chained is not available; cannot perform round-trip check
+
+== Testing performance models ==
+- Creating model GENERAL_LOW_RESOURCE
+  hash=ca1e7c91... version=1
+- Creating model FINANCIAL_ARCHIVE
+  hash=e4b4d390... version=1
+- Creating model DATACENTER_GENERAL
+  hash=9ee2568f... version=1
+- Creating model AI_TEXT_AND_LOGS
+  hash=9254d71a... version=1
+- Creating model EXPERIMENTAL_RND
+  hash=d0d7fb08... version=1
+
+✅ All 5 models instantiated and hashed
+
+All smoke tests completed successfully
