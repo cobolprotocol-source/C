@@ -22,7 +22,7 @@ Tests strict requirements:
 """
 
 import pytest
-from profile_versioning import (
+from src.profile_versioning import (
     ProfileVersionManager,
     ProfileUpgradeManager,
     ExperimentalVersionManager,

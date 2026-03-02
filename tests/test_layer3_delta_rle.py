@@ -2,7 +2,7 @@ import numpy as np
 import time, os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from layer3_optimized import VectorizedDeltaEncoder
+from src.layer3_optimized import VectorizedDeltaEncoder
 
 
 def test_rle_uniform_data():

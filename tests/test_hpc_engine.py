@@ -25,7 +25,7 @@ import gc
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from hpc_engine import (
+from src.hpc_engine import (
     SharedMemoryEngine, SharedMemoryConfig, SharedMemoryRef,
     ChunkParallelEngine, HybridHPCEngine
 )

@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from adaptive_pipeline import AdaptivePipeline
-from layer0_classifier import DataType
+from src.adaptive_pipeline import AdaptivePipeline
+from src.layer0_classifier import DataType
 
 
 def test_autotuning_integration():

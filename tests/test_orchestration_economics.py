@@ -4,12 +4,12 @@ Test suite for cluster orchestrator and cost optimization
 
 import pytest
 import json
-from cluster_orchestrator import (
+from src.cluster_orchestrator import (
     MCDCOrchestrator, MCDCLocation, NetworkLink,
     DeploymentRegion, CostOptimizationStrategy,
     FederationProtocol, MobileContainerDC
 )
-from cost_optimization_engine import (
+from src.cost_optimization_engine import (
     ComprehensiveEconomicModel, CloudProvider, FPGABoardModel
 )
 

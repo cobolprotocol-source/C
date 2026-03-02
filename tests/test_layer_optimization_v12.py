@@ -6,9 +6,9 @@ Integration tests, performance benchmarks, correctness verification
 import pytest
 import time
 from typing import Tuple
-from layer5_optimized import OptimizedLayer5Pipeline
-from layer6_optimized import OptimizedLayer6Pipeline
-from layer7_optimized import OptimizedLayer7Pipeline
+from src.layer5_optimized import OptimizedLayer5Pipeline
+from src.layer6_optimized import OptimizedLayer6Pipeline
+from src.layer7_optimized import OptimizedLayer7Pipeline
 
 
 class TestLayer5Compression:

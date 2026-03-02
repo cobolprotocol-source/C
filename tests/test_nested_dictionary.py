@@ -6,7 +6,7 @@ Tests cover: depth recursion (1-8 levels), macro expansion, security, performanc
 
 import pytest
 import numpy as np
-from nested_dictionary import (
+from src.nested_dictionary import (
     NestedDictionaryEntry, NestedDictionary,
     RecursiveNestedDictionaryManager, RecursiveCompressorL8
 )

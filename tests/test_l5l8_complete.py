@@ -16,9 +16,9 @@ import os
 from typing import Tuple
 import numpy as np
 
-from l5l8_optimized_pipeline import OptimizedL5L8Pipeline
-from layer6_gpu_acceleration import GPUAcceleratedLayer6, GPUPatternMatcher, CUPY_AVAILABLE
-from federated_dictionary_learning import (
+from src.l5l8_optimized_pipeline import OptimizedL5L8Pipeline
+from src.layer6_gpu_acceleration import GPUAcceleratedLayer6, GPUPatternMatcher, CUPY_AVAILABLE
+from src.federated_dictionary_learning import (
     LocalDictionary, FederatedPatternAggregator, DistributedDictionaryManager,
     FederationStrategy, DifferentialPrivacy
 )

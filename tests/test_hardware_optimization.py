@@ -19,16 +19,16 @@ from typing import List
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-from hardware_abstraction_layer import (
+from src.hardware_abstraction_layer import (
     HardwareDetector, HardwareContext, HardwareType, ComputeCapability,
     OptimizationStrategy, HardwareProfile, CPUCapabilities, get_hardware_context
 )
-from hardware_optimized_layers import (
+from src.hardware_optimized_layers import (
     HardwareOptimizedLayer1, HardwareOptimizedLayer2, HardwareOptimizedLayer3,
     HardwareOptimizedLayer4, HardwareOptimizedLayer5, HardwareOptimizedLayer6,
     HardwareOptimizedLayer7, HardwareOptimizedLayer8, HardwareOptimizedPipeline
 )
-from adaptive_pipeline import (
+from src.adaptive_pipeline import (
     AdaptivePipeline, LayerHealthMonitor, CircuitBreaker, 
     HealthStatus, StabilityManager
 )

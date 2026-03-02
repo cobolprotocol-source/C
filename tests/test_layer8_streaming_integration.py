@@ -15,8 +15,8 @@ import time
 import hashlib
 from typing import List, Tuple
 
-from layer8_final import Layer8Final
-from layer8_ultra_extreme_enhanced import BlockMetadata
+from src.layer8_final import Layer8Final
+from src.layer8_ultra_extreme_enhanced import BlockMetadata
 
 
 def create_sample_blocks(num_blocks: int = 100, block_size_mb: int = 1) -> List[BlockMetadata]:

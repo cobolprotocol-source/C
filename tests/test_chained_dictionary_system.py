@@ -14,7 +14,7 @@ import hashlib
 import logging
 from pathlib import Path
 
-from engine import (
+from src.engine import (
     CobolEngine,
     DictionaryChain,
     DictionaryManager,
@@ -25,7 +25,7 @@ from engine import (
     CompressionError,
     DecompressionError,
 )
-from config import DictionaryConfig, EntropyConfig
+from src.config import DictionaryConfig, EntropyConfig
 
 # Configure logging for tests
 logging.basicConfig(level=logging.INFO)

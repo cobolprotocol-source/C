@@ -3,8 +3,8 @@ import time
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from federated_dictionary_learning import DistributedDictionaryManager, FederationStrategy
-from cluster_orchestrator import MCDCOrchestrator, FederationProtocol
+from src.federated_dictionary_learning import DistributedDictionaryManager, FederationStrategy
+from src.cluster_orchestrator import MCDCOrchestrator, FederationProtocol
 
 
 def sign_payload(payload, key):

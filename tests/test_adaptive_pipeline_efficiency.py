@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from adaptive_pipeline import AdaptivePipeline
+from src.adaptive_pipeline import AdaptivePipeline
 
 
 def test_adaptive_pipeline_high_ratio():

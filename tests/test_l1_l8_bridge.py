@@ -7,15 +7,15 @@ import pytest
 import time
 import hashlib
 import numpy as np
-from protocol_bridge import TypedBuffer, ProtocolLanguage, ProtocolBridge
-from layer1_semantic import Layer1Semantic
-from layer2_structural import Layer2Structural
-from layer3_delta import Layer3Delta
-from layer4_binary import Layer4Binary
-from layer5_recursive import Layer5Recursive
-from layer6_recursive import Layer6Recursive
-from layer7_bank import Layer7Bank
-from layer8_final import Layer8Final
+from src.protocol_bridge import TypedBuffer, ProtocolLanguage, ProtocolBridge
+from src.layer1_semantic import Layer1Semantic
+from src.layer2_structural import Layer2Structural
+from src.layer3_delta import Layer3Delta
+from src.layer4_binary import Layer4Binary
+from src.layer5_recursive import Layer5Recursive
+from src.layer6_recursive import Layer6Recursive
+from src.layer7_bank import Layer7Bank
+from src.layer8_final import Layer8Final
 
 
 class TestMultiLayerTranslationBridge:

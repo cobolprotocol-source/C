@@ -1,5 +1,5 @@
 import time
-from l5l8_optimized_pipeline import OptimizedL5L8Pipeline
+from src.l5l8_optimized_pipeline import OptimizedL5L8Pipeline
 
 
 def generate_highly_repetitive(size=200000):

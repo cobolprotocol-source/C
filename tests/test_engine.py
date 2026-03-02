@@ -13,7 +13,7 @@ import hashlib
 import pytest
 import numpy as np
 import struct
-from engine import (
+from src.engine import (
     CobolEngine,
     DictionaryManager,
     AdaptiveEntropyDetector,
@@ -27,7 +27,7 @@ from engine import (
     CryptographicWrapper,
     MathematicalShuffler,
 )
-from config import (
+from src.config import (
     DictionaryConfig,
     EntropyConfig,
     CompressionError,

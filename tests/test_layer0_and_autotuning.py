@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from layer0_classifier import Layer0Classifier, DataType
-from auto_tuner import AutoTuner
+from src.layer0_classifier import Layer0Classifier, DataType
+from src.auto_tuner import AutoTuner
 
 
 def test_classifier_source_code():

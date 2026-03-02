@@ -6,7 +6,7 @@ Comprehensive testing with detailed analysis
 
 import sys
 import time
-from load_balancer_simulator import (
+from src.load_balancer_simulator import (
     LoadBalancerOrchestrator,
     Request,
     RequestType,

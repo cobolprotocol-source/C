@@ -19,14 +19,14 @@ from typing import Tuple
 # Add parent path
 sys.path.insert(0, '/workspaces/cobolfix')
 
-from dag_pipeline import (
+from src.dag_pipeline import (
     DAGPipeline, ExecutionPath, CodecRegistry, HierarchicalDictionary,
     CostModel, HealthMonitor
 )
-from heterogeneous_orchestrator import (
+from src.heterogeneous_orchestrator import (
     HeterogeneousOrchestrator, DevicePool, GPUUpstream, FPGAMiddleTier
 )
-from cobol_v16_integrated import COBOLv16Engine, COBOLV16
+from src.cobol_v16_integrated import COBOLv16Engine, COBOLV16
 
 logger = logging.getLogger(__name__)
 

@@ -20,7 +20,7 @@ from pathlib import Path
 # Add cwd to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from performance_profiles import (
+from src.performance_profiles import (
     PerformanceProfileManager,
     HardwareInfo,
     ProfileName,

@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from multi_layer_compressor import MultiLayerCompressor
+from src.multi_layer_compressor import MultiLayerCompressor
 
 
 def test_roundtrip_random():

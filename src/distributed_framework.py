@@ -476,28 +476,31 @@ class ProtobufMessages:
         processing_time_ms: int
 
 
-if __name__ == "__main__":
-    # Example: Start a 3-node cluster
-    import asyncio
+async def main():
+    """Small example cluster startup (available as entrypoint)."""
+    # Start master
+    master = MasterNode(port=5000)
+    await master.start()
     
-    async def main():
-        # Start master
-        master = MasterNode(port=5000)
-        await master.start()
-        
-        # Start 3 workers
-        workers = []
-        for i in range(3):
-            worker = WorkerNode(f"worker-{i}", "localhost:5000", 5001 + i)
-            await worker.start()
-            workers.append(worker)
-        
-        # Compress data across cluster
-        engine = DistributedCompressionEngine("localhost:5000", num_workers=3)
-        test_data = b"Sample data to compress" * 1000
-        compressed = await engine.compress_distributed(test_data, [1, 2, 3, 4])
-        
+    # Start 3 workers
+    workers = []
+    for i in range(3):
+        worker = WorkerNode(f"worker-{i}", "localhost:5000", 5001 + i)
+        await worker.start()
+        workers.append(worker)
+    
+    # Compress data across cluster
+    engine = DistributedCompressionEngine("localhost:5000", num_workers=3)
+    test_data = b"Sample data to compress" * 1000
+    compressed = await engine.compress_distributed(test_data, [1, 2, 3, 4])
+    
+    if compressed is not None:
         print(f"Compressed {len(test_data)} bytes to {len(compressed)} bytes")
-        print(f"Cluster status: {engine.get_cluster_status()}")
-    
-    # asyncio.run(main())
+    else:
+        print("Cluster engine returned no data (example may not be implemented)")
+    print(f"Cluster status: {engine.get_cluster_status()}")
+
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())

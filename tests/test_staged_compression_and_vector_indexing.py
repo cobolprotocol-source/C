@@ -1,8 +1,8 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from adaptive_pipeline import AdaptivePipeline
-from vector_indexing import make_cobol_memory_record, prepare_bulk_for_pinecone
+from src.adaptive_pipeline import AdaptivePipeline
+from src.vector_indexing import make_cobol_memory_record, prepare_bulk_for_pinecone
 
 
 def test_staged_scaling_basic():

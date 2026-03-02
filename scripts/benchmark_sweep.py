@@ -3,7 +3,7 @@ import itertools
 import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from l5l8_optimized_pipeline import OptimizedL5L8Pipeline, OptimizedLayer5, OptimizedLayer6
+from src.l5l8_optimized_pipeline import OptimizedL5L8Pipeline, OptimizedLayer5, OptimizedLayer6
 
 
 def generate_highly_repetitive(size=200000):

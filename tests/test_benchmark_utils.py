@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from benchmark_utils import collect_environment_info, get_cpu_model, get_total_ram_gb
+from src.benchmark_utils import collect_environment_info, get_cpu_model, get_total_ram_gb
 
 
 def test_cpu_model_not_empty():

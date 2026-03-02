@@ -1,9 +1,9 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from vector_connectors import upsert_to_pinecone, upsert_to_milvus
-from vector_indexing import make_cobol_memory_record, prepare_bulk_for_pinecone
-from embedding_providers import get_openai_embedding_fn, fallback_hash_embedding
+from src.vector_connectors import upsert_to_pinecone, upsert_to_milvus
+from src.vector_indexing import make_cobol_memory_record, prepare_bulk_for_pinecone
+from src.embedding_providers import get_openai_embedding_fn, fallback_hash_embedding
 
 
 def test_make_record_and_prepare_bulk():

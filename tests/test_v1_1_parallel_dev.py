@@ -19,38 +19,38 @@ from typing import List, Dict, Tuple
 import numpy as np
 
 # Import v1.1 components
-from layer2 import (
+from src.layer2 import (
     StructuralTokenizer, 
     Layer2Encoder, 
     Layer2Decoder,
     StructuralPattern
 )
 
-from layer4 import (
+from src.layer4 import (
     BitWidthCalculator,
     BitPackingEncoder,
     BitPackingDecoder
 )
 
-from gpu_acceleration import (
+from src.gpu_acceleration import (
     GPUDetector,
     GPUAccelerationEngine
 )
 
-from profiler import (
+from src.profiler import (
     CompressionProfiler,
     ProfileReporter,
     BottleneckLevel
 )
 
-from streaming import (
+from src.streaming import (
     StreamCompressor,
     StreamDecompressor,
     StreamingConfig,
     CompressedBlock
 )
 
-from config import CompressionLayer
+from src.config import CompressionLayer
 
 
 # ============================================================================

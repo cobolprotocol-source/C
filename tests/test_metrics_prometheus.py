@@ -1,7 +1,7 @@
 import os, sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from metrics_prometheus import create_pipeline_metrics_gauges
+from src.metrics_prometheus import create_pipeline_metrics_gauges
 
 
 def test_prometheus_noop():

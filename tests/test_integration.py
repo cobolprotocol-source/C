@@ -12,7 +12,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from fpga_controller import FPGAController, FPGACluster, CAMEntry, HuffmanTable, FPGAMetrics, MobileContainerDC, EconomicModel
+from src.fpga_controller import FPGAController, FPGACluster, CAMEntry, HuffmanTable, FPGAMetrics, MobileContainerDC, EconomicModel
 
 
 # ============================================================================
