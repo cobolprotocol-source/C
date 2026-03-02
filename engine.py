@@ -1412,6 +1412,11 @@ class AdaptiveEntropyDetector:
 # ============================================================================
 # LAYER 1: SEMANTIC MAPPING IMPLEMENTATION
 # ============================================================================
+#
+# This module corresponds to the "COBOL Protocol L1-L4 Compression" section in
+# README.md.  Public documentation asserts the existence of L1 semantic
+# mapping (plus encryption) and L2/3/4 stages; all of these are implemented
+# deterministically in engine.py.  See README for higher-level descriptions.
 
 
 class Layer1SemanticMapper:

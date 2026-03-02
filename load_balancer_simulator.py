@@ -3,6 +3,12 @@
 COBOL Protocol v1.5.1 - Load Balancer Simulator
 Advanced Load Balancer for 100 Million Concurrent Requests
 
+# NOTE: this module implements the behaviour documented in README.md under
+# "Advanced Load Balancer".  It is purely a simulation library used to
+# validate routing and caching algorithms; there is no network stack or
+# production deployment code here.  Metrics (100M requests etc.) come from
+# synthetic workloads and should be treated as illustrative.
+
 Features:
 1. Layer 8 Indexing-based Request Routing
 2. Global Dictionary Cache-Hit Acceleration

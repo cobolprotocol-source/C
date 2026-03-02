@@ -442,7 +442,12 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
     def compress_with_autotuning(self, data: bytes) -> Tuple[bytes, Dict[str, Any]]:
         """Autonomous compression: detect data type and auto-configure pipeline.
 
-        This is the zero-config method that eliminates trial-and-error for enterprise users.
+        This method implements the behaviour described in README.md under
+        "Layer 0 AI-Driven Auto-Tuning".  It is part of the documented public
+        API of `AdaptivePipeline` and represents a guaranteed capability of the
+        codebase (heuristic, deterministic classification, followed by an
+        `AutoTuner` recommendation).
+
         Workflow:
           1. Layer 0 classifier samples and detects data type
           2. Auto-tuner recommends optimal L1-L8 configuration

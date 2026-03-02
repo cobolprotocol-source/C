@@ -2,7 +2,13 @@
 """
 COBOL Protocol v1.5.1 - Advanced Selective Retrieval with Real Integration
 
-This module demonstrates:
+This script is provided as a *demonstration* of the selective retrieval and
+L8 verification capabilities described in README.md.  It exercises the
+`dual_mode_engine` and related modules but is not itself a deployed
+service; its metrics are derived from local runs and serve as illustrative
+examples only.
+
+It demonstrates:
 1. Integration with actual dual_mode_engine for compression
 2. Real selective retrieval using protocol_bridge
 3. Distributed L8 node verification with fault tolerance

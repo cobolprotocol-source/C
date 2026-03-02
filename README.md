@@ -4,18 +4,22 @@
 
 COBOL Protocol adalah solusi kompresi dan streaming data multi-layer yang dirancang untuk kebutuhan enterprise, big data, dan AI. Fokus pada efisiensi, skalabilitas, dan integrasi mudah ke pipeline modern.
 
-**Fitur Utama:**
-- Kompresi lossless multi-layer, cocok untuk data LLM, log, dan dokumen besar
-- Arsitektur terdistribusi: edge, advanced, dan ultra-extreme nodes
-- Mendukung akselerasi GPU dan optimasi HPC
-- Keamanan data: AES-256-GCM, SHA-256, dan privacy dictionary
-- Integrasi federated learning untuk optimasi dictionary
+> **Catatan:** README ini menggambarkan perilaku kode referensi Python yang tersedia di repositori. Beberapa fitur dinyatakan sebagai "arsitektur terdistribusi" atau "GPU" karena ada modul simulasi atau jalur akselerasi yang mendeteksi perangkat; tidak ada layanan jaringan produksi yang dijalankan secara otomatis.
+
+
+**Fitur Utama (referensi Python):**
+- Kompresi lossless multi-layer (implementasi referensi Python), cocok untuk data LLM, log, dan dokumen besar
+- Arsitektur “terdistribusi” disediakan oleh modul simulasi (edge, advanced, ultra‑extreme nodes); tidak ada klien/layanan jaringan nyata
+- Mendukung akselerasi GPU (via CuPy/NumPy) dan optimasi HPC bila runtime mendeteksi perangkat
+- Keamanan data: AES-256‑GCM dan SHA‑256 tersedia di lapisan awal, plus mekanisme kamus privasi
+- Integrasi pembelajaran terfederasi untuk optimasi kamus – modul Python menyediakan contoh agregasi, tidak ada layanan global
 
 **Status Implementasi:**
-- L1-L8 pipeline terintegrasi, CLI siap pakai, streaming & selective retrieval, GPU support
-- ✅ Native Rust bindings dengan PyO3 (dibangun 2026-03-01)
-- ✅ Python wrapper dengan fallback zlib
-- ✅ Virtual environment siap pakai dengan semua dependencies
+- L1‑L8 pipeline terintegrasi (semua lapisan dijalankan oleh kode Python), CLI script tersedia dan modul simulasi mendukung streaming & selective retrieval;
+  GPU adalah opsi yang digunakan jika CuPy terpasang dan perangkat ditemukan
+- ✅ Rust core dan bindings PyO3 ada di `cobol-core/`, tetapi paket Python perlu dibangun secara eksplisit (lihat `src-py/` dan `pyproject.toml`)
+- ✅ Python wrapper (`src-py/cobol_protocol/__init__.py`) dengan fallback zlib (tidak diinstal secara otomatis)
+- ✅ Workspace menyediakan virtualenv contoh (`.venv`) dengan dependensi; pengguna harus mengaktifkan/menyediakannya sendiri
 
 ---
 
@@ -23,7 +27,7 @@ COBOL Protocol adalah solusi kompresi dan streaming data multi-layer yang diranc
 
 ### 🎯 Native Bindings Implementation
 
-Successfully implemented **production-ready native bindings** untuk high-performance compression:
+Successfully implemented **native bindings** (reference implementation) untuk high-performance compression:
 
 **Architecture:**
 - **Rust Core:** Multi-layer compression (L1-L3) di `cobol-core/`
@@ -49,13 +53,13 @@ bindings = "pyo3"
 manifest-path = "cobol-core/Cargo.toml"
 ```
 
-**Testing Results:**
+**Testing Results (example run from development environment):**
 ```
-✅ Native Available: True
-✅ Compression Test: 1,300 bytes → 1,204 bytes (1.08x ratio)
+✅ Native Available: True  # depends on building the Rust extension
+✅ Compression Test: 1,300 bytes → 1,204 bytes (1.08x ratio)  # sample data
 ✅ Decompression: Roundtrip match ✓
 ✅ Adaptive Pipeline: 8.99x compression ratio on test data
-✅ System Health: 100/100 score
+✅ System Health: 100/100 score (pipeline monitors)
 ✅ Module Import: 8/8 core modules loaded successfully
 ```
 
@@ -76,13 +80,20 @@ manifest-path = "cobol-core/Cargo.toml"
 
 **Quick Start:**
 ```bash
-# Activate environment
-source .venv/bin/activate
+# Activate example environment (not created automatically)
+source .venv/bin/activate    # use `python -m venv .venv && source .venv/bin/activate` if missing
 
-# Test native bindings
-python -c "from cobol_protocol import CobolCompressor, is_native_available; print('Ready!' if is_native_available() else 'Fallback mode')"
+# (Optional) build the Python package with native Rust bindings
+# requires Rust & maturin installed. See `cobol-core/` and `pyproject.toml`.
+# maturin build --release -i python3
 
-# Test adaptive pipeline
+# Test native bindings after building or use pure-Python fallback
+python -c "
+from cobol_protocol import CobolCompressor, is_native_available
+print('Ready!' if is_native_available() else 'Fallback mode')
+"
+
+# Test adaptive pipeline (pure Python)
 python -c "from adaptive_pipeline import AdaptivePipeline; p = AdaptivePipeline(); print('Pipeline health:', p.get_system_health()['overall_score'])"
 ```
 
@@ -99,12 +110,12 @@ python -c "from adaptive_pipeline import AdaptivePipeline; p = AdaptivePipeline(
 
 | Aspect | Status | Notes |
 |--------|--------|-------|
-| **Native Bindings** | ✅ Production Ready | Rust L1-L3 + Python wrapper |
-| **Environment** | ✅ Fully Configured | Python 3.12, Rust 1.93, all deps |
+| **Native Bindings** | ✅ Implemented | Rust L1-L3 + Python wrapper (build required) |
+| **Environment** | ✅ Provided | Python 3.12, Rust 1.93, all deps |
 | **Testing** | ✅ Passing | 8+ modules, compression verified |
 | **Documentation** | ✅ Updated | This section + API docs maintained |
 | **Performance** | ✅ Verified | 1.08x native, 8.99x pipeline ratio |
-| **Deployment** | ✅ Ready | Docker, pip-installable, cross-platform |
+| **Deployment** | ✅ Supported | Docker, pip-installable, cross-platform |
 
 ---
 
@@ -233,6 +244,10 @@ For rigorous treatment of data contracts, federated learning limits, security bo
 - Cost model: `size/entropy_gain`, used for admission and eviction.  
 - Shares only hashes & stats; raw data never leaves node.  
 - System degrades to local‑only operation when federation disabled.
+
+> **Note:** the figures below come from example scripts in this repository and
+> are illustrative; they are not guaranteed performance metrics for every
+> environment or input.
 
 #### Key Performance Metrics
 
@@ -375,6 +390,10 @@ Layer 8 kini mendukung Global Mapping Dictionary dan Offset Indexing untuk efisi
 | **Enhancement Report** | `LAYER_8_ENHANCEMENT_REPORT.md` | 400 | ✅ Complete |
 | **Total** | **4 files** | **1,540 lines** | ✅ **PRODUCTION READY** |
 
+
+> **Note:** the figures below are extracted from repository examples and
+> simulation outputs; they illustrate behaviour of `layer8_*` modules but do
+> not constitute formal performance guarantees.
 
 #### Key Performance Metrics
 
@@ -750,11 +769,11 @@ OVERALL: ✅ ALL TESTS PASSED - PRODUCTION READY
 ```python
 from dual_mode_engine import DualModeEngine, CompressionMode
 
-# MAXIMAL mode - Full L1-L8 pipeline (recommended for production)
+# MAXIMAL mode - Full L1-L8 pipeline (default mode)
 engine = DualModeEngine(CompressionMode.MAXIMAL)
 compressed = engine.compress(data)
 original = engine.decompress(compressed)
-assert original == data  # ✅ Guaranteed roundtrip
+assert original == data  # roundtrip validated by tests
 
 # BRIDGE mode - Alternative full L1-L8 implementation
 engine.switch_mode(CompressionMode.BRIDGE)
@@ -846,14 +865,14 @@ Testing CLI entrypoint...
 ```python
 from dual_mode_engine import DualModeEngine, CompressionMode
 
-# Initialize with MAXIMAL mode (recommended for production)
+# Initialize with MAXIMAL mode (default in examples)
 engine = DualModeEngine(CompressionMode.MAXIMAL)
 
 # Compress your data
 data = b"Your COBOL program or dataset here..."
 compressed = engine.compress(data)
 
-# Decompress (guaranteed identical to original)
+# Decompress (identical output if tests pass)
 original = engine.decompress(compressed)
 
 # Verify lossless compression
@@ -940,7 +959,7 @@ print(f"Privacy budget: {report['privacy_stats']['epsilon']}")
   - Memory-efficient chunking strategy
   - **3-5x speedup** with NVIDIA GPU on L6 pattern matching
   - Identical API for GPU and CPU modes
-- **Status:** Production-ready, tested, optional dependency (CuPy)
+- **Status:** Implemented and tested; GPU acceleration optional (CuPy)
 - **Key Classes:** `GPUPatternMatcher`, `GPUAcceleratedLayer6`
 
 **GPU Performance Improvement:**
@@ -967,7 +986,7 @@ Pattern Matching with L6 (100,000 patterns, 1 GB test data):
   - Multi-node registration and management
   - Per-node dictionary updates
   - Cluster-wide aggregation with history tracking
-- **Status:** Production-ready, validated with 3-node simulation
+- **Status:** Implemented, validated via 3-node simulation
 - **Key Classes:** `LocalDictionary`, `FederatedPatternAggregator`, `DifferentialPrivacy`, `DistributedDictionaryManager`
 
 **Use Cases:**

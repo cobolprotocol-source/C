@@ -1,7 +1,12 @@
 """Layer 0: Data Type Classifier for autonomous pipeline configuration.
 
-This module implements intelligent data type detection via sampling and heuristic
-analysis to enable zero-configuration compression. It identifies:
+This implementation corresponds to the "Layer 0 AI-Driven Auto-Tuning" section
+of README.md.  The classifier is a heuristic sampler used by
+`AdaptivePipeline.compress_with_autotuning` to choose operating modes.  Its
+output is intentionally conservative and reproducible; it is part of the
+minimum guaranteed behaviour (no ML models or randomness).
+
+It identifies:
 - Source code (human-readable, structured)
 - Binary logs (mixed binary/text, timestamps)
 - LLM datasets (natural language, JSON-like)

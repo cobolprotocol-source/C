@@ -2,14 +2,20 @@
 COBOL Protocol v1.5: Hardware-Optimized Layers (1-8)
 ===================================================
 
+This module provides the reference implementation for the GPU/HPC
+acceleration claims in README.md under "Mendukung akselerasi GPU dan optimasi
+HPC".  It is a pure‑Python (NumPy/CuPy) implementation; actual GPU usage
+requires CuPy and a compatible device.  All strategies are optional and fall
+back to CPU if unavailable.
+
 Multi-hardware implementation of all 8 layers with:
 - CPU-only (pure NumPy, multi-threaded)
 - GPU optimization (CUDA, ROCm)
-- FPGA streaming paths
+- FPGA streaming paths (interface present but mostly unimplemented)
 - Automatic fallback mechanism
 - Unified interface regardless of backend
 
-Performance targets:
+Performance targets (informational, based on local tests):
 - Layer 1: 2000+ MB/s
 - Layer 2: 1000+ MB/s
 - Layer 3-4: 100+ MB/s
