@@ -5,34 +5,34 @@
 
 📊 TEST SUMMARY
 ────────────────────────────────────────────────────────────────────
-Test Duration:           30.00 minutes
-Total Iterations:        6,177
+Test Duration:           2.08 minutes
+Total Iterations:        500
 Success Rate:            100.0%
 Configuration:           mixed @ 5.0MB per iteration
 
 📈 MEMORY ANALYSIS
 ────────────────────────────────────────────────────────────────────
-Min RAM:                 49.42 MB
-Max RAM:                 54.28 MB
-Mean RAM:                52.19 MB
-Median RAM:              52.21 MB
-P95 RAM:                 54.02 MB
-P99 RAM:                 54.21 MB
-Std Dev:                 1.17 MB
+Min RAM:                 49.41 MB
+Max RAM:                 50.63 MB
+Mean RAM:                50.36 MB
+Median RAM:              50.35 MB
+P95 RAM:                 50.58 MB
+P99 RAM:                 50.62 MB
+Std Dev:                 0.14 MB
 
 ⏱ COMPRESSION PERFORMANCE
 ────────────────────────────────────────────────────────────────────
-Mean Time:               134.50 ms
-Max Time:                522.74 ms
-P95 Time:                189.11 ms
+Mean Time:               107.28 ms
+Max Time:                779.55 ms
+P95 Time:                183.44 ms
 
-🚨 MEMORY LEAK ANALYSIS
+✅ MEMORY LEAK ANALYSIS
 ────────────────────────────────────────────────────────────────────
-⚠ MEMORY LEAK DETECTED: 6.7% growth over last 1000 iterations (First 1000: 50.5 MB → Last 1000: 53.9 MB)
+✓ No memory leaks detected (growth <5.0% over 1000 iterations)
 
 ✓ CONSTRAINT VERIFICATION
 ────────────────────────────────────────────────────────────────────
-⚠ Peak RAM 54.28 MB exceeds target 20.00 MB
+⚠ Peak RAM 50.63 MB exceeds target 20.00 MB
 
-Generated:  2026-03-01T19:17:01.384158
+Generated:  2026-03-02T05:03:19.598568
 ════════════════════════════════════════════════════════════════════

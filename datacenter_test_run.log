@@ -1,0 +1,43 @@
+
+================================================================================
+COBOL PROTOCOL v1.5.3 - 24/7 DATACENTER STABILITY TEST
+================================================================================
+
+Test Configuration:
+  • Iterations: 500
+  • Duration: 15.0 min max
+  • Data size: 2.0 MB per iteration
+  • Entropy type: mixed
+  • Memory threshold: 5.0%
+  • Thread safety: Enabled
+
+2026-03-02 05:07:20,495 - engine - [INFO] - Initialized L1 Semantic Dictionary with 50 entries
+2026-03-02 05:07:20,496 - engine - [DEBUG] - Registered L1_SEMANTIC dictionary hash: 7f6d3e1b4ba756b9... (chaining order: ['L1_SEMANTIC'])
+2026-03-02 05:07:20,496 - engine - [DEBUG] - Registered L2_STRUCTURAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL'])
+2026-03-02 05:07:20,496 - engine - [DEBUG] - Registered L3_NUMERIC dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC'])
+2026-03-02 05:07:20,497 - engine - [DEBUG] - Registered L4_BITSTREAM dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM'])
+2026-03-02 05:07:20,497 - engine - [DEBUG] - Registered L5_PATTERN dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN'])
+2026-03-02 05:07:20,497 - engine - [DEBUG] - Registered L6_METADATA dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA'])
+2026-03-02 05:07:20,497 - engine - [DEBUG] - Registered L7_INSTRUCTION_SET dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET'])
+2026-03-02 05:07:20,497 - engine - [DEBUG] - Registered L8_FINAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET', 'L8_FINAL'])
+2026-03-02 05:07:20,497 - engine - [INFO] - Initialized DictionaryChain with 8 layers
+2026-03-02 05:07:20,497 - engine - [INFO] - Initialized DictionaryChain with all layer dictionaries
+2026-03-02 05:07:20,498 - engine - [INFO] - CobolEngine initialized with Chained Hierarchical Dictionary System
+  ├─ Layer 1: Semantic Mapping (Tokens/Words)
+  ├─ Layer 2: Structural Mapping (ID Assignment: 1-2 bytes)
+  ├─ Layer 3: Numeric Encoding (Delta-of-Delta)
+  ├─ Layer 4: Bit-Packing (Variable-width bitstreams)
+  ├─ Layer 5: Pattern Registry (Global pattern detection)
+  ├─ Layer 6: Metadata Mapping (Pointer refinement)
+  ├─ Layer 7: Instruction Generation (Final instruction set)
+  └─ Layer 8: AES-256-GCM Final Hardening (1:100M ratio target)
+2026-03-02 05:07:20,498 - tests.industrial_stress - [INFO] - StressTestEngine initialized with CobolAdapter
+Engine initialized:
+Traceback (most recent call last):
+  File "/workspaces/cobol/run_datacenter_stability_test.py", line 212, in <module>
+    exit_code = run_datacenter_stability_test()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/cobol/run_datacenter_stability_test.py", line 60, in run_datacenter_stability_test
+    print(f"  • COBOL available: {engine.has_cobol}")
+                                  ^^^^^^^^^^^^^^^^
+AttributeError: 'StressTestEngine' object has no attribute 'has_cobol'

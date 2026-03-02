@@ -1,0 +1,1009 @@
+
+================================================================================
+COBOL PROTOCOL v1.5.3 - 24/7 DATACENTER STABILITY TEST
+================================================================================
+
+Test Configuration:
+  • Iterations: 500
+  • Duration: 15.0 min max
+  • Data size: 2.0 MB per iteration
+  • Entropy type: mixed
+  • Memory threshold: 5.0%
+  • Thread safety: Enabled
+
+2026-03-02 05:10:34,584 - engine - [INFO] - Initialized L1 Semantic Dictionary with 50 entries
+2026-03-02 05:10:34,586 - engine - [DEBUG] - Registered L1_SEMANTIC dictionary hash: 7f6d3e1b4ba756b9... (chaining order: ['L1_SEMANTIC'])
+2026-03-02 05:10:34,587 - engine - [DEBUG] - Registered L2_STRUCTURAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL'])
+2026-03-02 05:10:34,588 - engine - [DEBUG] - Registered L3_NUMERIC dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC'])
+2026-03-02 05:10:34,588 - engine - [DEBUG] - Registered L4_BITSTREAM dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM'])
+2026-03-02 05:10:34,588 - engine - [DEBUG] - Registered L5_PATTERN dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN'])
+2026-03-02 05:10:34,588 - engine - [DEBUG] - Registered L6_METADATA dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA'])
+2026-03-02 05:10:34,588 - engine - [DEBUG] - Registered L7_INSTRUCTION_SET dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET'])
+2026-03-02 05:10:34,589 - engine - [DEBUG] - Registered L8_FINAL dictionary hash: f642200cb3e876ec... (chaining order: ['L1_SEMANTIC', 'L2_STRUCTURAL', 'L3_NUMERIC', 'L4_BITSTREAM', 'L5_PATTERN', 'L6_METADATA', 'L7_INSTRUCTION_SET', 'L8_FINAL'])
+2026-03-02 05:10:34,589 - engine - [INFO] - Initialized DictionaryChain with 8 layers
+2026-03-02 05:10:34,589 - engine - [INFO] - Initialized DictionaryChain with all layer dictionaries
+2026-03-02 05:10:34,589 - engine - [INFO] - CobolEngine initialized with Chained Hierarchical Dictionary System
+  ├─ Layer 1: Semantic Mapping (Tokens/Words)
+  ├─ Layer 2: Structural Mapping (ID Assignment: 1-2 bytes)
+  ├─ Layer 3: Numeric Encoding (Delta-of-Delta)
+  ├─ Layer 4: Bit-Packing (Variable-width bitstreams)
+  ├─ Layer 5: Pattern Registry (Global pattern detection)
+  ├─ Layer 6: Metadata Mapping (Pointer refinement)
+  ├─ Layer 7: Instruction Generation (Final instruction set)
+  └─ Layer 8: AES-256-GCM Final Hardening (1:100M ratio target)
+2026-03-02 05:10:34,590 - tests.industrial_stress - [INFO] - StressTestEngine initialized with CobolAdapter
+Engine initialized with adapter: CobolAdapter
+
+Running stress test... (this may take 10-15 minutes)
+--------------------------------------------------------------------------------
+2026-03-02 05:10:34,590 - tests.industrial_stress - [INFO] - Starting soak test: 500 iterations or 15.0 minutes
+2026-03-02 05:10:34,669 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:10:34,905 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:10:35,600 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:35,600 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:35,605 - engine - [INFO] - L1 ENCRYPT AAD: 01738b4305be533463
+2026-03-02 05:10:35,613 - engine - [DEBUG] - Layer 1 wrapped: 4671939 -> 4671968 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:35,615 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671968 bytes (ratio: 0.45x, unmapped: 860618, nonce: c1028166...)
+2026-03-02 05:10:35,631 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:10:41,167 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:41,168 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:41,177 - engine - [INFO] - L1 ENCRYPT AAD: 037c8f220fbee8642b
+2026-03-02 05:10:41,202 - engine - [DEBUG] - Layer 3 wrapped: 14114662 -> 14114691 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:41,204 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:10:41,204 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114691 bytes (ratio: 0.15x, gain: -573.0%, nonce: 4ae85e62...)
+2026-03-02 05:10:41,241 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:10:41,244 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:10:41,244 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:10:41,260 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:41,260 - tests.industrial_stress - [ERROR] - Iteration 1 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:41,380 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:10:41,665 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:10:42,218 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:42,218 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:42,221 - engine - [INFO] - L1 ENCRYPT AAD: 010b6fc676ce72eef9
+2026-03-02 05:10:42,230 - engine - [DEBUG] - Layer 1 wrapped: 4670906 -> 4670935 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:42,231 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670935 bytes (ratio: 0.45x, unmapped: 860567, nonce: ea0507f7...)
+2026-03-02 05:10:42,248 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:10:48,089 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:48,089 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:48,098 - engine - [INFO] - L1 ENCRYPT AAD: 032f24316bb2fcf22e
+2026-03-02 05:10:48,111 - engine - [DEBUG] - Layer 3 wrapped: 14117670 -> 14117699 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:48,112 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:10:48,112 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117699 bytes (ratio: 0.15x, gain: -573.2%, nonce: ca989ae2...)
+2026-03-02 05:10:48,139 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:10:48,141 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:10:48,141 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:10:48,149 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:48,149 - tests.industrial_stress - [ERROR] - Iteration 2 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:48,268 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:10:48,499 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:10:49,039 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:49,040 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:49,043 - engine - [INFO] - L1 ENCRYPT AAD: 01c94a3f205dfb24c1
+2026-03-02 05:10:49,048 - engine - [DEBUG] - Layer 1 wrapped: 4673339 -> 4673368 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:49,050 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673368 bytes (ratio: 0.45x, unmapped: 861648, nonce: 539df661...)
+2026-03-02 05:10:49,066 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:10:54,444 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:54,444 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:54,453 - engine - [INFO] - L1 ENCRYPT AAD: 0394f44f68c7b3ed78
+2026-03-02 05:10:54,477 - engine - [DEBUG] - Layer 3 wrapped: 14113652 -> 14113681 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:54,479 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:10:54,479 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113681 bytes (ratio: 0.15x, gain: -573.0%, nonce: de8116bb...)
+2026-03-02 05:10:54,504 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:10:54,506 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:10:54,506 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:10:54,516 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:54,517 - tests.industrial_stress - [ERROR] - Iteration 3 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:10:54,637 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:10:55,008 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:10:55,541 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:10:55,541 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:10:55,544 - engine - [INFO] - L1 ENCRYPT AAD: 01360fc4ac7bf42be6
+2026-03-02 05:10:55,549 - engine - [DEBUG] - Layer 1 wrapped: 4671499 -> 4671528 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:10:55,551 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671528 bytes (ratio: 0.45x, unmapped: 860527, nonce: 4211acfc...)
+2026-03-02 05:10:55,567 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:01,675 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:01,675 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:01,684 - engine - [INFO] - L1 ENCRYPT AAD: 035dd2beed0abdbb75
+2026-03-02 05:11:01,696 - engine - [DEBUG] - Layer 3 wrapped: 14116641 -> 14116670 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:01,698 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:11:01,698 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116670 bytes (ratio: 0.15x, gain: -573.1%, nonce: abad3031...)
+2026-03-02 05:11:01,724 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:01,727 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:01,727 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:01,734 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:01,734 - tests.industrial_stress - [ERROR] - Iteration 4 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:01,858 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:11:02,096 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:02,631 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:02,632 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:02,635 - engine - [INFO] - L1 ENCRYPT AAD: 01cdda08e38d0463ed
+2026-03-02 05:11:02,640 - engine - [DEBUG] - Layer 1 wrapped: 4674320 -> 4674349 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:02,642 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674349 bytes (ratio: 0.45x, unmapped: 860964, nonce: 5cd9dcde...)
+2026-03-02 05:11:02,658 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:08,333 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:08,333 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:08,343 - engine - [INFO] - L1 ENCRYPT AAD: 0393bcdae02fa09280
+2026-03-02 05:11:08,354 - engine - [DEBUG] - Layer 3 wrapped: 14113871 -> 14113900 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:08,356 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:08,356 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113900 bytes (ratio: 0.15x, gain: -573.0%, nonce: bf667615...)
+2026-03-02 05:11:08,382 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:08,384 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:08,385 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:08,388 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:08,388 - tests.industrial_stress - [ERROR] - Iteration 5 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:08,510 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:11:08,771 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:09,374 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:09,374 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:09,377 - engine - [INFO] - L1 ENCRYPT AAD: 01488ec5a77209c6fd
+2026-03-02 05:11:09,383 - engine - [DEBUG] - Layer 1 wrapped: 4671822 -> 4671851 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:09,385 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671851 bytes (ratio: 0.45x, unmapped: 860706, nonce: bf140304...)
+2026-03-02 05:11:09,401 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:14,815 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:14,815 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:14,826 - engine - [INFO] - L1 ENCRYPT AAD: 034b8fd8208ff06f01
+2026-03-02 05:11:14,838 - engine - [DEBUG] - Layer 3 wrapped: 14117085 -> 14117114 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:14,840 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:11:14,840 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117114 bytes (ratio: 0.15x, gain: -573.2%, nonce: af453777...)
+2026-03-02 05:11:14,863 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:14,866 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:14,866 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:14,869 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:14,869 - tests.industrial_stress - [ERROR] - Iteration 6 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:14,994 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:11:15,231 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:15,873 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:15,873 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:15,876 - engine - [INFO] - L1 ENCRYPT AAD: 013abe601110aae4b9
+2026-03-02 05:11:15,881 - engine - [DEBUG] - Layer 1 wrapped: 4672499 -> 4672528 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:15,883 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672528 bytes (ratio: 0.45x, unmapped: 861128, nonce: d9a26998...)
+2026-03-02 05:11:15,899 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:21,470 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:21,470 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:21,480 - engine - [INFO] - L1 ENCRYPT AAD: 0354252f580d43c8af
+2026-03-02 05:11:21,492 - engine - [DEBUG] - Layer 3 wrapped: 14114273 -> 14114302 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:21,493 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:21,493 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114302 bytes (ratio: 0.15x, gain: -573.0%, nonce: 5cd8ba8b...)
+2026-03-02 05:11:21,518 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:21,521 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:21,521 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:21,525 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:21,525 - tests.industrial_stress - [ERROR] - Iteration 7 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:21,652 - engine - [DEBUG] - Block None: entropy=6.630 (82.88%), skip=False
+2026-03-02 05:11:21,887 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:22,443 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:22,443 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:22,446 - engine - [INFO] - L1 ENCRYPT AAD: 0177279a18547d4285
+2026-03-02 05:11:22,452 - engine - [DEBUG] - Layer 1 wrapped: 4667707 -> 4667736 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:22,453 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4667736 bytes (ratio: 0.45x, unmapped: 859148, nonce: 7bc09cd2...)
+2026-03-02 05:11:22,469 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:28,018 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:28,018 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:28,028 - engine - [INFO] - L1 ENCRYPT AAD: 03c3a6fa18461786d4
+2026-03-02 05:11:28,040 - engine - [DEBUG] - Layer 3 wrapped: 14115338 -> 14115367 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:28,042 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:11:28,042 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115367 bytes (ratio: 0.15x, gain: -573.1%, nonce: 1c856474...)
+2026-03-02 05:11:28,066 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:28,069 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:28,069 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:28,073 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:28,073 - tests.industrial_stress - [ERROR] - Iteration 8 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:28,194 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:11:28,419 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:28,953 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:28,954 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:28,957 - engine - [INFO] - L1 ENCRYPT AAD: 01092d046051254d07
+2026-03-02 05:11:28,963 - engine - [DEBUG] - Layer 1 wrapped: 4672407 -> 4672436 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:28,964 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672436 bytes (ratio: 0.45x, unmapped: 861128, nonce: efa686c6...)
+2026-03-02 05:11:28,980 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:34,394 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:34,395 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:34,404 - engine - [INFO] - L1 ENCRYPT AAD: 033447e0aa90992f37
+2026-03-02 05:11:34,416 - engine - [DEBUG] - Layer 3 wrapped: 14114395 -> 14114424 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:34,418 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:34,418 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114424 bytes (ratio: 0.15x, gain: -573.0%, nonce: 2fc1581f...)
+2026-03-02 05:11:34,442 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:34,444 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:34,444 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:34,448 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:34,448 - tests.industrial_stress - [ERROR] - Iteration 9 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:34,568 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:11:34,796 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:35,364 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:35,365 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:35,368 - engine - [INFO] - L1 ENCRYPT AAD: 015b35af5854bdda08
+2026-03-02 05:11:35,374 - engine - [DEBUG] - Layer 1 wrapped: 4672532 -> 4672561 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:35,375 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672561 bytes (ratio: 0.45x, unmapped: 861123, nonce: 0340aff5...)
+2026-03-02 05:11:35,391 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:40,971 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:40,972 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:40,982 - engine - [INFO] - L1 ENCRYPT AAD: 03bc62858bf641dab7
+2026-03-02 05:11:41,001 - engine - [DEBUG] - Layer 3 wrapped: 14113126 -> 14113155 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:41,003 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:41,003 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113155 bytes (ratio: 0.15x, gain: -573.0%, nonce: 7627ed38...)
+2026-03-02 05:11:41,028 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:41,031 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:41,031 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:41,035 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:41,035 - tests.industrial_stress - [ERROR] - Iteration 10 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:41,156 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:11:41,373 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:41,915 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:41,915 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:41,918 - engine - [INFO] - L1 ENCRYPT AAD: 015a0782c0ccf40e9d
+2026-03-02 05:11:41,924 - engine - [DEBUG] - Layer 1 wrapped: 4671691 -> 4671720 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:41,925 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671720 bytes (ratio: 0.45x, unmapped: 860819, nonce: 1216325f...)
+2026-03-02 05:11:41,942 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:47,602 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:47,603 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:47,612 - engine - [INFO] - L1 ENCRYPT AAD: 03d7a69d8b5ba154f5
+2026-03-02 05:11:47,624 - engine - [DEBUG] - Layer 3 wrapped: 14113541 -> 14113570 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:47,625 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:47,626 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113570 bytes (ratio: 0.15x, gain: -573.0%, nonce: 28625476...)
+2026-03-02 05:11:47,651 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:47,653 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:47,654 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:47,658 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:47,658 - tests.industrial_stress - [ERROR] - Iteration 11 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:47,780 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:11:48,087 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:48,654 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:48,655 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:48,658 - engine - [INFO] - L1 ENCRYPT AAD: 01acd457e6c91cf615
+2026-03-02 05:11:48,664 - engine - [DEBUG] - Layer 1 wrapped: 4670606 -> 4670635 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:48,666 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670635 bytes (ratio: 0.45x, unmapped: 860876, nonce: b0b2916b...)
+2026-03-02 05:11:48,682 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:11:54,028 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:54,029 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:54,038 - engine - [INFO] - L1 ENCRYPT AAD: 038fc9d3b884f74353
+2026-03-02 05:11:54,050 - engine - [DEBUG] - Layer 3 wrapped: 14113005 -> 14113034 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:54,051 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:11:54,052 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113034 bytes (ratio: 0.15x, gain: -573.0%, nonce: b3e31c3c...)
+2026-03-02 05:11:54,075 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:11:54,078 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:11:54,078 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:11:54,082 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:54,083 - tests.industrial_stress - [ERROR] - Iteration 12 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:11:54,202 - engine - [DEBUG] - Block None: entropy=6.631 (82.88%), skip=False
+2026-03-02 05:11:54,426 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:11:54,961 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:11:54,961 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:11:54,964 - engine - [INFO] - L1 ENCRYPT AAD: 01f7941a6afa419434
+2026-03-02 05:11:54,970 - engine - [DEBUG] - Layer 1 wrapped: 4670583 -> 4670612 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:11:54,971 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670612 bytes (ratio: 0.45x, unmapped: 860227, nonce: f5533747...)
+2026-03-02 05:11:54,987 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:00,643 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:00,643 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:00,652 - engine - [INFO] - L1 ENCRYPT AAD: 037d8bcdc2d7d7c68c
+2026-03-02 05:12:00,664 - engine - [DEBUG] - Layer 3 wrapped: 14116445 -> 14116474 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:00,665 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:12:00,666 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116474 bytes (ratio: 0.15x, gain: -573.1%, nonce: 28d2c26c...)
+2026-03-02 05:12:00,689 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:00,692 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:00,692 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:00,696 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:00,696 - tests.industrial_stress - [ERROR] - Iteration 13 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:00,815 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:12:01,024 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:01,578 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:01,578 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:01,582 - engine - [INFO] - L1 ENCRYPT AAD: 01b8850c96eab9e95e
+2026-03-02 05:12:01,588 - engine - [DEBUG] - Layer 1 wrapped: 4674363 -> 4674392 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:01,589 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674392 bytes (ratio: 0.45x, unmapped: 861620, nonce: 1311aaa6...)
+2026-03-02 05:12:01,604 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:07,184 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:07,185 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:07,194 - engine - [INFO] - L1 ENCRYPT AAD: 0323c937c4edb598f7
+2026-03-02 05:12:07,206 - engine - [DEBUG] - Layer 3 wrapped: 14117795 -> 14117824 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:07,207 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:12:07,207 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117824 bytes (ratio: 0.15x, gain: -573.2%, nonce: 040fe8e6...)
+2026-03-02 05:12:07,231 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:07,234 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:07,234 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:07,239 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:07,239 - tests.industrial_stress - [ERROR] - Iteration 14 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:07,360 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:12:07,582 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:08,348 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:08,348 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:08,351 - engine - [INFO] - L1 ENCRYPT AAD: 01d687ce814ad566bc
+2026-03-02 05:12:08,357 - engine - [DEBUG] - Layer 1 wrapped: 4674875 -> 4674904 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:08,359 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674904 bytes (ratio: 0.45x, unmapped: 861106, nonce: b5408cfa...)
+2026-03-02 05:12:08,377 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:13,696 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:13,696 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:13,705 - engine - [INFO] - L1 ENCRYPT AAD: 0385a1d2d77a6f699b
+2026-03-02 05:12:13,719 - engine - [DEBUG] - Layer 3 wrapped: 14115068 -> 14115097 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:13,721 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:12:13,721 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115097 bytes (ratio: 0.15x, gain: -573.1%, nonce: 45645223...)
+2026-03-02 05:12:13,745 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:13,747 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:13,748 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:13,753 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:13,753 - tests.industrial_stress - [ERROR] - Iteration 15 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:13,872 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:12:14,091 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:14,633 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:14,633 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:14,636 - engine - [INFO] - L1 ENCRYPT AAD: 0157a09534b96aa455
+2026-03-02 05:12:14,641 - engine - [DEBUG] - Layer 1 wrapped: 4673900 -> 4673929 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:14,643 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673929 bytes (ratio: 0.45x, unmapped: 861047, nonce: 23f86a5c...)
+2026-03-02 05:12:14,659 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:21,226 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:21,226 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:21,236 - engine - [INFO] - L1 ENCRYPT AAD: 031a34b4c729d1afb0
+2026-03-02 05:12:21,264 - engine - [DEBUG] - Layer 3 wrapped: 14113663 -> 14113692 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:21,267 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:12:21,268 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113692 bytes (ratio: 0.15x, gain: -573.0%, nonce: f20ec8b0...)
+2026-03-02 05:12:21,373 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:21,377 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:21,378 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:21,461 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:21,462 - tests.industrial_stress - [ERROR] - Iteration 16 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:21,666 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:12:21,931 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:22,536 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:22,537 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:22,540 - engine - [INFO] - L1 ENCRYPT AAD: 01c5c4f83ff0c65428
+2026-03-02 05:12:22,548 - engine - [DEBUG] - Layer 1 wrapped: 4674244 -> 4674273 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:22,549 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674273 bytes (ratio: 0.45x, unmapped: 861474, nonce: bac85c4f...)
+2026-03-02 05:12:22,569 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:28,131 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:28,131 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:28,140 - engine - [INFO] - L1 ENCRYPT AAD: 03bdc9c669c6dff5e4
+2026-03-02 05:12:28,161 - engine - [DEBUG] - Layer 3 wrapped: 14118202 -> 14118231 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:28,162 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:12:28,162 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14118231 bytes (ratio: 0.15x, gain: -573.2%, nonce: 4e5255d1...)
+2026-03-02 05:12:28,186 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:28,189 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:28,189 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:28,195 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:28,195 - tests.industrial_stress - [ERROR] - Iteration 17 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:28,319 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:12:28,601 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:29,155 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:29,155 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:29,158 - engine - [INFO] - L1 ENCRYPT AAD: 01d0f2efcf1bb8de70
+2026-03-02 05:12:29,163 - engine - [DEBUG] - Layer 1 wrapped: 4675101 -> 4675130 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:29,165 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4675130 bytes (ratio: 0.45x, unmapped: 861264, nonce: 1b30efed...)
+2026-03-02 05:12:29,180 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:34,560 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:34,560 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:34,569 - engine - [INFO] - L1 ENCRYPT AAD: 03ed7c50f95079fea3
+2026-03-02 05:12:34,599 - engine - [DEBUG] - Layer 3 wrapped: 14114248 -> 14114277 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:34,601 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:12:34,601 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114277 bytes (ratio: 0.15x, gain: -573.0%, nonce: 2e97086f...)
+2026-03-02 05:12:34,625 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:34,627 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:34,627 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:34,635 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:34,635 - tests.industrial_stress - [ERROR] - Iteration 18 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:34,756 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:12:34,973 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:35,540 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:35,540 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:35,543 - engine - [INFO] - L1 ENCRYPT AAD: 01b1ca5d251f3128c5
+2026-03-02 05:12:35,548 - engine - [DEBUG] - Layer 1 wrapped: 4670776 -> 4670805 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:35,550 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670805 bytes (ratio: 0.45x, unmapped: 860976, nonce: 977afd55...)
+2026-03-02 05:12:35,565 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:41,185 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:41,185 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:41,194 - engine - [INFO] - L1 ENCRYPT AAD: 03d7eddc1f726ac535
+2026-03-02 05:12:41,210 - engine - [DEBUG] - Layer 3 wrapped: 14117674 -> 14117703 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:41,211 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:12:41,211 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117703 bytes (ratio: 0.15x, gain: -573.2%, nonce: deffb63f...)
+2026-03-02 05:12:41,235 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:41,238 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:41,238 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:41,242 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:41,242 - tests.industrial_stress - [ERROR] - Iteration 19 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:41,362 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:12:41,584 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:42,198 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:42,198 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:42,202 - engine - [INFO] - L1 ENCRYPT AAD: 010c984d916184284d
+2026-03-02 05:12:42,207 - engine - [DEBUG] - Layer 1 wrapped: 4676078 -> 4676107 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:42,209 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4676107 bytes (ratio: 0.45x, unmapped: 861848, nonce: bca8ae79...)
+2026-03-02 05:12:42,224 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:47,557 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:47,558 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:47,567 - engine - [INFO] - L1 ENCRYPT AAD: 03179fc6e4bd395ca3
+2026-03-02 05:12:47,582 - engine - [DEBUG] - Layer 3 wrapped: 14117756 -> 14117785 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:47,584 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:12:47,584 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117785 bytes (ratio: 0.15x, gain: -573.2%, nonce: b108b9cb...)
+2026-03-02 05:12:47,607 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:47,609 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:47,610 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:47,614 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:47,614 - tests.industrial_stress - [ERROR] - Iteration 20 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:47,747 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:12:48,032 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:48,587 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:48,587 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:48,590 - engine - [INFO] - L1 ENCRYPT AAD: 012c9115eca6cd307d
+2026-03-02 05:12:48,596 - engine - [DEBUG] - Layer 1 wrapped: 4673832 -> 4673861 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:48,597 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673861 bytes (ratio: 0.45x, unmapped: 861035, nonce: f5100c39...)
+2026-03-02 05:12:48,612 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:12:54,123 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:54,123 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:54,133 - engine - [INFO] - L1 ENCRYPT AAD: 03c2f3c2fa8a4a63db
+2026-03-02 05:12:54,151 - engine - [DEBUG] - Layer 3 wrapped: 14115444 -> 14115473 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:54,153 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:12:54,153 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115473 bytes (ratio: 0.15x, gain: -573.1%, nonce: 03fa21be...)
+2026-03-02 05:12:54,178 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:12:54,181 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:12:54,181 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:12:54,188 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:54,189 - tests.industrial_stress - [ERROR] - Iteration 21 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:12:54,309 - engine - [DEBUG] - Block None: entropy=6.631 (82.88%), skip=False
+2026-03-02 05:12:54,520 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:12:55,116 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:12:55,116 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:12:55,119 - engine - [INFO] - L1 ENCRYPT AAD: 01f3f433dc0e41da10
+2026-03-02 05:12:55,125 - engine - [DEBUG] - Layer 1 wrapped: 4670587 -> 4670616 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:12:55,126 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670616 bytes (ratio: 0.45x, unmapped: 860380, nonce: 67174bda...)
+2026-03-02 05:12:55,153 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:00,724 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:00,724 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:00,733 - engine - [INFO] - L1 ENCRYPT AAD: 0308054ac7db510873
+2026-03-02 05:13:00,751 - engine - [DEBUG] - Layer 3 wrapped: 14112542 -> 14112571 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:00,753 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:13:00,753 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14112571 bytes (ratio: 0.15x, gain: -572.9%, nonce: 8ac05702...)
+2026-03-02 05:13:00,777 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:00,779 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:00,780 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:00,784 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:00,784 - tests.industrial_stress - [ERROR] - Iteration 22 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:00,905 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:13:01,113 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:01,672 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:01,673 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:01,676 - engine - [INFO] - L1 ENCRYPT AAD: 01b1449d232305333f
+2026-03-02 05:13:01,682 - engine - [DEBUG] - Layer 1 wrapped: 4671490 -> 4671519 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:01,684 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671519 bytes (ratio: 0.45x, unmapped: 860596, nonce: 53d0f48b...)
+2026-03-02 05:13:01,700 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:07,087 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:07,087 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:07,096 - engine - [INFO] - L1 ENCRYPT AAD: 03c94fa4502d804031
+2026-03-02 05:13:07,112 - engine - [DEBUG] - Layer 3 wrapped: 14111516 -> 14111545 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:07,114 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:13:07,114 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14111545 bytes (ratio: 0.15x, gain: -572.9%, nonce: 8aedf20e...)
+2026-03-02 05:13:07,137 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:07,140 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:07,140 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:07,145 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:07,145 - tests.industrial_stress - [ERROR] - Iteration 23 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:07,265 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:13:07,483 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:08,016 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:08,016 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:08,019 - engine - [INFO] - L1 ENCRYPT AAD: 0195cf18b5ac52e507
+2026-03-02 05:13:08,023 - engine - [DEBUG] - Layer 1 wrapped: 4673351 -> 4673380 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:08,025 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673380 bytes (ratio: 0.45x, unmapped: 861184, nonce: a51e0114...)
+2026-03-02 05:13:08,039 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:13,747 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:13,747 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:13,757 - engine - [INFO] - L1 ENCRYPT AAD: 03dc33cfdbad09c937
+2026-03-02 05:13:13,773 - engine - [DEBUG] - Layer 3 wrapped: 14118454 -> 14118483 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:13,775 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:13:13,775 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14118483 bytes (ratio: 0.15x, gain: -573.2%, nonce: 032082c2...)
+2026-03-02 05:13:13,798 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:13,800 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:13,800 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:13,804 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:13,805 - tests.industrial_stress - [ERROR] - Iteration 24 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:13,924 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:13:14,131 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:14,733 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:14,734 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:14,737 - engine - [INFO] - L1 ENCRYPT AAD: 011022ec762bae5350
+2026-03-02 05:13:14,743 - engine - [DEBUG] - Layer 1 wrapped: 4671367 -> 4671396 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:14,744 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671396 bytes (ratio: 0.45x, unmapped: 860616, nonce: 0a2782d8...)
+2026-03-02 05:13:14,764 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:20,364 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:20,364 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:20,374 - engine - [INFO] - L1 ENCRYPT AAD: 035c7ce44241a4dadc
+2026-03-02 05:13:20,387 - engine - [DEBUG] - Layer 3 wrapped: 14109540 -> 14109569 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:20,389 - engine - [WARNING] - L3 Delta encoding gain only -572.8%, below threshold 5.0%
+2026-03-02 05:13:20,389 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14109569 bytes (ratio: 0.15x, gain: -572.8%, nonce: 6eb938cd...)
+2026-03-02 05:13:20,413 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:20,416 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:20,416 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:20,420 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:20,421 - tests.industrial_stress - [ERROR] - Iteration 25 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:20,541 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:13:20,844 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:21,388 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:21,388 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:21,391 - engine - [INFO] - L1 ENCRYPT AAD: 0100e6d110442eba1e
+2026-03-02 05:13:21,395 - engine - [DEBUG] - Layer 1 wrapped: 4670848 -> 4670877 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:21,397 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670877 bytes (ratio: 0.45x, unmapped: 860407, nonce: cd38fc64...)
+2026-03-02 05:13:21,411 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:26,807 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:26,807 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:26,816 - engine - [INFO] - L1 ENCRYPT AAD: 032a1c6e1bb31a2c76
+2026-03-02 05:13:26,830 - engine - [DEBUG] - Layer 3 wrapped: 14112453 -> 14112482 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:26,833 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:13:26,833 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14112482 bytes (ratio: 0.15x, gain: -572.9%, nonce: 6e50322f...)
+2026-03-02 05:13:26,856 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:26,859 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:26,859 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:26,863 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:26,863 - tests.industrial_stress - [ERROR] - Iteration 26 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:26,983 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:13:27,190 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:27,867 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:27,867 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:27,871 - engine - [INFO] - L1 ENCRYPT AAD: 01480a46b6eb89351d
+2026-03-02 05:13:27,874 - engine - [DEBUG] - Layer 1 wrapped: 4673270 -> 4673299 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:27,877 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673299 bytes (ratio: 0.45x, unmapped: 861396, nonce: 28cb495b...)
+2026-03-02 05:13:27,891 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:34,325 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:34,325 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:34,335 - engine - [INFO] - L1 ENCRYPT AAD: 0353429606f1fb075b
+2026-03-02 05:13:34,346 - engine - [DEBUG] - Layer 3 wrapped: 14114687 -> 14114716 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:34,348 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:13:34,348 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114716 bytes (ratio: 0.15x, gain: -573.0%, nonce: 87678dd3...)
+2026-03-02 05:13:34,371 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:34,374 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:34,374 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:34,378 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:34,378 - tests.industrial_stress - [ERROR] - Iteration 27 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:34,497 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:13:34,705 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:35,313 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:35,314 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:35,317 - engine - [INFO] - L1 ENCRYPT AAD: 017df597f263c50a68
+2026-03-02 05:13:35,321 - engine - [DEBUG] - Layer 1 wrapped: 4671991 -> 4672020 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:35,323 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672020 bytes (ratio: 0.45x, unmapped: 860829, nonce: 30ac0816...)
+2026-03-02 05:13:35,349 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:41,427 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:41,428 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:41,437 - engine - [INFO] - L1 ENCRYPT AAD: 030c55a2ffb04551b1
+2026-03-02 05:13:41,448 - engine - [DEBUG] - Layer 3 wrapped: 14112177 -> 14112206 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:41,450 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:13:41,450 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14112206 bytes (ratio: 0.15x, gain: -572.9%, nonce: 70a5ac9b...)
+2026-03-02 05:13:41,473 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:41,475 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:41,475 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:41,480 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:41,480 - tests.industrial_stress - [ERROR] - Iteration 28 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:41,599 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:13:41,812 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:42,356 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:42,356 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:42,359 - engine - [INFO] - L1 ENCRYPT AAD: 019c7d158079325edb
+2026-03-02 05:13:42,363 - engine - [DEBUG] - Layer 1 wrapped: 4670577 -> 4670606 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:42,364 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670606 bytes (ratio: 0.45x, unmapped: 860683, nonce: f111e460...)
+2026-03-02 05:13:42,379 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:48,575 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:48,576 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:48,586 - engine - [INFO] - L1 ENCRYPT AAD: 03a98d4f6c0665901b
+2026-03-02 05:13:48,597 - engine - [DEBUG] - Layer 3 wrapped: 14116507 -> 14116536 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:48,599 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:13:48,599 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116536 bytes (ratio: 0.15x, gain: -573.1%, nonce: 87794c78...)
+2026-03-02 05:13:48,621 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:48,624 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:48,624 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:48,629 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:48,629 - tests.industrial_stress - [ERROR] - Iteration 29 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:48,749 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:13:48,996 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:49,735 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:49,735 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:49,739 - engine - [INFO] - L1 ENCRYPT AAD: 01f1612dcd8411e8c4
+2026-03-02 05:13:49,743 - engine - [DEBUG] - Layer 1 wrapped: 4672094 -> 4672123 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:49,744 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672123 bytes (ratio: 0.45x, unmapped: 860757, nonce: d90cd94f...)
+2026-03-02 05:13:49,766 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:13:55,207 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:55,207 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:55,216 - engine - [INFO] - L1 ENCRYPT AAD: 033bed0fc495e6d757
+2026-03-02 05:13:55,227 - engine - [DEBUG] - Layer 3 wrapped: 14118748 -> 14118777 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:55,229 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:13:55,229 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14118777 bytes (ratio: 0.15x, gain: -573.2%, nonce: 1be9cd98...)
+2026-03-02 05:13:55,253 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:13:55,255 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:13:55,255 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:13:55,259 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:55,259 - tests.industrial_stress - [ERROR] - Iteration 30 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:13:55,382 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:13:55,629 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:13:56,217 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:13:56,217 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:13:56,220 - engine - [INFO] - L1 ENCRYPT AAD: 01dcaea7306f9af8c7
+2026-03-02 05:13:56,224 - engine - [DEBUG] - Layer 1 wrapped: 4671086 -> 4671115 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:13:56,226 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671115 bytes (ratio: 0.45x, unmapped: 860735, nonce: 10624dc6...)
+2026-03-02 05:13:56,240 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:01,801 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:01,801 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:01,810 - engine - [INFO] - L1 ENCRYPT AAD: 0337cde811906a2046
+2026-03-02 05:14:01,821 - engine - [DEBUG] - Layer 3 wrapped: 14112258 -> 14112287 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:01,822 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:14:01,823 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14112287 bytes (ratio: 0.15x, gain: -572.9%, nonce: cdd4c16e...)
+2026-03-02 05:14:01,847 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:01,849 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:01,849 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:01,853 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:01,853 - tests.industrial_stress - [ERROR] - Iteration 31 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:01,974 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:14:02,198 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:02,731 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:02,731 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:02,735 - engine - [INFO] - L1 ENCRYPT AAD: 0173cd485afd8c437b
+2026-03-02 05:14:02,739 - engine - [DEBUG] - Layer 1 wrapped: 4674176 -> 4674205 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:02,740 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674205 bytes (ratio: 0.45x, unmapped: 861583, nonce: 126981ad...)
+2026-03-02 05:14:02,756 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:08,207 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:08,208 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:08,217 - engine - [INFO] - L1 ENCRYPT AAD: 03fd9dbc75b6b1ebab
+2026-03-02 05:14:08,228 - engine - [DEBUG] - Layer 3 wrapped: 14112579 -> 14112608 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:08,229 - engine - [WARNING] - L3 Delta encoding gain only -572.9%, below threshold 5.0%
+2026-03-02 05:14:08,230 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14112608 bytes (ratio: 0.15x, gain: -572.9%, nonce: 6a2fe20b...)
+2026-03-02 05:14:08,253 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:08,256 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:08,256 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:08,260 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:08,260 - tests.industrial_stress - [ERROR] - Iteration 32 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:08,380 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:08,600 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:09,128 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:09,128 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:09,131 - engine - [INFO] - L1 ENCRYPT AAD: 011b65990780f418f4
+2026-03-02 05:14:09,135 - engine - [DEBUG] - Layer 1 wrapped: 4673288 -> 4673317 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:09,136 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673317 bytes (ratio: 0.45x, unmapped: 860934, nonce: a131049a...)
+2026-03-02 05:14:09,151 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:14,797 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:14,798 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:14,807 - engine - [INFO] - L1 ENCRYPT AAD: 036f6d89f1e7d2d115
+2026-03-02 05:14:14,818 - engine - [DEBUG] - Layer 3 wrapped: 14116237 -> 14116266 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:14,819 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:14:14,820 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116266 bytes (ratio: 0.15x, gain: -573.1%, nonce: 490d51f1...)
+2026-03-02 05:14:14,842 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:14,845 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:14,845 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:14,849 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:14,849 - tests.industrial_stress - [ERROR] - Iteration 33 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:14,968 - engine - [DEBUG] - Block None: entropy=6.632 (82.89%), skip=False
+2026-03-02 05:14:15,190 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:15,722 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:15,722 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:15,725 - engine - [INFO] - L1 ENCRYPT AAD: 018ab4dae04500f629
+2026-03-02 05:14:15,729 - engine - [DEBUG] - Layer 1 wrapped: 4672649 -> 4672678 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:15,731 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672678 bytes (ratio: 0.45x, unmapped: 860924, nonce: 0704c67e...)
+2026-03-02 05:14:15,746 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:21,429 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:21,429 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:21,438 - engine - [INFO] - L1 ENCRYPT AAD: 03c59d156bd0330fce
+2026-03-02 05:14:21,449 - engine - [DEBUG] - Layer 3 wrapped: 14114935 -> 14114964 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:21,450 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:14:21,451 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114964 bytes (ratio: 0.15x, gain: -573.1%, nonce: 7faec849...)
+2026-03-02 05:14:21,473 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:21,476 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:21,476 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:21,481 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:21,481 - tests.industrial_stress - [ERROR] - Iteration 34 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:21,600 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:21,822 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:22,423 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:22,423 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:22,426 - engine - [INFO] - L1 ENCRYPT AAD: 01f4319645a777f6e5
+2026-03-02 05:14:22,431 - engine - [DEBUG] - Layer 1 wrapped: 4671455 -> 4671484 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:22,432 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671484 bytes (ratio: 0.45x, unmapped: 860731, nonce: 0e2f6575...)
+2026-03-02 05:14:22,447 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:27,920 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:27,921 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:27,930 - engine - [INFO] - L1 ENCRYPT AAD: 0375037fc020bb1abb
+2026-03-02 05:14:27,940 - engine - [DEBUG] - Layer 3 wrapped: 14113564 -> 14113593 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:27,942 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:14:27,942 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113593 bytes (ratio: 0.15x, gain: -573.0%, nonce: 7d7be844...)
+2026-03-02 05:14:27,965 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:27,968 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:27,968 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:27,973 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:27,973 - tests.industrial_stress - [ERROR] - Iteration 35 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:28,092 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:28,306 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:28,844 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:28,844 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:28,847 - engine - [INFO] - L1 ENCRYPT AAD: 01dec851f6801759d1
+2026-03-02 05:14:28,851 - engine - [DEBUG] - Layer 1 wrapped: 4672907 -> 4672936 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:28,853 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672936 bytes (ratio: 0.45x, unmapped: 861065, nonce: 8349d881...)
+2026-03-02 05:14:28,869 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:34,506 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:34,506 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:34,516 - engine - [INFO] - L1 ENCRYPT AAD: 03e7d4ff086e07376e
+2026-03-02 05:14:34,531 - engine - [DEBUG] - Layer 3 wrapped: 14115424 -> 14115453 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:34,533 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:14:34,534 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115453 bytes (ratio: 0.15x, gain: -573.1%, nonce: 5bec45ff...)
+2026-03-02 05:14:34,569 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:34,572 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:34,572 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:34,576 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:34,576 - tests.industrial_stress - [ERROR] - Iteration 36 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:34,697 - engine - [DEBUG] - Block None: entropy=6.632 (82.89%), skip=False
+2026-03-02 05:14:34,920 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:35,576 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:35,576 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:35,579 - engine - [INFO] - L1 ENCRYPT AAD: 01a3f120afb1cc6d51
+2026-03-02 05:14:35,583 - engine - [DEBUG] - Layer 1 wrapped: 4673230 -> 4673259 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:35,585 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673259 bytes (ratio: 0.45x, unmapped: 861307, nonce: e9adfa22...)
+2026-03-02 05:14:35,599 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:41,254 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:41,254 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:41,263 - engine - [INFO] - L1 ENCRYPT AAD: 03a39f5ce809a55443
+2026-03-02 05:14:41,275 - engine - [DEBUG] - Layer 3 wrapped: 14117311 -> 14117340 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:41,276 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:14:41,276 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117340 bytes (ratio: 0.15x, gain: -573.2%, nonce: 89083d5a...)
+2026-03-02 05:14:41,299 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:41,301 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:41,301 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:41,306 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:41,306 - tests.industrial_stress - [ERROR] - Iteration 37 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:41,427 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:41,682 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:42,240 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:42,241 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:42,244 - engine - [INFO] - L1 ENCRYPT AAD: 011fef2358df314ffc
+2026-03-02 05:14:42,248 - engine - [DEBUG] - Layer 1 wrapped: 4671645 -> 4671674 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:42,250 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671674 bytes (ratio: 0.45x, unmapped: 860711, nonce: a617c00e...)
+2026-03-02 05:14:42,264 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:47,611 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:47,612 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:47,621 - engine - [INFO] - L1 ENCRYPT AAD: 03f7c813290fe79c85
+2026-03-02 05:14:47,631 - engine - [DEBUG] - Layer 3 wrapped: 14115530 -> 14115559 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:47,633 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:14:47,633 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115559 bytes (ratio: 0.15x, gain: -573.1%, nonce: de92145a...)
+2026-03-02 05:14:47,656 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:47,659 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:47,659 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:47,663 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:47,663 - tests.industrial_stress - [ERROR] - Iteration 38 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:47,782 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:47,992 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:48,593 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:48,593 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:48,596 - engine - [INFO] - L1 ENCRYPT AAD: 01bdb172d81fa5e654
+2026-03-02 05:14:48,601 - engine - [DEBUG] - Layer 1 wrapped: 4673580 -> 4673609 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:48,602 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673609 bytes (ratio: 0.45x, unmapped: 860912, nonce: 971f0f12...)
+2026-03-02 05:14:48,618 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:14:54,133 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:54,134 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:54,143 - engine - [INFO] - L1 ENCRYPT AAD: 03d43f216bd7b037ad
+2026-03-02 05:14:54,154 - engine - [DEBUG] - Layer 3 wrapped: 14114590 -> 14114619 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:54,155 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:14:54,156 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114619 bytes (ratio: 0.15x, gain: -573.0%, nonce: c84c6ead...)
+2026-03-02 05:14:54,178 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:14:54,181 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:14:54,181 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:14:54,185 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:54,185 - tests.industrial_stress - [ERROR] - Iteration 39 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:14:54,308 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:14:54,520 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:14:55,074 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:14:55,074 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:14:55,077 - engine - [INFO] - L1 ENCRYPT AAD: 01a409ec199ad17ee0
+2026-03-02 05:14:55,082 - engine - [DEBUG] - Layer 1 wrapped: 4672377 -> 4672406 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:14:55,083 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672406 bytes (ratio: 0.45x, unmapped: 861361, nonce: d36b384a...)
+2026-03-02 05:14:55,097 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:00,499 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:00,499 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:00,508 - engine - [INFO] - L1 ENCRYPT AAD: 03788ba489be8b702e
+2026-03-02 05:15:00,520 - engine - [DEBUG] - Layer 3 wrapped: 14116743 -> 14116772 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:00,522 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:15:00,522 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116772 bytes (ratio: 0.15x, gain: -573.1%, nonce: 18e1fa5d...)
+2026-03-02 05:15:00,545 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:00,548 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:00,548 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:00,553 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:00,553 - tests.industrial_stress - [ERROR] - Iteration 40 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:00,674 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:15:01,039 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:01,776 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:01,777 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:01,780 - engine - [INFO] - L1 ENCRYPT AAD: 015af9cf36f26490b1
+2026-03-02 05:15:01,784 - engine - [DEBUG] - Layer 1 wrapped: 4674065 -> 4674094 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:01,786 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4674094 bytes (ratio: 0.45x, unmapped: 861328, nonce: 12bf73b4...)
+2026-03-02 05:15:01,800 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:07,261 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:07,261 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:07,270 - engine - [INFO] - L1 ENCRYPT AAD: 03fbfd2a1929bca86c
+2026-03-02 05:15:07,281 - engine - [DEBUG] - Layer 3 wrapped: 14117685 -> 14117714 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:07,283 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:07,283 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117714 bytes (ratio: 0.15x, gain: -573.2%, nonce: 1eae342c...)
+2026-03-02 05:15:07,306 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:07,309 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:07,309 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:07,314 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:07,314 - tests.industrial_stress - [ERROR] - Iteration 41 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:07,434 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:15:07,655 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:08,238 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:08,238 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:08,242 - engine - [INFO] - L1 ENCRYPT AAD: 019fc1342031641748
+2026-03-02 05:15:08,247 - engine - [DEBUG] - Layer 1 wrapped: 4673796 -> 4673825 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:08,249 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673825 bytes (ratio: 0.45x, unmapped: 860956, nonce: 9b7674fc...)
+2026-03-02 05:15:08,265 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:13,941 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:13,941 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:13,950 - engine - [INFO] - L1 ENCRYPT AAD: 03b397d9a4eb3d9436
+2026-03-02 05:15:13,962 - engine - [DEBUG] - Layer 3 wrapped: 14117435 -> 14117464 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:13,964 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:13,964 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117464 bytes (ratio: 0.15x, gain: -573.2%, nonce: 35672e8a...)
+2026-03-02 05:15:13,989 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:13,992 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:13,992 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:13,996 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:13,997 - tests.industrial_stress - [ERROR] - Iteration 42 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:14,117 - engine - [DEBUG] - Block None: entropy=6.632 (82.89%), skip=False
+2026-03-02 05:15:14,330 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:14,869 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:14,869 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:14,872 - engine - [INFO] - L1 ENCRYPT AAD: 0187dcb5865209c758
+2026-03-02 05:15:14,876 - engine - [DEBUG] - Layer 1 wrapped: 4671745 -> 4671774 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:14,878 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671774 bytes (ratio: 0.45x, unmapped: 860831, nonce: ee4c5e5f...)
+2026-03-02 05:15:14,892 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:20,807 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:20,808 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:20,831 - engine - [INFO] - L1 ENCRYPT AAD: 03e5eda1c9a8cb5597
+2026-03-02 05:15:20,868 - engine - [DEBUG] - Layer 3 wrapped: 14117810 -> 14117839 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:20,872 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:20,874 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117839 bytes (ratio: 0.15x, gain: -573.2%, nonce: 7a7e3270...)
+2026-03-02 05:15:20,926 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:20,930 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:20,930 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:20,942 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:20,943 - tests.industrial_stress - [ERROR] - Iteration 43 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:21,063 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:15:21,411 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:22,557 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:22,557 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:22,560 - engine - [INFO] - L1 ENCRYPT AAD: 015f04fe790f59c16a
+2026-03-02 05:15:22,564 - engine - [DEBUG] - Layer 1 wrapped: 4673173 -> 4673202 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:22,566 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673202 bytes (ratio: 0.45x, unmapped: 861018, nonce: afe5ab05...)
+2026-03-02 05:15:22,581 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:28,056 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:28,056 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:28,066 - engine - [INFO] - L1 ENCRYPT AAD: 03496b763629e58175
+2026-03-02 05:15:28,077 - engine - [DEBUG] - Layer 3 wrapped: 14113446 -> 14113475 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:28,079 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:15:28,079 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14113475 bytes (ratio: 0.15x, gain: -573.0%, nonce: a7593aa0...)
+2026-03-02 05:15:28,101 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:28,104 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:28,104 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:28,110 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:28,110 - tests.industrial_stress - [ERROR] - Iteration 44 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:28,230 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:15:28,438 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:29,022 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:29,022 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:29,026 - engine - [INFO] - L1 ENCRYPT AAD: 01d04f520313a53d07
+2026-03-02 05:15:29,030 - engine - [DEBUG] - Layer 1 wrapped: 4673272 -> 4673301 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:29,032 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673301 bytes (ratio: 0.45x, unmapped: 861404, nonce: e07f1746...)
+2026-03-02 05:15:29,046 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:38,609 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:38,609 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:38,618 - engine - [INFO] - L1 ENCRYPT AAD: 0307b2d45dc6b43e01
+2026-03-02 05:15:38,629 - engine - [DEBUG] - Layer 3 wrapped: 14118252 -> 14118281 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:38,631 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:38,631 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14118281 bytes (ratio: 0.15x, gain: -573.2%, nonce: bce9d32e...)
+2026-03-02 05:15:38,654 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:38,656 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:38,657 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:38,661 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:38,661 - tests.industrial_stress - [ERROR] - Iteration 45 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:38,781 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:15:39,002 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:39,719 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:39,719 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:39,722 - engine - [INFO] - L1 ENCRYPT AAD: 01224716754b9d2d4a
+2026-03-02 05:15:39,726 - engine - [DEBUG] - Layer 1 wrapped: 4672554 -> 4672583 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:39,727 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4672583 bytes (ratio: 0.45x, unmapped: 861217, nonce: c0680251...)
+2026-03-02 05:15:39,742 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:45,509 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:45,510 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:45,519 - engine - [INFO] - L1 ENCRYPT AAD: 03b732040ddc034bd8
+2026-03-02 05:15:45,531 - engine - [DEBUG] - Layer 3 wrapped: 14115521 -> 14115550 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:45,533 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:15:45,533 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14115550 bytes (ratio: 0.15x, gain: -573.1%, nonce: 2e782ada...)
+2026-03-02 05:15:45,557 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:45,560 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:45,560 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:45,565 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:45,565 - tests.industrial_stress - [ERROR] - Iteration 46 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:45,689 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:15:45,953 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:46,599 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:46,600 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:46,603 - engine - [INFO] - L1 ENCRYPT AAD: 01325550bcedfd2ae4
+2026-03-02 05:15:46,607 - engine - [DEBUG] - Layer 1 wrapped: 4671284 -> 4671313 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:46,609 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671313 bytes (ratio: 0.45x, unmapped: 860640, nonce: 11a00da7...)
+2026-03-02 05:15:46,623 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:52,116 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:52,117 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:52,126 - engine - [INFO] - L1 ENCRYPT AAD: 032fba5f532861a143
+2026-03-02 05:15:52,137 - engine - [DEBUG] - Layer 3 wrapped: 14117496 -> 14117525 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:52,139 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:52,139 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117525 bytes (ratio: 0.15x, gain: -573.2%, nonce: ef14b1dd...)
+2026-03-02 05:15:52,161 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:52,164 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:52,164 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:52,168 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:52,168 - tests.industrial_stress - [ERROR] - Iteration 47 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:52,290 - engine - [DEBUG] - Block None: entropy=6.632 (82.90%), skip=False
+2026-03-02 05:15:52,598 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:15:53,569 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:53,570 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:53,573 - engine - [INFO] - L1 ENCRYPT AAD: 01a75b94a2f90ad265
+2026-03-02 05:15:53,577 - engine - [DEBUG] - Layer 1 wrapped: 4671736 -> 4671765 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:53,578 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4671765 bytes (ratio: 0.45x, unmapped: 860647, nonce: 795628e8...)
+2026-03-02 05:15:53,593 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:15:59,049 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:15:59,050 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:15:59,059 - engine - [INFO] - L1 ENCRYPT AAD: 03ff46f7cf42913fec
+2026-03-02 05:15:59,069 - engine - [DEBUG] - Layer 3 wrapped: 14117199 -> 14117228 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:15:59,071 - engine - [WARNING] - L3 Delta encoding gain only -573.2%, below threshold 5.0%
+2026-03-02 05:15:59,071 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14117228 bytes (ratio: 0.15x, gain: -573.2%, nonce: f6f6cbcd...)
+2026-03-02 05:15:59,094 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:15:59,097 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:15:59,097 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:15:59,101 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:59,101 - tests.industrial_stress - [ERROR] - Iteration 48 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:15:59,220 - engine - [DEBUG] - Block None: entropy=6.630 (82.88%), skip=False
+2026-03-02 05:15:59,477 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:16:00,158 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:16:00,158 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:16:00,161 - engine - [INFO] - L1 ENCRYPT AAD: 0177a7ee1c542cc220
+2026-03-02 05:16:00,166 - engine - [DEBUG] - Layer 1 wrapped: 4670431 -> 4670460 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:16:00,167 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4670460 bytes (ratio: 0.45x, unmapped: 860445, nonce: 4b0b7f51...)
+2026-03-02 05:16:00,181 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:16:05,976 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:16:05,976 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:16:05,986 - engine - [INFO] - L1 ENCRYPT AAD: 033a3727598a6aa1ae
+2026-03-02 05:16:05,997 - engine - [DEBUG] - Layer 3 wrapped: 14116275 -> 14116304 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:16:05,998 - engine - [WARNING] - L3 Delta encoding gain only -573.1%, below threshold 5.0%
+2026-03-02 05:16:05,998 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14116304 bytes (ratio: 0.15x, gain: -573.1%, nonce: 3b48043b...)
+2026-03-02 05:16:06,022 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:16:06,024 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:16:06,024 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:16:06,028 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:16:06,028 - tests.industrial_stress - [ERROR] - Iteration 49 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:16:06,147 - engine - [DEBUG] - Block None: entropy=6.631 (82.89%), skip=False
+2026-03-02 05:16:06,349 - engine - [INFO] - L1 Dictionary hash before compress: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8
+2026-03-02 05:16:06,982 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:16:06,982 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:16:06,985 - engine - [INFO] - L1 ENCRYPT AAD: 01a8dd31ab353dbf19
+2026-03-02 05:16:06,989 - engine - [DEBUG] - Layer 1 wrapped: 4673271 -> 4673300 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:16:06,990 - engine - [INFO] - L1 Compression+Encryption: 2097152 -> 4673300 bytes (ratio: 0.45x, unmapped: 860849, nonce: 514e43f8...)
+2026-03-02 05:16:07,005 - engine - [DEBUG] - Layer 1 did not improve size; keeping original data
+2026-03-02 05:16:12,630 - engine - [INFO] - L1 ENCRYPT key_material: 7f6d3e1b4ba756b958c36e1892d1d64377995ce427461c02550eb890fea3f3e8cdaff27c6e432f9483781b467b460d8a17dccacace317b71b74e3ff2d3919b0f
+2026-03-02 05:16:12,630 - engine - [INFO] - L1 ENCRYPT key: 677ef6377769a12f444b298940e16ab0ffcbffcc671bd571a0afc259736fccdf
+2026-03-02 05:16:12,639 - engine - [INFO] - L1 ENCRYPT AAD: 03f71fc7991ebc8e0b
+2026-03-02 05:16:12,650 - engine - [DEBUG] - Layer 3 wrapped: 14114572 -> 14114601 bytes (key hash: 677ef6377769a12f...)
+2026-03-02 05:16:12,652 - engine - [WARNING] - L3 Delta encoding gain only -573.0%, below threshold 5.0%
+2026-03-02 05:16:12,652 - engine - [INFO] - L3 Compression+Shuffling+Encryption: 2097152 -> 14114601 bytes (ratio: 0.15x, gain: -573.0%, nonce: b260c17d...)
+2026-03-02 05:16:12,675 - engine - [WARNING] - GPU L6/L7 processing failed: cannot import name 'build_tree' from 'huffman_gpu' (/workspaces/cobol/huffman_gpu.py), continuing
+2026-03-02 05:16:12,677 - engine - [INFO] - L8 Hardening: 2097152 -> 2097181 bytes (IV: dc64149c..., tag verified)
+2026-03-02 05:16:12,677 - engine - [DEBUG] - Layer 8 final hardening applied successfully
+2026-03-02 05:16:12,682 - tests.industrial_stress - [ERROR] - COBOL decompression failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:16:12,682 - tests.industrial_stress - [ERROR] - Iteration 50 failed: CobolEngine.decompress_block() missing 1 required positional argument: 'metadata'
+2026-03-02 05:16:12,732 - tests.industrial_stress - [ERROR] - Stress test failed at iteration 50: mean requires at least one data point
+Traceback (most recent call last):
+  File "/workspaces/cobol/tests/industrial_stress.py", line 531, in run_soak_test
+    self._log_status(iteration)
+  File "/workspaces/cobol/tests/industrial_stress.py", line 641, in _log_status
+    avg_compression_ms = statistics.mean(m.compression_time_ms for m in recent_metrics if m.success)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/statistics.py", line 486, in mean
+    raise StatisticsError('mean requires at least one data point')
+statistics.StatisticsError: mean requires at least one data point
+--------------------------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "/workspaces/cobol/run_datacenter_stability_test.py", line 210, in <module>
+    exit_code = run_datacenter_stability_test()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/cobol/run_datacenter_stability_test.py", line 76, in run_datacenter_stability_test
+    "iterations_completed": report.completed_iterations,
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'StressTestReport' object has no attribute 'completed_iterations'
