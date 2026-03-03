@@ -1,43 +1,44 @@
-# Copyright (c) 2026 Nafal Faturizki
-# All rights reserved.
-#
-# This file is part of the COBOL Protocol project.
-# Unauthorized copying, modification, or redistribution
-# is prohibited except as explicitly permitted by the
-# accompanying LICENSE.md.
-#
-# See LICENSE.md for complete license terms.
+# Compatibility shim: federated learning moved to src/layers/dictionaries
+# Keep this module for backward compatibility and lazy-load the heavy module
 
-"""
-COBOL Protocol v1.2 - Federated Learning Framework
-Distributed Dictionary Optimization with Privacy
+from importlib import import_module
 
-Features:
-- Federated averaging (FedAvg) algorithm
-- Differential privacy (DP-SGD)
-- Secure aggregation
-- Asynchronous updates (no waiting)
-- A/B testing for dictionary versions
-- Privacy guarantees (ε=1.0)
-"""
+__all__ = [
+    'DictionaryVersion',
+    'PrivacyLevel',
+    'LocalDictionary',
+    'GlobalDictionary',
+    'Gradient',
+    'ABTestResult',
+    'LocalDictionaryLearner',
+    'GlobalDictionaryCoordinator',
+    'DifferentialPrivacy',
+    'SecureAggregation',
+    'ConvergenceDetector',
+    'DictionaryVersionControl',
+    'FederatedLearningPipeline',
+    'FederatedMetrics',
+    'FederatedUtils',
+    'FederatedSimulation',
+]
 
-from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
-from enum import Enum
-import numpy as np
-from datetime import datetime
+_module = None
 
-
-class DictionaryVersion(Enum):
-    """Dictionary version status"""
-    CANDIDATE = "candidate"
-    ACTIVE = "active"
-    OLD = "old"
-    DEPRECATED = "deprecated"
+def _load():
+    global _module
+    if _module is None:
+        _module = import_module('src.layers.dictionaries.federated_dictionary_learning')
+    return _module
 
 
-class PrivacyLevel(Enum):
-    """Privacy level setting"""
+def __getattr__(name):
+    mod = _load()
+    return getattr(mod, name)
+
+
+def __dir__():
+    mod = _load()
+    return list(__all__) + [n for n in dir(mod) if n not in __all__]
     LOW = "low"  # ε=10 (less noise, weaker privacy)
     MEDIUM = "medium"  # ε=1.0 (balanced)
     HIGH = "high"  # ε=0.1 (more noise, stronger privacy)

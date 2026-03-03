@@ -31,7 +31,10 @@ This file remains at `src/dictionary_manager.py` to keep backwards compat
 imports working. The real implementation lives in `src/layers/dictionaries/`.
 """
 
-from src.layers.dictionaries.dictionary_manager import *
+# Compatibility shim: re-export dictionary manager from src.layers.dictionaries
+# Real implementation lives in src/layers/dictionaries/
+
+from importlib import import_module
 
 __all__ = [
     'DictionaryManager',
@@ -44,4 +47,22 @@ __all__ = [
     'DictionaryManagerL7',
     'DictionaryManagerL8',
 ]
+
+_module = None
+
+def _load():
+    global _module
+    if _module is None:
+        _module = import_module('src.layers.dictionaries.dictionary_manager')
+    return _module
+
+
+def __getattr__(name):
+    mod = _load()
+    return getattr(mod, name)
+
+
+def __dir__():
+    mod = _load()
+    return list(__all__) + [n for n in dir(mod) if n not in __all__]
         self.dictionary.clear()
