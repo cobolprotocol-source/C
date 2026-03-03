@@ -19,7 +19,7 @@ try:
     from . import huffman_gpu
 except Exception:
     # when executed as script / top-level import
-    from . import huffman_gpu
+    import huffman_gpu
 
 
 def _build_huffman_tree_lengths(freqs: np.ndarray) -> Dict[int, int]:

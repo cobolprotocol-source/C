@@ -1,4 +1,4 @@
-from .protocol_bridge import TypedBuffer, ProtocolLanguage
+from core.protocol_bridge import TypedBuffer, ProtocolLanguage
 import numpy as np
 
 class Layer1Semantic:

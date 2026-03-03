@@ -16,9 +16,9 @@ This module bridges:
 """
 
 try:
-    from src.protocol_bridge import TypedBuffer, ProtocolLanguage
+    from core.protocol_bridge import TypedBuffer, ProtocolLanguage
 except ImportError:
-    from protocol_bridge import TypedBuffer, ProtocolLanguage
+    from core.protocol_bridge import TypedBuffer, ProtocolLanguage
 
 # Skip imports of L8 enhancements for now (stub mode)
 Layer8UltraExtremeManager = None
@@ -47,7 +47,15 @@ class Layer8Final:
     """
     
     def __init__(self, num_l8_nodes: int = DEFAULT_L8_NODES):
-        self.l8_manager = Layer8UltraExtremeManager(num_nodes=num_l8_nodes)
+        # the real manager may be stubbed out during refactor; provide a
+        # lightweight placeholder to avoid TypeError during tests.
+        if Layer8UltraExtremeManager is None:
+            class _DummyManager:
+                def __init__(self, num_nodes):
+                    self.num_nodes = num_nodes
+            self.l8_manager = _DummyManager(num_nodes=num_l8_nodes)
+        else:
+            self.l8_manager = Layer8UltraExtremeManager(num_nodes=num_l8_nodes)
         self.num_nodes = num_l8_nodes
     
     # ========================================================================

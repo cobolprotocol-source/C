@@ -12,9 +12,15 @@ import sys
 import numpy as np
 
 # Import modules
+# Ensure project root is on sys.path (pytest may change cwd to tests/)
+import os
+root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root not in sys.path:
+    sys.path.insert(0, root)
+
 try:
-    import huffman_gpu
-    import huffman_parallel
+    # use package path to ensure relocation works
+    from src import huffman_gpu, huffman_parallel
     HAS_GPU = huffman_gpu._HAS_CUPY
 except Exception as e:
     print(f"Error importing modules: {e}")
