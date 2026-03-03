@@ -1,0 +1,2 @@
+L3 Delta encoding gain only -678.9%, below threshold 5.0%
+compress_chained failed at layer chain: L4 bit-packing failed: 'H' format requires 0 <= number <= 65535

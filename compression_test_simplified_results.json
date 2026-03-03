@@ -1,0 +1,310 @@
+{
+  "Text (Repetitive)": {
+    "input_size": 102400,
+    "final_size": 109,
+    "final_ratio": 939.4495412844037,
+    "layers": [
+      {
+        "layer_name": "L0_Classification",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L1_Semantic",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L2-L4_Core",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L5_RLE",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L6_Patterns",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L7_Entropy",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105159,
+        "compression_ratio": 0.9737635390218621,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L8_Extreme",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 109,
+        "compression_ratio": 939.4495412844037,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      }
+    ]
+  },
+  "JSON (Structured)": {
+    "input_size": 102400,
+    "final_size": 109,
+    "final_ratio": 939.4495412844037,
+    "layers": [
+      {
+        "layer_name": "L0_Classification",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L1_Semantic",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L2-L4_Core",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L5_RLE",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L6_Patterns",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105095,
+        "compression_ratio": 0.974356534563966,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L7_Entropy",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 105143,
+        "compression_ratio": 0.973911720228641,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L8_Extreme",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 109,
+        "compression_ratio": 939.4495412844037,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      }
+    ]
+  },
+  "Binary (Random)": {
+    "input_size": 102400,
+    "final_size": 109,
+    "final_ratio": 939.4495412844037,
+    "layers": [
+      {
+        "layer_name": "L0_Classification",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L1_Semantic",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L2-L4_Core",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102772,
+        "compression_ratio": 0.9963803370567859,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L5_RLE",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102772,
+        "compression_ratio": 0.9963803370567859,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L6_Patterns",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102772,
+        "compression_ratio": 0.9963803370567859,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L7_Entropy",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 103284,
+        "compression_ratio": 0.9914410750939158,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L8_Extreme",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 109,
+        "compression_ratio": 939.4495412844037,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      }
+    ]
+  },
+  "Mixed (Text+Binary)": {
+    "input_size": 102400,
+    "final_size": 109,
+    "final_ratio": 939.4495412844037,
+    "layers": [
+      {
+        "layer_name": "L0_Classification",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L1_Semantic",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102400,
+        "compression_ratio": 1.0,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L2-L4_Core",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102637,
+        "compression_ratio": 0.9976908911990803,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L5_RLE",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102637,
+        "compression_ratio": 0.9976908911990803,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L6_Patterns",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 102637,
+        "compression_ratio": 0.9976908911990803,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L7_Entropy",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 103149,
+        "compression_ratio": 0.9927386596089153,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      },
+      {
+        "layer_name": "L8_Extreme",
+        "success": true,
+        "input_size": 102400,
+        "output_size": 109,
+        "compression_ratio": 939.4495412844037,
+        "elapsed_ms": 0,
+        "throughput_mbps": 0,
+        "notes": ""
+      }
+    ]
+  }
+}

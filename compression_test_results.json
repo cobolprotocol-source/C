@@ -1,0 +1,107 @@
+{
+  "Text (Repetitive)": {
+    "config": {
+      "size_mb": 1,
+      "data_type": "text",
+      "name": "Text (Repetitive)"
+    },
+    "layers": [
+      {
+        "layer_name": "L0_Classifier",
+        "layer_num": 0,
+        "input_size": 1048572,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.1599861750000855,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0,
+        "success": false,
+        "error_msg": "'float' object has no attribute 'bit_length'"
+      },
+      {
+        "layer_name": "L1-L4_CobolEngine",
+        "layer_num": 4,
+        "input_size": 1048572,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.0009846289999586588,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0.0,
+        "success": false,
+        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+      }
+    ]
+  },
+  "JSON (Structured)": {
+    "config": {
+      "size_mb": 1,
+      "data_type": "json",
+      "name": "JSON (Structured)"
+    },
+    "layers": [
+      {
+        "layer_name": "L0_Classifier",
+        "layer_num": 0,
+        "input_size": 1048524,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.004357758999958605,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0,
+        "success": false,
+        "error_msg": "'float' object has no attribute 'bit_length'"
+      },
+      {
+        "layer_name": "L1-L4_CobolEngine",
+        "layer_num": 4,
+        "input_size": 1048524,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.0009986960003516288,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0.0,
+        "success": false,
+        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+      }
+    ]
+  },
+  "Binary (Random)": {
+    "config": {
+      "size_mb": 1,
+      "data_type": "binary",
+      "name": "Binary (Random)"
+    },
+    "layers": [
+      {
+        "layer_name": "L0_Classifier",
+        "layer_num": 0,
+        "input_size": 1048576,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.0007320879999497265,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0,
+        "success": false,
+        "error_msg": "'float' object has no attribute 'bit_length'"
+      },
+      {
+        "layer_name": "L1-L4_CobolEngine",
+        "layer_num": 4,
+        "input_size": 1048576,
+        "output_size": 0,
+        "compression_ratio": 0,
+        "elapsed_time": 0.001009385000088514,
+        "throughput_mbps": 0,
+        "memory_peak_mb": 0,
+        "memory_delta_mb": 0.0,
+        "success": false,
+        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+      }
+    ]
+  }
+}
