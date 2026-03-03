@@ -1,8 +1,3 @@
-"""
-BACKWARD COMPATIBILITY STUB
-This module has been moved to src/layers/.
-Import from the new location is recommended.
-"""
-
-from .layers.pipelines import CobolEngine
+"""Compatibility shim pointing to moved module in src.layers.variants.legacy_stubs."""
+from src.layers.variants.legacy_stubs.engine import CobolEngine
 __all__ = ['CobolEngine']

@@ -456,8 +456,8 @@ class AdaptivePipeline(HardwareOptimizedPipeline):
 
         Returns final compressed bytes and metadata with auto-tuning trace.
         """
-        from .layer0_classifier import Layer0Classifier
-        from .auto_tuner import AutoTuner
+        from ..core.classifier import Layer0Classifier
+        from src.auto_tuner import AutoTuner
 
         start_time = time.time()
         metadata = {

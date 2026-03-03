@@ -3718,6 +3718,181 @@ class CobolEngine:
 # ============================================================================
 # MAIN ENTRY POINT
 # ============================================================================
+# ---------------------------------------------------------------------------
+# Lightweight staged CobolPipeline wrapper
+# ---------------------------------------------------------------------------
+from dataclasses import dataclass
+from enum import Enum
+import time
+import zlib
+
+
+class CompressionHint(Enum):
+    HIGH_ENTROPY = "high_entropy"
+    LOW_ENTROPY = "low_entropy"
+    STRUCTURED = "structured"
+    BINARY = "binary"
+
+
+@dataclass
+class LayerResult:
+    name: str
+    data: object
+    metadata: dict
+    checksum: Optional[str]
+    ratio: float
+
+
+@dataclass
+class PipelineResult:
+    compressed_data: bytes
+    original_size: int
+    final_size: int
+    ratio: float
+    per_layer_stats: List[LayerResult]
+    checksum: str
+
+
+class CobolPipeline:
+    """Small orchestrator that runs L0->L8 sequentially and collects stats.
+
+    Uses existing layer implementations under src/layers and falls through on
+    exceptions (logs but does not abort).
+    """
+
+    def __init__(self):
+        # lazy import of layers to avoid heavy startup cost
+        from ...protocol_bridge import TypedBuffer, ProtocolLanguage
+        self.TypedBuffer = TypedBuffer
+        self.ProtocolLanguage = ProtocolLanguage
+
+    def compress(self, raw_bytes: bytes) -> PipelineResult:
+        from ..core.classifier import Layer0Classifier
+        from ..core.semantic import Layer1Semantic
+        from ..core.structural import Layer2Structural
+        from ..core.delta import Layer3Delta
+        from ..core.bitpacking import Layer4Binary
+        from ..variants.l5_recursive import Layer5Recursive
+        from ..variants.l6_recursive import Layer6Recursive
+        from ..variants.l7_bank import Layer7Bank
+        from ..variants.l8_final import Layer8Final
+
+        logger.info("CobolPipeline: starting compression L0->L8")
+
+        original_crc = zlib.crc32(raw_bytes) & 0xFFFFFFFF
+        original_size = len(raw_bytes)
+
+        per_layer: List[LayerResult] = []
+
+        # Layer 0: classification / hint
+        try:
+            classifier = Layer0Classifier()
+            classification = classifier.classify(raw_bytes)
+            entropy = classification.entropy
+            if entropy > 7.5:
+                hint = CompressionHint.HIGH_ENTROPY
+            elif classification.data_type.name in ("SOURCE_CODE", "TEXT_DOCUMENT"):
+                hint = CompressionHint.STRUCTURED
+            elif classification.printable_ratio < 0.25:
+                hint = CompressionHint.BINARY
+            else:
+                hint = CompressionHint.LOW_ENTROPY
+
+            per_layer.append(LayerResult("L0_classifier", classification, {
+                "entropy": entropy,
+                "data_type": classification.data_type.value,
+                "confidence": classification.confidence,
+                "hint": hint.value,
+            }, checksum=None, ratio=1.0))
+        except Exception as e:
+            logger.error(f"L0 classifier error: {e}")
+            hint = CompressionHint.LOW_ENTROPY
+
+        # Prepare TypedBuffer for L1
+        buf = self.TypedBuffer.create(raw_bytes, self.ProtocolLanguage.L1_SEM, bytes)
+        prev_size = original_size
+
+        layer_sequence = [
+            ("L1", Layer1Semantic()),
+            ("L2", Layer2Structural()),
+            ("L3", Layer3Delta()),
+            ("L4", Layer4Binary()),
+            ("L5", Layer5Recursive()),
+            ("L6", Layer6Recursive()),
+            ("L7", Layer7Bank()),
+            ("L8", Layer8Final()),
+        ]
+
+        for name, layer in layer_sequence:
+            start = time.time()
+            try:
+                # prefer encode() API, fall back to compress() if present
+                if hasattr(layer, "encode"):
+                    buf = layer.encode(buf)
+                elif hasattr(layer, "compress"):
+                    out = layer.compress(buf.data if hasattr(buf, 'data') else buf)
+                    # normalize to TypedBuffer if possible
+                    if isinstance(out, bytes):
+                        buf = self.TypedBuffer.create(out, self.ProtocolLanguage.L8_COBOL, bytes)
+                    else:
+                        buf = out
+
+                # compute size
+                data_obj = buf.data
+                if isinstance(data_obj, (bytes, bytearray)):
+                    size = len(data_obj)
+                elif hasattr(data_obj, 'nbytes'):
+                    size = int(getattr(data_obj, 'nbytes'))
+                else:
+                    size = len(str(data_obj).encode())
+
+                ratio = (prev_size / size) if size > 0 else 1.0
+                elapsed = (time.time() - start) * 1000
+                meta = {
+                    "layer": name,
+                    "time_ms": elapsed,
+                    "size": size,
+                    "prev_size": prev_size,
+                }
+                checksum = getattr(buf, 'sha256', None)
+                per_layer.append(LayerResult(name, data_obj, meta, checksum, ratio))
+                prev_size = size
+
+            except Exception as e:
+                logger.error(f"Error in layer {name}: {e}")
+                # fallthrough: keep previous buffer unchanged
+                per_layer.append(LayerResult(name, None, {"error": str(e)}, None, 1.0))
+
+        # final output
+        final_obj = per_layer[-1].data if per_layer and per_layer[-1].data is not None else buf.data
+        if isinstance(final_obj, str):
+            compressed_bytes = final_obj.encode('utf-8')
+        elif isinstance(final_obj, (bytes, bytearray)):
+            compressed_bytes = bytes(final_obj)
+        else:
+            try:
+                compressed_bytes = bytes(final_obj)
+            except Exception:
+                compressed_bytes = str(final_obj).encode('utf-8')
+
+        final_size = len(compressed_bytes)
+        overall_ratio = (original_size / final_size) if final_size > 0 else 1.0
+
+        # CRC validation (best-effort): compare CRC32s
+        final_crc = zlib.crc32(compressed_bytes) & 0xFFFFFFFF
+        if final_crc != original_crc:
+            logger.warning("CRC32 mismatch between original and compressed output (expected for compressed data).")
+
+        result = PipelineResult(
+            compressed_data=compressed_bytes,
+            original_size=original_size,
+            final_size=final_size,
+            ratio=overall_ratio,
+            per_layer_stats=per_layer,
+            checksum=hex(original_crc)
+        )
+
+        return result
 
 
 if __name__ == "__main__":

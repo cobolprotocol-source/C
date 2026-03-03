@@ -37,10 +37,10 @@ class DualModeEngine:
     def _init_legacy_layers(self):
         """Initialize legacy layer5/6/7_optimized implementations"""
         try:
-            from .layer5_optimized import OptimizedLayer5Pipeline
-            from .layer6_optimized import OptimizedLayer6Pipeline
-            from .layer7_optimized import OptimizedLayer7Pipeline
-            
+            from ..variants.l5_framework import OptimizedLayer5Pipeline
+            from ..variants.l6_framework import OptimizedLayer6Pipeline
+            from ..variants.l7_framework import OptimizedLayer7Pipeline
+
             self.l5_legacy = OptimizedLayer5Pipeline()
             self.l6_legacy = OptimizedLayer6Pipeline()
             self.l7_legacy = OptimizedLayer7Pipeline()
@@ -52,15 +52,15 @@ class DualModeEngine:
     def _init_bridge_layers(self):
         """Initialize new L1-L8 protocol bridge implementation"""
         try:
-            from .protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
-            from .layer1_semantic import Layer1Semantic
-            from .layer2_structural import Layer2Structural
-            from .layer3_delta import Layer3Delta
-            from .layer4_binary import Layer4Binary
-            from .layer5_recursive import Layer5Recursive
-            from .layer6_recursive import Layer6Recursive
-            from .layer7_bank import Layer7Bank
-            from .layer8_final import Layer8Final
+            from ..protocol_bridge import ProtocolBridge, TypedBuffer, ProtocolLanguage
+            from ..core.semantic import Layer1Semantic
+            from ..core.structural import Layer2Structural
+            from ..core.delta import Layer3Delta
+            from ..core.bitpacking import Layer4Binary
+            from ..variants.l5_recursive import Layer5Recursive
+            from ..variants.l6_recursive import Layer6Recursive
+            from ..variants.l7_bank import Layer7Bank
+            from ..variants.l8_final import Layer8Final
             
             self.bridge = ProtocolBridge([
                 Layer1Semantic(), Layer2Structural(), Layer3Delta(), Layer4Binary(),
