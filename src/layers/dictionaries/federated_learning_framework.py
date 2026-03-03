@@ -722,4 +722,3 @@ class FederatedPatternAggregator:
             return self._aggregate_consensus(dictionaries, max_patterns)
         elif self.strategy == FederationStrategy.ADAPTIVE:
             return self._aggregate_adaptive(dictionaries, max_patterns)
-*** End Patch
