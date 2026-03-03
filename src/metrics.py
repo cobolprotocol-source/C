@@ -1,51 +1,30 @@
-"""Lightweight metrics wrapper with lazy Prometheus client import.
+# Copyright (c) 2026 Nafal Faturizki
+# All rights reserved.
+#
+# This file is part of the COBOL Protocol project.
+# Unauthorized copying, modification, or redistribution
+# is prohibited except as explicitly permitted by the
+# accompanying LICENSE.md.
+#
+# See LICENSE.md for complete license terms.
 
-If `prometheus_client` is installed it exposes counters/gauges; otherwise
-it falls back to a minimal in-process counter useful for tests and logging.
 """
-from typing import Optional
-import logging
+STUB: backward-compatible re-export of metrics.
 
-logger = logging.getLogger(__name__)
+The real implementation has been migrated to ``utils.metrics.metrics``.
+This stub ensures existing imports continue to work.
+"""
 
-_HAS_PROM = False
 try:
-    from prometheus_client import Counter, Gauge
-    _HAS_PROM = True
-except Exception:
-    _HAS_PROM = False
-
-
-class Metrics:
-    def __init__(self):
-        if _HAS_PROM:
-            self.evicted = Counter('cobol_evicted_patterns_total', 'Evicted patterns count')
-            self.global_patterns = Gauge('cobol_global_patterns', 'Current global pattern count')
-        else:
-            self._evicted = 0
-            self._global_patterns = 0
-
-    def inc_evicted(self, n: int = 1):
-        if _HAS_PROM:
-            self.evicted.inc(n)
-        else:
-            self._evicted += n
-            logger.debug('evicted incremented by %d (total=%d)', n, self._evicted)
-
-    def set_global_patterns(self, v: int):
-        if _HAS_PROM:
-            self.global_patterns.set(v)
-        else:
-            self._global_patterns = v
-            logger.debug('global_patterns set=%d', v)
-
-
-_metrics = Metrics()
-
-
-def inc_evicted_count(n: int = 1):
-    _metrics.inc_evicted(n)
-
-
-def set_global_patterns(v: int):
-    _metrics.set_global_patterns(v)
+    from utils.metrics.metrics import (
+        Metrics,
+        inc_evicted_count,
+        set_global_patterns,
+    )
+    __all__ = [
+        "Metrics",
+        "inc_evicted_count",
+        "set_global_patterns",
+    ]
+except ImportError:
+    __all__ = []
