@@ -105,14 +105,14 @@ def validate_imports(report: ValidationReport):
     
     # Test legacy engine still works
     try:
-        from .engine import CobolEngine
+        from .layers.pipelines.engine import CobolEngine
         report.add_result("Imports", "Legacy engine import", True)
     except Exception as e:
         report.add_result("Imports", "Legacy engine import", False, str(e))
     
     # Test Numba dictionary
     try:
-        from .numba_dictionary import HAS_NUMBA, jit_pattern_search
+        from .layers.dictionaries.numba_dictionary import HAS_NUMBA, jit_pattern_search
         report.add_result("Imports", "Numba dictionary import", True,
                          f"Numba available: {HAS_NUMBA}")
     except Exception as e:
@@ -120,7 +120,7 @@ def validate_imports(report: ValidationReport):
     
     # Test GPU acceleration
     try:
-        from .gpu_acceleration import GPUAccelerationEngine, GPUDetector
+        from .layers.advanced.gpu import GPUAccelerationEngine, GPUDetector
         report.add_result("Imports", "GPU acceleration import", True)
     except Exception as e:
         report.add_result("Imports", "GPU acceleration import", False, str(e))

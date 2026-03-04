@@ -1,4 +1,4 @@
-from src.gpu_acceleration import GPUTrieAccelerator, GPUDetector
+from src.layers.advanced.gpu import GPUTrieAccelerator, GPUDetector
 import logging
 from src.protocol_bridge import TypedBuffer, ProtocolLanguage
 import numpy as np

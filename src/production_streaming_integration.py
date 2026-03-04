@@ -19,7 +19,7 @@ from pathlib import Path
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from .advanced_selective_retrieval import (
+from .layers.advanced.gpu import (
     AdvancedSelectiveRetrieval,
     CompressionBlockAdvanced,
     Config

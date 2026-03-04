@@ -161,7 +161,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from .dag_compression_pipeline import (
+            from .layers.pipelines.dag import (
                 CompressionDAG,
                 DAGExecutionEngine,
                 ExecutionPath,
@@ -291,7 +291,7 @@ class ValidationSuite:
         checks = []
         
         try:
-            from .super_dictionary_system import (
+            from .layers.dictionaries.super_dictionary_system import (
                 SuperDictionaryRegistry,
                 DictionaryDomain,
                 create_financial_dictionary,
