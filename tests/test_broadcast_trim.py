@@ -5,7 +5,7 @@ import time
 # ensure workspace root on path so modules can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.federated_dictionary_learning import (
+from src.layers.dictionaries.federated_dictionary_learning import (
     DistributedDictionaryManager, FederationStrategy
 )
 from src.cluster_orchestrator import MCDCOrchestrator, FederationProtocol

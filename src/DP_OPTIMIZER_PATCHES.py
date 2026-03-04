@@ -133,8 +133,8 @@ Run these tests to verify integration is successful:
 [1] Module Import Test
 ─────────────────────
 python3 -c "
-from .dp_optimizer import OptimizedDifferentialPrivacy
-from .federated_dictionary_learning import DistributedDictionaryManager
+from src.layers.dictionaries.dp_optimizer import OptimizedDifferentialPrivacy
+from src.layers.dictionaries.federated_dictionary_learning import DistributedDictionaryManager
 
 print('✓ All imports successful')
 "
@@ -147,7 +147,7 @@ Status: PASS/FAIL
 [2] Instantiation Test
 ──────────────────────
 python3 -c "
-from .federated_dictionary_learning import DistributedDictionaryManager
+from src.layers.dictionaries.federated_dictionary_learning import DistributedDictionaryManager
 
 manager = DistributedDictionaryManager()
 print(f'✓ Manager created with DP: {type(manager.privacy).__name__}')
@@ -164,7 +164,7 @@ Status: PASS/FAIL
 [3] Functionality Test
 ──────────────────────
 python3 -c "
-from .federated_dictionary_learning import DistributedDictionaryManager
+from src.layers.dictionaries.federated_dictionary_learning import DistributedDictionaryManager
 
 manager = DistributedDictionaryManager()
 manager.register_node('node1')

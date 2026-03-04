@@ -4,7 +4,7 @@ import time
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.federated_dictionary_learning import DistributedDictionaryManager, FederationStrategy
+from src.layers.dictionaries.federated_dictionary_learning import DistributedDictionaryManager, FederationStrategy
 from src.cluster_orchestrator import MCDCOrchestrator, FederationProtocol
 
 import hmac, hashlib, binascii

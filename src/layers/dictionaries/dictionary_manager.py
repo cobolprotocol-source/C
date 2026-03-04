@@ -1,4 +1,5 @@
-from ..protocol_bridge import ProtocolLanguage
+# protocol_bridge lives at top-level src/protocol_bridge.py
+from ...protocol_bridge import ProtocolLanguage
 from typing import Dict, Any, Type
 import numpy as np
 

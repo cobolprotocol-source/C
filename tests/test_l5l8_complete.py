@@ -18,7 +18,7 @@ import numpy as np
 
 from src.l5l8_optimized_pipeline import OptimizedL5L8Pipeline
 from src.layer6_gpu_acceleration import GPUAcceleratedLayer6, GPUPatternMatcher, CUPY_AVAILABLE
-from src.federated_dictionary_learning import (
+from src.layers.dictionaries.federated_dictionary_learning import (
     LocalDictionary, FederatedPatternAggregator, DistributedDictionaryManager,
     FederationStrategy, DifferentialPrivacy
 )

@@ -24,6 +24,14 @@ from pathlib import Path
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
+import pytest  # required for fixtures
+
+# simple data fixture used by pytest-based test functions
+@pytest.fixture
+def data() -> bytes:
+    # default 1MB mixed data
+    return generate_test_data(1, "mixed")
+
 print("\n" + "="*100)
 print("COBOL PROTOCOL - L0-L8 COMPRESSION TEST SUITE")
 print("="*100 + "\n")

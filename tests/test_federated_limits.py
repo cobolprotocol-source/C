@@ -6,9 +6,9 @@ import pytest
 # ensure workspace root on path so modules can be imported
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.federated_dictionary_learning import (
+from src.layers.dictionaries.federated_dictionary_learning import (
     DistributedDictionaryManager, LocalDictionary, PatternInfo)
-from src.federated_dictionary_learning import FederationStrategy
+from src.layers.dictionaries.federated_dictionary_learning import FederationStrategy
 
 
 def make_pattern(i: int) -> bytes:

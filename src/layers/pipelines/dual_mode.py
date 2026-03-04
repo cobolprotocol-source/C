@@ -141,11 +141,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
         
-        from .protocol_bridge import TypedBuffer, ProtocolLanguage
-        
-        # Convert bytes to text for L1 input
-        text = data.decode('utf-8', errors='ignore')
-        buffer = TypedBuffer.create(text, ProtocolLanguage.L1_SEM, str)
+        from src.protocol_bridge import TypedBuffer, ProtocolLanguage
         
         # Compress through bridge
         compressed = self.bridge.compress(buffer)
@@ -161,7 +157,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
         
-        from .protocol_bridge import TypedBuffer, ProtocolLanguage
+        from src.protocol_bridge import TypedBuffer, ProtocolLanguage
         
         # Decode L8 input (PIC X string)
         if isinstance(data, bytes):
@@ -185,7 +181,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
 
-        from .protocol_bridge import TypedBuffer, ProtocolLanguage
+        from src.protocol_bridge import TypedBuffer, ProtocolLanguage
 
         # Reconstruct L8 input from compressed bytes
         if isinstance(data, bytes):
@@ -209,7 +205,7 @@ class DualModeEngine:
         if not self.bridge_available:
             raise RuntimeError("Protocol bridge not available")
 
-        from .protocol_bridge import TypedBuffer, ProtocolLanguage
+        from src.protocol_bridge import TypedBuffer, ProtocolLanguage
 
         # Convert bytes to text for L1 input
         text = data.decode('utf-8', errors='ignore')

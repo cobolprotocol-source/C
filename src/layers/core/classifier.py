@@ -175,9 +175,9 @@ class Layer0Classifier:
         """
         if len(data) == 0:
             return 0.0
-        mv = memoryview(data)
-        count = mv.count(0)
-        return count / len(mv)
+        # memoryview.count() not available in all Python versions; use bytes.count()
+        count = data.count(b'\x00')
+        return count / len(data)
 
     def _low_entropy_runs(self, data: bytes, window: int = 64) -> float:
         """Estimate ratio of low-entropy runs (repetitive sections).

@@ -16,7 +16,7 @@ from typing import Dict, List, Tuple, Type
 
 # Import protocol bridge
 try:
-    from .protocol_bridge import TypedBuffer, ProtocolLanguage
+    from src.protocol_bridge import TypedBuffer, ProtocolLanguage
 except Exception:
     # Fallback if protocol_bridge not fully initialized
     class TypedBuffer:

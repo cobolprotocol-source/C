@@ -3233,8 +3233,8 @@ class CobolEngine:
 
         # GPU-accelerated Layer 6 & 7 (Trie search + Entropy/Huffman)
         try:
-            from .gpu_acceleration import GPUDetector, GPUTrieAccelerator
-            from .huffman_gpu import build_tree, encode as huffman_encode
+            from src.gpu_acceleration import GPUDetector, GPUTrieAccelerator
+            from src.huffman_gpu import build_tree, encode as huffman_encode
             detector = GPUDetector()
             trie_accel = GPUTrieAccelerator(detector)
             if detector.gpu_available:
