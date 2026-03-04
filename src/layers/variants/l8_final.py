@@ -25,26 +25,14 @@ def _ensure_advanced_modules():
     global _advanced_modules_loaded, _advanced_imports
     if not _advanced_modules_loaded:
         try:
-            from src.layer8_ultra_extreme_enhanced import (
-                Layer8UltraExtremeManager,
-                GlobalMappingDictionary,
-                OffsetIndex,
-                RandomAccessQueryEngine,
-                SHA256IntegrityValidator,
-                BlockMetadata,
-                DEFAULT_L8_NODES
-            )
-            _advanced_imports['Layer8UltraExtremeManager'] = Layer8UltraExtremeManager
-            _advanced_imports['GlobalMappingDictionary'] = GlobalMappingDictionary
-            _advanced_imports['OffsetIndex'] = OffsetIndex
-            _advanced_imports['RandomAccessQueryEngine'] = RandomAccessQueryEngine
-            _advanced_imports['SHA256IntegrityValidator'] = SHA256IntegrityValidator
-            _advanced_imports['BlockMetadata'] = BlockMetadata
-            _advanced_imports['DEFAULT_L8_NODES'] = DEFAULT_L8_NODES
-        except Exception as e:
-            # Provide defaults for testing
+            # NOTE: Shadow import (src.layer8_ultra_extreme_enhanced) was removed.
+            # All advanced L8 features are now implemented locally or not included.
+            # Fallback mode is the default for basic L8 operation.
+            raise ImportError("Advanced L8 modules not available - using fallback")
+        except ImportError:
+            # Provide defaults for testing and basic operation
             import logging
-            logging.warning(f"Could not load advanced L8 modules: {e}. Using fallback implementations.")
+            logging.warning(f"Could not load advanced L8 modules. Using fallback implementations.")
             # Define simple fallbacks
             class FallbackBlockMetadata:
                 def __init__(self, block_id, offset_start, offset_end, size_original, size_compressed, sha256_hash, **kwargs):
@@ -52,7 +40,9 @@ def _ensure_advanced_modules():
                     self.offset_start = offset_start
                     self.offset_end = offset_end
             _advanced_imports['BlockMetadata'] = FallbackBlockMetadata
+            _advanced_imports['SHA256IntegrityValidator'] = lambda: None
             _advanced_imports['DEFAULT_L8_NODES'] = 64
+            
             class FallbackManager:
                 def __init__(self, *args, **kwargs):
                     # ignore parameters

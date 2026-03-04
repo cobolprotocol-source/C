@@ -1,0 +1,91 @@
+WARNING:root:Could not load advanced L8 modules. Using fallback implementations.
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+INFO:src.layers.pipelines.engine:CobolPipeline: starting compression L0->L8
+WARNING:src.layers.pipelines.engine:CRC32 mismatch between original and compressed output (expected for compressed data).
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                   COBOL PROTOCOL COMPRESSION TEST REPORT                       ║
+║                        Full L0-L8 Pipeline Compression                         ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+Test Configuration:
+  Pipeline: L0 (Classifier) → L1 (Semantic) → L2 (Structural) → L3 (Delta) →
+            L4 (Binary) → L5 (Recursive) → L6 (Recursive) → L7 (Bank) → L8 (Final)
+  Mode: Sequential (canonical implementation)
+  Timestamp: 2026-03-04 03:36:34
+
+
+📝 Running 10 compression tests...
+
+#   Test Name                         Original   Compressed      Ratio     Time Status    
+────────────────────────────────────────────────────────────────────────────────────────────────────
+1   00_Text_Small_ASCII                    130        1,447    1113.1%   180.4ms ✅ OK      
+2   01_Text_Repetitive                   1,800       19,264    1070.2%    31.4ms ✅ OK      
+3   02_Text_Lorem_ipsum                  2,480       26,516    1069.2%    43.5ms ✅ OK      
+4   03_JSON_Data                           975       10,463    1073.1%    19.8ms ✅ OK      
+5   04_Binary_Random                     8,192      250,945    3063.3%   116.1ms ✅ OK      
+6   05_Binary_Structured                 4,096      174,825    4268.2%    73.0ms ✅ OK      
+7   06_HTML_Markup                       1,200       12,863    1071.9%    20.9ms ✅ OK      
+8   07_CSV_Records                       1,950       21,824    1119.2%    25.4ms ✅ OK      
+9   08_Mixed_Content                     1,600       26,728    1670.5%    30.8ms ✅ OK      
+10  09_Large_Repetitive                 16,384      174,825    1067.0%   140.9ms ✅ OK      
+
+====================================================================================================
+📊 COMPREHENSIVE COMPRESSION SUMMARY
+====================================================================================================
+
+✅ Test Results:
+  • Successful: 10/10
+  • Failed: 0/10
+
+📈 Compression Statistics:
+  • Total Original Size:          38,807 bytes
+  • Total Compressed Size:      719,700 bytes
+  • Overall Compression Ratio:       1854.56%
+  • Overall Savings:              -1754.56%
+  • Compression Range:               1067.05% - 4268.19%
+  • Average Time Per Test:               68.20 ms
+
+💾 Space Efficiency:
+  • Space Saved:                 -680,893 bytes (-1754.56%)
+
+📋 Per-Test Breakdown:
+Filename                             Original   Compressed      Ratio    Savings
+────────────────────────────────────────────────────────────────────────────────
+00_Text_Small_ASCII                       130        1,447    1113.1%   -1013.1%
+01_Text_Repetitive                      1,800       19,264    1070.2%    -970.2%
+02_Text_Lorem_ipsum                     2,480       26,516    1069.2%    -969.2%
+03_JSON_Data                              975       10,463    1073.1%    -973.1%
+04_Binary_Random                        8,192      250,945    3063.3%   -2963.3%
+05_Binary_Structured                    4,096      174,825    4268.2%   -4168.2%
+06_HTML_Markup                          1,200       12,863    1071.9%    -971.9%
+07_CSV_Records                          1,950       21,824    1119.2%   -1019.2%
+08_Mixed_Content                        1,600       26,728    1670.5%   -1570.5%
+09_Large_Repetitive                    16,384      174,825    1067.0%    -967.0%
+
+====================================================================================================
+
+✅ JSON report exported to: TEST_RESULTS_L0_L8_COMPRESSION.json
+
+====================================================================================================
+                                     🎯 TEST EXECUTION COMPLETE                                      
+                                  Results: 10/10 tests successful                                   
+====================================================================================================
+

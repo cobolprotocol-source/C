@@ -12,7 +12,7 @@
         "input_size": 1048572,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.1599861750000855,
+        "elapsed_time": 0.01913153399982548,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
         "memory_delta_mb": 0,
@@ -25,12 +25,12 @@
         "input_size": 1048572,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.0009846289999586588,
+        "elapsed_time": 0.003342160998727195,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
-        "memory_delta_mb": 0.0,
+        "memory_delta_mb": 0.25,
         "success": false,
-        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+        "error_msg": "/lib/x86_64-linux-gnu/libc.so.6: undefined symbol: __sync_bool_compare_and_swap"
       }
     ]
   },
@@ -47,7 +47,7 @@
         "input_size": 1048524,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.004357758999958605,
+        "elapsed_time": 0.005910648000281071,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
         "memory_delta_mb": 0,
@@ -60,12 +60,12 @@
         "input_size": 1048524,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.0009986960003516288,
+        "elapsed_time": 0.004632790998584824,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
         "memory_delta_mb": 0.0,
         "success": false,
-        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+        "error_msg": "/lib/x86_64-linux-gnu/libc.so.6: undefined symbol: __sync_bool_compare_and_swap"
       }
     ]
   },
@@ -82,7 +82,7 @@
         "input_size": 1048576,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.0007320879999497265,
+        "elapsed_time": 0.002105141000356525,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
         "memory_delta_mb": 0,
@@ -95,12 +95,12 @@
         "input_size": 1048576,
         "output_size": 0,
         "compression_ratio": 0,
-        "elapsed_time": 0.001009385000088514,
+        "elapsed_time": 0.0032882699997571763,
         "throughput_mbps": 0,
         "memory_peak_mb": 0,
         "memory_delta_mb": 0.0,
         "success": false,
-        "error_msg": "cannot import name 'DAGCompressionPipeline' from 'src.layers.pipelines.dag' (/workspaces/cobol/src/l"
+        "error_msg": "/lib/x86_64-linux-gnu/libc.so.6: undefined symbol: __sync_bool_compare_and_swap"
       }
     ]
   }

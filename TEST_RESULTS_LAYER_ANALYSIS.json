@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-03-04 03:37:32",
+  "test_samples": 5,
+  "samples": [
+    {
+      "name": "Text_ASCII_Small",
+      "original_size": 65,
+      "compressed_size": 754,
+      "ratio": 0.08620689655172414,
+      "time_ms": 5.211633000271831,
+      "layers": 9,
+      "checksum": "0xaeb3a102"
+    },
+    {
+      "name": "Text_Repetitive",
+      "original_size": 240,
+      "compressed_size": 2623,
+      "ratio": 0.09149828440716737,
+      "time_ms": 11.193760999958613,
+      "layers": 9,
+      "checksum": "0xae52c478"
+    },
+    {
+      "name": "JSON_Structured",
+      "original_size": 340,
+      "compressed_size": 3687,
+      "ratio": 0.09221589368049905,
+      "time_ms": 16.090767000150663,
+      "layers": 9,
+      "checksum": "0x78fb1858"
+    },
+    {
+      "name": "Binary_Random",
+      "original_size": 4096,
+      "compressed_size": 125504,
+      "ratio": 0.03263640999490056,
+      "time_ms": 63.45523799973307,
+      "layers": 9,
+      "checksum": "0xd3b3c7bc"
+    },
+    {
+      "name": "CSV_Data",
+      "original_size": 760,
+      "compressed_size": 8807,
+      "ratio": 0.08629499261950721,
+      "time_ms": 16.278408000289346,
+      "layers": 9,
+      "checksum": "0xad1f2c73"
+    }
+  ]
+}

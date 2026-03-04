@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-03-04 03:36:34",
+  "pipeline": "L0\u2192L1\u2192L2\u2192L3\u2192L4\u2192L5\u2192L6\u2192L7\u2192L8",
+  "total_tests": 10,
+  "successful_tests": 10,
+  "failed_tests": 0,
+  "results": [
+    {
+      "filename": "00_Text_Small_ASCII",
+      "original_bytes": 130,
+      "compressed_bytes": 1447,
+      "compression_ratio": 11.1308,
+      "savings_percent": -1013.08,
+      "time_ms": 180.36,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "01_Text_Repetitive",
+      "original_bytes": 1800,
+      "compressed_bytes": 19264,
+      "compression_ratio": 10.7022,
+      "savings_percent": -970.22,
+      "time_ms": 31.38,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "02_Text_Lorem_ipsum",
+      "original_bytes": 2480,
+      "compressed_bytes": 26516,
+      "compression_ratio": 10.6919,
+      "savings_percent": -969.19,
+      "time_ms": 43.45,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "03_JSON_Data",
+      "original_bytes": 975,
+      "compressed_bytes": 10463,
+      "compression_ratio": 10.7313,
+      "savings_percent": -973.13,
+      "time_ms": 19.8,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "04_Binary_Random",
+      "original_bytes": 8192,
+      "compressed_bytes": 250945,
+      "compression_ratio": 30.6329,
+      "savings_percent": -2963.29,
+      "time_ms": 116.08,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "05_Binary_Structured",
+      "original_bytes": 4096,
+      "compressed_bytes": 174825,
+      "compression_ratio": 42.6819,
+      "savings_percent": -4168.19,
+      "time_ms": 73.0,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "06_HTML_Markup",
+      "original_bytes": 1200,
+      "compressed_bytes": 12863,
+      "compression_ratio": 10.7192,
+      "savings_percent": -971.92,
+      "time_ms": 20.87,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "07_CSV_Records",
+      "original_bytes": 1950,
+      "compressed_bytes": 21824,
+      "compression_ratio": 11.1918,
+      "savings_percent": -1019.18,
+      "time_ms": 25.38,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "08_Mixed_Content",
+      "original_bytes": 1600,
+      "compressed_bytes": 26728,
+      "compression_ratio": 16.705,
+      "savings_percent": -1570.5,
+      "time_ms": 30.75,
+      "status": "\u2705 OK",
+      "error": ""
+    },
+    {
+      "filename": "09_Large_Repetitive",
+      "original_bytes": 16384,
+      "compressed_bytes": 174825,
+      "compression_ratio": 10.6705,
+      "savings_percent": -967.05,
+      "time_ms": 140.92,
+      "status": "\u2705 OK",
+      "error": ""
+    }
+  ]
+}

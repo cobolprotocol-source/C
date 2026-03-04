@@ -18,16 +18,20 @@ from typing import Dict, List, Tuple
 # Add src to path for imports
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
+from src.layers.core import (
+    semantic as layer1_semantic,
+    structural as layer2_structural,
+    delta as layer3_delta,
+    bitpacking as layer4_binary,
+)
+from src.layers.variants import (
+    l5_recursive as layer5_recursive,
+    l6_recursive as layer6_recursive,
+    l7_bank as layer7_bank,
+    l8_final as layer8_final,
+)
 from src import (
     huffman_parallel,
-    layer1_semantic,
-    layer2_structural,
-    layer3_delta,
-    layer4_binary,
-    layer5_recursive,
-    layer6_recursive,
-    layer7_bank,
-    layer8_final,
     engine,
     protocol_bridge,
 )

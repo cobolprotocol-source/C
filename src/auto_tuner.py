@@ -15,7 +15,7 @@ on data characteristics detected by Layer 0 classifier.
 """
 from dataclasses import dataclass, field
 from typing import Dict, Any, Optional
-from .layer0_classifier import DataType, ClassificationResult
+from src.layers.core.classifier import DataType, ClassificationResult
 import logging
 
 logger = logging.getLogger(__name__)

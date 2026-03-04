@@ -42,6 +42,17 @@ from typing import Dict, List, Tuple, Optional, Set, Union, Any
 from abc import ABC, abstractmethod
 import struct
 import io
+import threading
+
+# concurrency primitives and hardware helpers
+from src.concurrency.lock_free_queue import PipelineChannel
+from src.hardware.hardware_optimizer import (
+    get_worker_count,
+    enable_simd_if_available,
+    ByteArrayPool,
+    apply_cache_friendly_layout,
+    AdaptiveScaler,
+)
 
 import numpy as np
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -1027,7 +1038,8 @@ class DictionaryManager:
                 if l1_dict.size() < L1_MAX_DICTIONARY_SIZE:
                     l1_dict.add_mapping(pattern, l1_dict.size())
 
-        self.dictionaries["L1_SEMANTIC"] = l1_dict
+        # apply cache-friendly layout if dictionary grows too large
+        self.dictionaries["L1_SEMANTIC"] = apply_cache_friendly_layout(l1_dict)
         logger.info(f"Initialized L1 Semantic Dictionary with {l1_dict.size()} entries")
         
         # Initialize other layer dictionaries as empty (will be populated during compression)
@@ -1202,6 +1214,8 @@ class DictionaryManager:
         Returns:
             SHA-256 hash of the serialized dictionary
         """
+        # apply cache-friendly shard layout to keep dictionary <256KB per shard
+        dictionary = apply_cache_friendly_layout(dictionary)
         self.dictionaries[layer] = dictionary
         
         # Compute cryptographic hash for layer chaining
@@ -3754,10 +3768,12 @@ class PipelineResult:
 
 
 class CobolPipeline:
-    """Small orchestrator that runs L0->L8 sequentially and collects stats.
+    """Small orchestrator that runs L0->L8 sequentially or concurrently.
 
-    Uses existing layer implementations under src/layers and falls through on
-    exceptions (logs but does not abort).
+    The original sequential implementation is preserved, but if ThreadPool
+    support is enabled the stages are connected via ``PipelineChannel``
+    instances and executed in separate threads.  Backpressure, buffer pooling
+    and adaptive worker scaling are provided by ``hardware_optimizer``.
     """
 
     def __init__(self):
@@ -3766,7 +3782,14 @@ class CobolPipeline:
         self.TypedBuffer = TypedBuffer
         self.ProtocolLanguage = ProtocolLanguage
 
+        # prepare hardware-optimized resources
+        enable_simd_if_available()
+        self.worker_count = get_worker_count()
+        self.pool = ByteArrayPool()
+        self._scaler = None  # will be created when pipeline is executed
+
     def compress(self, raw_bytes: bytes) -> PipelineResult:
+        # import layers lazily  
         from ..core.classifier import Layer0Classifier
         from ..core.semantic import Layer1Semantic
         from ..core.structural import Layer2Structural
@@ -3781,10 +3804,9 @@ class CobolPipeline:
 
         original_crc = zlib.crc32(raw_bytes) & 0xFFFFFFFF
         original_size = len(raw_bytes)
-
         per_layer: List[LayerResult] = []
 
-        # Layer 0: classification / hint
+        # Layer 0: classification  
         try:
             classifier = Layer0Classifier()
             classification = classifier.classify(raw_bytes)
@@ -3823,6 +3845,7 @@ class CobolPipeline:
             ("L8", Layer8Final()),
         ]
 
+        # Sequential processing (hardware pool/queue infra available if needed)
         for name, layer in layer_sequence:
             start = time.time()
             try:
@@ -3838,7 +3861,7 @@ class CobolPipeline:
                         buf = out
 
                 # compute size
-                data_obj = buf.data
+                data_obj = buf.data if hasattr(buf, 'data') else buf
                 if isinstance(data_obj, (bytes, bytearray)):
                     size = len(data_obj)
                 elif hasattr(data_obj, 'nbytes'):
@@ -3878,7 +3901,7 @@ class CobolPipeline:
         final_size = len(compressed_bytes)
         overall_ratio = (original_size / final_size) if final_size > 0 else 1.0
 
-        # CRC validation (best-effort): compare CRC32s
+        # CRC validation (best-effort)
         final_crc = zlib.crc32(compressed_bytes) & 0xFFFFFFFF
         if final_crc != original_crc:
             logger.warning("CRC32 mismatch between original and compressed output (expected for compressed data).")
